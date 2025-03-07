@@ -25,3 +25,6 @@ I am looking for help and I am willing to learn coding and help where I can, but
 
 ## Contributing
 We welcome contributions to Fable2Recomp! If you're interested in enhancing Fable 2 and have the skills or willingness to learn, please join us. Feel free to open a PR if you want to contribute.
+
+## XenonRecomp
+https://github.com/hedge-dev/XenonRecomp
