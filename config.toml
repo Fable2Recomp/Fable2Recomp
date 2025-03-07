@@ -1,5 +1,5 @@
 [main]
-file_path = "./game/Default_D.xex_uncrypted.xex"
+file_path = "./game/Default.xex"
 out_directory_path = "./out"
 switch_table_file_path = "./switch/fable2.toml"
 
