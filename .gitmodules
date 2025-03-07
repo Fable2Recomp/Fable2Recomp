@@ -1,0 +1,18 @@
+[submodule "thirdparty/xxHash"]
+	path = thirdparty/xxHash
+	url = https://github.com/Cyan4973/xxHash.git
+[submodule "thirdparty/fmt"]
+	path = thirdparty/fmt
+	url = https://github.com/fmtlib/fmt.git
+[submodule "thirdparty/tomlplusplus"]
+	path = thirdparty/tomlplusplus
+	url = https://github.com/marzer/tomlplusplus.git
+[submodule "thirdparty/libmspack"]
+	path = thirdparty/libmspack
+	url = https://github.com/kyz/libmspack
+[submodule "thirdparty/tiny-AES-c"]
+	path = thirdparty/tiny-AES-c
+	url = https://github.com/kokke/tiny-AES-c.git
+[submodule "thirdparty/simde"]
+	path = thirdparty/simde
+	url = https://github.com/simd-everywhere/simde-no-tests.git
