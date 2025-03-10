@@ -13060,7 +13060,7 @@ PPC_FUNC_IMPL(__imp__sub_82CA95C0) {
 	// li r3,0
 	ctx.r3.s64 = 0;
 	// b 0x832b25cc
-	__imp__KeBugCheck(ctx, base);
+	longjmp(*reinterpret_cast<jmp_buf*>(base + ctx.r3.u32), ctx.r4.s32);
 	return;
 }
 
@@ -13192,7 +13192,7 @@ PPC_FUNC_IMPL(__imp__sub_82CA9630) {
 	ctx.r3.s64 = 0;
 	// bl 0x832b25cc
 	ctx.lr = 0x82CA9688;
-	__imp__KeBugCheck(ctx, base);
+	longjmp(*reinterpret_cast<jmp_buf*>(base + ctx.r3.u32), ctx.r4.s32);
 loc_82CA9688:
 	// lis r8,-31949
 	ctx.r8.s64 = -2093809664;
@@ -13287,7 +13287,7 @@ loc_82CA9710:
 	ctx.r3.s64 = 0;
 	// bl 0x832b25cc
 	ctx.lr = 0x82CA9730;
-	__imp__KeBugCheck(ctx, base);
+	longjmp(*reinterpret_cast<jmp_buf*>(base + ctx.r3.u32), ctx.r4.s32);
 loc_82CA9730:
 	// addi r1,r31,128
 	ctx.r1.s64 = ctx.r31.s64 + 128;
@@ -13344,7 +13344,7 @@ PPC_FUNC_IMPL(__imp__sub_82CA9638) {
 	ctx.r3.s64 = 0;
 	// bl 0x832b25cc
 	ctx.lr = 0x82CA9688;
-	__imp__KeBugCheck(ctx, base);
+	longjmp(*reinterpret_cast<jmp_buf*>(base + ctx.r3.u32), ctx.r4.s32);
 loc_82CA9688:
 	// lis r8,-31949
 	ctx.r8.s64 = -2093809664;
@@ -13439,7 +13439,7 @@ loc_82CA9710:
 	ctx.r3.s64 = 0;
 	// bl 0x832b25cc
 	ctx.lr = 0x82CA9730;
-	__imp__KeBugCheck(ctx, base);
+	longjmp(*reinterpret_cast<jmp_buf*>(base + ctx.r3.u32), ctx.r4.s32);
 loc_82CA9730:
 	// addi r1,r31,128
 	ctx.r1.s64 = ctx.r31.s64 + 128;

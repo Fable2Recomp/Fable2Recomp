@@ -35970,7 +35970,7 @@ loc_8221B280:
 	ctx.r3.s64 = 245;
 	// bl 0x832b25cc
 	ctx.lr = 0x8221B2A0;
-	__imp__KeBugCheck(ctx, base);
+	longjmp(*reinterpret_cast<jmp_buf*>(base + ctx.r3.u32), ctx.r4.s32);
 loc_8221B2A0:
 	// lwz r11,64(r29)
 	ctx.r11.u64 = PPC_LOAD_U32(ctx.r29.u32 + 64);
@@ -36163,7 +36163,7 @@ loc_8221B3C4:
 	ctx.r3.s64 = 245;
 	// bl 0x832b25cc
 	ctx.lr = 0x8221B400;
-	__imp__KeBugCheck(ctx, base);
+	longjmp(*reinterpret_cast<jmp_buf*>(base + ctx.r3.u32), ctx.r4.s32);
 loc_8221B400:
 	// lwz r11,8(r25)
 	ctx.r11.u64 = PPC_LOAD_U32(ctx.r25.u32 + 8);

@@ -1578,7 +1578,7 @@ loc_82CAB6F4:
 	ctx.r3.s64 = 30;
 	// bl 0x832b25cc
 	ctx.lr = 0x82CAB6FC;
-	__imp__KeBugCheck(ctx, base);
+	longjmp(*reinterpret_cast<jmp_buf*>(base + ctx.r3.u32), ctx.r4.s32);
 }
 
 __attribute__((alias("__imp__sub_82CAB6FC"))) PPC_WEAK_FUNC(sub_82CAB6FC);
@@ -29235,7 +29235,7 @@ loc_82CB57E0:
 	ctx.r3.u64 = ctx.r3.u64 | 324;
 	// bl 0x832b25cc
 	ctx.lr = 0x82CB57EC;
-	__imp__KeBugCheck(ctx, base);
+	longjmp(*reinterpret_cast<jmp_buf*>(base + ctx.r3.u32), ctx.r4.s32);
 	// li r3,1
 	ctx.r3.s64 = 1;
 	// mr r8,r8
@@ -29291,7 +29291,7 @@ loc_82CB57E0:
 	ctx.r3.u64 = ctx.r3.u64 | 324;
 	// bl 0x832b25cc
 	ctx.lr = 0x82CB57EC;
-	__imp__KeBugCheck(ctx, base);
+	longjmp(*reinterpret_cast<jmp_buf*>(base + ctx.r3.u32), ctx.r4.s32);
 }
 
 __attribute__((alias("__imp__sub_82CB57EC"))) PPC_WEAK_FUNC(sub_82CB57EC);

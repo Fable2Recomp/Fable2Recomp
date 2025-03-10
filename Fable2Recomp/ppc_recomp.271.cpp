@@ -6771,7 +6771,7 @@ loc_83003A24:
 	ctx.r3.s64 = 242;
 	// bl 0x832b25cc
 	ctx.lr = 0x83003A2C;
-	__imp__KeBugCheck(ctx, base);
+	longjmp(*reinterpret_cast<jmp_buf*>(base + ctx.r3.u32), ctx.r4.s32);
 	// addi r1,r1,96
 	ctx.r1.s64 = ctx.r1.s64 + 96;
 	// lwz r12,-8(r1)

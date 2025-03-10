@@ -764,7 +764,7 @@ loc_822219DC:
 	ctx.r3.s64 = 245;
 	// bl 0x832b25cc
 	ctx.lr = 0x82221A04;
-	__imp__KeBugCheck(ctx, base);
+	longjmp(*reinterpret_cast<jmp_buf*>(base + ctx.r3.u32), ctx.r4.s32);
 loc_82221A04:
 	// or r10,r27,r8
 	ctx.r10.u64 = ctx.r27.u64 | ctx.r8.u64;
@@ -840,7 +840,7 @@ loc_82221A68:
 	ctx.r3.s64 = 245;
 	// bl 0x832b25cc
 	ctx.lr = 0x82221A88;
-	__imp__KeBugCheck(ctx, base);
+	longjmp(*reinterpret_cast<jmp_buf*>(base + ctx.r3.u32), ctx.r4.s32);
 loc_82221A88:
 	// addi r11,r28,112
 	ctx.r11.s64 = ctx.r28.s64 + 112;
