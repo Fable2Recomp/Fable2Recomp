@@ -21,6 +21,13 @@ savevmx_14_address = 0x82FFFCD0
 restvmx_64_address = 0x82FFFFFC
 savevmx_64_address = 0x82FFFD64
 
-
 longjmp_address = 0x832B25CC
 setjmp_address = 0x82CAF478
+
+invalid_instructions = [
+    { data = 0x00000000, size = 4 }, # Padding
+    { data = 0x832B25AC, size = 8 }, # C Specific Frame Handler
+    { data = 0x831C8B50, size = 8 },
+    { data = 0x832B34C4, size = 64 } # End of .text
+    
+]
