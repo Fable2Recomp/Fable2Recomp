@@ -1,7 +1,7 @@
 [main]
 file_path = "./private/Default.xex"
 out_directory_path = "./ppc"
-switch_table_file_path = "./switch/fable2.toml"
+switch_table_file_path = "SWA_switch_tables.toml"
 
 skip_lr = false
 skip_msr = false
