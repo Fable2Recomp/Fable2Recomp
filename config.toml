@@ -1,6 +1,6 @@
 [main]
-file_path = "./game/Default_D.xex_uncrypted_extended.xex_uncompressed.xex"
-out_directory_path = "./out"
+file_path = "./private/Default.xex"
+out_directory_path = "./ppc"
 switch_table_file_path = "./switch/fable2.toml"
 
 skip_lr = false
