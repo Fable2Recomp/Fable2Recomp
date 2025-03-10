@@ -11565,6 +11565,7 @@ loc_82CAF548:
 __attribute__((alias("__imp__sub_82CAF550"))) PPC_WEAK_FUNC(sub_82CAF550);
 PPC_FUNC_IMPL(__imp__sub_82CAF550) {
 	PPC_FUNC_PROLOGUE();
+	PPCContext env{};
 	uint32_t ea{};
 	// lwz r25,9644(r11)
 	ctx.r25.u64 = PPC_LOAD_U32(ctx.r11.u32 + 9644);
@@ -11699,7 +11700,9 @@ loc_82CAF5EC:
 	ctx.r3.u64 = ctx.r30.u64;
 	// bl 0x82caf478
 	ctx.lr = 0x82CAF63C;
-	sub_82CAF478(ctx, base);
+	env = ctx;
+	ctx.r3.s64 = setjmp(*reinterpret_cast<jmp_buf*>(base + ctx.r3.u32));
+	if (ctx.r3.s64 != 0) ctx = env;
 	// stw r3,80(r31)
 	PPC_STORE_U32(ctx.r31.u32 + 80, ctx.r3.u32);
 	// b 0x82caf658
@@ -11737,6 +11740,7 @@ loc_82CAF668:
 __attribute__((alias("__imp__sub_82CAF558"))) PPC_WEAK_FUNC(sub_82CAF558);
 PPC_FUNC_IMPL(__imp__sub_82CAF558) {
 	PPC_FUNC_PROLOGUE();
+	PPCContext env{};
 	uint32_t ea{};
 	// mflr r12
 	ctx.r12.u64 = ctx.lr;
@@ -11867,7 +11871,9 @@ loc_82CAF5EC:
 	ctx.r3.u64 = ctx.r30.u64;
 	// bl 0x82caf478
 	ctx.lr = 0x82CAF63C;
-	sub_82CAF478(ctx, base);
+	env = ctx;
+	ctx.r3.s64 = setjmp(*reinterpret_cast<jmp_buf*>(base + ctx.r3.u32));
+	if (ctx.r3.s64 != 0) ctx = env;
 	// stw r3,80(r31)
 	PPC_STORE_U32(ctx.r31.u32 + 80, ctx.r3.u32);
 	// b 0x82caf658

@@ -6464,6 +6464,7 @@ PPC_FUNC_IMPL(__imp__sub_82CB83F8) {
 __attribute__((alias("__imp__sub_82CB8428"))) PPC_WEAK_FUNC(sub_82CB8428);
 PPC_FUNC_IMPL(__imp__sub_82CB8428) {
 	PPC_FUNC_PROLOGUE();
+	PPCContext env{};
 	uint32_t ea{};
 	// mflr r12
 	ctx.r12.u64 = ctx.lr;
@@ -6985,7 +6986,9 @@ loc_82CB87B4:
 	ctx.r3.u64 = PPC_LOAD_U32(ctx.r29.u32 + 0);
 	// bl 0x82caf478
 	ctx.lr = 0x82CB87BC;
-	sub_82CAF478(ctx, base);
+	env = ctx;
+	ctx.r3.s64 = setjmp(*reinterpret_cast<jmp_buf*>(base + ctx.r3.u32));
+	if (ctx.r3.s64 != 0) ctx = env;
 	// b 0x82cb8704
 	goto loc_82CB8704;
 loc_82CB87C0:
