@@ -1,5 +1,5 @@
 [main]
-file_path = "./game/Default.xex"
+file_path = "./game/Default_D.xex_uncrypted_extended.xex_uncompressed.xex"
 out_directory_path = "./out"
 switch_table_file_path = "./switch/fable2.toml"
 
@@ -12,13 +12,11 @@ cr_as_local = false
 non_argument_as_local = false
 non_volatile_as_local = false
 
-restgprlr_14_address = 0x822F3380
-savegprlr_14_address = 0x822F3330
-restfpr_14_address = 0x822F3F1C
-savefpr_14_address = 0x822F3ED0
-restvmx_14_address = 0x822F6CA8
-savevmx_14_address = 0x822F6A10
-restvmx_64_address = 0x822F6D3C
-savevmx_64_address = 0x822F6AA4
-longjmp_address = 0x831B6790
-setjmp_address = 0x831B6AB0
+restgprlr_14_address = 0x82CA2C00	
+savegprlr_14_address = 0x82CA2BB0
+restfpr_14_address = 0x82CA751C
+savefpr_14_address = 0x82CA74D0
+restvmx_14_address = 0x82FFFF68
+savevmx_14_address = 0x82FFFCD0
+restvmx_64_address = 0x82FFFFFC
+savevmx_64_address = 0x82FFFD64
