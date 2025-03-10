@@ -13,9 +13,6 @@
 ### Unrecognized Instruction
 During the recompilation process, you might encounter "Unrecognized instruction" errors. These need to be implemented into XenonRecomp to fully fix these files. This ensures that the recompilation process is accurate and complete.
 
-### Missing JumpTables
-Users may find it challenging to locate JumpTables in Ghidra when using an uncompressed XEX file. If you're facing this issue, it is crucial to understand the methodologies and best practices for locating JumpTables within Ghidra.
-
 ## Seeking Help
 I need assistance with:
 1. Implementing unrecognized instructions into XenonRecomp.
