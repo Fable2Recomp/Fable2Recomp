@@ -1,742 +1,5 @@
 #include "ppc_recomp_shared.h"
 
-__attribute__((alias("__imp__sub_832A6178"))) PPC_WEAK_FUNC(sub_832A6178);
-PPC_FUNC_IMPL(__imp__sub_832A6178) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-19156
-	ctx.r3.s64 = ctx.r11.s64 + -19156;
-	// b 0x82214f08
-	sub_82214F08(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A6184"))) PPC_WEAK_FUNC(sub_832A6184);
-PPC_FUNC_IMPL(__imp__sub_832A6184) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A6188"))) PPC_WEAK_FUNC(sub_832A6188);
-PPC_FUNC_IMPL(__imp__sub_832A6188) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-19152
-	ctx.r3.s64 = ctx.r11.s64 + -19152;
-	// b 0x82214f08
-	sub_82214F08(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A6194"))) PPC_WEAK_FUNC(sub_832A6194);
-PPC_FUNC_IMPL(__imp__sub_832A6194) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A6198"))) PPC_WEAK_FUNC(sub_832A6198);
-PPC_FUNC_IMPL(__imp__sub_832A6198) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-19148
-	ctx.r3.s64 = ctx.r11.s64 + -19148;
-	// b 0x82214f08
-	sub_82214F08(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A61A4"))) PPC_WEAK_FUNC(sub_832A61A4);
-PPC_FUNC_IMPL(__imp__sub_832A61A4) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A61A8"))) PPC_WEAK_FUNC(sub_832A61A8);
-PPC_FUNC_IMPL(__imp__sub_832A61A8) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-19144
-	ctx.r3.s64 = ctx.r11.s64 + -19144;
-	// b 0x827c57d8
-	sub_827C57D8(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A61B4"))) PPC_WEAK_FUNC(sub_832A61B4);
-PPC_FUNC_IMPL(__imp__sub_832A61B4) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A61B8"))) PPC_WEAK_FUNC(sub_832A61B8);
-PPC_FUNC_IMPL(__imp__sub_832A61B8) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-19132
-	ctx.r3.s64 = ctx.r11.s64 + -19132;
-	// b 0x829ff648
-	sub_829FF648(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A61C4"))) PPC_WEAK_FUNC(sub_832A61C4);
-PPC_FUNC_IMPL(__imp__sub_832A61C4) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A61C8"))) PPC_WEAK_FUNC(sub_832A61C8);
-PPC_FUNC_IMPL(__imp__sub_832A61C8) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-19124
-	ctx.r3.s64 = ctx.r11.s64 + -19124;
-	// b 0x829ff648
-	sub_829FF648(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A61D4"))) PPC_WEAK_FUNC(sub_832A61D4);
-PPC_FUNC_IMPL(__imp__sub_832A61D4) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A61D8"))) PPC_WEAK_FUNC(sub_832A61D8);
-PPC_FUNC_IMPL(__imp__sub_832A61D8) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-19116
-	ctx.r3.s64 = ctx.r11.s64 + -19116;
-	// b 0x829ff648
-	sub_829FF648(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A61E4"))) PPC_WEAK_FUNC(sub_832A61E4);
-PPC_FUNC_IMPL(__imp__sub_832A61E4) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A61E8"))) PPC_WEAK_FUNC(sub_832A61E8);
-PPC_FUNC_IMPL(__imp__sub_832A61E8) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-19108
-	ctx.r3.s64 = ctx.r11.s64 + -19108;
-	// b 0x829ff648
-	sub_829FF648(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A61F4"))) PPC_WEAK_FUNC(sub_832A61F4);
-PPC_FUNC_IMPL(__imp__sub_832A61F4) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A61F8"))) PPC_WEAK_FUNC(sub_832A61F8);
-PPC_FUNC_IMPL(__imp__sub_832A61F8) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-19100
-	ctx.r3.s64 = ctx.r11.s64 + -19100;
-	// b 0x82214f08
-	sub_82214F08(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A6204"))) PPC_WEAK_FUNC(sub_832A6204);
-PPC_FUNC_IMPL(__imp__sub_832A6204) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A6208"))) PPC_WEAK_FUNC(sub_832A6208);
-PPC_FUNC_IMPL(__imp__sub_832A6208) {
-	PPC_FUNC_PROLOGUE();
-	uint32_t ea{};
-	// mflr r12
-	ctx.r12.u64 = ctx.lr;
-	// bl 0x82ca2be8
-	ctx.lr = 0x832A6210;
-	sub_82CA2BE8(ctx, base);
-	// stwu r1,-128(r1)
-	ea = -128 + ctx.r1.u32;
-	PPC_STORE_U32(ea, ctx.r1.u32);
-	ctx.r1.u32 = ea;
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// li r30,27
-	ctx.r30.s64 = 27;
-	// addi r11,r11,-19048
-	ctx.r11.s64 = ctx.r11.s64 + -19048;
-	// li r28,0
-	ctx.r28.s64 = 0;
-	// addi r31,r11,112
-	ctx.r31.s64 = ctx.r11.s64 + 112;
-	// lis r11,-31927
-	ctx.r11.s64 = -2092367872;
-	// addi r29,r11,28344
-	ctx.r29.s64 = ctx.r11.s64 + 28344;
-loc_832A6230:
-	// addi r31,r31,-4
-	ctx.r31.s64 = ctx.r31.s64 + -4;
-	// mr r3,r31
-	ctx.r3.u64 = ctx.r31.u64;
-	// bl 0x821c67d8
-	ctx.lr = 0x832A623C;
-	sub_821C67D8(ctx, base);
-	// mr r9,r29
-	ctx.r9.u64 = ctx.r29.u64;
-loc_832A6240:
-	// mfmsr r10
-	ctx.r10.u64 = ctx.msr;
-	// mtmsrd r13,1
-	ctx.msr = (ctx.r13.u32 & 0x8020) | (ctx.msr & ~0x8020);
-	// lwarx r11,0,r9
-	ctx.reserved.u32 = *(uint32_t*)(base + ctx.r9.u32);
-	ctx.r11.u64 = __builtin_bswap32(ctx.reserved.u32);
-	// addi r11,r11,-1
-	ctx.r11.s64 = ctx.r11.s64 + -1;
-	// stwcx. r11,0,r9
-	ctx.cr0.lt = 0;
-	ctx.cr0.gt = 0;
-	ctx.cr0.eq = __sync_bool_compare_and_swap(reinterpret_cast<uint32_t*>(base + ctx.r9.u32), ctx.reserved.s32, __builtin_bswap32(ctx.r11.s32));
-	ctx.cr0.so = ctx.xer.so;
-	// mtmsrd r10,1
-	ctx.msr = (ctx.r10.u32 & 0x8020) | (ctx.msr & ~0x8020);
-	// bne 0x832a6240
-	if (!ctx.cr0.eq) goto loc_832A6240;
-	// addic. r30,r30,-1
-	ctx.xer.ca = ctx.r30.u32 > 0;
-	ctx.r30.s64 = ctx.r30.s64 + -1;
-	ctx.cr0.compare<int32_t>(ctx.r30.s32, 0, ctx.xer);
-	// stw r28,0(r31)
-	PPC_STORE_U32(ctx.r31.u32 + 0, ctx.r28.u32);
-	// bge 0x832a6230
-	if (!ctx.cr0.lt) goto loc_832A6230;
-	// addi r1,r1,128
-	ctx.r1.s64 = ctx.r1.s64 + 128;
-	// b 0x82ca2c38
-	// ERROR 82CA2C38
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A6270"))) PPC_WEAK_FUNC(sub_832A6270);
-PPC_FUNC_IMPL(__imp__sub_832A6270) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-18936
-	ctx.r3.s64 = ctx.r11.s64 + -18936;
-	// b 0x82214f08
-	sub_82214F08(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A627C"))) PPC_WEAK_FUNC(sub_832A627C);
-PPC_FUNC_IMPL(__imp__sub_832A627C) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A6280"))) PPC_WEAK_FUNC(sub_832A6280);
-PPC_FUNC_IMPL(__imp__sub_832A6280) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-18932
-	ctx.r3.s64 = ctx.r11.s64 + -18932;
-	// b 0x82214f08
-	sub_82214F08(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A628C"))) PPC_WEAK_FUNC(sub_832A628C);
-PPC_FUNC_IMPL(__imp__sub_832A628C) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A6290"))) PPC_WEAK_FUNC(sub_832A6290);
-PPC_FUNC_IMPL(__imp__sub_832A6290) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-18928
-	ctx.r3.s64 = ctx.r11.s64 + -18928;
-	// b 0x82214f08
-	sub_82214F08(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A629C"))) PPC_WEAK_FUNC(sub_832A629C);
-PPC_FUNC_IMPL(__imp__sub_832A629C) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A62A0"))) PPC_WEAK_FUNC(sub_832A62A0);
-PPC_FUNC_IMPL(__imp__sub_832A62A0) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-18920
-	ctx.r3.s64 = ctx.r11.s64 + -18920;
-	// b 0x82214f08
-	sub_82214F08(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A62AC"))) PPC_WEAK_FUNC(sub_832A62AC);
-PPC_FUNC_IMPL(__imp__sub_832A62AC) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A62B0"))) PPC_WEAK_FUNC(sub_832A62B0);
-PPC_FUNC_IMPL(__imp__sub_832A62B0) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-18916
-	ctx.r3.s64 = ctx.r11.s64 + -18916;
-	// b 0x82214f08
-	sub_82214F08(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A62BC"))) PPC_WEAK_FUNC(sub_832A62BC);
-PPC_FUNC_IMPL(__imp__sub_832A62BC) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A62C0"))) PPC_WEAK_FUNC(sub_832A62C0);
-PPC_FUNC_IMPL(__imp__sub_832A62C0) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-18912
-	ctx.r3.s64 = ctx.r11.s64 + -18912;
-	// b 0x82214f08
-	sub_82214F08(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A62CC"))) PPC_WEAK_FUNC(sub_832A62CC);
-PPC_FUNC_IMPL(__imp__sub_832A62CC) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A62D0"))) PPC_WEAK_FUNC(sub_832A62D0);
-PPC_FUNC_IMPL(__imp__sub_832A62D0) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-18908
-	ctx.r3.s64 = ctx.r11.s64 + -18908;
-	// b 0x82214f08
-	sub_82214F08(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A62DC"))) PPC_WEAK_FUNC(sub_832A62DC);
-PPC_FUNC_IMPL(__imp__sub_832A62DC) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A62E0"))) PPC_WEAK_FUNC(sub_832A62E0);
-PPC_FUNC_IMPL(__imp__sub_832A62E0) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-18904
-	ctx.r3.s64 = ctx.r11.s64 + -18904;
-	// b 0x82214f08
-	sub_82214F08(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A62EC"))) PPC_WEAK_FUNC(sub_832A62EC);
-PPC_FUNC_IMPL(__imp__sub_832A62EC) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A62F0"))) PPC_WEAK_FUNC(sub_832A62F0);
-PPC_FUNC_IMPL(__imp__sub_832A62F0) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-18900
-	ctx.r3.s64 = ctx.r11.s64 + -18900;
-	// b 0x82214f08
-	sub_82214F08(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A62FC"))) PPC_WEAK_FUNC(sub_832A62FC);
-PPC_FUNC_IMPL(__imp__sub_832A62FC) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A6300"))) PPC_WEAK_FUNC(sub_832A6300);
-PPC_FUNC_IMPL(__imp__sub_832A6300) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-18892
-	ctx.r3.s64 = ctx.r11.s64 + -18892;
-	// b 0x82214f08
-	sub_82214F08(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A630C"))) PPC_WEAK_FUNC(sub_832A630C);
-PPC_FUNC_IMPL(__imp__sub_832A630C) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A6310"))) PPC_WEAK_FUNC(sub_832A6310);
-PPC_FUNC_IMPL(__imp__sub_832A6310) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-18888
-	ctx.r3.s64 = ctx.r11.s64 + -18888;
-	// b 0x82214f08
-	sub_82214F08(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A631C"))) PPC_WEAK_FUNC(sub_832A631C);
-PPC_FUNC_IMPL(__imp__sub_832A631C) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A6320"))) PPC_WEAK_FUNC(sub_832A6320);
-PPC_FUNC_IMPL(__imp__sub_832A6320) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-18884
-	ctx.r3.s64 = ctx.r11.s64 + -18884;
-	// b 0x82214f08
-	sub_82214F08(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A632C"))) PPC_WEAK_FUNC(sub_832A632C);
-PPC_FUNC_IMPL(__imp__sub_832A632C) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A6330"))) PPC_WEAK_FUNC(sub_832A6330);
-PPC_FUNC_IMPL(__imp__sub_832A6330) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-18880
-	ctx.r3.s64 = ctx.r11.s64 + -18880;
-	// b 0x82214f08
-	sub_82214F08(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A633C"))) PPC_WEAK_FUNC(sub_832A633C);
-PPC_FUNC_IMPL(__imp__sub_832A633C) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A6340"))) PPC_WEAK_FUNC(sub_832A6340);
-PPC_FUNC_IMPL(__imp__sub_832A6340) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-18876
-	ctx.r3.s64 = ctx.r11.s64 + -18876;
-	// b 0x82214f08
-	sub_82214F08(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A634C"))) PPC_WEAK_FUNC(sub_832A634C);
-PPC_FUNC_IMPL(__imp__sub_832A634C) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A6350"))) PPC_WEAK_FUNC(sub_832A6350);
-PPC_FUNC_IMPL(__imp__sub_832A6350) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-18872
-	ctx.r3.s64 = ctx.r11.s64 + -18872;
-	// b 0x82214f08
-	sub_82214F08(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A635C"))) PPC_WEAK_FUNC(sub_832A635C);
-PPC_FUNC_IMPL(__imp__sub_832A635C) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A6360"))) PPC_WEAK_FUNC(sub_832A6360);
-PPC_FUNC_IMPL(__imp__sub_832A6360) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-17648
-	ctx.r3.s64 = ctx.r11.s64 + -17648;
-	// b 0x82214f08
-	sub_82214F08(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A636C"))) PPC_WEAK_FUNC(sub_832A636C);
-PPC_FUNC_IMPL(__imp__sub_832A636C) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A6370"))) PPC_WEAK_FUNC(sub_832A6370);
-PPC_FUNC_IMPL(__imp__sub_832A6370) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-17644
-	ctx.r3.s64 = ctx.r11.s64 + -17644;
-	// b 0x82214f08
-	sub_82214F08(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A637C"))) PPC_WEAK_FUNC(sub_832A637C);
-PPC_FUNC_IMPL(__imp__sub_832A637C) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A6380"))) PPC_WEAK_FUNC(sub_832A6380);
-PPC_FUNC_IMPL(__imp__sub_832A6380) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-17640
-	ctx.r3.s64 = ctx.r11.s64 + -17640;
-	// b 0x82214f08
-	sub_82214F08(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A638C"))) PPC_WEAK_FUNC(sub_832A638C);
-PPC_FUNC_IMPL(__imp__sub_832A638C) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A6390"))) PPC_WEAK_FUNC(sub_832A6390);
-PPC_FUNC_IMPL(__imp__sub_832A6390) {
-	PPC_FUNC_PROLOGUE();
-	uint32_t ea{};
-	// mflr r12
-	ctx.r12.u64 = ctx.lr;
-	// stw r12,-8(r1)
-	PPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);
-	// std r31,-16(r1)
-	PPC_STORE_U64(ctx.r1.u32 + -16, ctx.r31.u64);
-	// stwu r1,-96(r1)
-	ea = -96 + ctx.r1.u32;
-	PPC_STORE_U32(ea, ctx.r1.u32);
-	ctx.r1.u32 = ea;
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r31,r11,-17636
-	ctx.r31.s64 = ctx.r11.s64 + -17636;
-	// lwz r4,4(r31)
-	ctx.r4.u64 = PPC_LOAD_U32(ctx.r31.u32 + 4);
-	// cmplwi cr6,r4,0
-	ctx.cr6.compare<uint32_t>(ctx.r4.u32, 0, ctx.xer);
-	// beq cr6,0x832a63c8
-	if (ctx.cr6.eq) goto loc_832A63C8;
-	// mr r3,r31
-	ctx.r3.u64 = ctx.r31.u64;
-	// lwz r5,8(r31)
-	ctx.r5.u64 = PPC_LOAD_U32(ctx.r31.u32 + 8);
-	// bl 0x82a86b88
-	ctx.lr = 0x832A63C0;
-	sub_82A86B88(ctx, base);
-	// lwz r3,4(r31)
-	ctx.r3.u64 = PPC_LOAD_U32(ctx.r31.u32 + 4);
-	// bl 0x8221be68
-	ctx.lr = 0x832A63C8;
-	sub_8221BE68(ctx, base);
-loc_832A63C8:
-	// li r11,0
-	ctx.r11.s64 = 0;
-	// li r10,0
-	ctx.r10.s64 = 0;
-	// li r9,0
-	ctx.r9.s64 = 0;
-	// stw r11,4(r31)
-	PPC_STORE_U32(ctx.r31.u32 + 4, ctx.r11.u32);
-	// stw r10,8(r31)
-	PPC_STORE_U32(ctx.r31.u32 + 8, ctx.r10.u32);
-	// stw r9,12(r31)
-	PPC_STORE_U32(ctx.r31.u32 + 12, ctx.r9.u32);
-	// addi r1,r1,96
-	ctx.r1.s64 = ctx.r1.s64 + 96;
-	// lwz r12,-8(r1)
-	ctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);
-	// mtlr r12
-	ctx.lr = ctx.r12.u64;
-	// ld r31,-16(r1)
-	ctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);
-	// blr 
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A63F4"))) PPC_WEAK_FUNC(sub_832A63F4);
-PPC_FUNC_IMPL(__imp__sub_832A63F4) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A63F8"))) PPC_WEAK_FUNC(sub_832A63F8);
-PPC_FUNC_IMPL(__imp__sub_832A63F8) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-17620
-	ctx.r3.s64 = ctx.r11.s64 + -17620;
-	// b 0x82214f08
-	sub_82214F08(ctx, base);
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A6404"))) PPC_WEAK_FUNC(sub_832A6404);
-PPC_FUNC_IMPL(__imp__sub_832A6404) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A6408"))) PPC_WEAK_FUNC(sub_832A6408);
-PPC_FUNC_IMPL(__imp__sub_832A6408) {
-	PPC_FUNC_PROLOGUE();
-	uint32_t ea{};
-	// mflr r12
-	ctx.r12.u64 = ctx.lr;
-	// bl 0x82ca2bec
-	ctx.lr = 0x832A6410;
-	sub_82CA2BEC(ctx, base);
-	// stwu r1,-112(r1)
-	ea = -112 + ctx.r1.u32;
-	PPC_STORE_U32(ea, ctx.r1.u32);
-	ctx.r1.u32 = ea;
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r30,r11,-17616
-	ctx.r30.s64 = ctx.r11.s64 + -17616;
-	// lwz r3,4(r30)
-	ctx.r3.u64 = PPC_LOAD_U32(ctx.r30.u32 + 4);
-	// cmplwi cr6,r3,0
-	ctx.cr6.compare<uint32_t>(ctx.r3.u32, 0, ctx.xer);
-	// beq cr6,0x832a6464
-	if (ctx.cr6.eq) goto loc_832A6464;
-	// lwz r29,8(r30)
-	ctx.r29.u64 = PPC_LOAD_U32(ctx.r30.u32 + 8);
-	// mr r31,r3
-	ctx.r31.u64 = ctx.r3.u64;
-	// cmplw cr6,r3,r29
-	ctx.cr6.compare<uint32_t>(ctx.r3.u32, ctx.r29.u32, ctx.xer);
-	// beq cr6,0x832a6460
-	if (ctx.cr6.eq) goto loc_832A6460;
-loc_832A6438:
-	// lwz r11,0(r31)
-	ctx.r11.u64 = PPC_LOAD_U32(ctx.r31.u32 + 0);
-	// li r4,0
-	ctx.r4.s64 = 0;
-	// mr r3,r31
-	ctx.r3.u64 = ctx.r31.u64;
-	// lwz r10,0(r11)
-	ctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 0);
-	// mtctr r10
-	ctx.ctr.u64 = ctx.r10.u64;
-	// bctrl 
-	ctx.lr = 0x832A6450;
-	PPC_CALL_INDIRECT_FUNC(ctx.ctr.u32);
-	// addi r31,r31,96
-	ctx.r31.s64 = ctx.r31.s64 + 96;
-	// cmplw cr6,r31,r29
-	ctx.cr6.compare<uint32_t>(ctx.r31.u32, ctx.r29.u32, ctx.xer);
-	// bne cr6,0x832a6438
-	if (!ctx.cr6.eq) goto loc_832A6438;
-	// lwz r3,4(r30)
-	ctx.r3.u64 = PPC_LOAD_U32(ctx.r30.u32 + 4);
-loc_832A6460:
-	// bl 0x8221be68
-	ctx.lr = 0x832A6464;
-	sub_8221BE68(ctx, base);
-loc_832A6464:
-	// li r11,0
-	ctx.r11.s64 = 0;
-	// li r10,0
-	ctx.r10.s64 = 0;
-	// li r9,0
-	ctx.r9.s64 = 0;
-	// stw r11,4(r30)
-	PPC_STORE_U32(ctx.r30.u32 + 4, ctx.r11.u32);
-	// stw r10,8(r30)
-	PPC_STORE_U32(ctx.r30.u32 + 8, ctx.r10.u32);
-	// stw r9,12(r30)
-	PPC_STORE_U32(ctx.r30.u32 + 12, ctx.r9.u32);
-	// addi r1,r1,112
-	ctx.r1.s64 = ctx.r1.s64 + 112;
-	// b 0x82ca2c3c
-	// ERROR 82CA2C3C
-	return;
-}
-
-__attribute__((alias("__imp__sub_832A6484"))) PPC_WEAK_FUNC(sub_832A6484);
-PPC_FUNC_IMPL(__imp__sub_832A6484) {
-	PPC_FUNC_PROLOGUE();
-	// .long 0x0
-}
-
-__attribute__((alias("__imp__sub_832A6488"))) PPC_WEAK_FUNC(sub_832A6488);
-PPC_FUNC_IMPL(__imp__sub_832A6488) {
-	PPC_FUNC_PROLOGUE();
-	// lis r11,-31926
-	ctx.r11.s64 = -2092302336;
-	// addi r3,r11,-17600
-	ctx.r3.s64 = ctx.r11.s64 + -17600;
-	// b 0x82214f08
-	sub_82214F08(ctx, base);
-	return;
-}
-
 __attribute__((alias("__imp__sub_832A6494"))) PPC_WEAK_FUNC(sub_832A6494);
 PPC_FUNC_IMPL(__imp__sub_832A6494) {
 	PPC_FUNC_PROLOGUE();
@@ -2479,7 +1742,7 @@ PPC_FUNC_IMPL(__imp__sub_832A6A98) {
 	ctx.r12.u64 = ctx.lr;
 	// bl 0x82ca2be8
 	ctx.lr = 0x832A6AA0;
-	sub_82CA2BE8(ctx, base);
+	__savegprlr_28(ctx, base);
 	// stwu r1,-128(r1)
 	ea = -128 + ctx.r1.u32;
 	PPC_STORE_U32(ea, ctx.r1.u32);
@@ -2538,7 +1801,560 @@ loc_832A6AD0:
 	// addi r1,r1,128
 	ctx.r1.s64 = ctx.r1.s64 + 128;
 	// b 0x82ca2c38
-	// ERROR 82CA2C38
+	__restgprlr_28(ctx, base);
 	return;
+}
+
+__attribute__((alias("__imp__sub_832A6B00"))) PPC_WEAK_FUNC(sub_832A6B00);
+PPC_FUNC_IMPL(__imp__sub_832A6B00) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-17168
+	ctx.r3.s64 = ctx.r11.s64 + -17168;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6B0C"))) PPC_WEAK_FUNC(sub_832A6B0C);
+PPC_FUNC_IMPL(__imp__sub_832A6B0C) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6B10"))) PPC_WEAK_FUNC(sub_832A6B10);
+PPC_FUNC_IMPL(__imp__sub_832A6B10) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-17120
+	ctx.r3.s64 = ctx.r11.s64 + -17120;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6B1C"))) PPC_WEAK_FUNC(sub_832A6B1C);
+PPC_FUNC_IMPL(__imp__sub_832A6B1C) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6B20"))) PPC_WEAK_FUNC(sub_832A6B20);
+PPC_FUNC_IMPL(__imp__sub_832A6B20) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-17116
+	ctx.r3.s64 = ctx.r11.s64 + -17116;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6B2C"))) PPC_WEAK_FUNC(sub_832A6B2C);
+PPC_FUNC_IMPL(__imp__sub_832A6B2C) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6B30"))) PPC_WEAK_FUNC(sub_832A6B30);
+PPC_FUNC_IMPL(__imp__sub_832A6B30) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-17112
+	ctx.r3.s64 = ctx.r11.s64 + -17112;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6B3C"))) PPC_WEAK_FUNC(sub_832A6B3C);
+PPC_FUNC_IMPL(__imp__sub_832A6B3C) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6B40"))) PPC_WEAK_FUNC(sub_832A6B40);
+PPC_FUNC_IMPL(__imp__sub_832A6B40) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-17088
+	ctx.r3.s64 = ctx.r11.s64 + -17088;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6B4C"))) PPC_WEAK_FUNC(sub_832A6B4C);
+PPC_FUNC_IMPL(__imp__sub_832A6B4C) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6B50"))) PPC_WEAK_FUNC(sub_832A6B50);
+PPC_FUNC_IMPL(__imp__sub_832A6B50) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-17084
+	ctx.r3.s64 = ctx.r11.s64 + -17084;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6B5C"))) PPC_WEAK_FUNC(sub_832A6B5C);
+PPC_FUNC_IMPL(__imp__sub_832A6B5C) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6B60"))) PPC_WEAK_FUNC(sub_832A6B60);
+PPC_FUNC_IMPL(__imp__sub_832A6B60) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-17072
+	ctx.r3.s64 = ctx.r11.s64 + -17072;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6B6C"))) PPC_WEAK_FUNC(sub_832A6B6C);
+PPC_FUNC_IMPL(__imp__sub_832A6B6C) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6B70"))) PPC_WEAK_FUNC(sub_832A6B70);
+PPC_FUNC_IMPL(__imp__sub_832A6B70) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-17068
+	ctx.r3.s64 = ctx.r11.s64 + -17068;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6B7C"))) PPC_WEAK_FUNC(sub_832A6B7C);
+PPC_FUNC_IMPL(__imp__sub_832A6B7C) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6B80"))) PPC_WEAK_FUNC(sub_832A6B80);
+PPC_FUNC_IMPL(__imp__sub_832A6B80) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-17064
+	ctx.r3.s64 = ctx.r11.s64 + -17064;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6B8C"))) PPC_WEAK_FUNC(sub_832A6B8C);
+PPC_FUNC_IMPL(__imp__sub_832A6B8C) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6B90"))) PPC_WEAK_FUNC(sub_832A6B90);
+PPC_FUNC_IMPL(__imp__sub_832A6B90) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-17060
+	ctx.r3.s64 = ctx.r11.s64 + -17060;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6B9C"))) PPC_WEAK_FUNC(sub_832A6B9C);
+PPC_FUNC_IMPL(__imp__sub_832A6B9C) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6BA0"))) PPC_WEAK_FUNC(sub_832A6BA0);
+PPC_FUNC_IMPL(__imp__sub_832A6BA0) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-17056
+	ctx.r3.s64 = ctx.r11.s64 + -17056;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6BAC"))) PPC_WEAK_FUNC(sub_832A6BAC);
+PPC_FUNC_IMPL(__imp__sub_832A6BAC) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6BB0"))) PPC_WEAK_FUNC(sub_832A6BB0);
+PPC_FUNC_IMPL(__imp__sub_832A6BB0) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-17052
+	ctx.r3.s64 = ctx.r11.s64 + -17052;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6BBC"))) PPC_WEAK_FUNC(sub_832A6BBC);
+PPC_FUNC_IMPL(__imp__sub_832A6BBC) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6BC0"))) PPC_WEAK_FUNC(sub_832A6BC0);
+PPC_FUNC_IMPL(__imp__sub_832A6BC0) {
+	PPC_FUNC_PROLOGUE();
+	// blr 
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6BC4"))) PPC_WEAK_FUNC(sub_832A6BC4);
+PPC_FUNC_IMPL(__imp__sub_832A6BC4) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6BC8"))) PPC_WEAK_FUNC(sub_832A6BC8);
+PPC_FUNC_IMPL(__imp__sub_832A6BC8) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-17024
+	ctx.r3.s64 = ctx.r11.s64 + -17024;
+	// b 0x821c6868
+	sub_821C6868(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6BD4"))) PPC_WEAK_FUNC(sub_832A6BD4);
+PPC_FUNC_IMPL(__imp__sub_832A6BD4) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6BD8"))) PPC_WEAK_FUNC(sub_832A6BD8);
+PPC_FUNC_IMPL(__imp__sub_832A6BD8) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-17020
+	ctx.r3.s64 = ctx.r11.s64 + -17020;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6BE4"))) PPC_WEAK_FUNC(sub_832A6BE4);
+PPC_FUNC_IMPL(__imp__sub_832A6BE4) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6BE8"))) PPC_WEAK_FUNC(sub_832A6BE8);
+PPC_FUNC_IMPL(__imp__sub_832A6BE8) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-17016
+	ctx.r3.s64 = ctx.r11.s64 + -17016;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6BF4"))) PPC_WEAK_FUNC(sub_832A6BF4);
+PPC_FUNC_IMPL(__imp__sub_832A6BF4) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6BF8"))) PPC_WEAK_FUNC(sub_832A6BF8);
+PPC_FUNC_IMPL(__imp__sub_832A6BF8) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-17012
+	ctx.r3.s64 = ctx.r11.s64 + -17012;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6C04"))) PPC_WEAK_FUNC(sub_832A6C04);
+PPC_FUNC_IMPL(__imp__sub_832A6C04) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6C08"))) PPC_WEAK_FUNC(sub_832A6C08);
+PPC_FUNC_IMPL(__imp__sub_832A6C08) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-17008
+	ctx.r3.s64 = ctx.r11.s64 + -17008;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6C14"))) PPC_WEAK_FUNC(sub_832A6C14);
+PPC_FUNC_IMPL(__imp__sub_832A6C14) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6C18"))) PPC_WEAK_FUNC(sub_832A6C18);
+PPC_FUNC_IMPL(__imp__sub_832A6C18) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-17004
+	ctx.r3.s64 = ctx.r11.s64 + -17004;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6C24"))) PPC_WEAK_FUNC(sub_832A6C24);
+PPC_FUNC_IMPL(__imp__sub_832A6C24) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6C28"))) PPC_WEAK_FUNC(sub_832A6C28);
+PPC_FUNC_IMPL(__imp__sub_832A6C28) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-17000
+	ctx.r3.s64 = ctx.r11.s64 + -17000;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6C34"))) PPC_WEAK_FUNC(sub_832A6C34);
+PPC_FUNC_IMPL(__imp__sub_832A6C34) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6C38"))) PPC_WEAK_FUNC(sub_832A6C38);
+PPC_FUNC_IMPL(__imp__sub_832A6C38) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-16996
+	ctx.r3.s64 = ctx.r11.s64 + -16996;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6C44"))) PPC_WEAK_FUNC(sub_832A6C44);
+PPC_FUNC_IMPL(__imp__sub_832A6C44) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6C48"))) PPC_WEAK_FUNC(sub_832A6C48);
+PPC_FUNC_IMPL(__imp__sub_832A6C48) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-16992
+	ctx.r3.s64 = ctx.r11.s64 + -16992;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6C54"))) PPC_WEAK_FUNC(sub_832A6C54);
+PPC_FUNC_IMPL(__imp__sub_832A6C54) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6C58"))) PPC_WEAK_FUNC(sub_832A6C58);
+PPC_FUNC_IMPL(__imp__sub_832A6C58) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-16988
+	ctx.r3.s64 = ctx.r11.s64 + -16988;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6C64"))) PPC_WEAK_FUNC(sub_832A6C64);
+PPC_FUNC_IMPL(__imp__sub_832A6C64) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6C68"))) PPC_WEAK_FUNC(sub_832A6C68);
+PPC_FUNC_IMPL(__imp__sub_832A6C68) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-16984
+	ctx.r3.s64 = ctx.r11.s64 + -16984;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6C74"))) PPC_WEAK_FUNC(sub_832A6C74);
+PPC_FUNC_IMPL(__imp__sub_832A6C74) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6C78"))) PPC_WEAK_FUNC(sub_832A6C78);
+PPC_FUNC_IMPL(__imp__sub_832A6C78) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-16980
+	ctx.r3.s64 = ctx.r11.s64 + -16980;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6C84"))) PPC_WEAK_FUNC(sub_832A6C84);
+PPC_FUNC_IMPL(__imp__sub_832A6C84) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6C88"))) PPC_WEAK_FUNC(sub_832A6C88);
+PPC_FUNC_IMPL(__imp__sub_832A6C88) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-16976
+	ctx.r3.s64 = ctx.r11.s64 + -16976;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6C94"))) PPC_WEAK_FUNC(sub_832A6C94);
+PPC_FUNC_IMPL(__imp__sub_832A6C94) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6C98"))) PPC_WEAK_FUNC(sub_832A6C98);
+PPC_FUNC_IMPL(__imp__sub_832A6C98) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-16972
+	ctx.r3.s64 = ctx.r11.s64 + -16972;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6CA4"))) PPC_WEAK_FUNC(sub_832A6CA4);
+PPC_FUNC_IMPL(__imp__sub_832A6CA4) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6CA8"))) PPC_WEAK_FUNC(sub_832A6CA8);
+PPC_FUNC_IMPL(__imp__sub_832A6CA8) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-16968
+	ctx.r3.s64 = ctx.r11.s64 + -16968;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6CB4"))) PPC_WEAK_FUNC(sub_832A6CB4);
+PPC_FUNC_IMPL(__imp__sub_832A6CB4) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6CB8"))) PPC_WEAK_FUNC(sub_832A6CB8);
+PPC_FUNC_IMPL(__imp__sub_832A6CB8) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-16964
+	ctx.r3.s64 = ctx.r11.s64 + -16964;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6CC4"))) PPC_WEAK_FUNC(sub_832A6CC4);
+PPC_FUNC_IMPL(__imp__sub_832A6CC4) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6CC8"))) PPC_WEAK_FUNC(sub_832A6CC8);
+PPC_FUNC_IMPL(__imp__sub_832A6CC8) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-16960
+	ctx.r3.s64 = ctx.r11.s64 + -16960;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6CD4"))) PPC_WEAK_FUNC(sub_832A6CD4);
+PPC_FUNC_IMPL(__imp__sub_832A6CD4) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
+}
+
+__attribute__((alias("__imp__sub_832A6CD8"))) PPC_WEAK_FUNC(sub_832A6CD8);
+PPC_FUNC_IMPL(__imp__sub_832A6CD8) {
+	PPC_FUNC_PROLOGUE();
+	// lis r11,-31926
+	ctx.r11.s64 = -2092302336;
+	// addi r3,r11,-16956
+	ctx.r3.s64 = ctx.r11.s64 + -16956;
+	// b 0x82214f08
+	sub_82214F08(ctx, base);
+	return;
+}
+
+__attribute__((alias("__imp__sub_832A6CE4"))) PPC_WEAK_FUNC(sub_832A6CE4);
+PPC_FUNC_IMPL(__imp__sub_832A6CE4) {
+	PPC_FUNC_PROLOGUE();
+	// .long 0x0
 }
 
