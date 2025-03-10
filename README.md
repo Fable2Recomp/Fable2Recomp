@@ -18,6 +18,11 @@ I need assistance with:
 1. Implementing unrecognized instructions into XenonRecomp.
 2. Locating JumpTables in Ghidra using an uncompressed XEX file.
 
+## How to Build an exe from the cpp code
+```
+clang -o output.exe ppc_func_mapping.cpp ppc_recomp.*.cpp -std=c++20 -O2 -mssse3 -msse4.1 -mavx -MP -pthread
+```
+
 I am looking for help and I am willing to learn coding and help where I can, but I am also open to others joining the project and teaching me if possible. If you have experience or are willing to learn and help out, your support would be greatly appreciated. I’m eager to enhance the game with high-resolution support, improved frame rates, and enhanced graphics.
 
 ## Contributing
