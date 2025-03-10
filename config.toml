@@ -20,3 +20,7 @@ restvmx_14_address = 0x82FFFF68
 savevmx_14_address = 0x82FFFCD0
 restvmx_64_address = 0x82FFFFFC
 savevmx_64_address = 0x82FFFD64
+
+
+longjmp_address = 0x832B25CC
+setjmp_address = 0x82CAF478
