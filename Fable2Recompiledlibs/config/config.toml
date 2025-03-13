@@ -107,7 +107,31 @@ functions = [
     { address = 0x8250B778, size = 0x58 },
     { address = 0x82DDC208, size = 0x24C },
     { address = 0x831FBD28, size = 0x16C },
-    { address = 0x82D7F5B0, size = 0x154 }
+    { address = 0x82D7F5B0, size = 0x154 },
+    { address = 0x822E23E0, size = 0x154 },
+    { address = 0x822E2568, size = 0x154 },
+    { address = 0x822E26E0, size = 0x154 },
+    { address = 0x822E2858, size = 0x154 },
+    { address = 0x822E29D0, size = 0x154 },
+    { address = 0x822E2B48, size = 0x154 },
+    { address = 0x822E2CC0, size = 0x154 },
+    { address = 0x822E2E50, size = 0x154 },
+    { address = 0x822E2FD8, size = 0x154 },
+    { address = 0x822E3150, size = 0x154 },
+    { address = 0x822E32BC, size = 0x154 },
+    { address = 0x832B31E0, size = 0x154 },
+    { address = 0x82B8D5E4, size = 0x154 },
+    { address = 0x82BE9798, size = 0x154 },
+    { address = 0x83116CDC, size = 0x154 },
+    { address = 0x8219AC0C, size = 0x154 },
+    { address = 0x821A310C, size = 0x154 },
+    { address = 0x821BFCD8, size = 0x154 },
+    { address = 0x821F46BC, size = 0x154 },
+    { address = 0x8220D108, size = 0x154 },
+    { address = 0x8222E670, size = 0x154 },
+    { address = 0x82231950, size = 0x154 },
+    { address = 0x82233500, size = 0x154 },
+    { address = 0x822341A0, size = 0x154 }
 ]
 
 invalid_instructions = [
@@ -115,5 +139,234 @@ invalid_instructions = [
     { data = 0x832B25AC, size = 8 }, # C Specific Frame Handler
     { data = 0x831C8B50, size = 8 },
     { data = 0x832B34C4, size = 64 } # End of .text
-    
 ]
+
+# System hooks
+[[midasm_hook]]
+name = "RtlUnwindHook"
+address = "0x1010147"
+jump_address_on_false = "0x1010148"
+registers = ["r3", "r4", "r5", "r6"]
+
+[[midasm_hook]]
+name = "RtlCaptureContextHook"
+address = "0x1010119"
+jump_address_on_false = "0x101011A"
+registers = ["r3"]
+
+[[midasm_hook]]
+name = "XamGetSystemVersionHook"
+address = "0x1000282"
+jump_address_on_false = "0x1000283"
+registers = ["r3"]
+
+# User Interface hooks
+[[midasm_hook]]
+name = "XamShowSigninUIHook"
+address = "0x10002BC"
+jump_address_on_false = "0x10002BD"
+registers = ["r3", "r4"]
+
+[[midasm_hook]]
+name = "XamShowDeviceSelectorHook"
+address = "0x10002CB"
+jump_address_on_false = "0x10002CC"
+registers = ["r3", "r4"]
+
+[[midasm_hook]]
+name = "XamUserGetSigninInfoHook"
+address = "0x1000227"
+jump_address_on_false = "0x1000228"
+registers = ["r3", "r4", "r5"]
+
+[[midasm_hook]]
+name = "XamUserGetNameHook"
+address = "0x100020E"
+jump_address_on_false = "0x100020F"
+registers = ["r3", "r4", "r5"]
+
+[[midasm_hook]]
+name = "XamUserGetSigninStateHook"
+address = "0x1000210"
+jump_address_on_false = "0x1000211"
+registers = ["r3"]
+
+# Content Management hooks
+[[midasm_hook]]
+name = "XamContentCreateExHook"
+address = "0x1000259"
+jump_address_on_false = "0x100025A"
+registers = ["r3", "r4", "r5"]
+
+[[midasm_hook]]
+name = "XamContentCloseHook"
+address = "0x100025A"
+jump_address_on_false = "0x100025B"
+registers = ["r3"]
+
+[[midasm_hook]]
+name = "XamContentCreateEnumeratorHook"
+address = "0x100025C"
+jump_address_on_false = "0x100025D"
+registers = ["r3", "r4", "r5"]
+
+# File System hooks
+[[midasm_hook]]
+name = "NtOpenFileHook"
+address = "0x10100DF"
+jump_address_on_false = "0x10100E0"
+registers = ["r3", "r4", "r5", "r6"]
+
+[[midasm_hook]]
+name = "NtCreateFileHook"
+address = "0x10100D2"
+jump_address_on_false = "0x10100D3"
+registers = ["r3", "r4", "r5", "r6", "r7"]
+
+[[midasm_hook]]
+name = "NtReadFileHook"
+address = "0x10100F0"
+jump_address_on_false = "0x10100F1"
+registers = ["r3", "r4", "r5"]
+
+[[midasm_hook]]
+name = "NtWriteFileHook"
+address = "0x10100FF"
+jump_address_on_false = "0x1010100"
+registers = ["r3", "r4", "r5"]
+
+# Network hooks
+[[midasm_hook]]
+name = "NetWsaStartupHook"
+address = "0x1000001"
+jump_address_on_false = "0x1000002"
+registers = ["r3", "r4"]
+
+[[midasm_hook]]
+name = "NetWsaCleanupHook"
+address = "0x1000002"
+jump_address_on_false = "0x1000003"
+registers = ["r3"]
+
+[[midasm_hook]]
+name = "NetSocketHook"
+address = "0x1000003"
+jump_address_on_false = "0x1000004"
+registers = ["r3", "r4", "r5"]
+
+[[midasm_hook]]
+name = "NetConnectHook"
+address = "0x100000C"
+jump_address_on_false = "0x100000D"
+registers = ["r3", "r4", "r5"]
+
+# Input hooks
+[[midasm_hook]]
+name = "XamInputGetCapabilitiesHook"
+address = "0x1000190"
+jump_address_on_false = "0x1000191"
+registers = ["r3", "r4", "r5"]
+
+[[midasm_hook]]
+name = "XamInputGetStateHook"
+address = "0x1000191"
+jump_address_on_false = "0x1000192"
+registers = ["r3", "r4", "r5"]
+
+[[midasm_hook]]
+name = "XamInputSetStateHook"
+address = "0x1000192"
+jump_address_on_false = "0x1000193"
+registers = ["r3", "r4", "r5"]
+
+# Graphics hooks
+[[midasm_hook]]
+name = "VdGraphicsInterruptHook"
+address = "0x10101D5"
+jump_address_on_false = "0x10101D6"
+registers = ["r3", "r4"]
+
+[[midasm_hook]]
+name = "VdInitializeEnginesHook"
+address = "0x10101C2"
+jump_address_on_false = "0x10101C3"
+registers = ["r3"]
+
+[[midasm_hook]]
+name = "VdDisplayGammaHook"
+address = "0x10101B9"
+jump_address_on_false = "0x10101BA"
+registers = ["r3", "r4"]
+
+# Game-specific hooks
+[[midasm_hook]]
+name = "CameraAspectRatioHook"
+address = "0x824697B0"
+jump_address_on_false = "0x824697B4"
+registers = ["r3", "r4"]
+
+[[midasm_hook]]
+name = "CameraFOVHook"
+address = "0x82467890"
+jump_address_on_false = "0x82467894"
+registers = ["r3", "r4"]
+
+[[midasm_hook]]
+name = "InputStateHook"
+address = "0x82486968"
+jump_address_on_false = "0x8248696C"
+registers = ["r3", "r4", "r5"]
+
+[[midasm_hook]]
+name = "InputPadStateHook"
+address = "0x8245F048"
+jump_address_on_false = "0x8245F04C"
+registers = ["r3", "r4"]
+
+[[midasm_hook]]
+name = "MemoryAllocHook"
+address = "0x823AF7A8"
+jump_address_on_false = "0x823AF7AC"
+registers = ["r3", "r4"]
+
+[[midasm_hook]]
+name = "MemoryFreeHook"
+address = "0x823B49D8"
+jump_address_on_false = "0x823B49DC"
+registers = ["r3"]
+
+[[midasm_hook]]
+name = "VideoRenderHook"
+address = "0x82AE30D8"
+jump_address_on_false = "0x82AE30DC"
+registers = ["r3", "r4", "r5"]
+
+[[midasm_hook]]
+name = "VideoMotionBlurHook"
+address = "0x830D25D8"
+jump_address_on_false = "0x830D25DC"
+registers = ["r3", "r4"]
+
+[[midasm_hook]]
+name = "AudioCueSheetHook"
+address = "0x82B14CC0"
+jump_address_on_false = "0x82B14CC4"
+registers = ["r3", "r4"]
+
+[[midasm_hook]]
+name = "UIMenuHook"
+address = "0x824B0930"
+jump_address_on_false = "0x824B0934"
+registers = ["r3", "r4"]
+
+[[midasm_hook]]
+name = "UITitleHook"
+address = "0x82547DF0"
+jump_address_on_false = "0x82547DF4"
+registers = ["r3", "r4"]
+
+[[midasm_hook]]
+name = "ObjectPositionHook"
+address = "0x827CBF68"
+jump_address_on_false = "0x827CBF6C"
+registers = ["r3", "r4", "r5"]

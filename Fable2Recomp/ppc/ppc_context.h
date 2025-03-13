@@ -1,6 +1,9 @@
 #pragma once
 #include "ppc_config.h"
 
+#pragma once
+#include "ppc_config.h"
+
 #ifndef PPC_CONTEXT_H_INCLUDED
 #define PPC_CONTEXT_H_INCLUDED
 
