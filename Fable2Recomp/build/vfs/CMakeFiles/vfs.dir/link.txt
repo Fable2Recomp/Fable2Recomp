@@ -1,2 +1,0 @@
-/usr/bin/ar qc libvfs.a CMakeFiles/vfs.dir/vfs.cpp.o CMakeFiles/vfs.dir/bank_loader.cpp.o CMakeFiles/vfs.dir/asset_types.cpp.o CMakeFiles/vfs.dir/asset_manager.cpp.o
-/usr/bin/ranlib libvfs.a

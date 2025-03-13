@@ -1,1 +1,0 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/test_asset_manager.dir/link.d CMakeFiles/test_asset_manager.dir/test_asset_manager.cpp.o -o test_asset_manager  ../../vfs/libvfs.a ../../gpu/libgpu.a ../../thirdparty/imgui/libimgui.a /usr/lib/libSDL2-2.0.so.0.3200.52 /usr/lib/libGL.so /usr/lib/libz.so -ltinyxml2

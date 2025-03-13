@@ -1,11 +1,10 @@
 #pragma once
 
+#define VK_NO_PROTOTYPES
+#include "rhi/vulkan_common.h"
 #include "rhi/plume_render_interface.h"
-#include "../thirdparty/imgui/imgui.h"
-#include "../thirdparty/imgui/backends/imgui_impl_vulkan.h"
-#include "../thirdparty/imgui/backends/imgui_impl_sdl2.h"
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_vulkan.h>
+#include <SDL3/SDL.h>
+#include <SDL3/SDL_vulkan.h>
 #include <vulkan/vulkan.h>
 #include <vector>
 #include <memory>

@@ -1,14 +1,66 @@
 #pragma once
 
-#include <vulkan/vulkan.h>
+#define VK_NO_PROTOTYPES
+#include "rhi/vulkan_common.h"
+#include <SDL3/SDL.h>
+#include "vma/vk_mem_alloc.h"
+#include <vector>
+#include <string>
+#include <chrono>
+#include <unordered_map>
 
 namespace gpu {
 
-// Initialize the GPU subsystem
-bool Initialize();
+// Forward declarations
+struct ShaderModule {
+    VkShaderModule module;
+    std::string filename;
+    std::chrono::system_clock::time_point last_modified;
+};
 
-// Shutdown the GPU subsystem
-void Shutdown();
+// Global variables
+extern VkInstance instance;
+extern VkPhysicalDevice physical_device;
+extern VkDevice device;
+extern VkQueue graphics_queue;
+extern VkQueue present_queue;
+extern VkSurfaceKHR surface;
+extern VkSwapchainKHR swapchain;
+extern VkFormat swapchain_image_format;
+extern VkExtent2D swapchain_extent;
+extern std::vector<VkImage> swapchain_images;
+extern std::vector<VkImageView> swapchain_image_views;
+extern std::vector<VkImageView> depth_image_views;
+extern std::vector<VkImageView> stencil_image_views;
+extern std::vector<VkFramebuffer> swapchain_framebuffers;
+extern VkRenderPass render_pass;
+extern VkCommandPool command_pool;
+extern std::vector<VkCommandBuffer> command_buffers;
+extern std::vector<VkCommandBuffer> secondary_command_buffers;
+extern VkSampleCountFlagBits msaa_samples;
+extern std::unordered_map<std::string, ShaderModule> shader_modules;
+
+// Core functions
+bool Init();
+void Cleanup();
+void Update();
+void Render();
+void RecreateSwapChain(int width, int height);
+
+// Helper functions
+VkSampleCountFlagBits GetMaxUsableSampleCount();
+void ReloadAllShaders();
+void ReloadShaderModule(const std::string& filename);
+void CleanupSwapChain();
+bool create_swapchain();
+void create_image_views();
+bool create_render_pass();
+void create_graphics_pipeline();
+bool create_framebuffers();
+void create_command_buffers();
+void create_depth_resources();
+void create_stencil_resources();
+uint32_t FindMemoryType(uint32_t type_filter, VkMemoryPropertyFlags properties);
 
 // Get the Vulkan instance
 VkInstance GetInstance();
@@ -24,6 +76,18 @@ VkQueue GetGraphicsQueue();
 
 // Get the Vulkan graphics queue family index
 uint32_t GetGraphicsQueueFamily();
+
+// Get the Vulkan descriptor pool
+VkDescriptorPool GetDescriptorPool();
+
+// Get the Vulkan render pass
+VkRenderPass GetRenderPass();
+
+// Get the current framebuffer
+VkFramebuffer GetCurrentFramebuffer();
+
+// Get the swapchain extent
+VkExtent2D GetSwapchainExtent();
 
 // Find a suitable memory type
 uint32_t FindMemoryType(uint32_t type_filter, VkMemoryPropertyFlags properties);
@@ -80,5 +144,12 @@ void CopyBufferToImage(
     uint32_t width,
     uint32_t height
 );
+
+VkCommandBuffer GetCurrentCommandBuffer();
+SDL_Window* GetWindow();
+
+VkPipelineCache GetPipelineCache();
+
+VmaAllocator GetAllocator();
 
 } // namespace gpu 

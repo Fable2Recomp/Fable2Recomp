@@ -1,9 +1,32 @@
 #pragma once
 
 #include <cstdint>
+#include <cstring>
 #include <type_traits>
+#include <memory>
+#include <vector>
 
 namespace xe {
+
+// Memory management
+class Memory {
+public:
+    static void* Allocate(size_t size) {
+        return std::malloc(size);
+    }
+
+    static void Free(void* ptr) {
+        std::free(ptr);
+    }
+
+    static void Copy(void* dest, const void* src, size_t size) {
+        std::memcpy(dest, src, size);
+    }
+
+    static void Zero(void* ptr, size_t size) {
+        std::memset(ptr, 0, size);
+    }
+};
 
 // Byte swapping functions
 template<typename T>
@@ -64,30 +87,35 @@ private:
     T value_;
 };
 
-} // namespace xe
-
-// Size assertion macro
-#define static_assert_size(type, size) \
-    static_assert(sizeof(type) == size, "Size of " #type " != " #size)
-
-#include "xenia/base/memory.h"
-
-// Bring xe::be into scope
-using xe::be;
-
 // Xbox types and structures
 struct X_STATUS {
     uint32_t value;
 };
 
+struct X_UNICODE_STRING {
+    be<uint16_t> length;          // 0x0
+    be<uint16_t> maximum_length;  // 0x2
+    be<uint32_t> pointer;         // 0x4
+
+    void reset() {
+        length = 0;
+        maximum_length = 0;
+        pointer = 0;
+    }
+};
+static_assert(sizeof(X_UNICODE_STRING) == 8, "Size of X_UNICODE_STRING must be 8 bytes");
+
 struct X_IO_STATUS_BLOCK {
-    xe::be<uint32_t> result;              // 0x0
-    xe::be<uint32_t> length;              // 0x4
-    xe::be<uint32_t> context;             // 0x8
-    xe::be<uint32_t> event;               // 0xC
-    xe::be<uint32_t> completion_routine;  // 0x10
-    xe::be<uint32_t> completion_context;  // 0x14
-    xe::be<uint32_t> extended_error;      // 0x18
+    be<uint32_t> result;              // 0x0
+    be<uint32_t> length;              // 0x4
+    be<uint32_t> context;             // 0x8
+    be<uint32_t> event;               // 0xC
+    be<uint32_t> completion_routine;  // 0x10
+    be<uint32_t> completion_context;  // 0x14
+    be<uint32_t> extended_error;      // 0x18
 };
 
-// ... existing code ... 
+} // namespace xe
+
+// Bring xe::be into scope
+using xe::be; 

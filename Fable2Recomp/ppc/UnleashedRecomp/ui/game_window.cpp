@@ -15,7 +15,7 @@ bool m_isResizing = false;
 int Window_OnSDLEvent(void*, SDL_Event* event)
 {
     if (ImGui::GetIO().BackendPlatformUserData != nullptr)
-        ImGui_ImplSDL2_ProcessEvent(event);
+        ImGui_ImplSDL3_ProcessEvent(event);
 
     for (auto listener : GetEventListeners())
     {
@@ -27,11 +27,11 @@ int Window_OnSDLEvent(void*, SDL_Event* event)
 
     switch (event->type)
     {
-        case SDL_QUIT:
+        case SDL_EVENT_QUIT:
             App::Exit();
             break;
 
-        case SDL_KEYDOWN:
+        case SDL_EVENT_KEY_DOWN:
         {
             switch (event->key.keysym.sym)
             {
@@ -79,7 +79,7 @@ int Window_OnSDLEvent(void*, SDL_Event* event)
             break;
         }
 
-        case SDL_KEYUP:
+        case SDL_EVENT_KEY_UP:
         {
             switch (event->key.keysym.sym)
             {
@@ -90,49 +90,50 @@ int Window_OnSDLEvent(void*, SDL_Event* event)
             }
         }
 
-        case SDL_WINDOWEVENT:
+        case SDL_EVENT_WINDOW_CLOSE_REQUESTED:
         {
-            switch (event->window.event)
+            if (event->window.windowID == SDL_GetWindowID(s_pWindow))
             {
-                case SDL_WINDOWEVENT_FOCUS_LOST:
-                    GameWindow::s_isFocused = false;
-                    SDL_ShowCursor(SDL_ENABLE);
-                    break;
-
-                case SDL_WINDOWEVENT_FOCUS_GAINED:
-                {
-                    GameWindow::s_isFocused = true;
-
-                    if (GameWindow::IsFullscreen())
-                        SDL_ShowCursor(GameWindow::s_isFullscreenCursorVisible ? SDL_ENABLE : SDL_DISABLE);
-
-                    break;
-                }
-
-                case SDL_WINDOWEVENT_RESTORED:
-                    Config::WindowState = EWindowState::Normal;
-                    break;
-
-                case SDL_WINDOWEVENT_MAXIMIZED:
-                    Config::WindowState = EWindowState::Maximised;
-                    break;
-
-                case SDL_WINDOWEVENT_RESIZED:
-                    m_isResizing = true;
-                    Config::WindowSize = -1;
-                    GameWindow::s_width = event->window.data1;
-                    GameWindow::s_height = event->window.data2;
-                    GameWindow::SetTitle(fmt::format("{} - [{}x{}]", GameWindow::GetTitle(), GameWindow::s_width, GameWindow::s_height).c_str());
-                    break;
-
-                case SDL_WINDOWEVENT_MOVED:
-                    GameWindow::s_x = event->window.data1;
-                    GameWindow::s_y = event->window.data2;
-                    break;
+                App::Exit();
             }
+            break;
+        }
+
+        case SDL_EVENT_WINDOW_FOCUS_LOST:
+            GameWindow::s_isFocused = false;
+            SDL_ShowCursor(SDL_ENABLE);
+            break;
+
+        case SDL_EVENT_WINDOW_FOCUS_GAINED:
+        {
+            GameWindow::s_isFocused = true;
+
+            if (GameWindow::IsFullscreen())
+                SDL_ShowCursor(GameWindow::s_isFullscreenCursorVisible ? SDL_ENABLE : SDL_DISABLE);
 
             break;
         }
+
+        case SDL_EVENT_WINDOW_RESTORED:
+            Config::WindowState = EWindowState::Normal;
+            break;
+
+        case SDL_EVENT_WINDOW_MAXIMIZED:
+            Config::WindowState = EWindowState::Maximised;
+            break;
+
+        case SDL_EVENT_WINDOW_RESIZED:
+            m_isResizing = true;
+            Config::WindowSize = -1;
+            GameWindow::s_width = event->window.data1;
+            GameWindow::s_height = event->window.data2;
+            GameWindow::SetTitle(fmt::format("{} - [{}x{}]", GameWindow::GetTitle(), GameWindow::s_width, GameWindow::s_height).c_str());
+            break;
+
+        case SDL_EVENT_WINDOW_MOVED:
+            GameWindow::s_x = event->window.data1;
+            GameWindow::s_y = event->window.data2;
+            break;
 
         case SDL_USER_EVILSONIC:
             GameWindow::s_isIconNight = event->user.code;
@@ -160,7 +161,7 @@ void GameWindow::Init(const char* sdlVideoDriver)
     if (videoDriverName)
         LOGFN("SDL video driver: \"{}\"", videoDriverName);
 
-    SDL_EventState(SDL_SYSWMEVENT, SDL_ENABLE);
+    SDL_EventState(SDL_EVENT_SYSWM, SDL_ENABLE);
     SDL_AddEventWatch(Window_OnSDLEvent, s_pWindow);
 
 #ifdef _WIN32
@@ -190,8 +191,8 @@ void GameWindow::Init(const char* sdlVideoDriver)
     SDL_SetWindowMinimumSize(s_pWindow, MIN_WIDTH, MIN_HEIGHT);
 
     SDL_SysWMinfo info;
-    SDL_VERSION(&info.version);
-    SDL_GetWindowWMInfo(s_pWindow, &info);
+    SDL_GetVersion(&info.version);
+    SDL_GetWindowWMInfo(s_pWindow, &info, SDL_SYSWM_CURRENT_VERSION);
 
 #if defined(_WIN32)
     s_renderWindow = info.info.win.window;
@@ -237,7 +238,7 @@ void GameWindow::Update()
 SDL_Surface* GameWindow::GetIconSurface(void* pIconBmp, size_t iconSize)
 {
     auto rw = SDL_RWFromMem(pIconBmp, iconSize);
-    auto surface = SDL_LoadBMP_RW(rw, 1);
+    auto surface = SDL_LoadBMP_RW(rw, SDL_TRUE);
 
     if (!surface)
         LOGF_ERROR("Failed to load icon: {}", SDL_GetError());
@@ -314,11 +315,13 @@ bool GameWindow::SetFullscreen(bool isEnabled)
     {
         SDL_SetWindowFullscreen(s_pWindow, SDL_WINDOW_FULLSCREEN_DESKTOP);
         SDL_ShowCursor(s_isFullscreenCursorVisible ? SDL_ENABLE : SDL_DISABLE);
+        SDL_SendWindowEvent(s_pWindow, SDL_EVENT_WINDOW_FULLSCREEN_ENTERED, 0, 0);
     }
     else
     {
         SDL_SetWindowFullscreen(s_pWindow, 0);
         SDL_ShowCursor(SDL_ENABLE);
+        SDL_SendWindowEvent(s_pWindow, SDL_EVENT_WINDOW_FULLSCREEN_LEFT, 0, 0);
 
         SetIcon(GameWindow::s_isIconNight);
         SetDimensions(Config::WindowWidth, Config::WindowHeight, Config::WindowX, Config::WindowY);
@@ -385,10 +388,10 @@ void GameWindow::SetDimensions(int w, int h, int x, int y)
     s_y = y;
 
     SDL_SetWindowSize(s_pWindow, w, h);
-    SDL_ResizeEvent(s_pWindow, w, h);
+    SDL_SendWindowEvent(s_pWindow, SDL_EVENT_WINDOW_RESIZED, w, h);
 
     SDL_SetWindowPosition(s_pWindow, x, y);
-    SDL_MoveEvent(s_pWindow, x, y);
+    SDL_SendWindowEvent(s_pWindow, SDL_EVENT_WINDOW_MOVED, x, y);
 }
 
 void GameWindow::ResetDimensions()
@@ -406,7 +409,7 @@ void GameWindow::ResetDimensions()
 
 uint32_t GameWindow::GetWindowFlags()
 {
-    uint32_t flags = SDL_WINDOW_HIDDEN | SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI;
+    uint32_t flags = SDL_WINDOW_HIDDEN | SDL_WINDOW_RESIZABLE | SDL_WINDOW_HIGH_PIXEL_DENSITY;
 
     if (Config::WindowState == EWindowState::Maximised)
         flags |= SDL_WINDOW_MAXIMIZED;
@@ -436,7 +439,7 @@ int GameWindow::GetDisplayCount()
 
 int GameWindow::GetDisplay()
 {
-    return SDL_GetWindowDisplayIndex(s_pWindow);
+    return SDL_GetWindowDisplay(s_pWindow);
 }
 
 void GameWindow::SetDisplay(int displayIndex)
@@ -456,6 +459,7 @@ void GameWindow::SetDisplay(int displayIndex)
         SetFullscreen(false);
         SetDimensions(bounds.w, bounds.h, bounds.x, bounds.y);
         SetFullscreen(true);
+        SDL_SendWindowEvent(s_pWindow, SDL_EVENT_WINDOW_DISPLAY_CHANGED, displayIndex, 0);
     }
     else
     {
@@ -468,7 +472,7 @@ std::vector<SDL_DisplayMode> GameWindow::GetDisplayModes(bool ignoreInvalidModes
     auto result = std::vector<SDL_DisplayMode>();
     auto uniqueResolutions = std::set<std::pair<int, int>>();
     auto displayIndex = GetDisplay();
-    auto modeCount = SDL_GetNumDisplayModes(displayIndex);
+    auto modeCount = SDL_GetNumVideoDisplayModes(displayIndex);
 
     if (modeCount <= 0)
         return result;
@@ -486,7 +490,7 @@ std::vector<SDL_DisplayMode> GameWindow::GetDisplayModes(bool ignoreInvalidModes
 
                 SDL_DisplayMode desktopMode;
 
-                if (SDL_GetDesktopDisplayMode(displayIndex, &desktopMode) == 0)
+                if (SDL_GetCurrentDisplayMode(displayIndex, &desktopMode) == 0)
                 {
                     if (mode.w >= desktopMode.w || mode.h >= desktopMode.h)
                         continue;

@@ -1,2 +1,0 @@
-/usr/bin/ar qc libpatches.a CMakeFiles/patches.dir/patches.cpp.o
-/usr/bin/ranlib libpatches.a

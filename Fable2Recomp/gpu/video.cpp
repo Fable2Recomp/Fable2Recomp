@@ -1,10 +1,15 @@
+#define VK_NO_PROTOTYPES
 #include "video.h"
-#include "../stdafx.h"
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_vulkan.h>
+#include "../include/stdafx.h"
+#include "rhi/vulkan_common.h"
+#include "rhi/vulkan_interface.h"
+#include <SDL3/SDL.h>
+#include <SDL3/SDL_vulkan.h>
 #include <vulkan/vulkan.h>
 #include <array>
 #include <chrono>
+#include <numeric>
+#include "os/logger.h"
 
 // Global state initialization
 RenderState g_renderState = {};
@@ -28,6 +33,9 @@ static VkSurfaceKHR g_surface = VK_NULL_HANDLE;
 static std::unique_ptr<RenderSwapChain> g_swapChain;
 static uint32_t g_frame = 0;
 static uint32_t g_nextFrame = 1;
+
+// Global Vulkan variables
+static VkCommandBuffer g_command_buffer = VK_NULL_HANDLE;
 
 // Profiler implementation
 void Profiler::Begin() {
@@ -53,19 +61,21 @@ double Profiler::UpdateAndReturnAverage() {
     return std::accumulate(values, values + 60, 0.0) / 60;
 }
 
-bool Video::CreateHostDevice(const char* sdlVideoDriver) {
+bool Video::CreateHostDevice(const char* app_name) {
     // Initialize SDL
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
         fprintf(stderr, "SDL_Init failed: %s\n", SDL_GetError());
         return false;
     }
 
-    // Create window
+    // Create window with Vulkan support
     g_window = SDL_CreateWindow(
-        "Fable 2 Recomp",
-        SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-        s_viewportWidth, s_viewportHeight,
-        SDL_WINDOW_VULKAN | SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE
+        app_name,
+        SDL_WINDOWPOS_CENTERED,
+        SDL_WINDOWPOS_CENTERED,
+        1280,
+        720,
+        SDL_WINDOW_VULKAN | SDL_WINDOW_RESIZABLE | SDL_WINDOW_HIGH_PIXEL_DENSITY
     );
 
     if (!g_window) {
@@ -85,18 +95,20 @@ bool Video::CreateHostDevice(const char* sdlVideoDriver) {
         return false;
     }
 
-    g_device = g_interface->createDevice("");
-    if (!g_device || !g_device->isValid()) {
+    auto device = g_interface->createDevice("");
+    if (!device) {
         fprintf(stderr, "Failed to create Vulkan device\n");
         return false;
     }
+    g_device = std::unique_ptr<RenderDevice>(device);
 
     // Create command queue and pools
-    g_queue = g_device->createCommandQueue(RenderCommandListType::GRAPHICS);
-    if (!g_queue) {
+    auto queue = g_device->createCommandQueue(RenderCommandListType::GRAPHICS);
+    if (!queue) {
         fprintf(stderr, "Failed to create command queue\n");
         return false;
     }
+    g_queue = std::unique_ptr<RenderCommandQueue>(queue);
 
     // Initialize frame resources
     g_frameResources.resize(NUM_FRAMES);
@@ -105,9 +117,20 @@ bool Video::CreateHostDevice(const char* sdlVideoDriver) {
     g_queryPools.resize(NUM_FRAMES);
 
     for (size_t i = 0; i < NUM_FRAMES; i++) {
-        g_commandLists[i] = g_device->createCommandList(RenderCommandListType::GRAPHICS);
-        g_commandFences[i] = g_queue->createCommandFence();
-        g_queryPools[i] = g_device->createQueryPool(RenderQueryType::TIMESTAMP, NUM_QUERIES);
+        auto cmdList = g_device->createCommandList(RenderCommandListType::GRAPHICS);
+        if (cmdList) {
+            g_commandLists[i] = std::unique_ptr<RenderCommandList>(cmdList);
+        }
+
+        auto cmdFence = g_queue->createCommandFence();
+        if (cmdFence) {
+            g_commandFences[i] = std::unique_ptr<RenderCommandFence>(cmdFence);
+        }
+
+        auto queryPool = g_device->createQueryPool(RenderQueryType::TIMESTAMP, NUM_QUERIES);
+        if (queryPool) {
+            g_queryPools[i] = std::unique_ptr<RenderQueryPool>(queryPool);
+        }
     }
 
     // Create swapchain
@@ -185,21 +208,29 @@ void Video::EndCommandList() {
 }
 
 bool Video::CreateSwapChain() {
-    SDL_Vulkan_CreateSurface(g_window, static_cast<VkInstance>(g_interface->getNativeInterface()), &g_surface);
-    
-    g_swapChain = g_queue->createSwapChain(
+    // Create surface
+    if (!SDL_Vulkan_CreateSurface(g_window, static_cast<VkInstance>(g_interface->getNativeInterface()), nullptr, &g_surface)) {
+        return false;
+    }
+
+    auto swapChain = g_queue->createSwapChain(
         reinterpret_cast<RenderWindow>(g_window),
         NUM_FRAMES,
         RenderFormat::B8G8R8A8_UNORM,
         2  // Max frame latency
     );
 
-    if (!g_swapChain || g_swapChain->isEmpty()) {
+    if (!swapChain) {
+        return false;
+    }
+    g_swapChain = std::unique_ptr<RenderSwapChain>(swapChain);
+
+    if (g_swapChain->isEmpty()) {
         return false;
     }
 
     g_renderState.swapchainFormat = VK_FORMAT_B8G8R8A8_UNORM;
-    g_renderState.swapchainExtent = {g_swapChain->getWidth(), g_swapChain->getHeight()};
+    g_renderState.swapchainExtent = VkExtent2D{g_swapChain->getWidth(), g_swapChain->getHeight()};
     g_renderState.vsyncEnabled = true;
 
     return true;
@@ -213,7 +244,7 @@ void Video::DestroySwapChain() {
 }
 
 bool Video::InitImGui() {
-    ImGui_ImplSDL2_InitForVulkan(g_window);
+    ImGui_ImplSDL3_InitForVulkan(g_window);
     
     ImGui_ImplVulkan_InitInfo init_info = {};
     init_info.Instance = static_cast<VkInstance>(g_interface->getNativeInterface());
@@ -229,20 +260,21 @@ bool Video::InitImGui() {
     init_info.Allocator = nullptr;
     init_info.CheckVkResultFn = nullptr;
 
-    return ImGui_ImplVulkan_Init(&init_info, static_cast<VkRenderPass>(g_device->getNativeRenderPass()));
+    return ImGui_ImplVulkan_Init(&init_info);
 }
 
 void Video::ShutdownImGui() {
     ImGui_ImplVulkan_Shutdown();
-    ImGui_ImplSDL2_Shutdown();
+    ImGui_ImplSDL3_Shutdown();
     ImGui::DestroyContext();
 }
 
 void Video::RenderImGui() {
+    ImGui::Render();
     ImDrawData* draw_data = ImGui::GetDrawData();
-    if (!draw_data) return;
-
-    ImGui_ImplVulkan_RenderDrawData(draw_data, static_cast<VkCommandBuffer>(g_commandLists[g_frame]->getNativeCommandList()));
+    if (draw_data) {
+        ImGui_ImplVulkan_RenderDrawData(draw_data, g_command_buffer, VK_NULL_HANDLE);
+    }
 }
 
 void Video::Shutdown() {
@@ -250,18 +282,21 @@ void Video::Shutdown() {
     ShutdownImGui();
     DestroySwapChain();
     
-    g_queryPools.clear();
-    g_commandFences.clear();
-    g_commandLists.clear();
+    for (size_t i = 0; i < NUM_FRAMES; i++) {
+        g_queryPools[i].reset();
+        g_commandFences[i].reset();
+        g_commandLists[i].reset();
+    }
+    
     g_queue.reset();
     g_device.reset();
     g_interface.reset();
-
+    
     if (g_window) {
         SDL_DestroyWindow(g_window);
         g_window = nullptr;
     }
-
+    
     SDL_Quit();
 }
 

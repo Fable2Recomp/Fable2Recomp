@@ -105,21 +105,38 @@ int main(int argc, char** argv) {
     // Initialize logger
     os::logger::Init();
     
+    // Initialize SDL
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_GAMEPAD) < 0) {
+        std::string error = "Failed to initialize SDL: ";
+        error += SDL_GetError();
+        LOG_ERROR(error.c_str());
+        return 1;
+    }
+    
+    // Set SDL hints
+    SDL_SetHint(SDL_HINT_VIDEO_X11_NET_WM_BYPASS_COMPOSITOR, "0");
+    SDL_SetHint(SDL_HINT_RENDER_DRIVER, "vulkan");
+    SDL_SetHint(SDL_HINT_RENDER_VSYNC, "1");
+    
     // Initialize data loader
     if (!xe::DataLoader::GetInstance().Initialize("data")) {
         LOG_ERROR("Failed to initialize data loader");
+        SDL_Quit();
         return 1;
     }
     
     // Initialize GPU subsystem
     if (!gpu::Init()) {
         LOG_ERROR("Failed to initialize GPU subsystem");
+        SDL_Quit();
         return 1;
     }
     
     // Initialize UI module
     if (!ui::Init()) {
         LOG_ERROR("Failed to initialize UI module");
+        gpu::Shutdown();
+        SDL_Quit();
         return 1;
     }
     
@@ -160,6 +177,8 @@ int main(int argc, char** argv) {
     ui::Shutdown();
     gpu::Shutdown();
     kernel::Shutdown();
+    
+    SDL_Quit();
     
     return 0;
 } 

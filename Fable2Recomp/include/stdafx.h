@@ -11,14 +11,17 @@
 #include <functional>
 
 // ImGui includes
-#include "imgui/imgui.h"
-#include "imgui/imgui_internal.h"
-#include "imgui/implot.h"
-#include "imgui/backends/imgui_impl_sdl2.h"
-#include "imgui/backends/imgui_impl_opengl3.h"
+#include <imgui.h>
+#include <imgui_internal.h>
+#include "../thirdparty/ImPlot/implot.h"
 
-// DDS includes
-#include "ddspp/ddspp.h"
+// SDL includes
+#include <SDL3/SDL.h>
+#include <SDL3/SDL_opengl.h>
+
+// ImGui backend includes
+#include <backends/imgui_impl_sdl3.h>
+#include <backends/imgui_impl_vulkan.h>
 
 // ... existing code ...
 // ... existing code ...
