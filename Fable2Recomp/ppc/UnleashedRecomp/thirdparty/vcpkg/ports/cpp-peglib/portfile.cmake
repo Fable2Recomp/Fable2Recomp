@@ -1,0 +1,16 @@
+#header-only library
+vcpkg_from_github(
+    OUT_SOURCE_PATH SOURCE_PATH
+    REPO yhirose/cpp-peglib
+    REF "v${VERSION}"
+    SHA512 084e2770a6f73a66a90b43bae0f2c372c1767ca975e2ca2581f38b1828c3587bcfe400868cb5710b7546b499e516040fe33145a2c4098c15de11d384f6377bf4
+    HEAD_REF master
+)
+
+file(COPY "${SOURCE_PATH}/peglib.h" DESTINATION "${CURRENT_PACKAGES_DIR}/include")
+file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug")
+file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/lib")
+
+# Handle copyright
+file(INSTALL "${SOURCE_PATH}/LICENSE" DESTINATION "${CURRENT_PACKAGES_DIR}/share/cpp-peglib" RENAME copyright)
+

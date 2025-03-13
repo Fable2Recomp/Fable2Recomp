@@ -1,0 +1,18 @@
+{
+  "name": "lilv",
+  "version": "0.24.24",
+  "description": "Lilv is a C library for simple use of LV2 plugins in applications.",
+  "homepage": "https://drobilla.net/software/lilv",
+  "license": "ISC",
+  "supports": "!uwp",
+  "dependencies": [
+    "lv2",
+    "serd",
+    "sord",
+    "sratom",
+    {
+      "name": "vcpkg-tool-meson",
+      "host": true
+    }
+  ]
+}

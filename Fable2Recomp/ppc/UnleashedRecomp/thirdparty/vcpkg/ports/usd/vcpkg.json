@@ -1,0 +1,63 @@
+{
+  "name": "usd",
+  "version": "24.8",
+  "port-version": 1,
+  "description": "Universal Scene Description (USD) is an efficient, scalable system for authoring, reading, and streaming time-sampled scene description for interchange between graphics applications.",
+  "homepage": "https://github.com/PixarAnimationStudios/USD",
+  "license": null,
+  "supports": "!x86 & !arm & !android",
+  "dependencies": [
+    "opensubdiv",
+    "tbb",
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true
+    },
+    "zlib"
+  ],
+  "features": {
+    "materialx": {
+      "description": "Enable MaterialX support",
+      "dependencies": [
+        {
+          "name": "materialx",
+          "features": [
+            "glsl-generator",
+            "render"
+          ]
+        }
+      ]
+    },
+    "metal": {
+      "description": "Enable Metal based components",
+      "supports": "osx"
+    },
+    "openimageio": {
+      "description": "Build OpenImageIO plugin",
+      "dependencies": [
+        "openimageio"
+      ]
+    },
+    "vulkan": {
+      "description": "Enable Vulkan based components",
+      "dependencies": [
+        "opengl",
+        {
+          "name": "opensubdiv",
+          "default-features": false,
+          "features": [
+            "opengl"
+          ]
+        },
+        "shaderc",
+        "spirv-reflect",
+        "vulkan",
+        "vulkan-memory-allocator"
+      ]
+    }
+  }
+}

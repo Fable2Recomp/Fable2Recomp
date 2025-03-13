@@ -1,0 +1,35 @@
+name: CIFuzz
+on: [pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  Fuzzing:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Harden Runner
+      uses: step-security/harden-runner@cb605e52c26070c328afc4562f0b4ada7618a84e # v2.10.4
+      with:
+        egress-policy: audit
+
+    - name: Build Fuzzers
+      id: build
+      uses: google/oss-fuzz/infra/cifuzz/actions/build_fuzzers@57fe4475324c5506adbfecdcdd2917f65c86ee9e # master
+      with:
+        oss-fuzz-project-name: 'json'
+        dry-run: false
+        language: c++
+    - name: Run Fuzzers
+      uses: google/oss-fuzz/infra/cifuzz/actions/run_fuzzers@57fe4475324c5506adbfecdcdd2917f65c86ee9e # master
+      with:
+        oss-fuzz-project-name: 'json'
+        fuzz-seconds: 300
+        dry-run: false
+        language: c++
+    - name: Upload Crash
+      uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08 # v4.6.0
+      if: failure() && steps.build.outcome == 'success'
+      with:
+        name: artifacts
+        path: ./out/artifacts

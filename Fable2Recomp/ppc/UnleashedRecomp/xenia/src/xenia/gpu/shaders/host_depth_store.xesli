@@ -1,0 +1,51 @@
+/**
+ ******************************************************************************
+ * Xenia : Xbox 360 Emulator Research Project                                 *
+ ******************************************************************************
+ * Copyright 2022 Ben Vanik. All rights reserved.                             *
+ * Released under the BSD license - see LICENSE in the root for more details. *
+ ******************************************************************************
+ */
+
+#ifndef XENIA_GPU_SHADERS_HOST_DEPTH_STORE_XESLI_
+#define XENIA_GPU_SHADERS_HOST_DEPTH_STORE_XESLI_
+
+#include "../../ui/shaders/xesl.xesli"
+
+xesl_pushConstants_begin(b0, space0)
+  uint xe_host_depth_store_rectangle;
+  uint xe_host_depth_store_render_target;
+xesl_pushConstants_end
+
+#define XE_HOST_DEPTH_STORE_PUSH_CONSTANTS_BINDING \
+    xesl_pushConstants_binding(buffer(0))
+
+xesl_uint2 XeHostDepthStoreRectUnscaledOrigin(uint rect_constant) {
+  return ((xesl_uint_x2(rect_constant) >> xesl_uint2(0u, 10u)) & 0x3FFu) << 3u;
+}
+
+uint XeHostDepthStoreRectUnscaledWidthDiv8(uint rect_constant) {
+  // The width divided by 8 minus 1 is stored.
+  return ((rect_constant >> 20u) & 0x3FFu) + 1u;
+}
+
+xesl_uint2 XeHostDepthStoreRTResolutionScale(uint rt_constant) {
+  return (xesl_uint_x2(rt_constant) >> xesl_uint2(10u, 13u)) & 0x7u;
+}
+
+// As host depth is needed for at most one transfer destination per update, base
+// is not passed to the shader - (0, 0) of the render target is at 0 of the
+// destination buffer.
+
+uint XeHostDepthStoreRTPitchTiles(uint rt_constant) {
+  return rt_constant & 0x3FFu;
+}
+
+bool XeHostDepthStoreRTMsaa2xSupported(uint rt_constant) {
+  return bool((rt_constant >> 16u) & 0x1u);
+}
+
+// 40-sample columns are not swapped for addressing simplicity (because this is
+// used for depth -> depth transfers, where swapping isn't needed).
+
+#endif  // XENIA_GPU_SHADERS_HOST_DEPTH_STORE_XESLI_

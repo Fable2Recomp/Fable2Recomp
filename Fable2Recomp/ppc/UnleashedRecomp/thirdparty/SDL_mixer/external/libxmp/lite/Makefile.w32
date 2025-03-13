@@ -1,0 +1,28 @@
+# Makefile for Win32 using Watcom compiler.
+#
+# wmake -f Makefile.w32
+# - builds libxmp-lite.dll and its import lib (libxmp-lite.lib)
+#
+# wmake -f Makefile.w32 target=static
+# - builds the static library xmplite_static.lib
+#
+# To disable Impulse Tracker support :
+#	wmake -f Makefile.w32 DISABLE_IT=1
+#
+!ifndef target
+target = dll
+!endif
+
+CC = wcc386
+SYSTEM = nt
+SYSTEM_DLL = nt_dll
+
+CFLAGS = -zq -bt=nt -bm -fp5 -fpi87 -mf -oeatxh -w4 -ei -zp8
+# newer OpenWatcom versions enable W303 by default.
+CFLAGS += -wcd=303
+# -5s  :  Pentium stack calling conventions.
+# -5r  :  Pentium register calling conventions.
+CFLAGS += -5s
+CFLAGS += -I"$(%WATCOM)/h/nt" -I"$(%WATCOM)/h"
+
+!include watcom.mif
