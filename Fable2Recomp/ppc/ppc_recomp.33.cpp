@@ -444,140 +444,144 @@ PPC_FUNC_IMPL(__imp__sub_824A6298) {
 __attribute__((alias("__imp__sub_824A62A0"))) PPC_WEAK_FUNC(sub_824A62A0);
 PPC_FUNC_IMPL(__imp__sub_824A62A0) {
 	PPC_FUNC_PROLOGUE();
+	PPCRegister ctr{};
+	PPCRegister r0{};
+	PPCRegister r12{};
 	// lis r12,-32182
-	ctx.r12.s64 = -2109079552;
+	r12.s64 = -2109079552;
 	// addi r12,r12,25272
-	ctx.r12.s64 = ctx.r12.s64 + 25272;
+	r12.s64 = r12.s64 + 25272;
 	// rlwinm r0,r3,2,0,29
-	ctx.r0.u64 = __builtin_rotateleft64(ctx.r3.u32 | (ctx.r3.u64 << 32), 2) & 0xFFFFFFFC;
+	r0.u64 = __builtin_rotateleft64(ctx.r3.u32 | (ctx.r3.u64 << 32), 2) & 0xFFFFFFFC;
 	// lwzx r0,r12,r0
-	ctx.r0.u64 = PPC_LOAD_U32(ctx.r12.u32 + ctx.r0.u32);
+	r0.u64 = PPC_LOAD_U32(r12.u32 + r0.u32);
 	// mtctr r0
-	ctx.ctr.u64 = ctx.r0.u64;
+	ctr.u64 = r0.u64;
 	// bctr 
-	PPC_CALL_INDIRECT_FUNC(ctx.ctr.u32);
+	PPC_CALL_INDIRECT_FUNC(ctr.u32);
 	return;
 }
 
 __attribute__((alias("__imp__sub_824A62B8"))) PPC_WEAK_FUNC(sub_824A62B8);
 PPC_FUNC_IMPL(__imp__sub_824A62B8) {
 	PPC_FUNC_PROLOGUE();
+	PPCRegister r18{};
 	// lwz r18,25712(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25712);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25712);
 	// lwz r18,25776(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25776);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25776);
 	// lwz r18,25696(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25696);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25696);
 	// lwz r18,25904(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25904);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25904);
 	// lwz r18,25752(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25752);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25752);
 	// lwz r18,25760(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25760);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25760);
 	// lwz r18,25616(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25616);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25616);
 	// lwz r18,25608(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25608);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25608);
 	// lwz r18,25648(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25648);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25648);
 	// lwz r18,25904(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25904);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25904);
 	// lwz r18,25904(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25904);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25904);
 	// lwz r18,25512(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25512);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25512);
 	// lwz r18,25896(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25896);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25896);
 	// lwz r18,25720(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25720);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25720);
 	// lwz r18,25768(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25768);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25768);
 	// lwz r18,25656(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25656);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25656);
 	// lwz r18,25856(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25856);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25856);
 	// lwz r18,25504(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25504);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25504);
 	// lwz r18,25664(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25664);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25664);
 	// lwz r18,25904(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25904);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25904);
 	// lwz r18,25904(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25904);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25904);
 	// lwz r18,25624(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25624);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25624);
 	// lwz r18,25824(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25824);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25824);
 	// lwz r18,25832(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25832);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25832);
 	// lwz r18,25592(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25592);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25592);
 	// lwz r18,25576(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25576);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25576);
 	// lwz r18,25728(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25728);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25728);
 	// lwz r18,25632(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25632);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25632);
 	// lwz r18,25904(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25904);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25904);
 	// lwz r18,25744(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25744);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25744);
 	// lwz r18,25736(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25736);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25736);
 	// lwz r18,25880(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25880);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25880);
 	// lwz r18,25584(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25584);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25584);
 	// lwz r18,25640(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25640);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25640);
 	// lwz r18,25672(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25672);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25672);
 	// lwz r18,25520(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25520);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25520);
 	// lwz r18,25848(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25848);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25848);
 	// lwz r18,25864(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25864);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25864);
 	// lwz r18,25872(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25872);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25872);
 	// lwz r18,25816(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25816);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25816);
 	// lwz r18,25808(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25808);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25808);
 	// lwz r18,25840(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25840);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25840);
 	// lwz r18,25904(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25904);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25904);
 	// lwz r18,25600(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25600);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25600);
 	// lwz r18,25568(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25568);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25568);
 	// lwz r18,25888(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25888);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25888);
 	// lwz r18,25680(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25680);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25680);
 	// lwz r18,25688(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25688);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25688);
 	// lwz r18,25704(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25704);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25704);
 	// lwz r18,25560(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25560);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25560);
 	// lwz r18,25552(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25552);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25552);
 	// lwz r18,25904(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25904);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25904);
 	// lwz r18,25536(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25536);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25536);
 	// lwz r18,25528(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25528);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25528);
 	// lwz r18,25544(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25544);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25544);
 	// lwz r18,25792(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25792);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25792);
 	// lwz r18,25800(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25800);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25800);
 	// lwz r18,25784(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25784);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 25784);
 	// li r3,46
 	ctx.r3.s64 = 46;
 	// blr 
@@ -1037,270 +1041,274 @@ PPC_FUNC_IMPL(__imp__sub_824A6530) {
 __attribute__((alias("__imp__sub_824A6538"))) PPC_WEAK_FUNC(sub_824A6538);
 PPC_FUNC_IMPL(__imp__sub_824A6538) {
 	PPC_FUNC_PROLOGUE();
+	PPCRegister ctr{};
+	PPCRegister r0{};
+	PPCRegister r12{};
 	// lis r12,-32182
-	ctx.r12.s64 = -2109079552;
+	r12.s64 = -2109079552;
 	// addi r12,r12,25936
-	ctx.r12.s64 = ctx.r12.s64 + 25936;
+	r12.s64 = r12.s64 + 25936;
 	// rlwinm r0,r3,2,0,29
-	ctx.r0.u64 = __builtin_rotateleft64(ctx.r3.u32 | (ctx.r3.u64 << 32), 2) & 0xFFFFFFFC;
+	r0.u64 = __builtin_rotateleft64(ctx.r3.u32 | (ctx.r3.u64 << 32), 2) & 0xFFFFFFFC;
 	// lwzx r0,r12,r0
-	ctx.r0.u64 = PPC_LOAD_U32(ctx.r12.u32 + ctx.r0.u32);
+	r0.u64 = PPC_LOAD_U32(r12.u32 + r0.u32);
 	// mtctr r0
-	ctx.ctr.u64 = ctx.r0.u64;
+	ctr.u64 = r0.u64;
 	// bctr 
-	PPC_CALL_INDIRECT_FUNC(ctx.ctr.u32);
+	PPC_CALL_INDIRECT_FUNC(ctr.u32);
 	return;
 }
 
 __attribute__((alias("__imp__sub_824A6550"))) PPC_WEAK_FUNC(sub_824A6550);
 PPC_FUNC_IMPL(__imp__sub_824A6550) {
 	PPC_FUNC_PROLOGUE();
+	PPCRegister r18{};
 	// lwz r18,26428(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26428);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26428);
 	// lwz r18,26436(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26436);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26436);
 	// lwz r18,26444(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26444);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26444);
 	// lwz r18,26452(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26452);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26452);
 	// lwz r18,26460(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26460);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26460);
 	// lwz r18,26468(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26468);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26468);
 	// lwz r18,26476(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26476);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26476);
 	// lwz r18,26484(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26484);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26484);
 	// lwz r18,26492(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26492);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26492);
 	// lwz r18,26500(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26500);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26500);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,26508(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26508);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26508);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,26516(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26516);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26516);
 	// lwz r18,26524(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26524);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26524);
 	// lwz r18,26532(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26532);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26532);
 	// lwz r18,26540(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26540);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26540);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,26548(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26548);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26548);
 	// lwz r18,26556(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26556);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26556);
 	// lwz r18,26564(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26564);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26564);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,26572(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26572);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26572);
 	// lwz r18,26580(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26580);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26580);
 	// lwz r18,26588(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26588);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26588);
 	// lwz r18,26596(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26596);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26596);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,26604(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26604);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26604);
 	// lwz r18,26612(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26612);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26612);
 	// lwz r18,26620(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26620);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26620);
 	// lwz r18,26628(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26628);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26628);
 	// lwz r18,26636(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26636);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26636);
 	// lwz r18,26644(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26644);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26644);
 	// lwz r18,26652(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26652);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26652);
 	// lwz r18,26660(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26660);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26660);
 	// lwz r18,26668(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26668);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26668);
 	// lwz r18,26676(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26676);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26676);
 	// lwz r18,26684(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26684);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26684);
 	// lwz r18,26692(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26692);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26692);
 	// lwz r18,26700(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26700);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26700);
 	// lwz r18,26708(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26708);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26708);
 	// lwz r18,26716(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26716);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26716);
 	// lwz r18,26724(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26724);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26724);
 	// lwz r18,26732(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26732);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26732);
 	// lwz r18,26740(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26740);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26740);
 	// lwz r18,26748(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26748);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26748);
 	// lwz r18,26756(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26756);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26756);
 	// lwz r18,26764(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26764);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26764);
 	// lwz r18,26772(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26772);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26772);
 	// lwz r18,26780(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26780);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26780);
 	// lwz r18,26788(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26788);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26788);
 	// lwz r18,26804(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26804);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26804);
 	// lwz r18,26812(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26812);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26812);
 	// lwz r18,26820(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26820);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26820);
 	// lwz r18,26828(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26828);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26828);
 	// lwz r18,26836(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26836);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26836);
 	// lwz r18,26844(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26844);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26844);
 	// lwz r18,26852(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26852);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26852);
 	// lwz r18,26860(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26860);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26860);
 	// lwz r18,26868(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26868);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26868);
 	// lwz r18,26876(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26876);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26876);
 	// lwz r18,26884(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26884);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26884);
 	// lwz r18,26892(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26892);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26892);
 	// lwz r18,26900(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26900);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26900);
 	// lwz r18,26908(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26908);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26908);
 	// lwz r18,26916(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26916);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26916);
 	// lwz r18,26924(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26924);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26924);
 	// lwz r18,26932(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26932);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26932);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,26940(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26940);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26940);
 	// lwz r18,26948(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26948);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26948);
 	// lwz r18,26956(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26956);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26956);
 	// lwz r18,26964(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26964);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26964);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,26972(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26972);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26972);
 	// lwz r18,26980(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26980);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26980);
 	// lwz r18,26988(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26988);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26988);
 	// lwz r18,26996(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26996);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26996);
 	// lwz r18,27004(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27004);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27004);
 	// lwz r18,27012(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27012);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27012);
 	// lwz r18,27020(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27020);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27020);
 	// lwz r18,27028(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27028);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27028);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,26796(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26796);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 26796);
 	// lwz r18,27036(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27036);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27036);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,27156(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27156);
 	// lwz r18,27044(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27044);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27044);
 	// lwz r18,27052(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27052);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27052);
 	// lwz r18,27060(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27060);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27060);
 	// lwz r18,27068(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27068);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27068);
 	// lwz r18,27076(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27076);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27076);
 	// lwz r18,27084(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27084);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27084);
 	// lwz r18,27092(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27092);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27092);
 	// lwz r18,27100(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27100);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27100);
 	// lwz r18,27108(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27108);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27108);
 	// lwz r18,27148(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27148);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27148);
 	// lwz r18,27140(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27140);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27140);
 	// lwz r18,27132(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27132);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27132);
 	// lwz r18,27116(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27116);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27116);
 	// lwz r18,27124(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27124);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27124);
 	// li r3,9
 	ctx.r3.s64 = 9;
 	// blr 
@@ -2129,186 +2137,190 @@ PPC_FUNC_IMPL(__imp__sub_824A6A14) {
 __attribute__((alias("__imp__sub_824A6A20"))) PPC_WEAK_FUNC(sub_824A6A20);
 PPC_FUNC_IMPL(__imp__sub_824A6A20) {
 	PPC_FUNC_PROLOGUE();
+	PPCRegister ctr{};
+	PPCRegister r0{};
+	PPCRegister r12{};
 	// lis r12,-32182
-	ctx.r12.s64 = -2109079552;
+	r12.s64 = -2109079552;
 	// addi r12,r12,27192
-	ctx.r12.s64 = ctx.r12.s64 + 27192;
+	r12.s64 = r12.s64 + 27192;
 	// rlwinm r0,r3,2,0,29
-	ctx.r0.u64 = __builtin_rotateleft64(ctx.r3.u32 | (ctx.r3.u64 << 32), 2) & 0xFFFFFFFC;
+	r0.u64 = __builtin_rotateleft64(ctx.r3.u32 | (ctx.r3.u64 << 32), 2) & 0xFFFFFFFC;
 	// lwzx r0,r12,r0
-	ctx.r0.u64 = PPC_LOAD_U32(ctx.r12.u32 + ctx.r0.u32);
+	r0.u64 = PPC_LOAD_U32(r12.u32 + r0.u32);
 	// mtctr r0
-	ctx.ctr.u64 = ctx.r0.u64;
+	ctr.u64 = r0.u64;
 	// bctr 
-	PPC_CALL_INDIRECT_FUNC(ctx.ctr.u32);
+	PPC_CALL_INDIRECT_FUNC(ctr.u32);
 	return;
 }
 
 __attribute__((alias("__imp__sub_824A6A38"))) PPC_WEAK_FUNC(sub_824A6A38);
 PPC_FUNC_IMPL(__imp__sub_824A6A38) {
 	PPC_FUNC_PROLOGUE();
+	PPCRegister r18{};
 	// lwz r18,28148(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28148);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28148);
 	// lwz r18,27516(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27516);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27516);
 	// lwz r18,27524(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27524);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27524);
 	// lwz r18,27532(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27532);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27532);
 	// lwz r18,27540(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27540);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27540);
 	// lwz r18,27548(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27548);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27548);
 	// lwz r18,27556(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27556);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27556);
 	// lwz r18,27564(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27564);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27564);
 	// lwz r18,27572(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27572);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27572);
 	// lwz r18,28148(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28148);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28148);
 	// lwz r18,27580(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27580);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27580);
 	// lwz r18,27588(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27588);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27588);
 	// lwz r18,27596(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27596);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27596);
 	// lwz r18,27604(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27604);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27604);
 	// lwz r18,27612(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27612);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27612);
 	// lwz r18,27620(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27620);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27620);
 	// lwz r18,27628(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27628);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27628);
 	// lwz r18,27636(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27636);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27636);
 	// lwz r18,27644(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27644);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27644);
 	// lwz r18,27652(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27652);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27652);
 	// lwz r18,27660(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27660);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27660);
 	// lwz r18,27668(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27668);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27668);
 	// lwz r18,27676(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27676);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27676);
 	// lwz r18,27684(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27684);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27684);
 	// lwz r18,27692(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27692);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27692);
 	// lwz r18,27700(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27700);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27700);
 	// lwz r18,27708(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27708);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27708);
 	// lwz r18,27716(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27716);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27716);
 	// lwz r18,27724(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27724);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27724);
 	// lwz r18,27732(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27732);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27732);
 	// lwz r18,27740(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27740);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27740);
 	// lwz r18,27748(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27748);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27748);
 	// lwz r18,27756(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27756);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27756);
 	// lwz r18,27764(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27764);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27764);
 	// lwz r18,27772(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27772);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27772);
 	// lwz r18,27780(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27780);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27780);
 	// lwz r18,27788(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27788);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27788);
 	// lwz r18,27796(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27796);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27796);
 	// lwz r18,27804(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27804);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27804);
 	// lwz r18,27812(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27812);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27812);
 	// lwz r18,27820(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27820);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27820);
 	// lwz r18,27828(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27828);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27828);
 	// lwz r18,27836(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27836);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27836);
 	// lwz r18,27844(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27844);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27844);
 	// lwz r18,27852(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27852);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27852);
 	// lwz r18,27860(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27860);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27860);
 	// lwz r18,27868(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27868);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27868);
 	// lwz r18,27876(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27876);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27876);
 	// lwz r18,27884(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27884);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27884);
 	// lwz r18,27892(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27892);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27892);
 	// lwz r18,27900(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27900);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27900);
 	// lwz r18,27908(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27908);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27908);
 	// lwz r18,27916(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27916);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27916);
 	// lwz r18,27924(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27924);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27924);
 	// lwz r18,27932(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27932);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27932);
 	// lwz r18,27940(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27940);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27940);
 	// lwz r18,27948(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27948);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27948);
 	// lwz r18,27956(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27956);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27956);
 	// lwz r18,27964(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27964);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27964);
 	// lwz r18,27972(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27972);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27972);
 	// lwz r18,27980(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27980);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27980);
 	// lwz r18,27988(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27988);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27988);
 	// lwz r18,27996(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27996);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 27996);
 	// lwz r18,28004(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28004);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28004);
 	// lwz r18,28012(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28012);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28012);
 	// lwz r18,28020(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28020);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28020);
 	// lwz r18,28028(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28028);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28028);
 	// lwz r18,28036(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28036);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28036);
 	// lwz r18,28044(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28044);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28044);
 	// lwz r18,28052(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28052);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28052);
 	// lwz r18,28060(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28060);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28060);
 	// lwz r18,28068(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28068);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28068);
 	// lwz r18,28076(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28076);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28076);
 	// lwz r18,28084(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28084);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28084);
 	// lwz r18,28092(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28092);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28092);
 	// lwz r18,28100(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28100);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28100);
 	// lwz r18,28108(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28108);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28108);
 	// lwz r18,28116(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28116);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28116);
 	// lwz r18,28124(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28124);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28124);
 	// lwz r18,28132(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28132);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28132);
 	// lwz r18,28140(r10)
-	ctx.r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28140);
+	r18.u64 = PPC_LOAD_U32(ctx.r10.u32 + 28140);
 	// li r3,1
 	ctx.r3.s64 = 1;
 	// blr 
