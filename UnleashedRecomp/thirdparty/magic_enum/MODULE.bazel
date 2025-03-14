@@ -1,5 +1,0 @@
-module(
-    name = "magic_enum",
-    version = "0.9.7",
-    compatibility_level = 0,
-)

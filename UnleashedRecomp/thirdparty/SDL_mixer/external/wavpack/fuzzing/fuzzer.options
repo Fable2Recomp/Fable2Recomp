@@ -1,4 +1,0 @@
-[libfuzzer]
-detect_leaks = 1
-dict = fuzzer.dict
-

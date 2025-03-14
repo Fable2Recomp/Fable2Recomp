@@ -1,7 +1,0 @@
-brew 'opus'
-brew 'libogg'
-brew 'openssl'
-brew 'autoconf'
-brew 'automake'
-brew 'libtool'
-brew 'pkg-config'

@@ -1,1 +1,0 @@
-set(LIBXMP_SRC_LIST @SRCS@)

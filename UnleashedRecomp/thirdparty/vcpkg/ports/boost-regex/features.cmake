@@ -1,6 +1,0 @@
-vcpkg_check_features(
-  OUT_FEATURE_OPTIONS
-    FEATURE_OPTIONS
-  FEATURES
-    "icu" BOOST_REGEX_ENABLE_ICU
-)
