@@ -1,25 +1,27 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.15)
 
-# Add source files
+# Source files
 set(SOURCES
     main.cpp
 )
 
 # Create executable
-add_executable(Fable2Recomp ${SOURCES})
+add_executable(fable2 ${SOURCES})
 
 # Add include directories
-target_include_directories(Fable2Recomp
+target_include_directories(fable2
     PRIVATE
-        ${CMAKE_SOURCE_DIR}
+        ${CMAKE_SOURCE_DIR}/src
         ${CMAKE_SOURCE_DIR}/include
-        ${CMAKE_SOURCE_DIR}/thirdparty/ImGui/imgui
+        ${CMAKE_SOURCE_DIR}/thirdparty/imgui
         ${CMAKE_SOURCE_DIR}/thirdparty/ImPlot
 )
 
 # Link dependencies
-target_link_libraries(Fable2Recomp
+target_link_libraries(fable2
     PRIVATE
+        # Internal libraries
+        api
         gpu
         vfs
         assets
@@ -28,14 +30,16 @@ target_link_libraries(Fable2Recomp
         ui
         kernel
         patches
+        os
+        base
+
+        # Third-party libraries
         imgui
         implot
-        os
-        ${ZLIB_LIBRARIES}
-        ${TINYXML2_LIBRARIES}
-        ${OPENGL_LIBRARIES}
-        ${Vulkan_LIBRARIES}
         SDL3::SDL3
-        ${FMT_LIBRARIES}
-        data_loader
+        glm::glm
+        tinyxml2::tinyxml2
+        fmt::fmt
+        ${SHADERC_LIBRARIES}
+        ${Vulkan_LIBRARIES}
 ) 

@@ -1,18 +1,20 @@
 #include "stdafx.h"
 #include "xbox.h"
+#include "memory_patches.h"
 
 namespace patches {
 
 void Init() {
-    // Basic initialization
+    InitMemoryManagement();
 }
 
 void Shutdown() {
-    // Basic cleanup
+    CleanupMemoryState();
 }
 
 void Apply() {
-    // Basic patch application
+    ApplyMemoryPatches();
+    UpdateMemoryState();
 }
 
 } // namespace patches 

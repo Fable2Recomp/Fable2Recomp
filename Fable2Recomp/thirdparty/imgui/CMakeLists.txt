@@ -9,6 +9,7 @@ add_library(imgui STATIC
 target_include_directories(imgui
     PUBLIC
     ${CMAKE_SOURCE_DIR}/thirdparty
+    ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 # Find SDL2 and OpenGL

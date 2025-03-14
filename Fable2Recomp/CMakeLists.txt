@@ -1,94 +1,61 @@
-cmake_minimum_required(VERSION 3.10)
-project(Fable2Recomp)
+cmake_minimum_required(VERSION 3.15)
+project(Fable2Recomp VERSION 0.1.0 LANGUAGES C CXX)
 
 # Set C++ standard
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Add third-party dependencies in the correct order
-add_subdirectory(thirdparty/SDL)
-add_subdirectory(thirdparty/Vulkan-Headers)
-add_subdirectory(thirdparty/SPIRV-Headers)
-# glslang is handled by shaderc
-add_subdirectory(thirdparty/SPIRV-Tools)
-add_subdirectory(thirdparty/shaderc)
-add_subdirectory(thirdparty/Vulkan-MemoryAllocator)
-add_subdirectory(thirdparty/ImGui)
-add_subdirectory(thirdparty/ImPlot)
-add_subdirectory(thirdparty/GLFW)
+# Build options
+option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
+option(BUILD_TESTING "Build tests" ON)
 
-# Add include directories
-include_directories(
-    ${CMAKE_SOURCE_DIR}/include
-    ${CMAKE_SOURCE_DIR}/thirdparty
-    ${CMAKE_SOURCE_DIR}/thirdparty/vma
-    ${CMAKE_SOURCE_DIR}/thirdparty/ImGui/imgui
-    ${CMAKE_SOURCE_DIR}/thirdparty/ImPlot
-    ${CMAKE_SOURCE_DIR}/ppc/UnleashedRecomp
-    ${Vulkan_INCLUDE_DIRS}
-    ${FMT_INCLUDE_DIRS}
-)
-
-# Add subdirectories
-add_subdirectory(ppc/UnleashedRecomp/os)
-add_subdirectory(gpu)
-add_subdirectory(vfs)
-add_subdirectory(assets)
-add_subdirectory(test)
-add_subdirectory(apu)
-add_subdirectory(hid)
-add_subdirectory(ui)
-add_subdirectory(kernel)
-add_subdirectory(patches)
-
-# Add data loader module
-add_library(data_loader
-    src/data_loader.cpp
-)
-
-target_include_directories(data_loader
-    PUBLIC
-        ${CMAKE_SOURCE_DIR}/include
-)
-
-target_link_libraries(data_loader
-    PRIVATE
-        os
-)
-
-# Add source directories
-add_subdirectory(src)
+# Enable testing
+include(CTest)
+enable_testing()
 
 # Find required packages
-find_package(ZLIB REQUIRED)
-find_package(PkgConfig REQUIRED)
-find_package(OpenGL REQUIRED)
+find_package(SDL3 REQUIRED)
 find_package(Vulkan REQUIRED)
-pkg_check_modules(TINYXML2 REQUIRED tinyxml2)
-pkg_check_modules(FMT REQUIRED fmt)
+find_package(glm REQUIRED)
+find_package(tinyxml2 REQUIRED)
+find_package(fmt REQUIRED)
+find_package(GTest REQUIRED)
 
-# Add main executable
-add_executable(fable2 main.cpp)
+# Find shaderc using pkg-config
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(SHADERC REQUIRED shaderc)
 
-# Link libraries
-target_link_libraries(fable2
-    PRIVATE
-    gpu
-    vfs
-    assets
-    apu
-    hid
-    ui
-    kernel
-    patches
-    imgui
-    implot
-    os
-    ${ZLIB_LIBRARIES}
-    ${TINYXML2_LIBRARIES}
-    ${OPENGL_LIBRARIES}
-    ${Vulkan_LIBRARIES}
-    SDL3::SDL3
-    ${FMT_LIBRARIES}
-    data_loader
+# Add subdirectories for third-party libraries
+add_subdirectory(thirdparty/imgui)
+add_subdirectory(thirdparty/ImPlot)
+
+# Add source subdirectories
+add_subdirectory(src)
+add_subdirectory(src/api)
+add_subdirectory(src/base)
+add_subdirectory(src/gpu)
+add_subdirectory(src/vfs)
+add_subdirectory(src/assets)
+add_subdirectory(src/apu)
+add_subdirectory(src/hid)
+add_subdirectory(src/ui)
+add_subdirectory(src/kernel)
+add_subdirectory(src/patches)
+add_subdirectory(src/os)
+
+if(BUILD_TESTING)
+    add_subdirectory(tests)
+endif()
+
+# Set output directories
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+
+# Install rules
+install(TARGETS fable2
+    RUNTIME DESTINATION bin
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
 )

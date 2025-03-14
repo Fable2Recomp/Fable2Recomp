@@ -2,8 +2,173 @@
 #include <tinyxml2.h>
 #include <filesystem>
 #include <iostream>
+#include "stdafx.h"
+#include "os/logger.h"
+#include <fstream>
 
+namespace xe {
 namespace vfs {
+
+FileSystem& FileSystem::GetInstance() {
+    static FileSystem instance;
+    return instance;
+}
+
+bool FileSystem::MountDirectory(const std::string& path) {
+    std::filesystem::path fs_path(path);
+    if (!std::filesystem::exists(fs_path) || !std::filesystem::is_directory(fs_path)) {
+        LOG_ERROR("Invalid mount path: {}", path);
+        return false;
+    }
+    
+    m_mount_points[path] = fs_path;
+    LOG_INFO("Mounted directory: {}", path);
+    return true;
+}
+
+bool FileSystem::UnmountDirectory(const std::string& path) {
+    auto it = m_mount_points.find(path);
+    if (it == m_mount_points.end()) {
+        LOG_ERROR("Directory not mounted: {}", path);
+        return false;
+    }
+    
+    m_mount_points.erase(it);
+    LOG_INFO("Unmounted directory: {}", path);
+    return true;
+}
+
+bool FileSystem::ReadFile(const std::string& path, std::vector<uint8_t>& out_data) {
+    // Check cache first
+    auto cache_it = m_file_cache.find(path);
+    if (cache_it != m_file_cache.end()) {
+        out_data = cache_it->second;
+        return true;
+    }
+    
+    // Try to find file in mounted directories
+    for (const auto& [mount_point, fs_path] : m_mount_points) {
+        std::filesystem::path full_path = fs_path / path;
+        if (std::filesystem::exists(full_path)) {
+            std::ifstream file(full_path, std::ios::binary);
+            if (!file) {
+                LOG_ERROR("Failed to open file: {}", full_path.string());
+                continue;
+            }
+            
+            file.seekg(0, std::ios::end);
+            size_t size = file.tellg();
+            file.seekg(0, std::ios::beg);
+            
+            out_data.resize(size);
+            file.read(reinterpret_cast<char*>(out_data.data()), size);
+            
+            // Cache the file data
+            m_file_cache[path] = out_data;
+            return true;
+        }
+    }
+    
+    LOG_ERROR("File not found: {}", path);
+    return false;
+}
+
+bool FileSystem::WriteFile(const std::string& path, const std::vector<uint8_t>& data) {
+    // Try to write to first mounted directory
+    if (m_mount_points.empty()) {
+        LOG_ERROR("No mounted directories");
+        return false;
+    }
+    
+    auto first_mount = m_mount_points.begin();
+    std::filesystem::path full_path = first_mount->second / path;
+    
+    std::ofstream file(full_path, std::ios::binary);
+    if (!file) {
+        LOG_ERROR("Failed to open file for writing: {}", full_path.string());
+        return false;
+    }
+    
+    file.write(reinterpret_cast<const char*>(data.data()), data.size());
+    
+    // Update cache
+    m_file_cache[path] = data;
+    return true;
+}
+
+bool FileSystem::FileExists(const std::string& path) {
+    // Check cache first
+    if (m_file_cache.find(path) != m_file_cache.end()) {
+        return true;
+    }
+    
+    // Check mounted directories
+    for (const auto& [mount_point, fs_path] : m_mount_points) {
+        std::filesystem::path full_path = fs_path / path;
+        if (std::filesystem::exists(full_path) && std::filesystem::is_regular_file(full_path)) {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
+bool FileSystem::DirectoryExists(const std::string& path) {
+    for (const auto& [mount_point, fs_path] : m_mount_points) {
+        std::filesystem::path full_path = fs_path / path;
+        if (std::filesystem::exists(full_path) && std::filesystem::is_directory(full_path)) {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
+std::vector<std::string> FileSystem::ListDirectory(const std::string& path) {
+    std::vector<std::string> result;
+    
+    for (const auto& [mount_point, fs_path] : m_mount_points) {
+        std::filesystem::path full_path = fs_path / path;
+        if (!std::filesystem::exists(full_path) || !std::filesystem::is_directory(full_path)) {
+            continue;
+        }
+        
+        for (const auto& entry : std::filesystem::directory_iterator(full_path)) {
+            result.push_back(entry.path().filename().string());
+        }
+    }
+    
+    return result;
+}
+
+// Global function implementations
+bool MountDirectory(const std::string& path) {
+    return FileSystem::GetInstance().MountDirectory(path);
+}
+
+bool UnmountDirectory(const std::string& path) {
+    return FileSystem::GetInstance().UnmountDirectory(path);
+}
+
+bool ReadFile(const std::string& path, std::vector<uint8_t>& out_data) {
+    return FileSystem::GetInstance().ReadFile(path, out_data);
+}
+
+bool WriteFile(const std::string& path, const std::vector<uint8_t>& data) {
+    return FileSystem::GetInstance().WriteFile(path, data);
+}
+
+bool FileExists(const std::string& path) {
+    return FileSystem::GetInstance().FileExists(path);
+}
+
+bool DirectoryExists(const std::string& path) {
+    return FileSystem::GetInstance().DirectoryExists(path);
+}
+
+std::vector<std::string> ListDirectory(const std::string& path) {
+    return FileSystem::GetInstance().ListDirectory(path);
+}
 
 bool VirtualFileSystem::LoadConfig(const ::std::string& config_path) {
     tinyxml2::XMLDocument doc;
@@ -169,4 +334,5 @@ bool VirtualFileSystem::ValidateConfig() const {
     return true;
 }
 
-} // namespace vfs 
+} // namespace vfs
+} // namespace xe 

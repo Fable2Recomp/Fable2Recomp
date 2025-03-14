@@ -19,28 +19,18 @@ else()
 endif()
 
 # Add GPU library
-add_library(gpu STATIC
-    gpu.cpp
-    gpu.h
-    video.cpp
-    video.h
-    shader/shader_bank.cpp
-    # rhi/vulkan_interface.cpp  # Commenting out to avoid duplicate implementation
-    rhi/plume_vulkan.cpp
+add_library(gpu
+    src/gpu/gpu.cpp
 )
 
 target_include_directories(gpu
     PUBLIC
-    ${CMAKE_SOURCE_DIR}/include
-    ${CMAKE_CURRENT_SOURCE_DIR}
-    ${CMAKE_SOURCE_DIR}/thirdparty/imgui
+        ${CMAKE_SOURCE_DIR}/include
+        ${CMAKE_SOURCE_DIR}/src
 )
 
 target_link_libraries(gpu
-    PUBLIC
-    imgui
-    Vulkan::Vulkan
-    SDL3::SDL3
-    ${FMT_LIBRARIES}
-    os
+    PRIVATE
+        SDL3::SDL3
+        Vulkan::Vulkan
 ) 

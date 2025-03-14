@@ -19,17 +19,19 @@
 // - Introduction, links and more at the top of imgui.cpp
 
 #pragma once
-#include "../imgui.h"      // IMGUI_IMPL_API
-#include <SDL2/SDL.h>
 
-#ifndef IMGUI_DISABLE
+#include "../imgui.h"      // IMGUI_IMPL_API
+#include "../imgui_internal.h"
+#include <SDL2/SDL.h>
 
 struct SDL_Window;
 struct SDL_Renderer;
-struct _SDL_GameController;
-typedef union SDL_Event SDL_Event;
+typedef struct _SDL_GameController SDL_GameController;
 
-// Follow "Getting Started" link and check examples/ folder to learn about using backends!
+#ifndef IMGUI_DISABLE
+
+// Backend API
+IMGUI_IMPL_API bool     ImGui_ImplSDL2_Init(SDL_Window* window, void* sdl_gl_context);
 IMGUI_IMPL_API bool     ImGui_ImplSDL2_InitForOpenGL(SDL_Window* window, void* sdl_gl_context);
 IMGUI_IMPL_API bool     ImGui_ImplSDL2_InitForVulkan(SDL_Window* window);
 IMGUI_IMPL_API bool     ImGui_ImplSDL2_InitForD3D(SDL_Window* window);
@@ -40,9 +42,42 @@ IMGUI_IMPL_API void     ImGui_ImplSDL2_Shutdown();
 IMGUI_IMPL_API void     ImGui_ImplSDL2_NewFrame();
 IMGUI_IMPL_API bool     ImGui_ImplSDL2_ProcessEvent(const SDL_Event* event);
 
-// Gamepad selection automatically starts in AutoFirst mode, picking first available SDL_Gamepad. You may override this.
-// When using manual mode, caller is responsible for opening/closing gamepad.
-enum ImGui_ImplSDL2_GamepadMode { ImGui_ImplSDL2_GamepadMode_AutoFirst, ImGui_ImplSDL2_GamepadMode_AutoAll, ImGui_ImplSDL2_GamepadMode_Manual };
-IMGUI_IMPL_API void     ImGui_ImplSDL2_SetGamepadMode(ImGui_ImplSDL2_GamepadMode mode, struct _SDL_GameController** manual_gamepads_array = nullptr, int manual_gamepads_count = -1);
+// Gamepad selection mode
+enum ImGui_ImplSDL2_GamepadMode
+{
+    ImGui_ImplSDL2_GamepadMode_AutoFirst,  // Use first gamepad that's detected
+    ImGui_ImplSDL2_GamepadMode_AutoAll,    // Use all gamepads that are detected
+    ImGui_ImplSDL2_GamepadMode_Manual      // Use specific gamepads set with SetGamepadManual
+};
+
+// Internal data
+struct ImGui_ImplSDL2_Data
+{
+    SDL_Window*     Window;
+    Uint32         WindowID;
+    SDL_Renderer*  Renderer;
+    Uint64         Time;
+    Uint32         MouseWindowID;
+    bool           MouseCanUseGlobalState;
+    bool           MousePressed[5];
+    SDL_Cursor*    MouseCursors[ImGui::ImGuiMouseCursor_COUNT];
+    SDL_Cursor*    MouseLastCursor;
+    int            MouseButtonsDown;
+    int            MouseLastLeaveFrame;
+    char*          ClipboardTextData;
+    bool           UseVulkan;
+    bool           MouseCanReportHoveredViewport;
+
+    // Gamepad handling
+    ImGui_ImplSDL2_GamepadMode    GamepadMode;
+    bool                          WantUpdateGamepadsList;
+    SDL_GameController**          GamepadsList;
+    int                          GamepadsCount;
+
+    ImGui_ImplSDL2_Data() { memset((void*)this, 0, sizeof(*this)); }
+};
+
+// Gamepad functions
+IMGUI_IMPL_API void ImGui_ImplSDL2_SetGamepadMode(ImGui_ImplSDL2_GamepadMode mode, SDL_GameController** manual_gamepads_array = nullptr, int manual_gamepads_count = 0);
 
 #endif // #ifndef IMGUI_DISABLE

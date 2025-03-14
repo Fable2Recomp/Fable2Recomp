@@ -1,96 +1,92 @@
 #include "imgui.h"
-#include <cstdio>
-#include <cstdarg>
+#include <cstring>
 
 namespace ImGui {
 
-static ImGuiIO s_io;
-static void* s_context = nullptr;
-static ImDrawData s_draw_data;
+// Global state
+static ImGuiIO g_IO;
+static ImDrawData g_DrawData;
+static void* g_Context = nullptr;
 
 void* CreateContext() {
-    s_context = new char[1]; // Dummy context
-    return s_context;
+    if (!g_Context) {
+        g_Context = new int(0); // Just a dummy pointer
+        StyleColorsDark();
+    }
+    return g_Context;
 }
 
 void DestroyContext(void* ctx) {
-    if (ctx == s_context || ctx == nullptr) {
-        delete[] static_cast<char*>(s_context);
-        s_context = nullptr;
+    if (g_Context) {
+        delete static_cast<int*>(g_Context);
+        g_Context = nullptr;
     }
 }
 
 void StyleColorsDark() {
-    // Dummy implementation
+    // Nothing to do for now
 }
 
 ImGuiIO& GetIO() {
-    return s_io;
+    return g_IO;
 }
 
 ImDrawData* GetDrawData() {
-    return &s_draw_data;
+    return &g_DrawData;
 }
 
 bool Begin(const char* name) {
-    printf("Begin window: %s\n", name);
-    return true;
+    return true; // Always succeed for now
 }
 
 void End() {
-    // Dummy implementation
+    // Nothing to do for now
 }
 
 void ShowDemoWindow(bool* p_open) {
-    if (p_open) *p_open = true;
+    // Not implemented in minimal version
 }
 
 void ShowMetricsWindow(bool* p_open) {
-    if (p_open) *p_open = true;
+    // Not implemented in minimal version
 }
 
 void NewFrame() {
-    // Dummy implementation
+    // Reset draw data
+    memset(&g_DrawData, 0, sizeof(g_DrawData));
+    g_DrawData.Valid = true;
 }
 
 void Render() {
-    // Dummy implementation
+    // Nothing to do for now
 }
 
 bool BeginMainMenuBar() {
-    return true;
+    return true; // Always succeed for now
 }
 
 void EndMainMenuBar() {
-    // Dummy implementation
+    // Nothing to do for now
 }
 
 bool BeginMenu(const char* label) {
-    printf("Begin menu: %s\n", label);
-    return true;
+    return true; // Always succeed for now
 }
 
 void EndMenu() {
-    // Dummy implementation
+    // Nothing to do for now
 }
 
 bool MenuItem(const char* label, const char* shortcut, bool* p_selected) {
-    printf("Menu item: %s\n", label);
-    if (p_selected) *p_selected = true;
-    return false;
+    return true; // Always succeed for now
 }
 
 void Text(const char* fmt, ...) {
-    va_list args;
-    va_start(args, fmt);
-    vprintf(fmt, args);
-    va_end(args);
-    printf("\n");
+    // Not implemented in minimal version
 }
 
 bool Button(const char* label) {
-    printf("Button: %s\n", label);
-    return false;
+    return false; // Always return false for now
 }
 
 } // namespace ImGui 

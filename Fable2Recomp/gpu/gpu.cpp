@@ -38,8 +38,6 @@ bool Init() {
     // Create window
     window = SDL_CreateWindow(
         "Fable 2 Recompiled",
-        SDL_WINDOWPOS_CENTERED,
-        SDL_WINDOWPOS_CENTERED,
         1280,
         720,
         SDL_WINDOW_VULKAN | SDL_WINDOW_RESIZABLE | SDL_WINDOW_HIGH_PIXEL_DENSITY

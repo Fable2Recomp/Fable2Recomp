@@ -1,165 +1,75 @@
 #include "stdafx.h"
-#include "xbox.h"
-#include "gpu/gpu.h"
 #include "os/logger.h"
-#include "vfs/vfs.h"
-#include "data_loader.h"
-#include <iostream>
+#include "kernel/kernel.h"
+#include "cpu/ppc_integration.h"
+#include "gpu/video.h"
+#include "apu/audio.h"
+#include "hid/hid.h"
+#include "ui/game_window.h"
+#include "user/config.h"
 
-using namespace xe;
-
-// Forward declarations
-namespace kernel { void Init(); void Shutdown(); }
-namespace hid { void Init(); void Shutdown(); }
-namespace ui { bool Init(); void Shutdown(); void Update(); void Render(); }
-namespace patches { void Init(); void Shutdown(); void Apply(); }
-namespace gpu { bool Init(); void Shutdown(); void Update(); void Render(); SDL_Window* GetWindow(); }
-namespace apu { void Init(); void Shutdown(); void Update(); }
-
-// Global running flag that can be accessed by other components
-namespace {
-    bool g_running = true;
-}
-
-// Getter/setter for the running flag
-bool* GetRunningFlag() {
-    return &g_running;
-}
-
-void TestAssetLoading() {
-    auto& data_loader = xe::DataLoader::GetInstance();
+int main(int argc, char* argv[]) {
+    // Initialize logger first
+    xe::Logger::Initialize();
+    LOG_INFO("Fable 2 Recompilation starting...");
     
-    // Test loading startup config
-    std::vector<uint8_t> startup_data;
-    if (data_loader.LoadFile("startup.vfsconfig", startup_data)) {
-        LOG("Startup config loaded successfully");
-        LOGF("Startup config size: {} bytes", startup_data.size());
-    } else {
-        LOG_ERROR("Failed to load startup config");
-    }
-    
-    // Test loading game scripts
-    std::vector<uint8_t> scripts_data;
-    if (data_loader.LoadFile("gamescripts.bnk", scripts_data)) {
-        LOG("Game scripts loaded successfully");
-        LOGF("Game scripts size: {} bytes", scripts_data.size());
-    } else {
-        LOG_ERROR("Failed to load game scripts");
-    }
-    
-    // Test loading script file
-    std::string script_content;
-    if (data_loader.LoadScript("main.lua", script_content)) {
-        LOG("Script file loaded successfully");
-        LOGF("Script content length: {} characters", script_content.length());
-    } else {
-        LOG_ERROR("Failed to load script file");
-    }
-    
-    // Test loading world data
-    std::vector<uint8_t> world_data;
-    if (data_loader.LoadWorldData("world.bin", world_data)) {
-        LOG("World data loaded successfully");
-        LOGF("World data size: {} bytes", world_data.size());
-    } else {
-        LOG_ERROR("Failed to load world data");
-    }
-    
-    // Test loading recompiled code
-    if (data_loader.LoadRecompiledCode("recompiled.bin")) {
-        LOG("Recompiled code loaded successfully");
-        const auto& code_data = data_loader.GetRecompiledCode("recompiled.bin");
-        LOGF("Recompiled code size: {} bytes", code_data.size());
-    } else {
-        LOG_ERROR("Failed to load recompiled code");
-    }
-    
-    // Test loading Xbox-specific data
-    xe::X_FILE_ATTRIBUTES attrs = static_cast<xe::X_FILE_ATTRIBUTES>(0);
-    if (data_loader.LoadXboxFile("test.xbe", &attrs)) {
-        LOG("Xbox file attributes loaded successfully");
-    } else {
-        LOG_ERROR("Failed to load Xbox file attributes");
-    }
-    
-    // Initialize a Unicode string structure
-    xe::X_UNICODE_STRING unicode_str;
-    unicode_str.reset();
-    if (data_loader.LoadXboxString("test.txt", &unicode_str)) {
-        LOG("Xbox Unicode string loaded successfully");
-    } else {
-        LOG_ERROR("Failed to load Xbox Unicode string");
-    }
-    
-    // Initialize an overlapped structure
-    xe::X_IO_STATUS_BLOCK overlapped_data;
-    std::memset(&overlapped_data, 0, sizeof(xe::X_IO_STATUS_BLOCK));
-    if (data_loader.LoadXboxOverlapped("test.ovl", &overlapped_data)) {
-        LOG("Xbox overlapped structure loaded successfully");
-    } else {
-        LOG_ERROR("Failed to load Xbox overlapped structure");
-    }
-}
-
-int main(int argc, char** argv) {
-    // Initialize logger
-    os::logger::Init();
-    
-    // Initialize data loader
-    if (!xe::DataLoader::GetInstance().Initialize("data")) {
-        LOG_ERROR("Failed to initialize data loader");
+    // Initialize subsystems
+    if (!xe::Kernel::Initialize()) {
+        LOG_ERROR("Failed to initialize kernel");
         return 1;
     }
     
-    // Initialize GPU subsystem
-    if (!gpu::Init()) {
-        LOG_ERROR("Failed to initialize GPU subsystem");
+    if (!xe::PPCIntegration::Initialize()) {
+        LOG_ERROR("Failed to initialize PPC integration");
         return 1;
     }
     
-    // Initialize UI module
-    if (!ui::Init()) {
-        LOG_ERROR("Failed to initialize UI module");
+    if (!xe::Video::Initialize()) {
+        LOG_ERROR("Failed to initialize video");
         return 1;
     }
     
-    // Initialize other subsystems
-    kernel::Init();
-    hid::Init();
-    patches::Init();
-    apu::Init();
+    if (!xe::Audio::Initialize()) {
+        LOG_ERROR("Failed to initialize audio");
+        return 1;
+    }
     
-    // Test asset loading
-    TestAssetLoading();
+    if (!xe::HID::Initialize()) {
+        LOG_ERROR("Failed to initialize HID");
+        return 1;
+    }
     
-    // Main loop
+    if (!xe::GameWindow::Initialize()) {
+        LOG_ERROR("Failed to initialize game window");
+        return 1;
+    }
+    
+    // Main game loop
     bool running = true;
     while (running) {
-        // Process events
-        SDL_Event event;
-        while (SDL_PollEvent(&event)) {
-            if (event.type == SDL_EVENT_QUIT) {
-                running = false;
-            }
-        }
-        
         // Update subsystems
-        apu::Update();
-        gpu::Update();
-        ui::Update();
+        xe::Kernel::Update();
+        xe::PPCIntegration::Update();
+        xe::Video::Update();
+        xe::Audio::Update();
+        xe::HID::Update();
         
-        // Render frame
-        gpu::Render();
-        ui::Render();
+        // Update game window
+        if (!xe::GameWindow::Update()) {
+            running = false;
+        }
     }
     
-    // Cleanup
-    apu::Shutdown();
-    patches::Shutdown();
-    hid::Shutdown();
-    ui::Shutdown();
-    gpu::Shutdown();
-    kernel::Shutdown();
+    // Shutdown subsystems
+    xe::GameWindow::Shutdown();
+    xe::HID::Shutdown();
+    xe::Audio::Shutdown();
+    xe::Video::Shutdown();
+    xe::PPCIntegration::Shutdown();
+    xe::Kernel::Shutdown();
+    
+    // Shutdown logger last
+    xe::Logger::Shutdown();
     
     return 0;
 } 

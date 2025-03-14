@@ -2,26 +2,62 @@
 
 // Standard library includes
 #include <cstdint>
-#include <cstdlib>
+#include <cstddef>
 #include <cstring>
+#include <cstdio>
+#include <cstdlib>
+#include <cassert>
 #include <memory>
 #include <string>
 #include <vector>
-#include <map>
 #include <unordered_map>
-#include <algorithm>
+#include <map>
+#include <set>
+#include <queue>
+#include <deque>
+#include <list>
+#include <array>
+#include <tuple>
 #include <functional>
-#include <iostream>
+#include <thread>
+#include <mutex>
+#include <condition_variable>
+#include <atomic>
+#include <chrono>
+#include <filesystem>
 #include <fstream>
 #include <sstream>
+#include <iomanip>
+#include <algorithm>
+#include <numeric>
+#include <type_traits>
+#include <utility>
+#include <variant>
+#include <optional>
+#include <span>
 
 // Third-party includes
-#include <SDL3/SDL.h>
-#include "gpu/rhi/vulkan_common.h"
-#include "../thirdparty/ImGui/imgui/imgui.h"
-#include "../thirdparty/ImPlot/implot.h"
-#include "../thirdparty/ImGui/imgui/backends/imgui_impl_sdl3.h"
-#include "../thirdparty/ImGui/imgui/backends/imgui_impl_vulkan.h"
+#include <SDL.h>
+#include <vulkan/vulkan.h>
+#include <imgui.h>
+#include <implot.h>
+#include <json.hpp>
+#include <magic_enum.hpp>
+#include <stb_image.h>
+#include <stb_image_write.h>
+#include <stb_truetype.h>
+#include <volk.h>
+
+// Project includes
+#include "os/logger.h"
+#include "kernel/kernel.h"
+#include "cpu/ppc_integration.h"
+#include "gpu/video.h"
+#include "apu/audio.h"
+#include "hid/hid.h"
+#include "patches/memory_patches.h"
+#include "ui/game_window.h"
+#include "user/config.h"
 
 // Common types
 using u8 = uint8_t;
