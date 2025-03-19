@@ -22,6 +22,7 @@
 // Forward declaration of the running flag getter
 bool* GetRunningFlag();
 
+namespace fable2 {
 namespace gpu {
 
 SDL_Window* window = nullptr;
@@ -173,4 +174,5 @@ VkPhysicalDevice GetPhysicalDevice() {
     return static_cast<VkPhysicalDevice>(render_device->getNativePhysicalDevice());
 }
 
-} // namespace gpu 
+} // namespace gpu
+} // namespace fable2 

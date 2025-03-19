@@ -2,21 +2,64 @@
     "name": "fable2recomp",
     "version": "0.1.0",
     "dependencies": [
-        "sdl3",
-        "vulkan",
-        "glm",
-        "tinyxml2",
-        "fmt",
-        "gtest",
-        "shaderc",
-        "imgui",
-        "implot"
+        {
+            "name": "sdl3",
+            "version>=": "3.2.8"
+        },
+        {
+            "name": "vulkan",
+            "version>=": "2023-12-17"
+        },
+        {
+            "name": "glm",
+            "version>=": "0.9.9.8#2"
+        },
+        {
+            "name": "tinyxml2",
+            "version>=": "9.0.0#2"
+        },
+        {
+            "name": "fmt",
+            "version>=": "10.2.1"
+        },
+        {
+            "name": "gtest",
+            "version>=": "1.14.0"
+        },
+        {
+            "name": "shaderc",
+            "version>=": "2023.7"
+        },
+        {
+            "name": "imgui",
+            "version>=": "1.91.9"
+        },
+        {
+            "name": "implot",
+            "version>=": "0.16"
+        },
+        {
+            "name": "zlib",
+            "version>=": "1.3.1"
+        },
+        {
+            "name": "pkgconf",
+            "version>=": "2.1.0"
+        }
     ],
-    "builtin-baseline": "2024-03-19",
+    "builtin-baseline": "b02e341c927f16d991edbd915d8ea43eac52096c",
     "overrides": [
         {
             "name": "sdl3",
-            "version": "3.0.0"
+            "version": "3.2.8"
+        },
+        {
+            "name": "imgui",
+            "version": "1.91.9"
+        },
+        {
+            "name": "vulkan",
+            "version": "2023-12-17"
         }
     ]
 } 

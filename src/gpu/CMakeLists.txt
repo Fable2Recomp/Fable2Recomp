@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 
 # Enable Vulkan Validation Layers (Debug Mode Only)
 if(CMAKE_BUILD_TYPE MATCHES Debug)
-    find_package(Vulkan REQUIRED COMPONENTS DebugUtils)
+    find_package(Vulkan COMPONENTS DebugUtils)
     if(Vulkan_FOUND)
         set(VULKAN_VALIDATION_LAYERS "VK_LAYER_KHRONOS_validation")
         message(STATUS "Vulkan validation layers enabled")
@@ -20,7 +20,7 @@ endif()
 
 # Add GPU library
 add_library(gpu
-    src/gpu/gpu.cpp
+    gpu.cpp
 )
 
 target_include_directories(gpu

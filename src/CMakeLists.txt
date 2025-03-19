@@ -1,8 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
 
-# Add the src directory as the main project
-add_subdirectory(src)
-
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -23,15 +20,9 @@ find_package(glm REQUIRED)
 find_package(tinyxml2 REQUIRED)
 find_package(fmt REQUIRED)
 find_package(GTest REQUIRED)
-
-# Find shaderc using pkg-config
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(SHADERC REQUIRED shaderc)
-
-# Add Windows-specific settings
-if(WIN32)
-    include(${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.windows.txt)
-endif()
+find_package(unofficial-shaderc CONFIG REQUIRED)
+find_package(imgui CONFIG REQUIRED)
+find_package(implot CONFIG REQUIRED)
 
 # Add source files
 set(FABLE2_SOURCES
@@ -47,9 +38,26 @@ set(FABLE2_HEADERS
     stdafx.h
 )
 
-# Add subdirectories for third-party libraries
-add_subdirectory(thirdparty/imgui)
-add_subdirectory(thirdparty/ImPlot)
+# Create main executable
+add_executable(fable2 ${FABLE2_SOURCES} ${FABLE2_HEADERS})
+
+# Set include directories
+target_include_directories(fable2 PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
+
+# Link libraries
+target_link_libraries(fable2 PRIVATE
+    SDL3::SDL3
+    Vulkan::Vulkan
+    glm::glm
+    tinyxml2::tinyxml2
+    fmt::fmt
+    imgui::imgui
+    implot::implot
+    unofficial::shaderc::shaderc
+)
 
 # Add source subdirectories
 add_subdirectory(api)
@@ -73,27 +81,10 @@ if(BUILD_TESTING)
     add_subdirectory(tests)
 endif()
 
-# Create main executable
-add_executable(fable2 ${FABLE2_SOURCES} ${FABLE2_HEADERS})
-
-# Set include directories
-target_include_directories(fable2 PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty
-)
-
-# Link libraries
-target_link_libraries(fable2 PRIVATE
-    SDL3::SDL3
-    Vulkan::Vulkan
-    glm::glm
-    tinyxml2::tinyxml2
-    fmt::fmt
-    imgui
-    implot
-    ${SHADERC_LIBRARIES}
-)
+# Add Windows-specific settings
+if(WIN32)
+    include(${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.windows.txt)
+endif()
 
 # Set output directories
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
