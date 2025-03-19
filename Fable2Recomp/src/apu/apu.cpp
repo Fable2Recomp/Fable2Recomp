@@ -1,6 +1,18 @@
-#include <cstdint>
+#include "stdafx.h"
+#include "xbox.h"
 
 namespace apu {
-    void init() {}
-    void shutdown() {}
-} 
+
+void Init() {
+    // Basic initialization
+}
+
+void Shutdown() {
+    // Basic cleanup
+}
+
+void Update() {
+    // Basic update
+}
+
+} // namespace apu 

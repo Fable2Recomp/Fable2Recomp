@@ -1,168 +1,157 @@
+#include "stdafx.h"
 #include "data_loader.h"
+#include "vfs/vfs.h"
 #include "os/logger.h"
 #include <fstream>
-#include <iostream>
+#include <filesystem>
 
 namespace xe {
 
-bool DataLoader::Initialize(const std::string& base_path) {
-    base_path_ = base_path;
+DataLoader& DataLoader::GetInstance() {
+    static DataLoader instance;
+    return instance;
+}
+
+bool DataLoader::Initialize(const std::string& data_path) {
+    m_data_path = data_path;
+    
+    // Create data directory if it doesn't exist
+    if (!std::filesystem::exists(m_data_path)) {
+        std::filesystem::create_directories(m_data_path);
+    }
+    
+    return MountGameFiles();
+}
+
+bool DataLoader::LoadRecompiledCode(const std::string& filename, std::vector<uint8_t>& out_data) {
+    std::string full_path = m_data_path + "/recompiled/" + filename;
+    return LoadFromVFS(full_path, out_data);
+}
+
+bool DataLoader::LoadGameAssets() {
+    // Load game assets from VFS
+    std::vector<std::string> asset_files = {
+        "textures.bnk",
+        "models.bnk",
+        "animations.bnk",
+        "effects.bnk"
+    };
+    
+    for (const auto& file : asset_files) {
+        std::vector<uint8_t> data;
+        if (!LoadFromVFS("assets/" + file, data)) {
+            LOG_ERROR("Failed to load asset file: {}", file);
+            return false;
+        }
+        m_file_cache[file] = std::move(data);
+    }
+    
+    return true;
+}
+
+bool DataLoader::LoadGameScripts() {
+    // Load game scripts from VFS
+    std::vector<std::string> script_files = {
+        "main.lua",
+        "game.lua",
+        "ui.lua",
+        "world.lua"
+    };
+    
+    for (const auto& file : script_files) {
+        std::string content;
+        if (!LoadScript("scripts/" + file, content)) {
+            LOG_ERROR("Failed to load script file: {}", file);
+            return false;
+        }
+        m_script_cache[file] = std::move(content);
+    }
+    
     return true;
 }
 
 bool DataLoader::LoadFile(const std::string& filename, std::vector<uint8_t>& out_data) {
-    // Check cache first
-    auto it = file_cache_.find(filename);
-    if (it != file_cache_.end()) {
-        out_data = it->second;
-        return true;
-    }
-
-    // Load from disk
-    std::string full_path = base_path_ + "/" + filename;
-    std::ifstream file(full_path, std::ios::binary);
-    if (!file) {
-        std::cerr << "Failed to open file: " << full_path << std::endl;
-        return false;
-    }
-
-    file.seekg(0, std::ios::end);
-    size_t size = file.tellg();
-    file.seekg(0, std::ios::beg);
-
-    out_data.resize(size);
-    file.read(reinterpret_cast<char*>(out_data.data()), size);
-    
-    // Cache the loaded data
-    file_cache_[filename] = out_data;
-    return true;
+    return LoadFromVFS(filename, out_data);
 }
 
-bool DataLoader::LoadScript(const std::string& filename, std::string& out_script) {
+bool DataLoader::LoadScript(const std::string& filename, std::string& out_content) {
     std::vector<uint8_t> data;
-    if (!LoadFile(filename, data)) {
+    if (!LoadFromVFS(filename, data)) {
         return false;
     }
-
-    out_script.assign(data.begin(), data.end());
+    
+    out_content.assign(data.begin(), data.end());
     return true;
 }
 
-bool DataLoader::LoadWorldData(const std::string& world_name, std::vector<uint8_t>& out_data) {
-    std::string filename = "worlds/" + world_name + ".bin";
-    return LoadFile(filename, out_data);
+bool DataLoader::LoadWorldData(const std::string& filename, std::vector<uint8_t>& out_data) {
+    return LoadFromVFS("world/" + filename, out_data);
 }
 
-bool DataLoader::LoadRecompiledCode(const std::string& filename) {
-    // Check cache first
-    auto it = recompiled_code_cache_.find(filename);
-    if (it != recompiled_code_cache_.end()) {
-        return true;
-    }
-
+bool DataLoader::LoadXboxFile(const std::string& filename, X_FILE_ATTRIBUTES* attrs) {
+    if (!attrs) return false;
+    
     std::vector<uint8_t> data;
-    std::string full_path = base_path_ + "/ppc/" + filename;
-    if (!LoadFile(full_path, data)) {
+    if (!LoadFromXbox(filename, data)) {
         return false;
     }
-
-    recompiled_code_cache_[filename] = data;
+    
+    // Parse Xbox file attributes
+    attrs->FileAttributes = 0; // Default attributes
+    attrs->FileSize = data.size();
+    
     return true;
 }
 
-const std::vector<uint8_t>& DataLoader::GetRecompiledCode(const std::string& filename) const {
-    static const std::vector<uint8_t> empty;
-    auto it = recompiled_code_cache_.find(filename);
-    return it != recompiled_code_cache_.end() ? it->second : empty;
-}
-
-bool DataLoader::LoadXboxFile(const std::string& filename, X_FILE_ATTRIBUTES* out_attributes) {
+bool DataLoader::LoadXboxString(const std::string& filename, X_UNICODE_STRING* str) {
+    if (!str) return false;
+    
     std::vector<uint8_t> data;
-    if (!LoadFile(filename, data)) {
+    if (!LoadFromXbox(filename, data)) {
         return false;
     }
-
-    return ParseXboxFileAttributes(data, out_attributes);
+    
+    // Convert to Unicode string
+    str->Length = data.size();
+    str->MaximumLength = data.size() + 1;
+    str->Buffer = reinterpret_cast<wchar_t*>(data.data());
+    
+    return true;
 }
 
-bool DataLoader::LoadXboxString(const std::string& filename, xe::X_UNICODE_STRING* out_string) {
+bool DataLoader::LoadXboxOverlapped(const std::string& filename, X_IO_STATUS_BLOCK* overlapped) {
+    if (!overlapped) return false;
+    
     std::vector<uint8_t> data;
-    if (!LoadFile(filename, data)) {
+    if (!LoadFromXbox(filename, data)) {
         return false;
     }
-
-    return ParseXboxString(data, out_string);
-}
-
-bool DataLoader::LoadXboxOverlapped(const std::string& filename, X_IO_STATUS_BLOCK* out_overlapped) {
-    std::vector<uint8_t> data;
-    if (!LoadFile(filename, data)) {
-        return false;
-    }
-
-    return ParseXboxOverlapped(data, out_overlapped);
-}
-
-bool DataLoader::ParseXboxFileAttributes(const std::vector<uint8_t>& data, X_FILE_ATTRIBUTES* out_attributes) {
-    if (data.size() < sizeof(uint32_t)) {
-        return false;
-    }
-
-    uint32_t attributes;
-    Memory::Copy(&attributes, data.data(), sizeof(uint32_t));
     
-    // Create a temporary buffer for endianness conversion
-    std::vector<uint8_t> temp_buffer(sizeof(uint32_t));
-    Memory::Copy(temp_buffer.data(), &attributes, sizeof(uint32_t));
-    ConvertEndianness(temp_buffer);
-    Memory::Copy(&attributes, temp_buffer.data(), sizeof(uint32_t));
-    
-    *out_attributes = static_cast<X_FILE_ATTRIBUTES>(attributes);
-    return true;
-}
-
-bool DataLoader::ParseXboxString(const std::vector<uint8_t>& data, xe::X_UNICODE_STRING* out_string) {
-    if (data.size() < sizeof(xe::X_UNICODE_STRING)) {
-        return false;
-    }
-
-    Memory::Copy(out_string, data.data(), sizeof(xe::X_UNICODE_STRING));
-    
-    // Create a temporary buffer for endianness conversion
-    std::vector<uint8_t> temp_buffer(sizeof(xe::X_UNICODE_STRING));
-    Memory::Copy(temp_buffer.data(), out_string, sizeof(xe::X_UNICODE_STRING));
-    ConvertEndianness(temp_buffer);
-    Memory::Copy(out_string, temp_buffer.data(), sizeof(xe::X_UNICODE_STRING));
+    // Parse overlapped structure
+    overlapped->Status = 0; // Success
+    overlapped->Information = data.size();
     
     return true;
 }
 
-bool DataLoader::ParseXboxOverlapped(const std::vector<uint8_t>& data, X_IO_STATUS_BLOCK* out_overlapped) {
-    if (data.size() < sizeof(X_IO_STATUS_BLOCK)) {
-        return false;
-    }
-
-    Memory::Copy(out_overlapped, data.data(), sizeof(X_IO_STATUS_BLOCK));
-    
-    // Create a temporary buffer for endianness conversion
-    std::vector<uint8_t> temp_buffer(sizeof(X_IO_STATUS_BLOCK));
-    Memory::Copy(temp_buffer.data(), out_overlapped, sizeof(X_IO_STATUS_BLOCK));
-    ConvertEndianness(temp_buffer);
-    Memory::Copy(out_overlapped, temp_buffer.data(), sizeof(X_IO_STATUS_BLOCK));
-    
-    return true;
+bool DataLoader::MountGameFiles() {
+    // Mount game files from data directory
+    return vfs::MountDirectory(m_data_path);
 }
 
-void DataLoader::ConvertEndianness(std::vector<uint8_t>& data) {
-    // Xbox 360 is big-endian, so we need to swap bytes if we're on a little-endian system
-    #if defined(__LITTLE_ENDIAN__) || defined(_LITTLE_ENDIAN)
-    for (size_t i = 0; i < data.size(); i += 4) {
-        if (i + 3 < data.size()) {
-            std::swap(data[i], data[i + 3]);
-            std::swap(data[i + 1], data[i + 2]);
-        }
-    }
-    #endif
+bool DataLoader::UnmountGameFiles() {
+    // Unmount game files
+    return vfs::UnmountDirectory(m_data_path);
+}
+
+bool DataLoader::LoadFromVFS(const std::string& path, std::vector<uint8_t>& out_data) {
+    return vfs::ReadFile(path, out_data);
+}
+
+bool DataLoader::LoadFromXbox(const std::string& path, std::vector<uint8_t>& out_data) {
+    // Convert Xbox path to VFS path
+    std::string vfs_path = "xbox/" + path;
+    return LoadFromVFS(vfs_path, out_data);
 }
 
 } // namespace xe 

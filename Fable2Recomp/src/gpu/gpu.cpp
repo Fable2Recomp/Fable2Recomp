@@ -14,7 +14,6 @@
 #include <fstream>
 #include <iostream>
 #include <limits>
-#include <cstdint>
 
 #define VMA_IMPLEMENTATION
 #include "vma/vk_mem_alloc.h"
@@ -173,8 +172,5 @@ VkDevice GetDevice() {
 VkPhysicalDevice GetPhysicalDevice() {
     return static_cast<VkPhysicalDevice>(render_device->getNativePhysicalDevice());
 }
-
-void init() {}
-void shutdown() {}
 
 } // namespace gpu 

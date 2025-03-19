@@ -1,0 +1,22 @@
+{
+    "name": "fable2recomp",
+    "version": "0.1.0",
+    "dependencies": [
+        "sdl3",
+        "vulkan",
+        "glm",
+        "tinyxml2",
+        "fmt",
+        "gtest",
+        "shaderc",
+        "imgui",
+        "implot"
+    ],
+    "builtin-baseline": "2024-03-19",
+    "overrides": [
+        {
+            "name": "sdl3",
+            "version": "3.0.0"
+        }
+    ]
+} 

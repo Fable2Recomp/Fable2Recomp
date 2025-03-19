@@ -1,110 +1,271 @@
 #include "plume_vulkan.h"
-#include <SDL2/SDL_vulkan.h>
+#include <SDL3/SDL_vulkan.h>
 #include <iostream> // Include for logging
 #include <vector>   // For std::vector
+#include "os/logger.h"
 
 namespace plume {
 
-VulkanInterface::VulkanInterface(SDL_Window* window) : window(window), is_valid(false) {
-    VkResult result;
-
-    // Create Vulkan instance
-    VkApplicationInfo app_info = {};
-    app_info.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
-    app_info.pApplicationName = "Fable 2 GOTY";
-    app_info.applicationVersion = VK_MAKE_VERSION(1, 0, 0);
-    app_info.pEngineName = "No Engine";
-    app_info.engineVersion = VK_MAKE_VERSION(1, 0, 0);
-    app_info.apiVersion = VK_API_VERSION_1_0;
-
-    VkInstanceCreateInfo create_info = {};
-    create_info.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
-    create_info.pApplicationInfo = &app_info;
-
-    // Get required extensions from SDL
-    uint32_t extension_count = 0;
-    SDL_Vulkan_GetInstanceExtensions(window, &extension_count, nullptr);
-    std::vector<const char*> extensions(extension_count);
-    SDL_Vulkan_GetInstanceExtensions(window, &extension_count, extensions.data());
-
-    create_info.enabledExtensionCount = extension_count;
-    create_info.ppEnabledExtensionNames = extensions.data();
-
-    // Enable validation layers in debug builds
-    #ifdef DEBUG
-    const char* validation_layers[] = { "VK_LAYER_KHRONOS_validation" };
-    create_info.enabledLayerCount = 1;
-    create_info.ppEnabledLayerNames = validation_layers;
-    #else
-    create_info.enabledLayerCount = 0;
-    #endif
-
-    result = vkCreateInstance(&create_info, nullptr, &instance);
-    if (result != VK_SUCCESS) {
-        std::cerr << "Vulkan Error: Failed to create instance: " << result << std::endl;
-        return;
-    }
-
-    // Create surface
-    if (!SDL_Vulkan_CreateSurface(window, instance, &surface)) {
-        std::cerr << "Vulkan Error: Failed to create SDL surface" << std::endl;
-        vkDestroyInstance(instance, nullptr);
-        return;
-    }
-
-    // Select physical device
-    uint32_t device_count = 0;
-    vkEnumeratePhysicalDevices(instance, &device_count, nullptr);
-    if (device_count == 0) {
-        std::cerr << "Vulkan Error: No physical devices found" << std::endl;
-        vkDestroySurfaceKHR(instance, surface, nullptr);
-        vkDestroyInstance(instance, nullptr);
-        return;
-    }
-
-    std::vector<VkPhysicalDevice> devices(device_count);
-    vkEnumeratePhysicalDevices(instance, &device_count, devices.data());
-    physical_device = devices[0]; // Just take the first one for now
-
-    // Log the selected physical device
-    VkPhysicalDeviceProperties device_properties;
-    vkGetPhysicalDeviceProperties(physical_device, &device_properties);
-    std::cerr << "Selected Physical Device: " << device_properties.deviceName << std::endl;
-
-    // Create logical device
-    float queue_priority = 1.0f;
-    VkDeviceQueueCreateInfo queue_create_info = {};
-    queue_create_info.sType = VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO;
-    queue_create_info.queueFamilyIndex = 0; // Assuming graphics queue is at index 0
-    queue_create_info.queueCount = 1;
-    queue_create_info.pQueuePriorities = &queue_priority;
-
-    VkDeviceCreateInfo device_create_info = {};
-    device_create_info.sType = VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO;
-    device_create_info.queueCreateInfoCount = 1;
-    device_create_info.pQueueCreateInfos = &queue_create_info;
-    device_create_info.enabledExtensionCount = 0;
-    device_create_info.enabledLayerCount = 0;
-
-    result = vkCreateDevice(physical_device, &device_create_info, nullptr, &device);
-    if (result != VK_SUCCESS) {
-        std::cerr << "Vulkan Error: Failed to create logical device: " << result << std::endl;
-        vkDestroySurfaceKHR(instance, surface, nullptr);
-        vkDestroyInstance(instance, nullptr);
-        return;
-    }
-
-    is_valid = true;
+VulkanInterface::VulkanInterface(SDL_Window* window)
+    : m_window(window)
+    , m_instance(VK_NULL_HANDLE)
+    , m_device(VK_NULL_HANDLE)
+    , m_physical_device(VK_NULL_HANDLE)
+    , m_surface(VK_NULL_HANDLE)
+    , m_isValid(false)
+{
+    std::cerr << "VulkanInterface constructor called" << std::endl;
+    Initialize();
 }
 
 VulkanInterface::~VulkanInterface() {
-    if (is_valid) {
-        vkDestroyDevice(device, nullptr);
-        vkDestroySurfaceKHR(instance, surface, nullptr);
-        vkDestroyInstance(instance, nullptr);
+    std::cerr << "VulkanInterface destructor called" << std::endl;
+    Shutdown();
+}
+
+bool VulkanInterface::Initialize() {
+    std::cerr << "VulkanInterface::Initialize() called" << std::endl;
+    
+    // Get required instance extensions from SDL
+    uint32_t extensionCount = 0;
+    if (!SDL_Vulkan_GetInstanceExtensions(&extensionCount, nullptr)) {
+        std::cerr << "Failed to get instance extensions count from SDL" << std::endl;
+        return false;
+    }
+
+    std::vector<const char*> extensions(extensionCount);
+    if (!SDL_Vulkan_GetInstanceExtensions(&extensionCount, extensions.data())) {
+        std::cerr << "Failed to get instance extensions from SDL" << std::endl;
+        return false;
+    }
+
+    std::cerr << "Required Vulkan extensions: " << extensionCount << std::endl;
+    for (uint32_t i = 0; i < extensionCount; i++) {
+        std::cerr << "  " << extensions[i] << std::endl;
+    }
+
+    // Create Vulkan instance
+    VkApplicationInfo appInfo = {};
+    appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
+    appInfo.pApplicationName = "Fable 2 GOTY";
+    appInfo.applicationVersion = VK_MAKE_VERSION(1, 0, 0);
+    appInfo.pEngineName = "Plume";
+    appInfo.engineVersion = VK_MAKE_VERSION(1, 0, 0);
+    appInfo.apiVersion = VK_API_VERSION_1_0;
+
+    VkInstanceCreateInfo createInfo = {};
+    createInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
+    createInfo.pApplicationInfo = &appInfo;
+    createInfo.enabledExtensionCount = static_cast<uint32_t>(extensions.size());
+    createInfo.ppEnabledExtensionNames = extensions.data();
+    createInfo.enabledLayerCount = 0;
+
+    VkResult result = vkCreateInstance(&createInfo, nullptr, &m_instance);
+    if (result != VK_SUCCESS) {
+        std::cerr << "Failed to create Vulkan instance: " << result << std::endl;
+        return false;
+    }
+
+    std::cerr << "Vulkan instance created successfully" << std::endl;
+
+    // Create surface
+    if (!SDL_Vulkan_CreateSurface(m_window, m_instance, nullptr, &m_surface)) {
+        std::cerr << "Failed to create SDL surface" << std::endl;
+        vkDestroyInstance(m_instance, nullptr);
+        return false;
+    }
+
+    std::cerr << "SDL surface created successfully" << std::endl;
+
+    // Select physical device
+    uint32_t deviceCount = 0;
+    vkEnumeratePhysicalDevices(m_instance, &deviceCount, nullptr);
+    if (deviceCount == 0) {
+        std::cerr << "No Vulkan-capable physical devices found" << std::endl;
+        vkDestroySurfaceKHR(m_instance, m_surface, nullptr);
+        vkDestroyInstance(m_instance, nullptr);
+        return false;
+    }
+
+    std::vector<VkPhysicalDevice> devices(deviceCount);
+    vkEnumeratePhysicalDevices(m_instance, &deviceCount, devices.data());
+    m_physical_device = devices[0]; // Just take the first one for now
+
+    // Log the selected physical device
+    VkPhysicalDeviceProperties deviceProperties;
+    vkGetPhysicalDeviceProperties(m_physical_device, &deviceProperties);
+    std::cerr << "Selected physical device: " << deviceProperties.deviceName << std::endl;
+
+    // Find queue family that supports graphics
+    uint32_t queueFamilyCount = 0;
+    vkGetPhysicalDeviceQueueFamilyProperties(m_physical_device, &queueFamilyCount, nullptr);
+    std::vector<VkQueueFamilyProperties> queueFamilies(queueFamilyCount);
+    vkGetPhysicalDeviceQueueFamilyProperties(m_physical_device, &queueFamilyCount, queueFamilies.data());
+
+    uint32_t graphicsQueueFamilyIndex = UINT32_MAX;
+    for (uint32_t i = 0; i < queueFamilyCount; i++) {
+        if (queueFamilies[i].queueFlags & VK_QUEUE_GRAPHICS_BIT) {
+            graphicsQueueFamilyIndex = i;
+            break;
+        }
+    }
+
+    if (graphicsQueueFamilyIndex == UINT32_MAX) {
+        std::cerr << "No graphics queue family found" << std::endl;
+        vkDestroySurfaceKHR(m_instance, m_surface, nullptr);
+        vkDestroyInstance(m_instance, nullptr);
+        return false;
+    }
+
+    // Create logical device
+    float queuePriority = 1.0f;
+    VkDeviceQueueCreateInfo queueCreateInfo = {};
+    queueCreateInfo.sType = VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO;
+    queueCreateInfo.queueFamilyIndex = graphicsQueueFamilyIndex;
+    queueCreateInfo.queueCount = 1;
+    queueCreateInfo.pQueuePriorities = &queuePriority;
+
+    VkPhysicalDeviceFeatures deviceFeatures = {};
+
+    VkDeviceCreateInfo deviceCreateInfo = {};
+    deviceCreateInfo.sType = VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO;
+    deviceCreateInfo.pQueueCreateInfos = &queueCreateInfo;
+    deviceCreateInfo.queueCreateInfoCount = 1;
+    deviceCreateInfo.pEnabledFeatures = &deviceFeatures;
+    deviceCreateInfo.enabledExtensionCount = 0;
+    deviceCreateInfo.enabledLayerCount = 0;
+
+    result = vkCreateDevice(m_physical_device, &deviceCreateInfo, nullptr, &m_device);
+    if (result != VK_SUCCESS) {
+        std::cerr << "Failed to create logical device: " << result << std::endl;
+        vkDestroySurfaceKHR(m_instance, m_surface, nullptr);
+        vkDestroyInstance(m_instance, nullptr);
+        return false;
+    }
+
+    std::cerr << "Logical device created successfully" << std::endl;
+
+    m_isValid = true;
+    return true;
+}
+
+void VulkanInterface::Shutdown() {
+    std::cerr << "VulkanInterface::Shutdown() called" << std::endl;
+    
+    if (m_device != VK_NULL_HANDLE) {
+        vkDestroyDevice(m_device, nullptr);
+        m_device = VK_NULL_HANDLE;
+    }
+    
+    if (m_surface != VK_NULL_HANDLE) {
+        vkDestroySurfaceKHR(m_instance, m_surface, nullptr);
+        m_surface = VK_NULL_HANDLE;
+    }
+    
+    if (m_instance != VK_NULL_HANDLE) {
+        vkDestroyInstance(m_instance, nullptr);
+        m_instance = VK_NULL_HANDLE;
+    }
+    
+    m_isValid = false;
+}
+
+bool VulkanInterface::isValid() const {
+    return m_isValid;
+}
+
+void* VulkanInterface::getNativeInterface() const {
+    return m_instance;
+}
+
+RenderDevice* VulkanInterface::createDevice(const char* name) {
+    LOGF("Creating Vulkan device with name: {}", name ? name : "null");
+
+    if (!m_device) {
+        LOGN_ERROR("Vulkan device not initialized");
+        return nullptr;
+    }
+
+    auto* device = new VulkanRenderDevice(m_device, m_physical_device);
+    if (!device->Initialize()) {
+        LOGN_ERROR("Failed to initialize Vulkan render device");
+        delete device;
+        return nullptr;
+    }
+
+    LOGF("Successfully created Vulkan device with name: {}", name ? name : "null");
+    return device;
+}
+
+VulkanRenderDevice::VulkanRenderDevice(VkDevice device, VkPhysicalDevice physicalDevice)
+    : m_device(device)
+    , m_physical_device(physicalDevice)
+{
+    LOGF("Creating VulkanRenderDevice with device: {}", (void*)device);
+}
+
+VulkanRenderDevice::~VulkanRenderDevice()
+{
+    LOGF("Destroying VulkanRenderDevice with device: {}", (void*)m_device);
+}
+
+bool VulkanRenderDevice::Initialize()
+{
+    LOGF("Initializing VulkanRenderDevice with device: {}", (void*)m_device);
+    return true;
+}
+
+void VulkanRenderDevice::Shutdown()
+{
+    LOGF("Shutting down VulkanRenderDevice with device: {}", (void*)m_device);
+}
+
+bool VulkanRenderDevice::isValid() const
+{
+    return m_device != VK_NULL_HANDLE;
+}
+
+void VulkanRenderDevice::waitIdle()
+{
+    if (m_device)
+    {
+        vkDeviceWaitIdle(m_device);
     }
 }
 
-// ... rest of the VulkanInterface implementation ...
+void* VulkanRenderDevice::getNativeDevice() const
+{
+    return m_device;
+}
 
-} // namespace plume
+void* VulkanRenderDevice::getNativePhysicalDevice() const
+{
+    return m_physical_device;
+}
+
+void* VulkanRenderDevice::getNativeDescriptorPool() const
+{
+    return nullptr;
+}
+
+void* VulkanRenderDevice::getNativeRenderPass() const
+{
+    return nullptr;
+}
+
+RenderCommandQueue* VulkanRenderDevice::createCommandQueue(RenderCommandListType type)
+{
+    return nullptr;
+}
+
+RenderCommandList* VulkanRenderDevice::createCommandList(RenderCommandListType type)
+{
+    return nullptr;
+}
+
+RenderQueryPool* VulkanRenderDevice::createQueryPool(RenderQueryType type, uint32_t count)
+{
+    return nullptr;
+}
+
+} // namespace plume 
