@@ -4,7 +4,22 @@ if(WIN32)
     add_compile_options(/W4 /WX /MP)
     
     # Disable specific warnings that might be problematic
-    add_compile_options(/wd4100 /wd4201 /wd4244 /wd4267 /wd4305 /wd4324 /wd4456 /wd4458 /wd4505 /wd4514 /wd4548 /wd4577 /wd4582 /wd4583 /wd4619 /wd4623 /wd4625 /wd4626 /wd4647 /wd4668 /wd4710 /wd4711 /wd4820 /wd4996)
+    add_compile_options(
+        /wd4100  # unreferenced formal parameter
+        /wd4201  # nameless struct/union
+        /wd4244  # conversion possible loss of data
+        /wd4267  # conversion from size_t
+        /wd4305  # truncation from double to float
+        /wd4324  # structure was padded
+        /wd4456  # declaration hides previous local declaration
+        /wd4458  # declaration hides class member
+        /wd4505  # unreferenced local function removed
+        /wd4514  # unreferenced inline function removed
+        /wd4582  # constructor is not implicitly called
+        /wd4583  # destructor is not implicitly called
+        /wd4710  # function not inlined
+        /wd4820  # padding added after data member
+    )
     
     # Enable multi-processor compilation
     add_compile_options(/MP)
@@ -12,16 +27,26 @@ if(WIN32)
     # Set Windows subsystem
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS")
     
+    # Add Windows-specific definitions
+    target_compile_definitions(fable2 PRIVATE
+        WIN32_LEAN_AND_MEAN
+        NOMINMAX
+        _CRT_SECURE_NO_WARNINGS
+    )
+    
     # Add Windows-specific libraries
     target_link_libraries(fable2 PRIVATE
         d3d11
         d3d12
         dxgi
         d3dcompiler
-        d3dx11
-        d3dx9
         xinput
         xaudio2
+    )
+    
+    # Set Windows-specific include directories
+    target_include_directories(fable2 PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/windows
     )
 endif()
 
