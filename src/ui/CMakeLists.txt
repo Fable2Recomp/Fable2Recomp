@@ -12,4 +12,5 @@ target_link_libraries(ui
     PRIVATE
     gpu
     imgui
+    SDL3::SDL3
 ) 

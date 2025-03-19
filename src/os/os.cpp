@@ -1,6 +1,12 @@
-#include <cstdint>
+#include "stdafx.h"
+#include "os/logger.h"
 
 namespace os {
-    void init() {}
-    void shutdown() {}
+    void init() {
+        xe::Logger::Initialize();
+    }
+    
+    void shutdown() {
+        xe::Logger::Shutdown();
+    }
 } 

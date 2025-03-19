@@ -5,16 +5,16 @@
 namespace patches {
 
 void Init() {
-    InitMemoryManagement();
+    xe::MemoryPatches::Initialize();
 }
 
 void Shutdown() {
-    CleanupMemoryState();
+    xe::MemoryPatches::Shutdown();
 }
 
 void Apply() {
-    ApplyMemoryPatches();
-    UpdateMemoryState();
+    // Apply patches and update memory state
+    xe::MemoryPatches::Update();
 }
 
 } // namespace patches 

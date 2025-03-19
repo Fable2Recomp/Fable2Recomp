@@ -52,7 +52,7 @@ void Kernel::Update() {
         }
         
         if (!has_running_threads) {
-            LOG_DEBUG("Process {} has no running threads", process.name);
+            LOG_DEBUG("Process {} has no running threads", process.name.c_str());
         }
     }
 }
@@ -66,7 +66,7 @@ bool Kernel::CreateProcess(const std::string& name, uint32_t& process_id) {
     
     s_processes[process_id] = std::move(process);
     
-    LOG_INFO("Created process: {} (ID: {})", name, process_id);
+    LOG_INFO("Created process: {} (ID: {})", name.c_str(), process_id);
     return true;
 }
 
@@ -90,9 +90,10 @@ bool Kernel::TerminateProcess(uint32_t process_id) {
     // Free all memory
     it->second.memory.clear();
     
+    const std::string process_name = it->second.name;
     s_processes.erase(it);
     
-    LOG_INFO("Terminated process: {} (ID: {})", it->second.name, process_id);
+    LOG_INFO("Terminated process: {} (ID: {})", process_name.c_str(), process_id);
     return true;
 }
 
@@ -294,7 +295,7 @@ bool Kernel::LoadModule(uint32_t process_id, const std::string& name, uint32_t& 
     s_modules[module_id] = std::move(module);
     s_processes[process_id].module_ids.push_back(module_id);
     
-    LOG_INFO("Loaded module: {} (ID: {}) for process {}", name, module_id, process_id);
+    LOG_INFO("Loaded module: {} (ID: {}) for process {}", name.c_str(), module_id, process_id);
     return true;
 }
 
@@ -315,7 +316,7 @@ bool Kernel::UnloadModule(uint32_t process_id, uint32_t module_id) {
     
     s_modules.erase(it);
     
-    LOG_INFO("Unloaded module: {} (ID: {}) from process {}", it->second.name, module_id, process_id);
+    LOG_INFO("Unloaded module: {} (ID: {}) from process {}", it->second.name.c_str(), module_id, process_id);
     return true;
 }
 
@@ -350,7 +351,7 @@ bool Kernel::CreateMutex(uint32_t process_id, const std::string& name, uint32_t&
     
     s_mutexes[mutex_id] = std::move(mutex);
     
-    LOG_INFO("Created mutex: {} (ID: {}) for process {}", name, mutex_id, process_id);
+    LOG_INFO("Created mutex: {} (ID: {}) for process {}", name.c_str(), mutex_id, process_id);
     return true;
 }
 

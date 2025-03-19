@@ -37,27 +37,22 @@
 #include <span>
 
 // Third-party includes
-#include <SDL.h>
+#include <SDL3/SDL.h>
 #include <vulkan/vulkan.h>
 #include <imgui.h>
 #include <implot.h>
-#include <json.hpp>
-#include <magic_enum.hpp>
-#include <stb_image.h>
-#include <stb_image_write.h>
-#include <stb_truetype.h>
-#include <volk.h>
+#include <fmt/format.h>
+#include <glm/glm.hpp>
+#include <tinyxml2.h>
+#include <gtest/gtest.h>
 
 // Project includes
 #include "os/logger.h"
+#include "os/os.h"
 #include "kernel/kernel.h"
-#include "cpu/ppc_integration.h"
-#include "gpu/video.h"
-#include "apu/audio.h"
-#include "hid/hid.h"
-#include "patches/memory_patches.h"
-#include "ui/game_window.h"
-#include "user/config.h"
+#include "ppc_recomp/include/ppc/decoder.h"
+#include "ppc_recomp/include/ppc/recompiler.h"
+#include "ppc_recomp/include/ppc/instructions.h"
 
 // Common types
 using u8 = uint8_t;

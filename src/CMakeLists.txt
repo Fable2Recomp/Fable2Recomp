@@ -5,6 +5,12 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+# Add compiler-specific options
+if(MSVC)
+    add_compile_options(/utf-8)
+    add_definitions(-D_CRT_SECURE_NO_WARNINGS)
+endif()
+
 # Build options
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 option(BUILD_TESTING "Build tests" ON)
@@ -41,45 +47,57 @@ set(FABLE2_HEADERS
 # Create main executable
 add_executable(fable2 ${FABLE2_SOURCES} ${FABLE2_HEADERS})
 
-# Set include directories
-target_include_directories(fable2 PRIVATE
+# Set include directories for all targets
+include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${SDL3_INCLUDE_DIRS}
+    ${Vulkan_INCLUDE_DIRS}
+    ${GLM_INCLUDE_DIRS}
+    ${TINYXML2_INCLUDE_DIRS}
+    ${FMT_INCLUDE_DIRS}
+    ${GTEST_INCLUDE_DIRS}
+    ${IMGUI_INCLUDE_DIRS}
+    ${IMPLOT_INCLUDE_DIRS}
+    ${CMAKE_BINARY_DIR}/vcpkg_installed/x64-windows/include
 )
 
 # Link libraries
 target_link_libraries(fable2 PRIVATE
+    ui
     SDL3::SDL3
     Vulkan::Vulkan
     glm::glm
     tinyxml2::tinyxml2
     fmt::fmt
+    GTest::gtest
+    GTest::gtest_main
+    unofficial::shaderc::shaderc
     imgui::imgui
     implot::implot
-    unofficial::shaderc::shaderc
 )
 
-# Add source subdirectories
+# Add subdirectories
+add_subdirectory(ui)
+add_subdirectory(ppc)
+add_subdirectory(ppc_recomp)
+add_subdirectory(assets)
+add_subdirectory(xenia)
+add_subdirectory(rhi)
+add_subdirectory(cpu)
+add_subdirectory(backends)
+add_subdirectory(vfs)
+add_subdirectory(thirdparty)
+add_subdirectory(tests)
+add_subdirectory(test)
+add_subdirectory(base)
+add_subdirectory(patches)
+add_subdirectory(os)
+add_subdirectory(kernel)
+add_subdirectory(hid)
+add_subdirectory(gpu)
 add_subdirectory(api)
 add_subdirectory(apu)
-add_subdirectory(assets)
-add_subdirectory(backends)
-add_subdirectory(base)
-add_subdirectory(cpu)
-add_subdirectory(gpu)
-add_subdirectory(hid)
-add_subdirectory(kernel)
-add_subdirectory(os)
-add_subdirectory(patches)
-add_subdirectory(ppc)
-add_subdirectory(rhi)
-add_subdirectory(ui)
-add_subdirectory(vfs)
-add_subdirectory(xenia)
-
-if(BUILD_TESTING)
-    add_subdirectory(tests)
-endif()
 
 # Add Windows-specific settings
 if(WIN32)

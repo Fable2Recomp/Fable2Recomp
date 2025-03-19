@@ -20,7 +20,7 @@ add_executable(test_asset_manager_extended test_asset_manager_extended.cpp)
 target_link_libraries(test_asset_manager_extended PRIVATE vfs)
 
 # Copy test config file and create assets directory
-configure_file(${CMAKE_SOURCE_DIR}/test/test_vfs_config.xml
+configure_file(${CMAKE_SOURCE_DIR}/src/test/test_vfs_config.xml
                ${CMAKE_BINARY_DIR}/test_vfs_config.xml
                COPYONLY)
 
