@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/test_vfs.dir/link.d CMakeFiles/test_vfs.dir/test_vfs.cpp.o -o test_vfs  ../../vfs/libvfs.a ../../gpu/libgpu.a /lib/libvulkan.so -limgui /usr/lib/libz.so -ltinyxml2

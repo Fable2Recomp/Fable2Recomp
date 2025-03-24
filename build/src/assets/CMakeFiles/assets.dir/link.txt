@@ -1,0 +1,2 @@
+/usr/bin/ar qc libassets.a CMakeFiles/assets.dir/assets.cpp.o CMakeFiles/assets.dir/assets_model.cpp.o CMakeFiles/assets.dir/assets_script.cpp.o CMakeFiles/assets.dir/assets_shader.cpp.o CMakeFiles/assets.dir/assets_texture.cpp.o
+/usr/bin/ranlib libassets.a

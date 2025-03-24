@@ -1,0 +1,2 @@
+/usr/bin/ar qc libapu.a CMakeFiles/apu.dir/apu.cpp.o
+/usr/bin/ranlib libapu.a

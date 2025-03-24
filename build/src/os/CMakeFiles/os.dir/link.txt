@@ -1,0 +1,2 @@
+/usr/bin/ar qc libos.a CMakeFiles/os.dir/os.cpp.o CMakeFiles/os.dir/logger.cpp.o
+/usr/bin/ranlib libos.a

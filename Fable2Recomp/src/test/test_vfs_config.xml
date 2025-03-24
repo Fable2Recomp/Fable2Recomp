@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vfs>
+    <banks>
+        <bank id="1" path="test/assets/test_model.bnk" flags="0" />
+        <bank id="2" path="test/assets/test_texture.bnk" flags="0" />
+    </banks>
+    <initial>
+        <bank id="1" />
+        <bank id="2" />
+    </initial>
+    <dependencies>
+        <composite bank_id="1">
+            <required>
+                <bank id="2" />
+            </required>
+        </composite>
+    </dependencies>
+</vfs> 

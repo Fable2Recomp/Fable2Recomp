@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/ppc_recomp_tests.dir/link.d CMakeFiles/ppc_recomp_tests.dir/decoder_test.cpp.o CMakeFiles/ppc_recomp_tests.dir/recompiler_test.cpp.o -o ppc_recomp_tests  ../libppc_recomp.a /usr/lib/libgtest_main.so.1.16.0 /usr/lib/libgtest.so.1.16.0

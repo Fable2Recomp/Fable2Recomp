@@ -1,0 +1,2 @@
+/usr/bin/ar qc libvfs.a CMakeFiles/vfs.dir/vfs.cpp.o
+/usr/bin/ranlib libvfs.a
