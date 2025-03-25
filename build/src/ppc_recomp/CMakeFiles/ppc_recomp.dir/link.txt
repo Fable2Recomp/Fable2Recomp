@@ -1,2 +1,0 @@
-/usr/bin/ar qc libppc_recomp.a CMakeFiles/ppc_recomp.dir/core/decoder.cpp.o CMakeFiles/ppc_recomp.dir/core/recompiler.cpp.o
-/usr/bin/ranlib libppc_recomp.a

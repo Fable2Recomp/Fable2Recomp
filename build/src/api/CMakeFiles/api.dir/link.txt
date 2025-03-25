@@ -1,2 +1,0 @@
-/usr/bin/ar qc libapi.a CMakeFiles/api.dir/api.cpp.o
-/usr/bin/ranlib libapi.a

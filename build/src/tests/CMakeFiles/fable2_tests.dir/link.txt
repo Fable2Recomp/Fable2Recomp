@@ -1,1 +1,0 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/fable2_tests.dir/link.d CMakeFiles/fable2_tests.dir/asset_loading_test.cpp.o CMakeFiles/fable2_tests.dir/main_test.cpp.o -o fable2_tests  ../assets/libassets.a ../vfs/libvfs.a /usr/lib/libz.so -ltinyxml2 ../gpu/libgpu.a /lib/libvulkan.so -limgui /usr/lib/libgtest_main.so.1.16.0 /usr/lib/libgtest.so.1.16.0
