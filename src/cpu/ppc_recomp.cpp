@@ -282,12 +282,131 @@ bool PPCRecompiler::TranslateInstruction(uint32_t instruction, std::vector<uint8
 }
 
 bool PPCRecompiler::LinkBlock(RecompiledBlock& block) {
-    // TODO: Implement block linking
-    // - Resolve references
-    // - Generate jump tables
-    // - Handle relocation
-    
+    // 1. Resolve References
+    for (auto& reference : block.references) {
+        // Find target block
+        auto target_block = FindBlock(reference.target_address);
+        if (!target_block) {
+            // Handle missing target (could be external function or data)
+            HandleExternalReference(reference);
+            continue;
+        }
+        
+        // Update reference to point to recompiled code
+        reference.resolved_address = GetRecompiledAddress(reference.target_address);
+    }
+
+    // 2. Generate Jump Tables
+    if (block.has_switch_table) {
+        // Get switch table config from SWA_switch_tables.toml
+        auto switch_config = GetSwitchTableConfig(block.address);
+        
+        // Generate x64 jump table
+        std::stringstream ss;
+        ss << "jmp_table_" << std::hex << block.address << ":\n";
+        
+        // Generate jump table entries
+        for (const auto& label : switch_config.labels) {
+            ss << "    dq " << GetRecompiledAddress(label) << "\n";
+        }
+        
+        // Add jump table to block
+        block.x64_code += ss.str();
+    }
+
+    // 3. Handle Relocation
+    for (auto& relocation : block.relocations) {
+        // Calculate new address
+        uint64_t new_address = CalculateRelocatedAddress(relocation);
+        
+        // Update code with new address
+        UpdateRelocation(block.x64_code, relocation, new_address);
+    }
+
     return true;
+}
+
+RecompiledBlock* PPCRecompiler::FindBlock(uint32_t address) {
+    for (auto& block : s_blocks) {
+        if (block.second.address == address) {
+            return &block.second;
+        }
+    }
+    return nullptr;
+}
+
+void PPCRecompiler::HandleExternalReference(const Reference& ref) {
+    // Handle external references (functions, data, etc.)
+    // This could involve:
+    // 1. Creating a stub for external functions
+    // 2. Allocating space for external data
+    // 3. Setting up proper relocation entries
+    
+    switch (ref.type) {
+        case ReferenceType::Call:
+            // Create function stub
+            break;
+        case ReferenceType::Data:
+            // Allocate data space
+            break;
+        case ReferenceType::SwitchTable:
+            // Handle switch table reference
+            break;
+        default:
+            break;
+    }
+}
+
+uint64_t PPCRecompiler::GetRecompiledAddress(uint32_t ppc_address) {
+    auto block = FindBlock(ppc_address);
+    if (!block) {
+        // Handle missing block
+        return 0;
+    }
+    
+    // Calculate offset within block
+    uint32_t offset = ppc_address - block->address;
+    return reinterpret_cast<uint64_t>(block->native_code) + offset;
+}
+
+uint64_t PPCRecompiler::CalculateRelocatedAddress(const Relocation& reloc) {
+    // Calculate the new address after relocation
+    // This involves:
+    // 1. Finding the target symbol
+    // 2. Calculating the new address based on relocation type
+    // 3. Applying any necessary adjustments
+    
+    return reloc.symbol_address;
+}
+
+void PPCRecompiler::UpdateRelocation(std::string& code, const Relocation& reloc, uint64_t new_address) {
+    // Update the code at the relocation offset with the new address
+    // This needs to handle different relocation types and sizes
+    
+    // Example for a 32-bit relocation:
+    uint32_t* addr = reinterpret_cast<uint32_t*>(&code[reloc.offset]);
+    *addr = static_cast<uint32_t>(new_address);
+}
+
+SwitchTableConfig PPCRecompiler::GetSwitchTableConfig(uint32_t address) {
+    // Load from your SWA_switch_tables.toml
+    auto it = switch_tables_.find(address);
+    if (it == switch_tables_.end()) {
+        // Handle missing switch table
+        XELOGW("Missing switch table at 0x{:08X}", address);
+        return CreateDefaultSwitchTable();
+    }
+    return it->second;
+}
+
+SwitchTableConfig PPCRecompiler::CreateDefaultSwitchTable() {
+    // Create a default switch table configuration
+    // This could be used when a switch table is missing
+    SwitchTableConfig config;
+    config.base_address = 0;
+    config.register_index = 0;
+    config.default_label = 0;
+    return config;
 }
 
 bool PPCRecompiler::LinkFunction(RecompiledFunction& func) {
@@ -297,6 +416,41 @@ bool PPCRecompiler::LinkFunction(RecompiledFunction& func) {
     // - Handle stack frame
     
     return true;
+}
+
+bool PPCRecompiler::LoadSwitchTables(const std::string& path) {
+    try {
+        toml::value data = toml::parse(path);
+        auto switches = data["switch"].as_array();
+        
+        for (const auto& switch_table : switches) {
+            SwitchTableConfig config;
+            
+            // Parse base address
+            config.base_address = switch_table["base"].as_integer();
+            
+            // Parse register index
+            config.register_index = switch_table["r"].as_integer();
+            
+            // Parse default label
+            config.default_label = switch_table["default"].as_integer();
+            
+            // Parse labels array
+            auto labels = switch_table["labels"].as_array();
+            for (const auto& label : labels) {
+                config.labels.push_back(label.as_integer());
+            }
+            
+            // Store the switch table config
+            switch_tables_[config.base_address] = config;
+        }
+        
+        XELOGI("Loaded {} switch tables", switch_tables_.size());
+        return true;
+    } catch (const std::exception& e) {
+        XELOGE("Failed to load switch tables: {}", e.what());
+        return false;
+    }
 }
 
 } // namespace xe 

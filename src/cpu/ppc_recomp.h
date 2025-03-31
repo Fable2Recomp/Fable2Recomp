@@ -4,6 +4,43 @@
 
 namespace xe {
 
+enum class ReferenceType {
+    Branch,
+    Call,
+    Data,
+    SwitchTable
+};
+
+struct Reference {
+    uint32_t source_address;
+    uint32_t target_address;
+    uint64_t resolved_address;
+    ReferenceType type;
+};
+
+struct Relocation {
+    uint32_t offset;
+    uint32_t symbol_address;
+    uint32_t size;
+};
+
+struct RecompiledBlock {
+    uint32_t address;
+    std::vector<uint32_t> instructions;
+    std::string x64_code;
+    std::vector<Reference> references;
+    std::vector<Relocation> relocations;
+    bool has_switch_table;
+    bool is_terminated;
+};
+
+struct SwitchTableConfig {
+    uint32_t base_address;
+    uint8_t register_index;
+    uint32_t default_label;
+    std::vector<uint32_t> labels;
+};
+
 class PPCRecompiler {
 public:
     static bool Initialize();
@@ -23,14 +60,10 @@ public:
     static void OptimizeBlock(uint32_t address);
     static void OptimizeFunction(uint32_t address);
     
-private:
-    struct RecompiledBlock {
-        uint32_t address;
-        uint32_t size;
-        void* native_code;
-        std::vector<uint32_t> references;
-    };
+    // Load switch tables from TOML file
+    bool LoadSwitchTables(const std::string& path);
     
+private:
     struct RecompiledFunction {
         uint32_t address;
         uint32_t size;
@@ -47,6 +80,18 @@ private:
     static bool TranslateInstruction(uint32_t instruction, std::vector<uint8_t>& native_code);
     static bool LinkBlock(RecompiledBlock& block);
     static bool LinkFunction(RecompiledFunction& func);
+    
+    // Helper functions for LinkBlock
+    RecompiledBlock* FindBlock(uint32_t address);
+    void HandleExternalReference(const Reference& ref);
+    uint64_t GetRecompiledAddress(uint32_t ppc_address);
+    uint64_t CalculateRelocatedAddress(const Relocation& reloc);
+    void UpdateRelocation(std::string& code, const Relocation& reloc, uint64_t new_address);
+    SwitchTableConfig GetSwitchTableConfig(uint32_t address);
+    SwitchTableConfig CreateDefaultSwitchTable();
+    
+    std::vector<RecompiledBlock> blocks_;
+    std::unordered_map<uint32_t, SwitchTableConfig> switch_tables_;
 };
 
 } // namespace xe 
