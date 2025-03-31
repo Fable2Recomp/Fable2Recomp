@@ -82,10 +82,21 @@ bool PPCIntegration::WriteMemory(uint32_t address, const void* data, uint32_t si
 bool PPCIntegration::ReadMemory(uint32_t address, void* data, uint32_t size) {
     if (!s_initialized) return false;
     
-    // TODO: Implement memory reading
-    
-    LOG_DEBUG("Read {} bytes from 0x{:08X}", size, address);
-    return true;
+    // For now, just allow reading from any address
+    // TODO: Implement proper memory management and protection
+    try {
+        // Map PPC address to host address (for now just use direct mapping)
+        void* host_addr = reinterpret_cast<void*>(static_cast<uintptr_t>(address));
+        
+        // Copy the data
+        memcpy(data, host_addr, size);
+        
+        LOG_DEBUG("Read {} bytes from 0x{:08X}", size, address);
+        return true;
+    } catch (const std::exception& e) {
+        LOG_ERROR("Failed to read memory at 0x{:08X}: {}", address, e.what());
+        return false;
+    }
 }
 
 bool PPCIntegration::ExecuteFunction(uint32_t address) {

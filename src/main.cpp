@@ -1,74 +1,28 @@
-#include "stdafx.h"
+#include "cpu/ppc_recomp.h"
 #include "os/logger.h"
-#include "kernel/kernel.h"
-#include "cpu/ppc_integration.h"
-#include "gpu/video.h"
-#include "apu/audio.h"
-#include "hid/hid.h"
-#include "ui/game_window.h"
-#include "user/config.h"
+#include <iostream>
 
 int main(int argc, char* argv[]) {
-    // Initialize logger first
+    // Initialize logger
     xe::Logger::Initialize();
-    LOG_INFO("Fable 2 Recompilation starting...");
+    xe::Logger::Info("Starting Fable 2 Recompiler");
     
-    // Initialize subsystems
-    if (!xe::Kernel::Initialize()) {
-        LOG_ERROR("Failed to initialize kernel");
+    // Initialize PPC recompiler
+    if (!xe::PPCRecompiler::Initialize()) {
+        xe::Logger::Error("Failed to initialize PPC recompiler");
         return 1;
     }
     
-    if (!xe::PPCIntegration::Initialize()) {
-        LOG_ERROR("Failed to initialize PPC integration");
-        return 1;
+    // Load switch tables
+    if (!xe::PPCRecompiler::LoadSwitchTables("SWA_switch_tables.toml")) {
+        xe::Logger::Warning("Failed to load switch tables, using defaults");
     }
     
-    if (!xe::Video::Initialize()) {
-        LOG_ERROR("Failed to initialize video");
-        return 1;
-    }
+    // TODO: Add command line argument parsing
+    // TODO: Add main recompilation loop
     
-    if (!xe::Audio::Initialize()) {
-        LOG_ERROR("Failed to initialize audio");
-        return 1;
-    }
-    
-    if (!xe::HID::Initialize()) {
-        LOG_ERROR("Failed to initialize HID");
-        return 1;
-    }
-    
-    if (!xe::GameWindow::Initialize()) {
-        LOG_ERROR("Failed to initialize game window");
-        return 1;
-    }
-    
-    // Main game loop
-    bool running = true;
-    while (running) {
-        // Update subsystems
-        xe::Kernel::Update();
-        xe::PPCIntegration::Update();
-        xe::Video::Update();
-        xe::Audio::Update();
-        xe::HID::Update();
-        
-        // Update game window
-        if (!xe::GameWindow::Update()) {
-            running = false;
-        }
-    }
-    
-    // Shutdown subsystems
-    xe::GameWindow::Shutdown();
-    xe::HID::Shutdown();
-    xe::Audio::Shutdown();
-    xe::Video::Shutdown();
-    xe::PPCIntegration::Shutdown();
-    xe::Kernel::Shutdown();
-    
-    // Shutdown logger last
+    // Cleanup
+    xe::PPCRecompiler::Shutdown();
     xe::Logger::Shutdown();
     
     return 0;

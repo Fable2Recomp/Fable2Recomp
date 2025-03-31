@@ -45,6 +45,7 @@
 #include <glm/glm.hpp>
 #include <tinyxml2.h>
 #include <gtest/gtest.h>
+#include <spdlog/spdlog.h>
 
 // Project includes
 #include "os/logger.h"
@@ -75,4 +76,15 @@ using f64 = double;
 #ifdef _WIN32
     #define NOMINMAX
     #include <windows.h>
-#endif 
+#else
+    #include <sys/mman.h>
+    #define PAGE_EXECUTE_READ PROT_READ | PROT_EXEC
+    #define PAGE_READWRITE PROT_READ | PROT_WRITE
+    #define VirtualProtect mprotect
+#endif
+
+// Logging macros
+#define LOG_INFO(...) SPDLOG_INFO(__VA_ARGS__)
+#define LOG_ERROR(...) SPDLOG_ERROR(__VA_ARGS__)
+#define LOG_WARN(...) SPDLOG_WARN(__VA_ARGS__)
+#define LOG_DEBUG(...) SPDLOG_DEBUG(__VA_ARGS__) 
