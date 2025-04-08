@@ -380,14 +380,11 @@ CMakeFiles/Fable2Recomp.dir/src/cpu/ppc_recomp.cpp.o: \
  /usr/include/vk_video/vulkan_video_codec_h265std.h \
  /usr/include/vk_video/vulkan_video_codec_h264std_decode.h \
  /usr/include/vk_video/vulkan_video_codec_h265std_decode.h \
- /home/loreaxe/Desktop/Ryan/Xbox\ 360\ Games/Fable\ 2/Other/imgui/imgui.h \
- /home/loreaxe/Desktop/Ryan/Xbox\ 360\ Games/Fable\ 2/Other/imgui/imconfig.h \
- /home/loreaxe/Desktop/Ryan/Xbox\ 360\ Games/Fable\ 2/Other/implot/implot.h \
- /usr/include/fmt/format.h /usr/include/fmt/core.h \
- /usr/include/c++/13/iterator /usr/include/c++/13/bits/stream_iterator.h \
- /usr/include/glm/glm.hpp /usr/include/glm/detail/_fixes.hpp \
- /usr/include/glm/detail/setup.hpp /usr/include/glm/simd/platform.h \
- /usr/include/c++/13/climits \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/imgui/imgui.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/imgui/imconfig.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/implot/implot.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/fmt/include/fmt/format.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/fmt/include/fmt/base.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
@@ -395,118 +392,151 @@ CMakeFiles/Fable2Recomp.dir/src/cpu/ppc_recomp.cpp.o: \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
- /usr/include/x86_64-linux-gnu/bits/uio_lim.h /usr/include/c++/13/cfloat \
- /usr/include/glm/fwd.hpp /usr/include/glm/detail/qualifier.hpp \
- /usr/include/glm/detail/setup.hpp /usr/include/glm/vec2.hpp \
- /usr/include/glm/ext/vector_bool2.hpp \
- /usr/include/glm/detail/type_vec2.hpp \
- /usr/include/glm/detail/type_vec2.inl \
- /usr/include/glm/detail/compute_vector_relational.hpp \
- /usr/include/glm/ext/vector_bool2_precision.hpp \
- /usr/include/glm/ext/vector_float2.hpp \
- /usr/include/glm/ext/vector_float2_precision.hpp \
- /usr/include/glm/ext/vector_double2.hpp \
- /usr/include/glm/ext/vector_double2_precision.hpp \
- /usr/include/glm/ext/vector_int2.hpp \
- /usr/include/glm/ext/vector_int2_sized.hpp \
- /usr/include/glm/ext/scalar_int_sized.hpp \
- /usr/include/glm/detail/setup.hpp /usr/include/glm/ext/vector_uint2.hpp \
- /usr/include/glm/ext/vector_uint2_sized.hpp \
- /usr/include/glm/ext/scalar_uint_sized.hpp /usr/include/glm/vec3.hpp \
- /usr/include/glm/ext/vector_bool3.hpp \
- /usr/include/glm/detail/type_vec3.hpp \
- /usr/include/glm/detail/type_vec3.inl \
- /usr/include/glm/ext/vector_bool3_precision.hpp \
- /usr/include/glm/ext/vector_float3.hpp \
- /usr/include/glm/ext/vector_float3_precision.hpp \
- /usr/include/glm/ext/vector_double3.hpp \
- /usr/include/glm/ext/vector_double3_precision.hpp \
- /usr/include/glm/ext/vector_int3.hpp \
- /usr/include/glm/ext/vector_int3_sized.hpp \
- /usr/include/glm/ext/vector_uint3.hpp \
- /usr/include/glm/ext/vector_uint3_sized.hpp /usr/include/glm/vec4.hpp \
- /usr/include/glm/ext/vector_bool4.hpp \
- /usr/include/glm/detail/type_vec4.hpp \
- /usr/include/glm/detail/type_vec4.inl \
- /usr/include/glm/ext/vector_bool4_precision.hpp \
- /usr/include/glm/ext/vector_float4.hpp \
- /usr/include/glm/ext/vector_float4_precision.hpp \
- /usr/include/glm/ext/vector_double4.hpp \
- /usr/include/glm/ext/vector_double4_precision.hpp \
- /usr/include/glm/ext/vector_int4.hpp \
- /usr/include/glm/ext/vector_int4_sized.hpp \
- /usr/include/glm/ext/vector_uint4.hpp \
- /usr/include/glm/ext/vector_uint4_sized.hpp /usr/include/glm/mat2x2.hpp \
- /usr/include/glm/ext/matrix_double2x2.hpp \
- /usr/include/glm/detail/type_mat2x2.hpp \
- /usr/include/glm/detail/type_mat2x2.inl /usr/include/glm/matrix.hpp \
- /usr/include/glm/mat2x3.hpp /usr/include/glm/ext/matrix_double2x3.hpp \
- /usr/include/glm/detail/type_mat2x3.hpp \
- /usr/include/glm/detail/type_mat2x3.inl \
- /usr/include/glm/ext/matrix_double2x3_precision.hpp \
- /usr/include/glm/ext/matrix_float2x3.hpp \
- /usr/include/glm/ext/matrix_float2x3_precision.hpp \
- /usr/include/glm/mat2x4.hpp /usr/include/glm/ext/matrix_double2x4.hpp \
- /usr/include/glm/detail/type_mat2x4.hpp \
- /usr/include/glm/detail/type_mat2x4.inl \
- /usr/include/glm/ext/matrix_double2x4_precision.hpp \
- /usr/include/glm/ext/matrix_float2x4.hpp \
- /usr/include/glm/ext/matrix_float2x4_precision.hpp \
- /usr/include/glm/mat3x2.hpp /usr/include/glm/ext/matrix_double3x2.hpp \
- /usr/include/glm/detail/type_mat3x2.hpp \
- /usr/include/glm/detail/type_mat3x2.inl \
- /usr/include/glm/ext/matrix_double3x2_precision.hpp \
- /usr/include/glm/ext/matrix_float3x2.hpp \
- /usr/include/glm/ext/matrix_float3x2_precision.hpp \
- /usr/include/glm/mat3x3.hpp /usr/include/glm/ext/matrix_double3x3.hpp \
- /usr/include/glm/detail/type_mat3x3.hpp \
- /usr/include/glm/detail/type_mat3x3.inl \
- /usr/include/glm/ext/matrix_double3x3_precision.hpp \
- /usr/include/glm/ext/matrix_float3x3.hpp \
- /usr/include/glm/ext/matrix_float3x3_precision.hpp \
- /usr/include/glm/mat3x4.hpp /usr/include/glm/ext/matrix_double3x4.hpp \
- /usr/include/glm/detail/type_mat3x4.hpp \
- /usr/include/glm/detail/type_mat3x4.inl \
- /usr/include/glm/ext/matrix_double3x4_precision.hpp \
- /usr/include/glm/ext/matrix_float3x4.hpp \
- /usr/include/glm/ext/matrix_float3x4_precision.hpp \
- /usr/include/glm/mat4x2.hpp /usr/include/glm/ext/matrix_double4x2.hpp \
- /usr/include/glm/detail/type_mat4x2.hpp \
- /usr/include/glm/detail/type_mat4x2.inl \
- /usr/include/glm/ext/matrix_double4x2_precision.hpp \
- /usr/include/glm/ext/matrix_float4x2.hpp \
- /usr/include/glm/ext/matrix_float4x2_precision.hpp \
- /usr/include/glm/mat4x3.hpp /usr/include/glm/ext/matrix_double4x3.hpp \
- /usr/include/glm/detail/type_mat4x3.hpp \
- /usr/include/glm/detail/type_mat4x3.inl \
- /usr/include/glm/ext/matrix_double4x3_precision.hpp \
- /usr/include/glm/ext/matrix_float4x3.hpp \
- /usr/include/glm/ext/matrix_float4x3_precision.hpp \
- /usr/include/glm/mat4x4.hpp /usr/include/glm/ext/matrix_double4x4.hpp \
- /usr/include/glm/detail/type_mat4x4.hpp \
- /usr/include/glm/detail/type_mat4x4.inl \
- /usr/include/glm/ext/matrix_double4x4_precision.hpp \
- /usr/include/glm/ext/matrix_float4x4.hpp \
- /usr/include/glm/ext/matrix_float4x4_precision.hpp \
- /usr/include/glm/detail/func_matrix.inl /usr/include/glm/geometric.hpp \
- /usr/include/glm/detail/func_geometric.inl \
- /usr/include/glm/exponential.hpp /usr/include/glm/detail/type_vec1.hpp \
- /usr/include/glm/detail/type_vec1.inl \
- /usr/include/glm/detail/func_exponential.inl \
- /usr/include/glm/vector_relational.hpp \
- /usr/include/glm/detail/func_vector_relational.inl \
- /usr/include/glm/detail/_vectorize.hpp /usr/include/glm/common.hpp \
- /usr/include/glm/detail/func_common.inl \
- /usr/include/glm/detail/compute_common.hpp \
- /usr/include/glm/ext/matrix_double2x2_precision.hpp \
- /usr/include/glm/ext/matrix_float2x2.hpp \
- /usr/include/glm/ext/matrix_float2x2_precision.hpp \
- /usr/include/glm/trigonometric.hpp \
- /usr/include/glm/detail/func_trigonometric.inl \
- /usr/include/glm/packing.hpp /usr/include/glm/detail/func_packing.inl \
- /usr/include/glm/detail/type_half.hpp \
- /usr/include/glm/detail/type_half.inl /usr/include/glm/integer.hpp \
- /usr/include/glm/detail/func_integer.inl /usr/include/tinyxml2.h \
+ /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/glm.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/detail/_fixes.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/detail/setup.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/detail/../simd/platform.h \
+ /usr/include/c++/13/climits /usr/include/c++/13/cfloat \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/fwd.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/detail/qualifier.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/detail/setup.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/vec2.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_bool2.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/type_vec2.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/type_vec2.inl \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/./compute_vector_relational.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/./setup.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_bool2_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_float2.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_float2_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_double2.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_double2_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_int2.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_int2_sized.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../ext/scalar_int_sized.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../ext/../detail/setup.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_uint2.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_uint2_sized.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../ext/scalar_uint_sized.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/vec3.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_bool3.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/type_vec3.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/type_vec3.inl \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/compute_vector_decl.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/_vectorize.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_bool3_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_float3.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_float3_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_double3.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_double3_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_int3.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_int3_sized.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_uint3.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_uint3_sized.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/vec4.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_bool4.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/type_vec4.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/type_vec4.inl \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_bool4_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_float4.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_float4_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_double4.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_double4_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/setup.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_int4.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_int4_sized.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_uint4.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/vector_uint4_sized.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/mat2x2.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/matrix_double2x2.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/type_mat2x2.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/type_mat2x2.inl \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/../matrix.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/../detail/setup.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/../mat2x3.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_double2x3.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/type_mat2x3.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/type_mat2x3.inl \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_double2x3_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_float2x3.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_float2x3_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/../mat2x4.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_double2x4.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/type_mat2x4.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/type_mat2x4.inl \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_double2x4_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_float2x4.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_float2x4_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/../mat3x2.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_double3x2.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/type_mat3x2.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/type_mat3x2.inl \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_double3x2_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_float3x2.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_float3x2_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/../mat3x3.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_double3x3.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/type_mat3x3.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/type_mat3x3.inl \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/../common.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/../detail/_fixes.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/../detail/func_common.inl \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/../detail/../vector_relational.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/../detail/../detail/setup.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/../detail/../detail/func_vector_relational.inl \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/../detail/compute_common.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/../detail/setup.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/../detail/type_vec1.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/../detail/type_vec1.inl \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_double3x3_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_float3x3.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_float3x3_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/../mat3x4.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_double3x4.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/type_mat3x4.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/type_mat3x4.inl \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_double3x4_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_float3x4.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_float3x4_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/../mat4x2.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_double4x2.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/type_mat4x2.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/type_mat4x2.inl \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_double4x2_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_float4x2.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_float4x2_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/../mat4x3.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_double4x3.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/type_mat4x3.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/type_mat4x3.inl \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_double4x3_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_float4x3.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_float4x3_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/../mat4x4.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_double4x4.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/type_mat4x4.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/type_mat4x4.inl \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/../geometric.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/../detail/func_geometric.inl \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/../detail/../exponential.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/../detail/../detail/../detail/func_exponential.inl \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_double4x4_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_float4x4.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/.././ext/matrix_float4x4_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/../detail/../detail/func_matrix.inl \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/matrix_double2x2_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/matrix_float2x2.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/./ext/matrix_float2x2_precision.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/trigonometric.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/detail/func_trigonometric.inl \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/packing.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/detail/func_packing.inl \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/detail/type_half.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/detail/type_half.inl \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/integer.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/detail/func_integer.inl \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/tinyxml2/tinyxml2.h \
  /usr/include/gtest/gtest.h /usr/include/gtest/gtest-assertion-result.h \
  /usr/include/gtest/gtest-message.h \
  /usr/include/gtest/internal/gtest-port.h /usr/include/c++/13/iostream \
@@ -567,21 +597,33 @@ CMakeFiles/Fable2Recomp.dir/src/cpu/ppc_recomp.cpp.o: \
  /usr/include/c++/13/cxxabi.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/cxxabi_tweaks.h \
  /usr/include/gtest/internal/custom/gtest-printers.h \
- /usr/include/gtest/gtest-param-test.h \
+ /usr/include/gtest/gtest-param-test.h /usr/include/c++/13/iterator \
+ /usr/include/c++/13/bits/stream_iterator.h \
  /usr/include/gtest/internal/gtest-param-util.h \
  /usr/include/gtest/gtest-test-part.h \
  /usr/include/gtest/gtest-typed-test.h \
  /usr/include/gtest/gtest_pred_impl.h /usr/include/gtest/gtest_prod.h \
- /usr/include/spdlog/spdlog.h /usr/include/spdlog/common.h \
- /usr/include/spdlog/tweakme.h /usr/include/spdlog/details/null_mutex.h \
- /usr/include/spdlog/fmt/fmt.h /usr/include/fmt/core.h \
- /usr/include/spdlog/common-inl.h /usr/include/spdlog/details/registry.h \
- /usr/include/spdlog/details/periodic_worker.h \
- /usr/include/spdlog/details/periodic_worker-inl.h \
- /usr/include/spdlog/details/registry-inl.h /usr/include/spdlog/logger.h \
- /usr/include/spdlog/details/log_msg.h \
- /usr/include/spdlog/details/log_msg-inl.h \
- /usr/include/spdlog/details/os.h /usr/include/spdlog/details/os-inl.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/spdlog.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/common.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/details/null_mutex.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/tweakme.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/fmt/fmt.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/fmt/bundled/core.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/fmt/bundled/format.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/fmt/bundled/format.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/common-inl.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/details/registry.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/details/periodic_worker.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/details/periodic_worker-inl.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/details/registry-inl.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/logger.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/details/backtracer.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/details/circular_q.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/details/log_msg_buffer.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/details/log_msg.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/details/log_msg-inl.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/details/os.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/details/os-inl.h \
  /usr/include/fcntl.h /usr/include/x86_64-linux-gnu/bits/fcntl.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
@@ -589,22 +631,22 @@ CMakeFiles/Fable2Recomp.dir/src/cpu/ppc_recomp.cpp.o: \
  /usr/include/x86_64-linux-gnu/asm/unistd.h \
  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
  /usr/include/x86_64-linux-gnu/bits/syscall.h \
- /usr/include/spdlog/details/backtracer.h \
- /usr/include/spdlog/details/log_msg_buffer.h \
- /usr/include/spdlog/details/log_msg_buffer-inl.h \
- /usr/include/spdlog/details/circular_q.h \
- /usr/include/spdlog/details/backtracer-inl.h \
- /usr/include/spdlog/logger-inl.h /usr/include/spdlog/sinks/sink.h \
- /usr/include/spdlog/formatter.h /usr/include/spdlog/sinks/sink-inl.h \
- /usr/include/spdlog/pattern_formatter.h \
- /usr/include/spdlog/pattern_formatter-inl.h \
- /usr/include/spdlog/details/fmt_helper.h \
- /usr/include/spdlog/sinks/ansicolor_sink.h \
- /usr/include/spdlog/details/console_globals.h \
- /usr/include/spdlog/sinks/ansicolor_sink-inl.h \
- /usr/include/spdlog/version.h \
- /usr/include/spdlog/details/synchronous_factory.h \
- /usr/include/spdlog/spdlog-inl.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/details/log_msg_buffer-inl.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/details/backtracer-inl.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/logger-inl.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/pattern_formatter.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/formatter.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/pattern_formatter-inl.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/details/fmt_helper.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/mdc.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/sinks/sink.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/sinks/sink-inl.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/sinks/ansicolor_sink.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/details/console_globals.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/sinks/ansicolor_sink-inl.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/details/synchronous_factory.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/version.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/spdlog/include/spdlog/spdlog-inl.h \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/os/logger.h \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/os/os.h \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/kernel/kernel.h \
@@ -619,142 +661,142 @@ CMakeFiles/Fable2Recomp.dir/src/cpu/ppc_recomp.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/mman_ext.h \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/cpu/ppc_recomp.h \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/cpu/ppc_integration.h \
- /path/to/toml11/include/toml.hpp \
- /path/to/toml11/include/toml11/color.hpp \
- /path/to/toml11/include/toml11/fwd/color_fwd.hpp \
- /path/to/toml11/include/toml11/impl/color_impl.hpp \
- /path/to/toml11/include/toml11/impl/../fwd/color_fwd.hpp \
- /path/to/toml11/include/toml11/impl/../version.hpp \
- /path/to/toml11/include/toml11/comments.hpp \
- /path/to/toml11/include/toml11/fwd/comments_fwd.hpp \
- /path/to/toml11/include/toml11/fwd/../version.hpp \
- /path/to/toml11/include/toml11/impl/comments_impl.hpp \
- /path/to/toml11/include/toml11/impl/../fwd/comments_fwd.hpp \
- /path/to/toml11/include/toml11/compat.hpp \
- /path/to/toml11/include/toml11/version.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/color.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/color_fwd.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/color_impl.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../fwd/color_fwd.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../version.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/comments.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/comments_fwd.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../version.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/comments_impl.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../fwd/comments_fwd.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/compat.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/version.hpp \
  /usr/include/c++/13/experimental/source_location \
- /path/to/toml11/include/toml11/context.hpp \
- /path/to/toml11/include/toml11/error_info.hpp \
- /path/to/toml11/include/toml11/fwd/error_info_fwd.hpp \
- /path/to/toml11/include/toml11/fwd/../source_location.hpp \
- /path/to/toml11/include/toml11/fwd/../fwd/source_location_fwd.hpp \
- /path/to/toml11/include/toml11/fwd/../fwd/../region.hpp \
- /path/to/toml11/include/toml11/fwd/../fwd/../fwd/region_fwd.hpp \
- /path/to/toml11/include/toml11/fwd/../fwd/../fwd/../location.hpp \
- /path/to/toml11/include/toml11/fwd/../fwd/../fwd/../fwd/location_fwd.hpp \
- /path/to/toml11/include/toml11/fwd/../fwd/../fwd/../fwd/../result.hpp \
- /path/to/toml11/include/toml11/fwd/../fwd/../fwd/../fwd/../compat.hpp \
- /path/to/toml11/include/toml11/fwd/../fwd/../fwd/../fwd/../exception.hpp \
- /path/to/toml11/include/toml11/fwd/../fwd/../fwd/../impl/location_impl.hpp \
- /path/to/toml11/include/toml11/fwd/../fwd/../fwd/../impl/../fwd/location_fwd.hpp \
- /path/to/toml11/include/toml11/fwd/../fwd/../fwd/../impl/../utility.hpp \
- /path/to/toml11/include/toml11/fwd/../fwd/../fwd/../impl/../result.hpp \
- /path/to/toml11/include/toml11/fwd/../fwd/../fwd/../impl/../traits.hpp \
- /path/to/toml11/include/toml11/fwd/../fwd/../fwd/../impl/../from.hpp \
- /path/to/toml11/include/toml11/fwd/../fwd/../fwd/../impl/../into.hpp \
- /path/to/toml11/include/toml11/fwd/../fwd/../fwd/../impl/../compat.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/context.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/error_info.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/error_info_fwd.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../source_location.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../fwd/source_location_fwd.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../fwd/../region.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../fwd/../fwd/region_fwd.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../fwd/../fwd/../location.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../fwd/../fwd/../fwd/location_fwd.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../fwd/../fwd/../fwd/../result.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../fwd/../fwd/../fwd/../compat.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../fwd/../fwd/../fwd/../exception.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../fwd/../fwd/../impl/location_impl.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../fwd/../fwd/../impl/../fwd/location_fwd.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../fwd/../fwd/../impl/../utility.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../fwd/../fwd/../impl/../result.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../fwd/../fwd/../impl/../traits.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../fwd/../fwd/../impl/../from.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../fwd/../fwd/../impl/../into.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../fwd/../fwd/../impl/../compat.hpp \
  /usr/include/c++/13/forward_list /usr/include/c++/13/bits/forward_list.h \
  /usr/include/c++/13/bits/forward_list.tcc \
  /usr/include/c++/13/unordered_set \
  /usr/include/c++/13/bits/unordered_set.h \
- /path/to/toml11/include/toml11/fwd/../fwd/../fwd/../impl/../version.hpp \
- /path/to/toml11/include/toml11/fwd/../fwd/../impl/region_impl.hpp \
- /path/to/toml11/include/toml11/fwd/../fwd/../impl/../fwd/region_fwd.hpp \
- /path/to/toml11/include/toml11/fwd/../fwd/../impl/../utility.hpp \
- /path/to/toml11/include/toml11/fwd/../impl/source_location_impl.hpp \
- /path/to/toml11/include/toml11/fwd/../impl/../fwd/source_location_fwd.hpp \
- /path/to/toml11/include/toml11/fwd/../impl/../color.hpp \
- /path/to/toml11/include/toml11/fwd/../impl/../utility.hpp \
- /path/to/toml11/include/toml11/fwd/../utility.hpp \
- /path/to/toml11/include/toml11/impl/error_info_impl.hpp \
- /path/to/toml11/include/toml11/impl/../fwd/error_info_fwd.hpp \
- /path/to/toml11/include/toml11/spec.hpp \
- /path/to/toml11/include/toml11/conversion.hpp \
- /path/to/toml11/include/toml11/find.hpp \
- /path/to/toml11/include/toml11/get.hpp \
- /path/to/toml11/include/toml11/from.hpp \
- /path/to/toml11/include/toml11/types.hpp \
- /path/to/toml11/include/toml11/comments.hpp \
- /path/to/toml11/include/toml11/compat.hpp \
- /path/to/toml11/include/toml11/format.hpp \
- /path/to/toml11/include/toml11/fwd/format_fwd.hpp \
- /path/to/toml11/include/toml11/impl/format_impl.hpp \
- /path/to/toml11/include/toml11/impl/../fwd/format_fwd.hpp \
- /path/to/toml11/include/toml11/ordered_map.hpp \
- /path/to/toml11/include/toml11/value.hpp \
- /path/to/toml11/include/toml11/color.hpp \
- /path/to/toml11/include/toml11/datetime.hpp \
- /path/to/toml11/include/toml11/fwd/datetime_fwd.hpp \
- /path/to/toml11/include/toml11/impl/datetime_impl.hpp \
- /path/to/toml11/include/toml11/impl/../fwd/datetime_fwd.hpp \
- /path/to/toml11/include/toml11/exception.hpp \
- /path/to/toml11/include/toml11/region.hpp \
- /path/to/toml11/include/toml11/source_location.hpp \
- /path/to/toml11/include/toml11/storage.hpp \
- /path/to/toml11/include/toml11/traits.hpp \
- /path/to/toml11/include/toml11/value_t.hpp \
- /path/to/toml11/include/toml11/fwd/value_t_fwd.hpp \
- /path/to/toml11/include/toml11/fwd/../compat.hpp \
- /path/to/toml11/include/toml11/fwd/../format.hpp \
- /path/to/toml11/include/toml11/impl/value_t_impl.hpp \
- /path/to/toml11/include/toml11/impl/../fwd/value_t_fwd.hpp \
- /path/to/toml11/include/toml11/into.hpp \
- /path/to/toml11/include/toml11/datetime.hpp \
- /path/to/toml11/include/toml11/error_info.hpp \
- /path/to/toml11/include/toml11/exception.hpp \
- /path/to/toml11/include/toml11/find.hpp \
- /path/to/toml11/include/toml11/format.hpp \
- /path/to/toml11/include/toml11/from.hpp \
- /path/to/toml11/include/toml11/get.hpp \
- /path/to/toml11/include/toml11/into.hpp \
- /path/to/toml11/include/toml11/literal.hpp \
- /path/to/toml11/include/toml11/fwd/literal_fwd.hpp \
- /path/to/toml11/include/toml11/fwd/../location.hpp \
- /path/to/toml11/include/toml11/fwd/../types.hpp \
- /path/to/toml11/include/toml11/impl/literal_impl.hpp \
- /path/to/toml11/include/toml11/impl/../fwd/literal_fwd.hpp \
- /path/to/toml11/include/toml11/impl/../parser.hpp \
- /path/to/toml11/include/toml11/impl/../context.hpp \
- /path/to/toml11/include/toml11/impl/../datetime.hpp \
- /path/to/toml11/include/toml11/impl/../error_info.hpp \
- /path/to/toml11/include/toml11/impl/../region.hpp \
- /path/to/toml11/include/toml11/impl/../result.hpp \
- /path/to/toml11/include/toml11/impl/../scanner.hpp \
- /path/to/toml11/include/toml11/impl/../fwd/scanner_fwd.hpp \
- /path/to/toml11/include/toml11/impl/../fwd/../region.hpp \
- /path/to/toml11/include/toml11/impl/../impl/scanner_impl.hpp \
- /path/to/toml11/include/toml11/impl/../impl/../fwd/scanner_fwd.hpp \
- /path/to/toml11/include/toml11/impl/../impl/../utility.hpp \
- /path/to/toml11/include/toml11/impl/../skip.hpp \
- /path/to/toml11/include/toml11/impl/../syntax.hpp \
- /path/to/toml11/include/toml11/impl/../fwd/syntax_fwd.hpp \
- /path/to/toml11/include/toml11/impl/../fwd/../scanner.hpp \
- /path/to/toml11/include/toml11/impl/../fwd/../spec.hpp \
- /path/to/toml11/include/toml11/impl/../impl/syntax_impl.hpp \
- /path/to/toml11/include/toml11/impl/../impl/../fwd/syntax_fwd.hpp \
- /path/to/toml11/include/toml11/impl/../impl/../scanner.hpp \
- /path/to/toml11/include/toml11/impl/../impl/../spec.hpp \
- /path/to/toml11/include/toml11/impl/../types.hpp \
- /path/to/toml11/include/toml11/impl/../value.hpp \
- /path/to/toml11/include/toml11/impl/../syntax.hpp \
- /path/to/toml11/include/toml11/location.hpp \
- /path/to/toml11/include/toml11/ordered_map.hpp \
- /path/to/toml11/include/toml11/parser.hpp \
- /path/to/toml11/include/toml11/region.hpp \
- /path/to/toml11/include/toml11/result.hpp \
- /path/to/toml11/include/toml11/scanner.hpp \
- /path/to/toml11/include/toml11/serializer.hpp \
- /path/to/toml11/include/toml11/syntax.hpp \
- /path/to/toml11/include/toml11/utility.hpp \
- /path/to/toml11/include/toml11/skip.hpp \
- /path/to/toml11/include/toml11/source_location.hpp \
- /path/to/toml11/include/toml11/spec.hpp \
- /path/to/toml11/include/toml11/storage.hpp \
- /path/to/toml11/include/toml11/syntax.hpp \
- /path/to/toml11/include/toml11/traits.hpp \
- /path/to/toml11/include/toml11/types.hpp \
- /path/to/toml11/include/toml11/utility.hpp \
- /path/to/toml11/include/toml11/value.hpp \
- /path/to/toml11/include/toml11/value_t.hpp \
- /path/to/toml11/include/toml11/version.hpp \
- /path/to/toml11/include/toml11/visit.hpp
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../fwd/../fwd/../impl/../version.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../fwd/../impl/region_impl.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../fwd/../impl/../fwd/region_fwd.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../fwd/../impl/../utility.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../impl/source_location_impl.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../impl/../fwd/source_location_fwd.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../impl/../color.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../impl/../utility.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../utility.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/error_info_impl.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../fwd/error_info_fwd.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/spec.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/conversion.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/find.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/get.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/from.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/types.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/comments.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/compat.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/format.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/format_fwd.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/format_impl.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../fwd/format_fwd.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/ordered_map.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/value.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/color.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/datetime.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/datetime_fwd.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/datetime_impl.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../fwd/datetime_fwd.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/exception.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/region.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/source_location.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/storage.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/traits.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/value_t.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/value_t_fwd.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../compat.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../format.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/value_t_impl.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../fwd/value_t_fwd.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/into.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/datetime.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/error_info.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/exception.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/find.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/format.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/from.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/get.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/into.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/literal.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/literal_fwd.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../location.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/fwd/../types.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/literal_impl.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../fwd/literal_fwd.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../parser.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../context.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../datetime.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../error_info.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../region.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../result.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../scanner.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../fwd/scanner_fwd.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../fwd/../region.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../impl/scanner_impl.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../impl/../fwd/scanner_fwd.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../impl/../utility.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../skip.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../syntax.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../fwd/syntax_fwd.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../fwd/../scanner.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../fwd/../spec.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../impl/syntax_impl.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../impl/../fwd/syntax_fwd.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../impl/../scanner.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../impl/../spec.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../types.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../value.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/impl/../syntax.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/location.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/ordered_map.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/parser.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/region.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/result.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/scanner.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/serializer.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/syntax.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/utility.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/skip.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/source_location.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/spec.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/storage.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/syntax.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/traits.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/types.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/utility.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/value.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/value_t.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/version.hpp \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/toml11/include/toml11/visit.hpp

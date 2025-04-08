@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I"/home/loreaxe/Desktop/Ryan/Xbox 360 Games/Fable 2/Other/implot" -I/path/to/toml11/include -I"/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src" -I"/home/loreaxe/Desktop/Ryan/Xbox 360 Games/Fable 2/Other/imgui"
+CXX_INCLUDES = -I"/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src" -I"/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/spdlog/include" -I"/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/glm" -I"/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/tinyxml2" -I"/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/imgui" -I"/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/implot" -I"/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/toml11/include" -I"/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/fmt/include"
 
 CXX_FLAGS = -std=gnu++17
 
