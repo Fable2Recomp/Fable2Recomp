@@ -227,12 +227,6 @@ Fable2Recomp_SOURCE_DIR:STATIC=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp
 //Path to a file.
 GLM_INCLUDE_DIR:PATH=/usr/include
 
-//Path to a file.
-IMGUI_INCLUDE_DIR:PATH=IMGUI_INCLUDE_DIR-NOTFOUND
-
-//Path to a library.
-IMGUI_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libimgui.a
-
 //Arguments to supply to pkg-config
 PKG_CONFIG_ARGN:STRING=
 
