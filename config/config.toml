@@ -1,7 +1,7 @@
 [main]
-file_path = "./private/Default.xex"
+file_path = "./fable/default.xex"
 out_directory_path = "./ppc"
-switch_table_file_path = "SWA_switch_tables.toml"
+switch_table_file_path = "Fable2_switch_tables.toml"
 
 skip_lr = false
 skip_msr = false
@@ -21,352 +21,98 @@ savevmx_14_address = 0x82FFFCD0
 restvmx_64_address = 0x82FFFFFC
 savevmx_64_address = 0x82FFFD64
 
-longjmp_address = 0x832B25CC
-setjmp_address = 0x82CAF478
+longjmp_address = 0x82CAF450
+setjmp_address = 0x82CBA520
 
 functions = [
-    { address = 0x831FBB90, size = 0x198 },
-    { address = 0x8241BAA8, size = 0x11C },
-    { address = 0x824B7E70, size = 0x68 },
-    { address = 0x823A5A28, size = 0x124 },
-    { address = 0x8222B3C8, size = 0xF4 },
-    { address = 0x822D7EA0, size = 0xE8 },
-    { address = 0x8242C5E0, size = 0x88 },
-    { address = 0x8283FF98, size = 0xCC },
-    { address = 0x82A2F3E8, size = 0x114 },
-    { address = 0x8289FB40, size = 0x2C8 },
-    { address = 0x82520C00, size = 0x6C },
-    { address = 0x82415A20, size = 0x1B8 },
-    { address = 0x82FE7850, size = 0x108 },
-    { address = 0x82BE9680, size = 0xBEC },
-    { address = 0x82D9E9F0, size = 0x78 },
-    { address = 0x82C56828, size = 0x78 },
-    { address = 0x822A2AB0, size = 0xEC },
-    { address = 0x824CAC90, size = 0x158 },
     { address = 0x8217F250, size = 0xF0 },
-    { address = 0x83046BE8, size = 0x114 },
-    { address = 0x82D9E998, size = 0x54 },
-    { address = 0x82B8F5E8, size = 0x128 },
-    { address = 0x82E33B90, size = 0xB4 },
-    { address = 0x824D2800, size = 0x7C },
-    { address = 0x8259AF48, size = 0x7C },
-    { address = 0x82A34680, size = 0x480 },
-    { address = 0x82C9E878, size = 0x244 },
-    { address = 0x82C89840, size = 0x1D8 },
+    { address = 0x8222B3C8, size = 0xF4 },
+    { address = 0x822A2AB0, size = 0xEC },
+    { address = 0x822D7C50, size = 0x5C },
+    { address = 0x822D7CB0, size = 0x74 },
+    { address = 0x822D7D58, size = 0x9C },
     { address = 0x822D7DF8, size = 0xA4 },
-    { address = 0x82C9A118, size = 0x244 },
-    { address = 0x82D97090, size = 0x3FC },
-    { address = 0x82C99CB8, size = 0x214 },
-    { address = 0x82592C80, size = 0x84 },
-    { address = 0x82C99ED0, size = 0x244 },
-    { address = 0x82B809E8, size = 0x22C },
+    { address = 0x822D7EA0, size = 0xE8 },
     { address = 0x822EAA98, size = 0x94 },
-    { address = 0x82CA1E98, size = 0x1BC },
+    { address = 0x823A5A28, size = 0x124 },
+    { address = 0x824063B0, size = 0xF0 },
+    { address = 0x82415A20, size = 0x1B8 },
+    { address = 0x8241BAA8, size = 0x11C },
+    { address = 0x8242C5E0, size = 0x88 },
+    { address = 0x824B7E70, size = 0x88 },
+    { address = 0x824BDE60, size = 0xA8 },
+    { address = 0x824CAC90, size = 0x158 },
+    { address = 0x824D2800, size = 0x7C },
+    { address = 0x8250B778, size = 0x58 },
+    { address = 0x82520C00, size = 0x6C },
+    { address = 0x82522E18, size = 0x174 },
+    { address = 0x82592C80, size = 0x84 },
+    { address = 0x8259AF48, size = 0x7C },
+    { address = 0x825A0B58, size = 0x90 },
+    { address = 0x82622360, size = 0xC0 },
     { address = 0x826224B8, size = 0xAC },
     { address = 0x8272B2C0, size = 0x168 },
-    { address = 0x82BC9B28, size = 0x128 },
-    { address = 0x82B57148, size = 0x2E0 },
-    { address = 0x82C97120, size = 0x94 },
-    { address = 0x82D82B48, size = 0x19C },
-    { address = 0x831FBAC8, size = 0x64 },
-    { address = 0x822D7CB0, size = 0x74 },
-    { address = 0x82BE0100, size = 0xA4 },
-    { address = 0x8283A008, size = 0x84 },
-    { address = 0x82C8D3F0, size = 0x314 },
-    { address = 0x82C9DA98, size = 0x198 },
-    { address = 0x82DE6750, size = 0xF4 },
     { address = 0x82771250, size = 0xA0 },
-    { address = 0x822D7D58, size = 0x9C },
-    { address = 0x82CA1A00, size = 0x114 },
-    { address = 0x82622360, size = 0xC0 },
-    { address = 0x82C8DAE8, size = 0xF8 },
-    { address = 0x82C8C9F0, size = 0x150 },
-    { address = 0x831B31B8, size = 0x78 },
-    { address = 0x82B38270, size = 0x110 },
-    { address = 0x82DE4C10, size = 0x1E8 },
-    { address = 0x83095890, size = 0x110 },
-    { address = 0x8299F668, size = 0x90 },
     { address = 0x827D30C0, size = 0x2E0 },
-    { address = 0x824BDE60, size = 0xA8 },
-    { address = 0x824063B0, size = 0xF0 },
-    { address = 0x831FBB30, size = 0x5C },
+    { address = 0x8283A008, size = 0x84 },
+    { address = 0x8283FF98, size = 0xCC },
+    { address = 0x8289FB40, size = 0x2C8 },
+    { address = 0x8299F668, size = 0x90 },
+    { address = 0x82A2F3E8, size = 0x114 },
+    { address = 0x82A34680, size = 0x480 },
+    { address = 0x82B38270, size = 0x110 },
+    { address = 0x82B57148, size = 0x2E0 },
+    { address = 0x82B809E8, size = 0x22C },
+    { address = 0x82B8F5E8, size = 0x128 },
     { address = 0x82BC8260, size = 0x7C },
-    { address = 0x822E2304, size = 0x15D4 },
-    { address = 0x82B8D010, size = 0xF8C },
-    { address = 0x8310FC68, size = 0x80 },
-    { address = 0x82DA60B0, size = 0x31C },
-    { address = 0x82E0F3A8, size = 0xCC },
-    { address = 0x822D7C50, size = 0x5C },
-    { address = 0x82522E18, size = 0x174 },
-    { address = 0x82C9D280, size = 0x198 },
-    { address = 0x831FBA60, size = 0x68 },
-    { address = 0x825A0B58, size = 0x90 },
-    { address = 0x82C8D708, size = 0x190 },
+    { address = 0x82BC9B28, size = 0x128 },
+    { address = 0x82BE0100, size = 0xA4 },
+    { address = 0x82BE9680, size = 0xBEC },
+    { address = 0x82C56828, size = 0x78 },
+    { address = 0x82C89840, size = 0x1D8 },
+    { address = 0x82C8C9F0, size = 0x150 },
     { address = 0x82C8CF00, size = 0x100 },
+    { address = 0x82C8D3F0, size = 0x314 },
+    { address = 0x82C8D708, size = 0x190 },
+    { address = 0x82C8DAE8, size = 0xF8 },
+    { address = 0x82C97120, size = 0x94 },
+    { address = 0x82C99CB8, size = 0x214 },
+    { address = 0x82C99ED0, size = 0x244 },
+    { address = 0x82C9A118, size = 0x244 },
     { address = 0x82C9B420, size = 0x274 },
-    { address = 0x8250B778, size = 0x58 },
-    { address = 0x82DDC208, size = 0x24C },
-    { address = 0x831FBD28, size = 0x16C },
+    { address = 0x82C9D280, size = 0x198 },
+    { address = 0x82C9DA98, size = 0x198 },
+    { address = 0x82C9E878, size = 0x244 },
+    { address = 0x82CA1A00, size = 0x114 },
+    { address = 0x82CA1E98, size = 0x1BC },
     { address = 0x82D7F5B0, size = 0x154 },
-    { address = 0x822E23E0, size = 0x154 },
-    { address = 0x822E2568, size = 0x154 },
-    { address = 0x822E26E0, size = 0x154 },
-    { address = 0x822E2858, size = 0x154 },
-    { address = 0x822E29D0, size = 0x154 },
-    { address = 0x822E2B48, size = 0x154 },
-    { address = 0x822E2CC0, size = 0x154 },
-    { address = 0x822E2E50, size = 0x154 },
-    { address = 0x822E2FD8, size = 0x154 },
-    { address = 0x822E3150, size = 0x154 },
-    { address = 0x822E32BC, size = 0x154 },
-    { address = 0x832B31E0, size = 0x154 },
-    { address = 0x82B8D5E4, size = 0x154 },
-    { address = 0x82BE9798, size = 0x154 },
-    { address = 0x83116CDC, size = 0x154 },
-    { address = 0x8219AC0C, size = 0x154 },
-    { address = 0x821A310C, size = 0x154 },
-    { address = 0x821BFCD8, size = 0x154 },
-    { address = 0x821F46BC, size = 0x154 },
-    { address = 0x8220D108, size = 0x154 },
-    { address = 0x8222E670, size = 0x154 },
-    { address = 0x82231950, size = 0x154 },
-    { address = 0x82233500, size = 0x154 },
-    { address = 0x822341A0, size = 0x154 }
+    { address = 0x82D82B48, size = 0x19C },
+    { address = 0x82D97090, size = 0x3FC },
+    { address = 0x82D9E998, size = 0x54 },
+    { address = 0x82D9E9F0, size = 0x78 },
+    { address = 0x82DA60B0, size = 0x31C },
+    { address = 0x82DDC208, size = 0x24C },
+    { address = 0x82DE4C10, size = 0x1E8 },
+    { address = 0x82DE6750, size = 0xF4 },
+    { address = 0x82E0F3A8, size = 0xCC },
+    { address = 0x82E33B90, size = 0xB4 },
+    { address = 0x82FE7850, size = 0x108 },
+    { address = 0x83046BE8, size = 0x114 },
+    { address = 0x83095890, size = 0x110 },
+    { address = 0x8310FC68, size = 0x80 },
+    { address = 0x831B31B8, size = 0x78 },
+    { address = 0x831FBA60, size = 0x68 },
+    { address = 0x831FBAC8, size = 0x64 },
+    { address = 0x831FBB30, size = 0x5C },
+    { address = 0x831FBB90, size = 0x198 },
+    { address = 0x831FBD28, size = 0x16C }
 ]
+
 
 invalid_instructions = [
     { data = 0x00000000, size = 4 }, # Padding
     { data = 0x832B25AC, size = 8 }, # C Specific Frame Handler
     { data = 0x831C8B50, size = 8 },
-    { data = 0x832B34C4, size = 64 } # End of .text
+    { data = 0x832B34C4, size = 64 }, # End of .text
+    { data = 0x832B31E0, size = 0x420 } # Covers up to BINK
 ]
-
-# System hooks
-[[midasm_hook]]
-name = "RtlUnwindHook"
-address = "0x1010147"
-jump_address_on_false = "0x1010148"
-registers = ["r3", "r4", "r5", "r6"]
-
-[[midasm_hook]]
-name = "RtlCaptureContextHook"
-address = "0x1010119"
-jump_address_on_false = "0x101011A"
-registers = ["r3"]
-
-[[midasm_hook]]
-name = "XamGetSystemVersionHook"
-address = "0x1000282"
-jump_address_on_false = "0x1000283"
-registers = ["r3"]
-
-# User Interface hooks
-[[midasm_hook]]
-name = "XamShowSigninUIHook"
-address = "0x10002BC"
-jump_address_on_false = "0x10002BD"
-registers = ["r3", "r4"]
-
-[[midasm_hook]]
-name = "XamShowDeviceSelectorHook"
-address = "0x10002CB"
-jump_address_on_false = "0x10002CC"
-registers = ["r3", "r4"]
-
-[[midasm_hook]]
-name = "XamUserGetSigninInfoHook"
-address = "0x1000227"
-jump_address_on_false = "0x1000228"
-registers = ["r3", "r4", "r5"]
-
-[[midasm_hook]]
-name = "XamUserGetNameHook"
-address = "0x100020E"
-jump_address_on_false = "0x100020F"
-registers = ["r3", "r4", "r5"]
-
-[[midasm_hook]]
-name = "XamUserGetSigninStateHook"
-address = "0x1000210"
-jump_address_on_false = "0x1000211"
-registers = ["r3"]
-
-# Content Management hooks
-[[midasm_hook]]
-name = "XamContentCreateExHook"
-address = "0x1000259"
-jump_address_on_false = "0x100025A"
-registers = ["r3", "r4", "r5"]
-
-[[midasm_hook]]
-name = "XamContentCloseHook"
-address = "0x100025A"
-jump_address_on_false = "0x100025B"
-registers = ["r3"]
-
-[[midasm_hook]]
-name = "XamContentCreateEnumeratorHook"
-address = "0x100025C"
-jump_address_on_false = "0x100025D"
-registers = ["r3", "r4", "r5"]
-
-# File System hooks
-[[midasm_hook]]
-name = "NtOpenFileHook"
-address = "0x10100DF"
-jump_address_on_false = "0x10100E0"
-registers = ["r3", "r4", "r5", "r6"]
-
-[[midasm_hook]]
-name = "NtCreateFileHook"
-address = "0x10100D2"
-jump_address_on_false = "0x10100D3"
-registers = ["r3", "r4", "r5", "r6", "r7"]
-
-[[midasm_hook]]
-name = "NtReadFileHook"
-address = "0x10100F0"
-jump_address_on_false = "0x10100F1"
-registers = ["r3", "r4", "r5"]
-
-[[midasm_hook]]
-name = "NtWriteFileHook"
-address = "0x10100FF"
-jump_address_on_false = "0x1010100"
-registers = ["r3", "r4", "r5"]
-
-# Network hooks
-[[midasm_hook]]
-name = "NetWsaStartupHook"
-address = "0x1000001"
-jump_address_on_false = "0x1000002"
-registers = ["r3", "r4"]
-
-[[midasm_hook]]
-name = "NetWsaCleanupHook"
-address = "0x1000002"
-jump_address_on_false = "0x1000003"
-registers = ["r3"]
-
-[[midasm_hook]]
-name = "NetSocketHook"
-address = "0x1000003"
-jump_address_on_false = "0x1000004"
-registers = ["r3", "r4", "r5"]
-
-[[midasm_hook]]
-name = "NetConnectHook"
-address = "0x100000C"
-jump_address_on_false = "0x100000D"
-registers = ["r3", "r4", "r5"]
-
-# Input hooks
-[[midasm_hook]]
-name = "XamInputGetCapabilitiesHook"
-address = "0x1000190"
-jump_address_on_false = "0x1000191"
-registers = ["r3", "r4", "r5"]
-
-[[midasm_hook]]
-name = "XamInputGetStateHook"
-address = "0x1000191"
-jump_address_on_false = "0x1000192"
-registers = ["r3", "r4", "r5"]
-
-[[midasm_hook]]
-name = "XamInputSetStateHook"
-address = "0x1000192"
-jump_address_on_false = "0x1000193"
-registers = ["r3", "r4", "r5"]
-
-# Graphics hooks
-[[midasm_hook]]
-name = "VdGraphicsInterruptHook"
-address = "0x10101D5"
-jump_address_on_false = "0x10101D6"
-registers = ["r3", "r4"]
-
-[[midasm_hook]]
-name = "VdInitializeEnginesHook"
-address = "0x10101C2"
-jump_address_on_false = "0x10101C3"
-registers = ["r3"]
-
-[[midasm_hook]]
-name = "VdDisplayGammaHook"
-address = "0x10101B9"
-jump_address_on_false = "0x10101BA"
-registers = ["r3", "r4"]
-
-# Game-specific hooks
-[[midasm_hook]]
-name = "CameraAspectRatioHook"
-address = "0x824697B0"
-jump_address_on_false = "0x824697B4"
-registers = ["r3", "r4"]
-
-[[midasm_hook]]
-name = "CameraFOVHook"
-address = "0x82467890"
-jump_address_on_false = "0x82467894"
-registers = ["r3", "r4"]
-
-[[midasm_hook]]
-name = "InputStateHook"
-address = "0x82486968"
-jump_address_on_false = "0x8248696C"
-registers = ["r3", "r4", "r5"]
-
-[[midasm_hook]]
-name = "InputPadStateHook"
-address = "0x8245F048"
-jump_address_on_false = "0x8245F04C"
-registers = ["r3", "r4"]
-
-[[midasm_hook]]
-name = "MemoryAllocHook"
-address = "0x823AF7A8"
-jump_address_on_false = "0x823AF7AC"
-registers = ["r3", "r4"]
-
-[[midasm_hook]]
-name = "MemoryFreeHook"
-address = "0x823B49D8"
-jump_address_on_false = "0x823B49DC"
-registers = ["r3"]
-
-[[midasm_hook]]
-name = "VideoRenderHook"
-address = "0x82AE30D8"
-jump_address_on_false = "0x82AE30DC"
-registers = ["r3", "r4", "r5"]
-
-[[midasm_hook]]
-name = "VideoMotionBlurHook"
-address = "0x830D25D8"
-jump_address_on_false = "0x830D25DC"
-registers = ["r3", "r4"]
-
-[[midasm_hook]]
-name = "AudioCueSheetHook"
-address = "0x82B14CC0"
-jump_address_on_false = "0x82B14CC4"
-registers = ["r3", "r4"]
-
-[[midasm_hook]]
-name = "UIMenuHook"
-address = "0x824B0930"
-jump_address_on_false = "0x824B0934"
-registers = ["r3", "r4"]
-
-[[midasm_hook]]
-name = "UITitleHook"
-address = "0x82547DF0"
-jump_address_on_false = "0x82547DF4"
-registers = ["r3", "r4"]
-
-[[midasm_hook]]
-name = "ObjectPositionHook"
-address = "0x827CBF68"
-jump_address_on_false = "0x827CBF6C"
-registers = ["r3", "r4", "r5"]

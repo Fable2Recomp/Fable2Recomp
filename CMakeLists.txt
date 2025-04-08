@@ -45,31 +45,27 @@ else()
     if(NOT GLM_INCLUDE_DIR)
         message(FATAL_ERROR "GLM headers not found!")
     endif()
-    
-    # Find imgui
-    find_path(IMGUI_INCLUDE_DIR imgui.h
-        PATHS
-        /usr/include
-        /usr/local/include
-    )
-    find_library(IMGUI_LIBRARY imgui)
-    
-    if(NOT IMGUI_INCLUDE_DIR OR NOT IMGUI_LIBRARY)
-        message(FATAL_ERROR "ImGui not found! Please install it from AUR: yay -S imgui")
-    endif()
-    
-    # Find implot
-    find_path(IMPLOT_INCLUDE_DIR implot.h
-        PATHS
-        /usr/include
-        /usr/local/include
-    )
-    find_library(IMPLOT_LIBRARY implot)
-    
-    if(NOT IMPLOT_INCLUDE_DIR OR NOT IMPLOT_LIBRARY)
-        message(FATAL_ERROR "ImPlot not found! Please build and install it from source")
-    endif()
-    
+
+# Ensure the correct include directory for ImGui
+set(IMGUI_INCLUDE_DIR "/home/loreaxe/Desktop/Ryan/Xbox 360 Games/Fable 2/Other/imgui")
+
+# Check if the directory exists and contains imgui.h
+if(NOT EXISTS ${IMGUI_INCLUDE_DIR}/imgui.h)
+    message(FATAL_ERROR "ImGui header not found in ${IMGUI_INCLUDE_DIR}. Please check the path.")
+endif()
+
+# Ensure the correct include directory for Implot
+set(IMPLOT_INCLUDE_DIR "/home/loreaxe/Desktop/Ryan/Xbox 360 Games/Fable 2/Other/implot")
+
+# Check if the directory exists and contains implot.h
+if(NOT EXISTS ${IMPLOT_INCLUDE_DIR}/implot.h)
+    message(FATAL_ERROR "ImPlot header not found in ${IMPLOT_INCLUDE_DIR}. Please check the path.")
+endif()
+
+# Add Implot include directory
+include_directories(${IMPLOT_INCLUDE_DIR})
+include_directories("/path/to/toml11/include")
+
     # Note: Some packages might need manual include path setup
     set(PLATFORM_LIBS
         ${SPDLOG_LIBRARIES}
@@ -112,13 +108,16 @@ set(HEADERS
 # Create executable
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 
-# Link libraries
 target_link_libraries(${PROJECT_NAME} PRIVATE
     ${PLATFORM_LIBS}
+    ${IMGUI_LIBRARY}
+    ${IMPLOT_LIBRARY}
 )
 
-# Include directories
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_SOURCE_DIR}/src
     ${PLATFORM_INCLUDE_DIRS}
-) 
+    ${IMGUI_INCLUDE_DIR}
+    ${IMPLOT_INCLUDE_DIR}
+)
+
