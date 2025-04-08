@@ -37,7 +37,12 @@
 #include <span>
 
 // Third-party includes
-#include <SDL2/SDL.h>
+#if __has_include(<SDL3/SDL.h>)
+    #include <SDL3/SDL.h>
+#else
+    #include <SDL2/SDL.h>
+#endif
+
 #include <vulkan/vulkan.h>
 #include <imgui.h>
 #include <implot.h>
