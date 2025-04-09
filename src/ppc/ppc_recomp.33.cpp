@@ -3765,7 +3765,7 @@ loc_824A6F04:
 	// lis r11,-32246
 	ctx.r11.s64 = -2113273856;
 	// fsubs f12,f0,f13
-	ctx.f12.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// stfs f0,1060(r29)
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r29.u32 + 1060, temp.u32);
@@ -4109,7 +4109,7 @@ loc_824A712C:
 	// rlwinm r9,r10,15,31,31
 	ctx.r9.u64 = __builtin_rotateleft64(ctx.r10.u32 | (ctx.r10.u64 << 32), 15) & 0x1;
 	// fctiwz f12,f13
-	ctx.f12.s64 = (ctx.f13.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f13.f64));
+	ctx.f12.i64 = static_cast<int32_t>(std::trunc(ctx.f13.f64));
 	// stfd f12,80(r1)
 	PPC_STORE_U64(ctx.r1.u32 + 80, ctx.f12.u64);
 	// lwz r31,84(r1)
@@ -4292,7 +4292,7 @@ loc_824A7278:
 	// frsp f10,f11
 	ctx.f10.f64 = double(float(ctx.f11.f64));
 	// fsubs f9,f0,f10
-	ctx.f9.f64 = double(float(ctx.f0.f64 - ctx.f10.f64));
+	ctx.f9.f64 = static_cast<float>(ctx.f0.f64 - ctx.f10.f64);
 	// stfs f9,1064(r21)
 	temp.f32 = float(ctx.f9.f64);
 	PPC_STORE_U32(ctx.r21.u32 + 1064, temp.u32);

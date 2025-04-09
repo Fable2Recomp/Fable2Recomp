@@ -5730,7 +5730,7 @@ PPC_FUNC_IMPL(__imp__sub_82940E78) {
 	// mr r3,r30
 	ctx.r3.u64 = ctx.r30.u64;
 	// fctiwz f10,f11
-	ctx.f10.s64 = (ctx.f11.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f11.f64));
+	ctx.f10.i64 = static_cast<int32_t>(std::trunc(ctx.f11.f64));
 	// stfiwx f10,r31,r11
 	PPC_STORE_U32(ctx.r31.u32 + ctx.r11.u32, ctx.f10.u32);
 	// bl 0x8239ccb0
@@ -5759,7 +5759,7 @@ PPC_FUNC_IMPL(__imp__sub_82940E78) {
 	// lwz r3,4(r31)
 	ctx.r3.u64 = PPC_LOAD_U32(ctx.r31.u32 + 4);
 	// fctiwz f6,f7
-	ctx.f6.s64 = (ctx.f7.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f7.f64));
+	ctx.f6.i64 = static_cast<int32_t>(std::trunc(ctx.f7.f64));
 	// stfiwx f6,r31,r9
 	PPC_STORE_U32(ctx.r31.u32 + ctx.r9.u32, ctx.f6.u32);
 	// bl 0x82392c88
@@ -6432,7 +6432,7 @@ loc_82941334:
 	// stw r7,32(r30)
 	PPC_STORE_U32(ctx.r30.u32 + 32, ctx.r7.u32);
 	// fctiwz f11,f12
-	ctx.f11.s64 = (ctx.f12.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f12.f64));
+	ctx.f11.i64 = static_cast<int32_t>(std::trunc(ctx.f12.f64));
 	// stfiwx f11,r30,r8
 	PPC_STORE_U32(ctx.r30.u32 + ctx.r8.u32, ctx.f11.u32);
 	// lwz r6,40(r11)
@@ -14792,7 +14792,7 @@ PPC_FUNC_IMPL(__imp__sub_82944AF8) {
 	// frsp f10,f12
 	ctx.f10.f64 = double(float(ctx.f12.f64));
 	// fsubs f9,f13,f10
-	ctx.f9.f64 = double(float(ctx.f13.f64 - ctx.f10.f64));
+	ctx.f9.f64 = static_cast<float>(ctx.f13.f64 - ctx.f10.f64);
 	// stfs f9,44(r31)
 	temp.f32 = float(ctx.f9.f64);
 	PPC_STORE_U32(ctx.r31.u32 + 44, temp.u32);
@@ -15511,7 +15511,7 @@ PPC_FUNC_IMPL(__imp__sub_82944FB0) {
 	// stvx128 v0,r0,r6
 	simde_mm_store_si128((simde__m128i*)(base + ((ctx.r6.u32) & ~0xF)), simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)ctx.v0.u8), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
 	// fsubs f10,f13,f0
-	ctx.f10.f64 = double(float(ctx.f13.f64 - ctx.f0.f64));
+	ctx.f10.f64 = static_cast<float>(ctx.f13.f64 - ctx.f0.f64);
 	// lfs f12,120(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 120);
 	ctx.f12.f64 = double(temp.f32);
@@ -18690,7 +18690,7 @@ loc_82946564:
 	temp.u32 = PPC_LOAD_U32(ctx.r30.u32 + 16);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f1,f1,f0
-	ctx.f1.f64 = double(float(ctx.f1.f64 - ctx.f0.f64));
+	ctx.f1.f64 = static_cast<float>(ctx.f1.f64 - ctx.f0.f64);
 	// fcmpu cr6,f1,f31
 	ctx.cr6.compare(ctx.f1.f64, ctx.f31.f64);
 	// blt cr6,0x82946588
@@ -32715,7 +32715,7 @@ loc_8294C340:
 	// ble cr6,0x8294c37c
 	if (!ctx.cr6.gt) goto loc_8294C37C;
 	// fsubs f0,f0,f1
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f1.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f1.f64);
 	// stfs f0,60(r31)
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r31.u32 + 60, temp.u32);
@@ -33296,7 +33296,7 @@ loc_8294C664:
 	// fmuls f6,f9,f12
 	ctx.f6.f64 = double(float(ctx.f9.f64 * ctx.f12.f64));
 	// fmsubs f5,f8,f30,f10
-	ctx.f5.f64 = double(float(ctx.f8.f64 * ctx.f30.f64 - ctx.f10.f64));
+	ctx.f5.f64 = static_cast<float>(ctx.f8.f64 * ctx.f30.f64 - ctx.f10.f64);
 	// fmuls f4,f7,f11
 	ctx.f4.f64 = double(float(ctx.f7.f64 * ctx.f11.f64));
 	// fmuls f3,f5,f4
@@ -33304,7 +33304,7 @@ loc_8294C664:
 	// fdivs f2,f3,f6
 	ctx.f2.f64 = double(float(ctx.f3.f64 / ctx.f6.f64));
 	// fsubs f1,f2,f13
-	ctx.f1.f64 = double(float(ctx.f2.f64 - ctx.f13.f64));
+	ctx.f1.f64 = static_cast<float>(ctx.f2.f64 - ctx.f13.f64);
 	// fcmpu cr6,f1,f31
 	ctx.cr6.compare(ctx.f1.f64, ctx.f31.f64);
 	// mfcr r8
@@ -41053,7 +41053,7 @@ PPC_FUNC_IMPL(__imp__sub_8294FA58) {
 	// frsp f12,f0
 	ctx.f12.f64 = double(float(ctx.f0.f64));
 	// fsubs f11,f13,f12
-	ctx.f11.f64 = double(float(ctx.f13.f64 - ctx.f12.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f13.f64 - ctx.f12.f64);
 	// stfs f11,0(r3)
 	temp.f32 = float(ctx.f11.f64);
 	PPC_STORE_U32(ctx.r3.u32 + 0, temp.u32);
@@ -45480,7 +45480,7 @@ loc_82951754:
 	// lis r10,-32240
 	ctx.r10.s64 = -2112880640;
 	// fsubs f12,f0,f13
-	ctx.f12.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// stb r30,32(r31)
 	PPC_STORE_U8(ctx.r31.u32 + 32, ctx.r30.u8);
 	// addi r9,r10,368

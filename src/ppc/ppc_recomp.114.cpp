@@ -27454,7 +27454,7 @@ loc_82C1E448:
 	// fsel f12,f13,f30,f0
 	ctx.f12.f64 = ctx.f13.f64 >= 0.0 ? ctx.f30.f64 : ctx.f0.f64;
 	// fsubs f11,f31,f12
-	ctx.f11.f64 = double(float(ctx.f31.f64 - ctx.f12.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f31.f64 - ctx.f12.f64);
 	// fsel f0,f11,f12,f31
 	ctx.f0.f64 = ctx.f11.f64 >= 0.0 ? ctx.f12.f64 : ctx.f31.f64;
 	// stfs f0,80(r1)
@@ -27494,7 +27494,7 @@ loc_82C1E448:
 	// fsel f12,f13,f30,f0
 	ctx.f12.f64 = ctx.f13.f64 >= 0.0 ? ctx.f30.f64 : ctx.f0.f64;
 	// fsubs f11,f31,f12
-	ctx.f11.f64 = double(float(ctx.f31.f64 - ctx.f12.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f31.f64 - ctx.f12.f64);
 	// fsel f0,f11,f12,f31
 	ctx.f0.f64 = ctx.f11.f64 >= 0.0 ? ctx.f12.f64 : ctx.f31.f64;
 	// stfs f0,84(r1)
@@ -27536,7 +27536,7 @@ loc_82C1E448:
 	// fsel f10,f11,f30,f13
 	ctx.f10.f64 = ctx.f11.f64 >= 0.0 ? ctx.f30.f64 : ctx.f13.f64;
 	// fsubs f9,f0,f10
-	ctx.f9.f64 = double(float(ctx.f0.f64 - ctx.f10.f64));
+	ctx.f9.f64 = static_cast<float>(ctx.f0.f64 - ctx.f10.f64);
 	// fsel f8,f9,f10,f0
 	ctx.f8.f64 = ctx.f9.f64 >= 0.0 ? ctx.f10.f64 : ctx.f0.f64;
 	// fmuls f7,f8,f12

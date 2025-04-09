@@ -1770,9 +1770,9 @@ loc_82E02C20:
 	temp.u32 = PPC_LOAD_U32(ctx.r4.u32 + 8);
 	ctx.f13.f64 = double(temp.f32);
 	// fsubs f10,f12,f0
-	ctx.f10.f64 = double(float(ctx.f12.f64 - ctx.f0.f64));
+	ctx.f10.f64 = static_cast<float>(ctx.f12.f64 - ctx.f0.f64);
 	// fsubs f9,f11,f13
-	ctx.f9.f64 = double(float(ctx.f11.f64 - ctx.f13.f64));
+	ctx.f9.f64 = static_cast<float>(ctx.f11.f64 - ctx.f13.f64);
 	// stfs f0,-36(r11)
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r11.u32 + -36, temp.u32);
@@ -1800,9 +1800,9 @@ loc_82E02C20:
 	temp.u32 = PPC_LOAD_U32(ctx.r4.u32 + 8);
 	ctx.f13.f64 = double(temp.f32);
 	// fsubs f10,f12,f0
-	ctx.f10.f64 = double(float(ctx.f12.f64 - ctx.f0.f64));
+	ctx.f10.f64 = static_cast<float>(ctx.f12.f64 - ctx.f0.f64);
 	// fsubs f9,f11,f13
-	ctx.f9.f64 = double(float(ctx.f11.f64 - ctx.f13.f64));
+	ctx.f9.f64 = static_cast<float>(ctx.f11.f64 - ctx.f13.f64);
 	// stfs f0,-16(r11)
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r11.u32 + -16, temp.u32);
@@ -1830,9 +1830,9 @@ loc_82E02C20:
 	temp.u32 = PPC_LOAD_U32(ctx.r4.u32 + 8);
 	ctx.f13.f64 = double(temp.f32);
 	// fsubs f10,f12,f0
-	ctx.f10.f64 = double(float(ctx.f12.f64 - ctx.f0.f64));
+	ctx.f10.f64 = static_cast<float>(ctx.f12.f64 - ctx.f0.f64);
 	// fsubs f9,f11,f13
-	ctx.f9.f64 = double(float(ctx.f11.f64 - ctx.f13.f64));
+	ctx.f9.f64 = static_cast<float>(ctx.f11.f64 - ctx.f13.f64);
 	// stfs f0,4(r11)
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r11.u32 + 4, temp.u32);
@@ -1860,9 +1860,9 @@ loc_82E02C20:
 	temp.u32 = PPC_LOAD_U32(ctx.r4.u32 + 8);
 	ctx.f13.f64 = double(temp.f32);
 	// fsubs f10,f12,f0
-	ctx.f10.f64 = double(float(ctx.f12.f64 - ctx.f0.f64));
+	ctx.f10.f64 = static_cast<float>(ctx.f12.f64 - ctx.f0.f64);
 	// fsubs f9,f11,f13
-	ctx.f9.f64 = double(float(ctx.f11.f64 - ctx.f13.f64));
+	ctx.f9.f64 = static_cast<float>(ctx.f11.f64 - ctx.f13.f64);
 	// stfs f0,24(r11)
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r11.u32 + 24, temp.u32);
@@ -1917,9 +1917,9 @@ loc_82E02D20:
 	temp.u32 = PPC_LOAD_U32(ctx.r6.u32 + 8);
 	ctx.f13.f64 = double(temp.f32);
 	// fsubs f10,f12,f0
-	ctx.f10.f64 = double(float(ctx.f12.f64 - ctx.f0.f64));
+	ctx.f10.f64 = static_cast<float>(ctx.f12.f64 - ctx.f0.f64);
 	// fsubs f9,f11,f13
-	ctx.f9.f64 = double(float(ctx.f11.f64 - ctx.f13.f64));
+	ctx.f9.f64 = static_cast<float>(ctx.f11.f64 - ctx.f13.f64);
 	// stfs f0,4(r11)
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r11.u32 + 4, temp.u32);
@@ -2034,9 +2034,9 @@ loc_82E02DCC:
 	temp.u32 = PPC_LOAD_U32(ctx.r31.u32 + 8);
 	ctx.f11.f64 = double(temp.f32);
 	// fsubs f10,f0,f12
-	ctx.f10.f64 = double(float(ctx.f0.f64 - ctx.f12.f64));
+	ctx.f10.f64 = static_cast<float>(ctx.f0.f64 - ctx.f12.f64);
 	// fsubs f9,f13,f11
-	ctx.f9.f64 = double(float(ctx.f13.f64 - ctx.f11.f64));
+	ctx.f9.f64 = static_cast<float>(ctx.f13.f64 - ctx.f11.f64);
 	// add r30,r30,r10
 	ctx.r30.u64 = ctx.r30.u64 + ctx.r10.u64;
 	// add r29,r29,r5
@@ -2064,9 +2064,9 @@ loc_82E02DCC:
 	// cmplwi cr6,r4,0
 	ctx.cr6.compare<uint32_t>(ctx.r4.u32, 0, ctx.xer);
 	// fsubs f10,f0,f12
-	ctx.f10.f64 = double(float(ctx.f0.f64 - ctx.f12.f64));
+	ctx.f10.f64 = static_cast<float>(ctx.f0.f64 - ctx.f12.f64);
 	// fsubs f9,f13,f11
-	ctx.f9.f64 = double(float(ctx.f13.f64 - ctx.f11.f64));
+	ctx.f9.f64 = static_cast<float>(ctx.f13.f64 - ctx.f11.f64);
 	// fsel f0,f10,f12,f0
 	ctx.f0.f64 = ctx.f10.f64 >= 0.0 ? ctx.f12.f64 : ctx.f0.f64;
 	// lfs f12,4(r29)
@@ -2078,9 +2078,9 @@ loc_82E02DCC:
 	temp.u32 = PPC_LOAD_U32(ctx.r29.u32 + 8);
 	ctx.f11.f64 = double(temp.f32);
 	// fsubs f10,f0,f12
-	ctx.f10.f64 = double(float(ctx.f0.f64 - ctx.f12.f64));
+	ctx.f10.f64 = static_cast<float>(ctx.f0.f64 - ctx.f12.f64);
 	// fsubs f9,f13,f11
-	ctx.f9.f64 = double(float(ctx.f13.f64 - ctx.f11.f64));
+	ctx.f9.f64 = static_cast<float>(ctx.f13.f64 - ctx.f11.f64);
 	// fsel f0,f10,f12,f0
 	ctx.f0.f64 = ctx.f10.f64 >= 0.0 ? ctx.f12.f64 : ctx.f0.f64;
 	// lfs f12,4(r28)
@@ -2092,9 +2092,9 @@ loc_82E02DCC:
 	temp.u32 = PPC_LOAD_U32(ctx.r28.u32 + 8);
 	ctx.f11.f64 = double(temp.f32);
 	// fsubs f10,f0,f12
-	ctx.f10.f64 = double(float(ctx.f0.f64 - ctx.f12.f64));
+	ctx.f10.f64 = static_cast<float>(ctx.f0.f64 - ctx.f12.f64);
 	// fsubs f9,f13,f11
-	ctx.f9.f64 = double(float(ctx.f13.f64 - ctx.f11.f64));
+	ctx.f9.f64 = static_cast<float>(ctx.f13.f64 - ctx.f11.f64);
 	// fsel f0,f10,f12,f0
 	ctx.f0.f64 = ctx.f10.f64 >= 0.0 ? ctx.f12.f64 : ctx.f0.f64;
 	// fsel f13,f9,f13,f11
@@ -2143,9 +2143,9 @@ loc_82E02EA0:
 	temp.u32 = PPC_LOAD_U32(ctx.r6.u32 + 8);
 	ctx.f11.f64 = double(temp.f32);
 	// fsubs f10,f0,f12
-	ctx.f10.f64 = double(float(ctx.f0.f64 - ctx.f12.f64));
+	ctx.f10.f64 = static_cast<float>(ctx.f0.f64 - ctx.f12.f64);
 	// fsubs f9,f13,f11
-	ctx.f9.f64 = double(float(ctx.f13.f64 - ctx.f11.f64));
+	ctx.f9.f64 = static_cast<float>(ctx.f13.f64 - ctx.f11.f64);
 	// fsel f0,f10,f12,f0
 	ctx.f0.f64 = ctx.f10.f64 >= 0.0 ? ctx.f12.f64 : ctx.f0.f64;
 	// fsel f13,f9,f13,f11
@@ -2490,7 +2490,7 @@ loc_82E030CC:
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 80);
 	ctx.f13.f64 = double(temp.f32);
 	// fsubs f11,f13,f0
-	ctx.f11.f64 = double(float(ctx.f13.f64 - ctx.f0.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f13.f64 - ctx.f0.f64);
 	// fadds f10,f13,f0
 	ctx.f10.f64 = double(float(ctx.f13.f64 + ctx.f0.f64));
 	// ble cr6,0x82e03174
@@ -2518,7 +2518,7 @@ loc_82E03120:
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 84);
 	ctx.f12.f64 = double(temp.f32);
 	// fsubs f13,f12,f0
-	ctx.f13.f64 = double(float(ctx.f12.f64 - ctx.f0.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f12.f64 - ctx.f0.f64);
 	// fadds f0,f12,f0
 	ctx.f0.f64 = double(float(ctx.f12.f64 + ctx.f0.f64));
 	// fcmpu cr6,f13,f11
@@ -4682,19 +4682,19 @@ PPC_FUNC_IMPL(__imp__sub_82E03DF0) {
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 112);
 	ctx.f0.f64 = double(temp.f32);
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// lfs f12,120(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 120);
 	ctx.f12.f64 = double(temp.f32);
 	// fctiwz f12,f12
-	ctx.f12.s64 = (ctx.f12.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f12.f64));
+	ctx.f12.i64 = static_cast<int32_t>(std::trunc(ctx.f12.f64));
 	// stvx128 v0,r0,r9
 	simde_mm_store_si128((simde__m128i*)(base + ((ctx.r9.u32) & ~0xF)), simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)ctx.v0.u8), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
 	// lfs f13,96(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 96);
 	ctx.f13.f64 = double(temp.f32);
 	// fctiwz f13,f13
-	ctx.f13.s64 = (ctx.f13.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f13.f64));
+	ctx.f13.i64 = static_cast<int32_t>(std::trunc(ctx.f13.f64));
 	// stfiwx f13,0,r11
 	PPC_STORE_U32(ctx.r11.u32, ctx.f13.u32);
 	// lwz r11,80(r1)
@@ -4705,7 +4705,7 @@ PPC_FUNC_IMPL(__imp__sub_82E03DF0) {
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 100);
 	ctx.f13.f64 = double(temp.f32);
 	// fctiwz f13,f13
-	ctx.f13.s64 = (ctx.f13.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f13.f64));
+	ctx.f13.i64 = static_cast<int32_t>(std::trunc(ctx.f13.f64));
 	// addi r11,r11,-1
 	ctx.r11.s64 = ctx.r11.s64 + -1;
 	// stfiwx f0,0,r9
@@ -4722,7 +4722,7 @@ PPC_FUNC_IMPL(__imp__sub_82E03DF0) {
 	// stw r11,32(r3)
 	PPC_STORE_U32(ctx.r3.u32 + 32, ctx.r11.u32);
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// stfiwx f13,0,r8
 	PPC_STORE_U32(ctx.r8.u32, ctx.f13.u32);
 	// lwz r8,80(r1)
@@ -4737,7 +4737,7 @@ PPC_FUNC_IMPL(__imp__sub_82E03DF0) {
 	// stw r9,16(r3)
 	PPC_STORE_U32(ctx.r3.u32 + 16, ctx.r9.u32);
 	// fctiwz f13,f13
-	ctx.f13.s64 = (ctx.f13.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f13.f64));
+	ctx.f13.i64 = static_cast<int32_t>(std::trunc(ctx.f13.f64));
 	// stw r8,36(r3)
 	PPC_STORE_U32(ctx.r3.u32 + 36, ctx.r8.u32);
 	// srawi r11,r11,16
@@ -4881,14 +4881,14 @@ PPC_FUNC_IMPL(__imp__sub_82E04008) {
 	// li r6,0
 	ctx.r6.s64 = 0;
 	// fsubs f12,f12,f13
-	ctx.f12.f64 = double(float(ctx.f12.f64 - ctx.f13.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f12.f64 - ctx.f13.f64);
 	// lfs f0,28(r4)
 	temp.u32 = PPC_LOAD_U32(ctx.r4.u32 + 28);
 	ctx.f0.f64 = double(temp.f32);
 	// fmuls f12,f12,f0
 	ctx.f12.f64 = double(float(ctx.f12.f64 * ctx.f0.f64));
 	// fctiwz f12,f12
-	ctx.f12.s64 = (ctx.f12.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f12.f64));
+	ctx.f12.i64 = static_cast<int32_t>(std::trunc(ctx.f12.f64));
 	// stfiwx f12,0,r11
 	PPC_STORE_U32(ctx.r11.u32, ctx.f12.u32);
 	// lwz r11,80(r1)
@@ -4903,7 +4903,7 @@ PPC_FUNC_IMPL(__imp__sub_82E04008) {
 	temp.u32 = PPC_LOAD_U32(ctx.r5.u32 + 16);
 	ctx.f12.f64 = double(temp.f32);
 	// fsubs f13,f12,f13
-	ctx.f13.f64 = double(float(ctx.f12.f64 - ctx.f13.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f12.f64 - ctx.f13.f64);
 	// lhz r11,32(r3)
 	ctx.r11.u64 = PPC_LOAD_U16(ctx.r3.u32 + 32);
 	// extsh r11,r11
@@ -4913,7 +4913,7 @@ PPC_FUNC_IMPL(__imp__sub_82E04008) {
 	// fmuls f13,f13,f0
 	ctx.f13.f64 = double(float(ctx.f13.f64 * ctx.f0.f64));
 	// fctiwz f13,f13
-	ctx.f13.s64 = (ctx.f13.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f13.f64));
+	ctx.f13.i64 = static_cast<int32_t>(std::trunc(ctx.f13.f64));
 	// stfiwx f13,0,r10
 	PPC_STORE_U32(ctx.r10.u32, ctx.f13.u32);
 	// lwz r11,80(r1)
@@ -4933,7 +4933,7 @@ PPC_FUNC_IMPL(__imp__sub_82E04008) {
 	// lhz r11,16(r3)
 	ctx.r11.u64 = PPC_LOAD_U16(ctx.r3.u32 + 16);
 	// fsubs f12,f12,f13
-	ctx.f12.f64 = double(float(ctx.f12.f64 - ctx.f13.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f12.f64 - ctx.f13.f64);
 	// extsh r11,r11
 	ctx.r11.s64 = ctx.r11.s16;
 	// addi r11,r11,1
@@ -4943,7 +4943,7 @@ PPC_FUNC_IMPL(__imp__sub_82E04008) {
 	// fmuls f12,f12,f0
 	ctx.f12.f64 = double(float(ctx.f12.f64 * ctx.f0.f64));
 	// fctiwz f12,f12
-	ctx.f12.s64 = (ctx.f12.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f12.f64));
+	ctx.f12.i64 = static_cast<int32_t>(std::trunc(ctx.f12.f64));
 	// stfiwx f12,0,r10
 	PPC_STORE_U32(ctx.r10.u32, ctx.f12.u32);
 	// lwz r11,80(r1)
@@ -4958,7 +4958,7 @@ PPC_FUNC_IMPL(__imp__sub_82E04008) {
 	temp.u32 = PPC_LOAD_U32(ctx.r5.u32 + 20);
 	ctx.f12.f64 = double(temp.f32);
 	// fsubs f13,f12,f13
-	ctx.f13.f64 = double(float(ctx.f12.f64 - ctx.f13.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f12.f64 - ctx.f13.f64);
 	// lhz r11,36(r3)
 	ctx.r11.u64 = PPC_LOAD_U16(ctx.r3.u32 + 36);
 	// extsh r11,r11
@@ -4968,7 +4968,7 @@ PPC_FUNC_IMPL(__imp__sub_82E04008) {
 	// fmuls f13,f13,f0
 	ctx.f13.f64 = double(float(ctx.f13.f64 * ctx.f0.f64));
 	// fctiwz f13,f13
-	ctx.f13.s64 = (ctx.f13.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f13.f64));
+	ctx.f13.i64 = static_cast<int32_t>(std::trunc(ctx.f13.f64));
 	// stfiwx f13,0,r10
 	PPC_STORE_U32(ctx.r10.u32, ctx.f13.u32);
 	// lwz r11,80(r1)
@@ -4986,11 +4986,11 @@ PPC_FUNC_IMPL(__imp__sub_82E04008) {
 	temp.u32 = PPC_LOAD_U32(ctx.r5.u32 + 8);
 	ctx.f12.f64 = double(temp.f32);
 	// fsubs f12,f12,f13
-	ctx.f12.f64 = double(float(ctx.f12.f64 - ctx.f13.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f12.f64 - ctx.f13.f64);
 	// fmuls f12,f12,f0
 	ctx.f12.f64 = double(float(ctx.f12.f64 * ctx.f0.f64));
 	// fctiwz f12,f12
-	ctx.f12.s64 = (ctx.f12.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f12.f64));
+	ctx.f12.i64 = static_cast<int32_t>(std::trunc(ctx.f12.f64));
 	// stfiwx f12,0,r10
 	PPC_STORE_U32(ctx.r10.u32, ctx.f12.u32);
 	// lwz r11,80(r1)
@@ -5005,13 +5005,13 @@ PPC_FUNC_IMPL(__imp__sub_82E04008) {
 	temp.u32 = PPC_LOAD_U32(ctx.r5.u32 + 24);
 	ctx.f12.f64 = double(temp.f32);
 	// fsubs f13,f12,f13
-	ctx.f13.f64 = double(float(ctx.f12.f64 - ctx.f13.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f12.f64 - ctx.f13.f64);
 	// lhz r9,40(r3)
 	ctx.r9.u64 = PPC_LOAD_U16(ctx.r3.u32 + 40);
 	// fmuls f0,f13,f0
 	ctx.f0.f64 = double(float(ctx.f13.f64 * ctx.f0.f64));
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// stfiwx f0,0,r10
 	PPC_STORE_U32(ctx.r10.u32, ctx.f0.u32);
 	// lhz r10,20(r3)
@@ -5702,11 +5702,11 @@ loc_82E04468:
 	// addi r10,r10,-255
 	ctx.r10.s64 = ctx.r10.s64 + -255;
 	// fsubs f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// addi r11,r11,-255
 	ctx.r11.s64 = ctx.r11.s64 + -255;
 	// fsubs f13,f12,f11
-	ctx.f13.f64 = double(float(ctx.f12.f64 - ctx.f11.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f12.f64 - ctx.f11.f64);
 	// extsw r10,r10
 	ctx.r10.s64 = ctx.r10.s32;
 	// extsw r11,r11
@@ -5802,11 +5802,11 @@ loc_82E04518:
 	// addi r10,r10,-255
 	ctx.r10.s64 = ctx.r10.s64 + -255;
 	// fsubs f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// addi r11,r11,-255
 	ctx.r11.s64 = ctx.r11.s64 + -255;
 	// fsubs f13,f12,f11
-	ctx.f13.f64 = double(float(ctx.f12.f64 - ctx.f11.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f12.f64 - ctx.f11.f64);
 	// extsw r10,r10
 	ctx.r10.s64 = ctx.r10.s32;
 	// extsw r11,r11
@@ -5902,11 +5902,11 @@ loc_82E045C8:
 	// addi r10,r10,-255
 	ctx.r10.s64 = ctx.r10.s64 + -255;
 	// fsubs f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// addi r11,r11,-255
 	ctx.r11.s64 = ctx.r11.s64 + -255;
 	// fsubs f13,f12,f11
-	ctx.f13.f64 = double(float(ctx.f12.f64 - ctx.f11.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f12.f64 - ctx.f11.f64);
 	// extsw r10,r10
 	ctx.r10.s64 = ctx.r10.s32;
 	// extsw r11,r11
@@ -6040,9 +6040,9 @@ loc_82E04690:
 	// std r10,360(r1)
 	PPC_STORE_U64(ctx.r1.u32 + 360, ctx.r10.u64);
 	// fsubs f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// fsubs f13,f12,f11
-	ctx.f13.f64 = double(float(ctx.f12.f64 - ctx.f11.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f12.f64 - ctx.f11.f64);
 	// lfd f12,272(r1)
 	ctx.f12.u64 = PPC_LOAD_U64(ctx.r1.u32 + 272);
 	// lfd f11,360(r1)
@@ -6082,11 +6082,11 @@ loc_82E04704:
 	// rlwinm r8,r11,1,0,30
 	ctx.r8.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 1) & 0xFFFFFFFE;
 	// fsubs f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// rlwinm r9,r10,1,0,30
 	ctx.r9.u64 = __builtin_rotateleft64(ctx.r10.u32 | (ctx.r10.u64 << 32), 1) & 0xFFFFFFFE;
 	// fsubs f12,f12,f11
-	ctx.f12.f64 = double(float(ctx.f12.f64 - ctx.f11.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f12.f64 - ctx.f11.f64);
 	// add r11,r11,r8
 	ctx.r11.u64 = ctx.r11.u64 + ctx.r8.u64;
 	// lfs f13,8(r30)
@@ -6148,11 +6148,11 @@ loc_82E04778:
 	// rlwinm r8,r11,1,0,30
 	ctx.r8.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 1) & 0xFFFFFFFE;
 	// fsubs f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// rlwinm r9,r10,1,0,30
 	ctx.r9.u64 = __builtin_rotateleft64(ctx.r10.u32 | (ctx.r10.u64 << 32), 1) & 0xFFFFFFFE;
 	// fsubs f12,f12,f11
-	ctx.f12.f64 = double(float(ctx.f12.f64 - ctx.f11.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f12.f64 - ctx.f11.f64);
 	// add r11,r11,r8
 	ctx.r11.u64 = ctx.r11.u64 + ctx.r8.u64;
 	// lfs f13,8(r30)
@@ -6172,9 +6172,9 @@ loc_82E04778:
 	// std r10,216(r1)
 	PPC_STORE_U64(ctx.r1.u32 + 216, ctx.r10.u64);
 	// fsubs f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// fsubs f13,f12,f11
-	ctx.f13.f64 = double(float(ctx.f12.f64 - ctx.f11.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f12.f64 - ctx.f11.f64);
 	// lfd f12,200(r1)
 	ctx.f12.u64 = PPC_LOAD_U64(ctx.r1.u32 + 200);
 	// lfd f11,216(r1)
@@ -6337,17 +6337,17 @@ loc_82E048DC:
 	ctx.r11.s64 = ctx.r1.s64 + 384;
 	// fsubs f29,f0,f30
 	ctx.fpscr.disableFlushMode();
-	ctx.f29.f64 = double(float(ctx.f0.f64 - ctx.f30.f64));
+	ctx.f29.f64 = static_cast<float>(ctx.f0.f64 - ctx.f30.f64);
 	// fsubs f28,f13,f30
-	ctx.f28.f64 = double(float(ctx.f13.f64 - ctx.f30.f64));
+	ctx.f28.f64 = static_cast<float>(ctx.f13.f64 - ctx.f30.f64);
 	// lvx128 v13,r0,r30
 	simde_mm_store_si128((simde__m128i*)ctx.v13.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r30.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
 	// addi r29,r30,16
 	ctx.r29.s64 = ctx.r30.s64 + 16;
 	// fsubs f27,f0,f31
-	ctx.f27.f64 = double(float(ctx.f0.f64 - ctx.f31.f64));
+	ctx.f27.f64 = static_cast<float>(ctx.f0.f64 - ctx.f31.f64);
 	// fsubs f26,f13,f31
-	ctx.f26.f64 = double(float(ctx.f13.f64 - ctx.f31.f64));
+	ctx.f26.f64 = static_cast<float>(ctx.f13.f64 - ctx.f31.f64);
 	// stvx128 v13,r0,r11
 	simde_mm_store_si128((simde__m128i*)(base + ((ctx.r11.u32) & ~0xF)), simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)ctx.v13.u8), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
 	// addi r11,r1,400
@@ -6367,7 +6367,7 @@ loc_82E048DC:
 	// bge cr6,0x82e04950
 	if (!ctx.cr6.lt) goto loc_82E04950;
 	// fsubs f0,f29,f28
-	ctx.f0.f64 = double(float(ctx.f29.f64 - ctx.f28.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f29.f64 - ctx.f28.f64);
 	// addi r11,r1,80
 	ctx.r11.s64 = ctx.r1.s64 + 80;
 	// lvx128 v11,r0,r22
@@ -6419,7 +6419,7 @@ loc_82E04950:
 	// bge cr6,0x82e049b0
 	if (!ctx.cr6.lt) goto loc_82E049B0;
 	// fsubs f0,f27,f26
-	ctx.f0.f64 = double(float(ctx.f27.f64 - ctx.f26.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f27.f64 - ctx.f26.f64);
 	// addi r11,r1,80
 	ctx.r11.s64 = ctx.r1.s64 + 80;
 	// lvx128 v13,r0,r22
@@ -6545,7 +6545,7 @@ loc_82E04A48:
 	// bge cr6,0x82e04a88
 	if (!ctx.cr6.lt) goto loc_82E04A88;
 	// fsubs f0,f27,f26
-	ctx.f0.f64 = double(float(ctx.f27.f64 - ctx.f26.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f27.f64 - ctx.f26.f64);
 	// addi r11,r1,80
 	ctx.r11.s64 = ctx.r1.s64 + 80;
 	// lvx128 v11,r0,r22
@@ -6595,7 +6595,7 @@ loc_82E04A88:
 	// bge cr6,0x82e04ae4
 	if (!ctx.cr6.lt) goto loc_82E04AE4;
 	// fsubs f0,f29,f28
-	ctx.f0.f64 = double(float(ctx.f29.f64 - ctx.f28.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f29.f64 - ctx.f28.f64);
 	// addi r11,r1,80
 	ctx.r11.s64 = ctx.r1.s64 + 80;
 	// lvx128 v13,r0,r22
@@ -6783,9 +6783,9 @@ loc_82E04B78:
 	// fmuls f0,f10,f0
 	ctx.f0.f64 = double(float(ctx.f10.f64 * ctx.f0.f64));
 	// fmsubs f10,f11,f13,f12
-	ctx.f10.f64 = double(float(ctx.f11.f64 * ctx.f13.f64 - ctx.f12.f64));
+	ctx.f10.f64 = static_cast<float>(ctx.f11.f64 * ctx.f13.f64 - ctx.f12.f64);
 	// fmsubs f0,f0,f13,f12
-	ctx.f0.f64 = double(float(ctx.f0.f64 * ctx.f13.f64 - ctx.f12.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 * ctx.f13.f64 - ctx.f12.f64);
 	// b 0x82e04c2c
 	goto loc_82E04C2C;
 loc_82E04C0C:
@@ -6855,9 +6855,9 @@ loc_82E04C74:
 	ctx.r11.s64 = ctx.r30.s64 + 16;
 	// fsubs f13,f12,f0
 	ctx.fpscr.disableFlushMode();
-	ctx.f13.f64 = double(float(ctx.f12.f64 - ctx.f0.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f12.f64 - ctx.f0.f64);
 	// fsubs f0,f11,f0
-	ctx.f0.f64 = double(float(ctx.f11.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f11.f64 - ctx.f0.f64);
 	// ld r7,0(r30)
 	ctx.r7.u64 = PPC_LOAD_U64(ctx.r30.u32 + 0);
 	// addi r10,r1,416
@@ -6893,7 +6893,7 @@ loc_82E04C74:
 	// bge cr6,0x82e04cfc
 	if (!ctx.cr6.lt) goto loc_82E04CFC;
 	// fsubs f0,f13,f0
-	ctx.f0.f64 = double(float(ctx.f13.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f13.f64 - ctx.f0.f64);
 	// addi r11,r1,80
 	ctx.r11.s64 = ctx.r1.s64 + 80;
 	// lvx128 v13,r0,r22
@@ -6926,9 +6926,9 @@ loc_82E04C74:
 loc_82E04CFC:
 	// fsubs f0,f12,f10
 	ctx.fpscr.disableFlushMode();
-	ctx.f0.f64 = double(float(ctx.f12.f64 - ctx.f10.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f12.f64 - ctx.f10.f64);
 	// fsubs f13,f11,f10
-	ctx.f13.f64 = double(float(ctx.f11.f64 - ctx.f10.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f11.f64 - ctx.f10.f64);
 	// fmuls f12,f13,f0
 	ctx.f12.f64 = double(float(ctx.f13.f64 * ctx.f0.f64));
 	// fcmpu cr6,f12,f25
@@ -6936,7 +6936,7 @@ loc_82E04CFC:
 	// bge cr6,0x82e0423c
 	if (!ctx.cr6.lt) goto loc_82E0423C;
 	// fsubs f13,f0,f13
-	ctx.f13.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// addi r11,r1,80
 	ctx.r11.s64 = ctx.r1.s64 + 80;
 	// lvx128 v13,r0,r22
@@ -8427,9 +8427,9 @@ PPC_FUNC_IMPL(__imp__sub_82E05640) {
 	// fmuls f30,f13,f0
 	ctx.f30.f64 = double(float(ctx.f13.f64 * ctx.f0.f64));
 	// fmadds f0,f12,f11,f30
-	ctx.f0.f64 = double(float(ctx.f12.f64 * ctx.f11.f64 + ctx.f30.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f12.f64 * ctx.f11.f64 + ctx.f30.f64);
 	// fmadds f1,f10,f31,f0
-	ctx.f1.f64 = double(float(ctx.f10.f64 * ctx.f31.f64 + ctx.f0.f64));
+	ctx.f1.f64 = static_cast<float>(ctx.f10.f64 * ctx.f31.f64 + ctx.f0.f64);
 	// mtctr r11
 	ctx.ctr.u64 = ctx.r11.u64;
 	// bctrl 
@@ -8446,7 +8446,7 @@ PPC_FUNC_IMPL(__imp__sub_82E05640) {
 	// li r9,80
 	ctx.r9.s64 = 80;
 	// fmadds f0,f0,f31,f30
-	ctx.f0.f64 = double(float(ctx.f0.f64 * ctx.f31.f64 + ctx.f30.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 * ctx.f31.f64 + ctx.f30.f64);
 	// lfs f13,160(r29)
 	temp.u32 = PPC_LOAD_U32(ctx.r29.u32 + 160);
 	ctx.f13.f64 = double(temp.f32);
@@ -10711,7 +10711,7 @@ loc_82E065A0:
 	temp.u32 = PPC_LOAD_U32(ctx.r10.u32 + 72);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f11,f0,f13
-	ctx.f11.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// lfs f12,12(r28)
 	temp.u32 = PPC_LOAD_U32(ctx.r28.u32 + 12);
 	ctx.f12.f64 = double(temp.f32);
@@ -14317,7 +14317,7 @@ loc_82E07E1C:
 	temp.u32 = PPC_LOAD_U32(ctx.r10.u32 + 72);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f9,f13,f0
-	ctx.f9.f64 = double(float(ctx.f13.f64 - ctx.f0.f64));
+	ctx.f9.f64 = static_cast<float>(ctx.f13.f64 - ctx.f0.f64);
 	// lfs f11,24(r8)
 	temp.u32 = PPC_LOAD_U32(ctx.r8.u32 + 24);
 	ctx.f11.f64 = double(temp.f32);
@@ -14332,9 +14332,9 @@ loc_82E07E1C:
 	// fmuls f0,f10,f1
 	ctx.f0.f64 = double(float(ctx.f10.f64 * ctx.f1.f64));
 	// fmadds f13,f11,f1,f12
-	ctx.f13.f64 = double(float(ctx.f11.f64 * ctx.f1.f64 + ctx.f12.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f11.f64 * ctx.f1.f64 + ctx.f12.f64);
 	// fsubs f11,f0,f13
-	ctx.f11.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// fsel f2,f11,f13,f0
 	ctx.f2.f64 = ctx.f11.f64 >= 0.0 ? ctx.f13.f64 : ctx.f0.f64;
 	// fcmpu cr6,f26,f2
@@ -14350,7 +14350,7 @@ loc_82E07E1C:
 	temp.u32 = PPC_LOAD_U32(ctx.r8.u32 + 36);
 	ctx.f0.f64 = double(temp.f32);
 	// fmadds f13,f13,f1,f12
-	ctx.f13.f64 = double(float(ctx.f13.f64 * ctx.f1.f64 + ctx.f12.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f13.f64 * ctx.f1.f64 + ctx.f12.f64);
 	// fmuls f0,f0,f1
 	ctx.f0.f64 = double(float(ctx.f0.f64 * ctx.f1.f64));
 	// mr r8,r19
@@ -14360,7 +14360,7 @@ loc_82E07E1C:
 	// mr r3,r22
 	ctx.r3.u64 = ctx.r22.u64;
 	// fsubs f12,f0,f13
-	ctx.f12.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// fsel f3,f12,f13,f0
 	ctx.f3.f64 = ctx.f12.f64 >= 0.0 ? ctx.f13.f64 : ctx.f0.f64;
 	// bl 0x82e21540
@@ -15677,12 +15677,12 @@ PPC_FUNC_IMPL(__imp__sub_82E08708) {
 	temp.u32 = PPC_LOAD_U32(ctx.r29.u32 + 16);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f0,f13,f0
-	ctx.f0.f64 = double(float(ctx.f13.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f13.f64 - ctx.f0.f64);
 	// lfs f13,16(r28)
 	temp.u32 = PPC_LOAD_U32(ctx.r28.u32 + 16);
 	ctx.f13.f64 = double(temp.f32);
 	// fsubs f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// stfs f0,12(r30)
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r30.u32 + 12, temp.u32);
@@ -15951,12 +15951,12 @@ loc_82E08924:
 	temp.u32 = PPC_LOAD_U32(ctx.r29.u32 + 16);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f0,f13,f0
-	ctx.f0.f64 = double(float(ctx.f13.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f13.f64 - ctx.f0.f64);
 	// lfs f13,16(r28)
 	temp.u32 = PPC_LOAD_U32(ctx.r28.u32 + 16);
 	ctx.f13.f64 = double(temp.f32);
 	// fsubs f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// stfs f0,12(r27)
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r27.u32 + 12, temp.u32);
@@ -16084,7 +16084,7 @@ loc_82E08A40:
 	temp.u32 = PPC_LOAD_U32(ctx.r10.u32 + 72);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f8,f13,f0
-	ctx.f8.f64 = double(float(ctx.f13.f64 - ctx.f0.f64));
+	ctx.f8.f64 = static_cast<float>(ctx.f13.f64 - ctx.f0.f64);
 	// lfs f10,24(r8)
 	temp.u32 = PPC_LOAD_U32(ctx.r8.u32 + 24);
 	ctx.f10.f64 = double(temp.f32);
@@ -16099,9 +16099,9 @@ loc_82E08A40:
 	// fmuls f0,f9,f1
 	ctx.f0.f64 = double(float(ctx.f9.f64 * ctx.f1.f64));
 	// fmadds f13,f10,f1,f12
-	ctx.f13.f64 = double(float(ctx.f10.f64 * ctx.f1.f64 + ctx.f12.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f10.f64 * ctx.f1.f64 + ctx.f12.f64);
 	// fsubs f10,f0,f13
-	ctx.f10.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f10.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// fsel f2,f10,f13,f0
 	ctx.f2.f64 = ctx.f10.f64 >= 0.0 ? ctx.f13.f64 : ctx.f0.f64;
 	// fcmpu cr6,f11,f2
@@ -16117,7 +16117,7 @@ loc_82E08A40:
 	temp.u32 = PPC_LOAD_U32(ctx.r8.u32 + 36);
 	ctx.f0.f64 = double(temp.f32);
 	// fmadds f13,f13,f1,f12
-	ctx.f13.f64 = double(float(ctx.f13.f64 * ctx.f1.f64 + ctx.f12.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f13.f64 * ctx.f1.f64 + ctx.f12.f64);
 	// fmuls f0,f0,f1
 	ctx.f0.f64 = double(float(ctx.f0.f64 * ctx.f1.f64));
 	// mr r8,r30
@@ -16127,7 +16127,7 @@ loc_82E08A40:
 	// mr r3,r26
 	ctx.r3.u64 = ctx.r26.u64;
 	// fsubs f12,f0,f13
-	ctx.f12.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// fsel f3,f12,f13,f0
 	ctx.f3.f64 = ctx.f12.f64 >= 0.0 ? ctx.f13.f64 : ctx.f0.f64;
 	// bl 0x82e21540
@@ -17335,28 +17335,28 @@ loc_82E09280:
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 96);
 	ctx.f0.f64 = double(temp.f32);
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// stfiwx f0,0,r9
 	PPC_STORE_U32(ctx.r9.u32, ctx.f0.u32);
 	// lfs f0,100(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 100);
 	ctx.f0.f64 = double(temp.f32);
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// stfiwx f0,0,r8
 	PPC_STORE_U32(ctx.r8.u32, ctx.f0.u32);
 	// lfs f0,104(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 104);
 	ctx.f0.f64 = double(temp.f32);
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// stfiwx f0,0,r7
 	PPC_STORE_U32(ctx.r7.u32, ctx.f0.u32);
 	// lfs f0,108(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 108);
 	ctx.f0.f64 = double(temp.f32);
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// li r12,-12
 	ctx.r12.s64 = -12;
 	// stfiwx f0,r31,r12
@@ -17367,28 +17367,28 @@ loc_82E09280:
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 112);
 	ctx.f0.f64 = double(temp.f32);
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// stfiwx f0,0,r6
 	PPC_STORE_U32(ctx.r6.u32, ctx.f0.u32);
 	// lfs f0,116(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 116);
 	ctx.f0.f64 = double(temp.f32);
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// stfiwx f0,0,r5
 	PPC_STORE_U32(ctx.r5.u32, ctx.f0.u32);
 	// lfs f0,120(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 120);
 	ctx.f0.f64 = double(temp.f32);
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// stfiwx f0,0,r31
 	PPC_STORE_U32(ctx.r31.u32, ctx.f0.u32);
 	// lfs f0,124(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 124);
 	ctx.f0.f64 = double(temp.f32);
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// stfiwx f0,0,r4
 	PPC_STORE_U32(ctx.r4.u32, ctx.f0.u32);
 	// stw r29,-12(r31)
@@ -18078,14 +18078,14 @@ loc_82E097F0:
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 96);
 	ctx.f0.f64 = double(temp.f32);
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// stfiwx f0,0,r11
 	PPC_STORE_U32(ctx.r11.u32, ctx.f0.u32);
 	// lfs f0,100(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 100);
 	ctx.f0.f64 = double(temp.f32);
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// stfiwx f0,0,r8
 	PPC_STORE_U32(ctx.r8.u32, ctx.f0.u32);
 	// lfs f0,104(r1)
@@ -18094,7 +18094,7 @@ loc_82E097F0:
 	// addi r8,r10,8
 	ctx.r8.s64 = ctx.r10.s64 + 8;
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// stfiwx f0,0,r7
 	PPC_STORE_U32(ctx.r7.u32, ctx.f0.u32);
 	// lfs f0,108(r1)
@@ -18103,7 +18103,7 @@ loc_82E097F0:
 	// addi r7,r10,12
 	ctx.r7.s64 = ctx.r10.s64 + 12;
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// li r12,12
 	ctx.r12.s64 = 12;
 	// stfiwx f0,r11,r12
@@ -18134,28 +18134,28 @@ loc_82E097F0:
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 112);
 	ctx.f0.f64 = double(temp.f32);
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// stfiwx f0,0,r10
 	PPC_STORE_U32(ctx.r10.u32, ctx.f0.u32);
 	// lfs f0,116(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 116);
 	ctx.f0.f64 = double(temp.f32);
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// stfiwx f0,0,r9
 	PPC_STORE_U32(ctx.r9.u32, ctx.f0.u32);
 	// lfs f0,120(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 120);
 	ctx.f0.f64 = double(temp.f32);
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// stfiwx f0,0,r8
 	PPC_STORE_U32(ctx.r8.u32, ctx.f0.u32);
 	// lfs f0,124(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 124);
 	ctx.f0.f64 = double(temp.f32);
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// stfiwx f0,0,r7
 	PPC_STORE_U32(ctx.r7.u32, ctx.f0.u32);
 	// stw r30,12(r11)
@@ -19159,28 +19159,28 @@ loc_82E09FA4:
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 128);
 	ctx.f0.f64 = double(temp.f32);
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// stfiwx f0,0,r9
 	PPC_STORE_U32(ctx.r9.u32, ctx.f0.u32);
 	// lfs f0,132(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 132);
 	ctx.f0.f64 = double(temp.f32);
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// stfiwx f0,0,r8
 	PPC_STORE_U32(ctx.r8.u32, ctx.f0.u32);
 	// lfs f0,136(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 136);
 	ctx.f0.f64 = double(temp.f32);
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// stfiwx f0,0,r7
 	PPC_STORE_U32(ctx.r7.u32, ctx.f0.u32);
 	// lfs f0,140(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 140);
 	ctx.f0.f64 = double(temp.f32);
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// li r12,-12
 	ctx.r12.s64 = -12;
 	// stfiwx f0,r31,r12
@@ -19215,28 +19215,28 @@ loc_82E09FA4:
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 144);
 	ctx.f0.f64 = double(temp.f32);
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// stfiwx f0,0,r6
 	PPC_STORE_U32(ctx.r6.u32, ctx.f0.u32);
 	// lfs f0,148(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 148);
 	ctx.f0.f64 = double(temp.f32);
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// stfiwx f0,0,r5
 	PPC_STORE_U32(ctx.r5.u32, ctx.f0.u32);
 	// lfs f0,152(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 152);
 	ctx.f0.f64 = double(temp.f32);
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// stfiwx f0,0,r31
 	PPC_STORE_U32(ctx.r31.u32, ctx.f0.u32);
 	// lfs f0,156(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 156);
 	ctx.f0.f64 = double(temp.f32);
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// stfiwx f0,0,r4
 	PPC_STORE_U32(ctx.r4.u32, ctx.f0.u32);
 	// stw r28,-12(r31)
@@ -32655,16 +32655,16 @@ PPC_FUNC_IMPL(__imp__sub_82E0F798) {
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + -12);
 	ctx.f13.f64 = double(temp.f32);
 	// fsubs f0,f12,f0
-	ctx.f0.f64 = double(float(ctx.f12.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f12.f64 - ctx.f0.f64);
 	// fneg f13,f13
 	ctx.f13.u64 = ctx.f13.u64 ^ 0x8000000000000000;
 	// lfs f10,-8(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + -8);
 	ctx.f10.f64 = double(temp.f32);
 	// fmadds f13,f0,f1,f13
-	ctx.f13.f64 = double(float(ctx.f0.f64 * ctx.f1.f64 + ctx.f13.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f0.f64 * ctx.f1.f64 + ctx.f13.f64);
 	// fmadds f0,f0,f1,f10
-	ctx.f0.f64 = double(float(ctx.f0.f64 * ctx.f1.f64 + ctx.f10.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 * ctx.f1.f64 + ctx.f10.f64);
 	// fcmpu cr6,f13,f11
 	ctx.cr6.compare(ctx.f13.f64, ctx.f11.f64);
 	// ble cr6,0x82e0f810
@@ -32771,7 +32771,7 @@ loc_82E0F8A4:
 	// li r3,0
 	ctx.r3.s64 = 0;
 	// fsubs f0,f13,f0
-	ctx.f0.f64 = double(float(ctx.f13.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f13.f64 - ctx.f0.f64);
 	// lfs f13,28(r4)
 	temp.u32 = PPC_LOAD_U32(ctx.r4.u32 + 28);
 	ctx.f13.f64 = double(temp.f32);
@@ -32962,16 +32962,16 @@ loc_82E0F98C:
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 88);
 	ctx.f12.f64 = double(temp.f32);
 	// fsubs f13,f11,f31
-	ctx.f13.f64 = double(float(ctx.f11.f64 - ctx.f31.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f11.f64 - ctx.f31.f64);
 	// fneg f12,f12
 	ctx.f12.u64 = ctx.f12.u64 ^ 0x8000000000000000;
 	// lfs f10,80(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 80);
 	ctx.f10.f64 = double(temp.f32);
 	// fmadds f12,f13,f0,f12
-	ctx.f12.f64 = double(float(ctx.f13.f64 * ctx.f0.f64 + ctx.f12.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f13.f64 * ctx.f0.f64 + ctx.f12.f64);
 	// fmadds f13,f13,f0,f10
-	ctx.f13.f64 = double(float(ctx.f13.f64 * ctx.f0.f64 + ctx.f10.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f13.f64 * ctx.f0.f64 + ctx.f10.f64);
 	// fcmpu cr6,f12,f0
 	ctx.cr6.compare(ctx.f12.f64, ctx.f0.f64);
 	// bgt cr6,0x82e0fa80
@@ -33037,7 +33037,7 @@ loc_82E0FA64:
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 28);
 	ctx.f13.f64 = double(temp.f32);
 	// fsubs f0,f13,f0
-	ctx.f0.f64 = double(float(ctx.f13.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f13.f64 - ctx.f0.f64);
 	// lfs f13,28(r10)
 	temp.u32 = PPC_LOAD_U32(ctx.r10.u32 + 28);
 	ctx.f13.f64 = double(temp.f32);
@@ -36399,7 +36399,7 @@ loc_82E111AC:
 	temp.u32 = PPC_LOAD_U32(ctx.r31.u32 + 28);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// lfs f13,4(r10)
 	temp.u32 = PPC_LOAD_U32(ctx.r10.u32 + 4);
 	ctx.f13.f64 = double(temp.f32);
@@ -36496,7 +36496,7 @@ loc_82E1126C:
 	// lwz r11,160(r1)
 	ctx.r11.u64 = PPC_LOAD_U32(ctx.r1.u32 + 160);
 	// fsubs f0,f13,f0
-	ctx.f0.f64 = double(float(ctx.f13.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f13.f64 - ctx.f0.f64);
 	// lwz r10,164(r1)
 	ctx.r10.u64 = PPC_LOAD_U32(ctx.r1.u32 + 164);
 	// addi r6,r1,120
@@ -36586,7 +36586,7 @@ loc_82E1126C:
 	simde_mm_store_ps(ctx.v13.f32, simde_mm_add_ps(simde_mm_mul_ps(simde_mm_load_ps(ctx.v11.f32), simde_mm_load_ps(ctx.v10.f32)), simde_mm_load_ps(ctx.v13.f32)));
 	// fmadds f0,f11,f13,f0
 	ctx.fpscr.disableFlushModeUnconditional();
-	ctx.f0.f64 = double(float(ctx.f11.f64 * ctx.f13.f64 + ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f11.f64 * ctx.f13.f64 + ctx.f0.f64);
 	// stvx128 v13,r0,r11
 	simde_mm_store_si128((simde__m128i*)(base + ((ctx.r11.u32) & ~0xF)), simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)ctx.v13.u8), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
 	// stfs f0,284(r1)
@@ -36805,7 +36805,7 @@ loc_82E1146C:
 	temp.u32 = PPC_LOAD_U32(ctx.r31.u32 + 28);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// lfs f13,4(r10)
 	temp.u32 = PPC_LOAD_U32(ctx.r10.u32 + 4);
 	ctx.f13.f64 = double(temp.f32);
@@ -38702,7 +38702,7 @@ loc_82E121EC:
 	temp.u32 = PPC_LOAD_U32(ctx.r31.u32 + 28);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// lfs f13,4(r10)
 	temp.u32 = PPC_LOAD_U32(ctx.r10.u32 + 4);
 	ctx.f13.f64 = double(temp.f32);
@@ -38803,7 +38803,7 @@ loc_82E122AC:
 	// lwz r10,196(r1)
 	ctx.r10.u64 = PPC_LOAD_U32(ctx.r1.u32 + 196);
 	// fsubs f0,f13,f0
-	ctx.f0.f64 = double(float(ctx.f13.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f13.f64 - ctx.f0.f64);
 	// addi r5,r1,144
 	ctx.r5.s64 = ctx.r1.s64 + 144;
 	// addi r4,r1,144
@@ -38891,7 +38891,7 @@ loc_82E122AC:
 	simde_mm_store_ps(ctx.v13.f32, simde_mm_add_ps(simde_mm_mul_ps(simde_mm_load_ps(ctx.v11.f32), simde_mm_load_ps(ctx.v10.f32)), simde_mm_load_ps(ctx.v13.f32)));
 	// fmadds f0,f11,f13,f0
 	ctx.fpscr.disableFlushModeUnconditional();
-	ctx.f0.f64 = double(float(ctx.f11.f64 * ctx.f13.f64 + ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f11.f64 * ctx.f13.f64 + ctx.f0.f64);
 	// stvx128 v13,r0,r11
 	simde_mm_store_si128((simde__m128i*)(base + ((ctx.r11.u32) & ~0xF)), simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)ctx.v13.u8), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
 	// stfs f0,316(r1)
@@ -39182,7 +39182,7 @@ loc_82E12534:
 	temp.u32 = PPC_LOAD_U32(ctx.r31.u32 + 28);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// lfs f13,4(r10)
 	temp.u32 = PPC_LOAD_U32(ctx.r10.u32 + 4);
 	ctx.f13.f64 = double(temp.f32);
@@ -40166,9 +40166,9 @@ loc_82E12AB4:
 	// extsw r11,r11
 	ctx.r11.s64 = ctx.r11.s32;
 	// fsubs f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// fsubs f13,f11,f10
-	ctx.f13.f64 = double(float(ctx.f11.f64 - ctx.f10.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f11.f64 - ctx.f10.f64);
 	// std r10,408(r1)
 	PPC_STORE_U64(ctx.r1.u32 + 408, ctx.r10.u64);
 	// std r11,456(r1)
@@ -40286,9 +40286,9 @@ loc_82E12B84:
 	// extsw r11,r11
 	ctx.r11.s64 = ctx.r11.s32;
 	// fsubs f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// fsubs f13,f11,f10
-	ctx.f13.f64 = double(float(ctx.f11.f64 - ctx.f10.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f11.f64 - ctx.f10.f64);
 	// std r10,360(r1)
 	PPC_STORE_U64(ctx.r1.u32 + 360, ctx.r10.u64);
 	// std r11,232(r1)
@@ -40406,9 +40406,9 @@ loc_82E12C54:
 	// extsw r11,r11
 	ctx.r11.s64 = ctx.r11.s32;
 	// fsubs f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// fsubs f13,f11,f10
-	ctx.f13.f64 = double(float(ctx.f11.f64 - ctx.f10.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f11.f64 - ctx.f10.f64);
 	// std r10,384(r1)
 	PPC_STORE_U64(ctx.r1.u32 + 384, ctx.r10.u64);
 	// std r11,264(r1)
@@ -40546,9 +40546,9 @@ loc_82E12D30:
 	// std r10,296(r1)
 	PPC_STORE_U64(ctx.r1.u32 + 296, ctx.r10.u64);
 	// fsubs f0,f0,f11
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f11.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f11.f64);
 	// fsubs f13,f13,f10
-	ctx.f13.f64 = double(float(ctx.f13.f64 - ctx.f10.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f13.f64 - ctx.f10.f64);
 	// lfd f11,400(r1)
 	ctx.f11.u64 = PPC_LOAD_U64(ctx.r1.u32 + 400);
 	// lfd f10,296(r1)
@@ -40588,11 +40588,11 @@ loc_82E12DA8:
 	// rlwinm r8,r11,1,0,30
 	ctx.r8.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 1) & 0xFFFFFFFE;
 	// fsubs f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// rlwinm r9,r10,1,0,30
 	ctx.r9.u64 = __builtin_rotateleft64(ctx.r10.u32 | (ctx.r10.u64 << 32), 1) & 0xFFFFFFFE;
 	// fsubs f13,f11,f10
-	ctx.f13.f64 = double(float(ctx.f11.f64 - ctx.f10.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f11.f64 - ctx.f10.f64);
 	// add r11,r11,r8
 	ctx.r11.u64 = ctx.r11.u64 + ctx.r8.u64;
 	// lfs f11,8(r30)
@@ -40657,11 +40657,11 @@ loc_82E12E20:
 	// rlwinm r8,r11,1,0,30
 	ctx.r8.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 1) & 0xFFFFFFFE;
 	// fsubs f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// rlwinm r9,r10,1,0,30
 	ctx.r9.u64 = __builtin_rotateleft64(ctx.r10.u32 | (ctx.r10.u64 << 32), 1) & 0xFFFFFFFE;
 	// fsubs f13,f11,f10
-	ctx.f13.f64 = double(float(ctx.f11.f64 - ctx.f10.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f11.f64 - ctx.f10.f64);
 	// add r11,r11,r8
 	ctx.r11.u64 = ctx.r11.u64 + ctx.r8.u64;
 	// lfs f11,8(r30)
@@ -40684,9 +40684,9 @@ loc_82E12E20:
 	// std r10,192(r1)
 	PPC_STORE_U64(ctx.r1.u32 + 192, ctx.r10.u64);
 	// fsubs f0,f0,f11
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f11.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f11.f64);
 	// fsubs f13,f13,f10
-	ctx.f13.f64 = double(float(ctx.f13.f64 - ctx.f10.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f13.f64 - ctx.f10.f64);
 	// lfd f11,416(r1)
 	ctx.f11.u64 = PPC_LOAD_U64(ctx.r1.u32 + 416);
 	// lfd f10,192(r1)
@@ -40735,7 +40735,7 @@ loc_82E12E98:
 	// fadds f10,f12,f23
 	ctx.f10.f64 = double(float(ctx.f12.f64 + ctx.f23.f64));
 	// fsubs f31,f12,f11
-	ctx.f31.f64 = double(float(ctx.f12.f64 - ctx.f11.f64));
+	ctx.f31.f64 = static_cast<float>(ctx.f12.f64 - ctx.f11.f64);
 	// fadds f30,f11,f10
 	ctx.f30.f64 = double(float(ctx.f11.f64 + ctx.f10.f64));
 	// b 0x82e12fa0
@@ -40798,7 +40798,7 @@ loc_82E12EDC:
 	temp.u32 = PPC_LOAD_U32(ctx.r10.u32 + ctx.r29.u32);
 	ctx.f12.f64 = double(temp.f32);
 	// fsubs f31,f11,f12
-	ctx.f31.f64 = double(float(ctx.f11.f64 - ctx.f12.f64));
+	ctx.f31.f64 = static_cast<float>(ctx.f11.f64 - ctx.f12.f64);
 	// fadds f30,f10,f12
 	ctx.f30.f64 = double(float(ctx.f10.f64 + ctx.f12.f64));
 	// b 0x82e12fa8
@@ -40845,7 +40845,7 @@ loc_82E12F50:
 loc_82E12F94:
 	// fsubs f31,f11,f12
 	ctx.fpscr.disableFlushMode();
-	ctx.f31.f64 = double(float(ctx.f11.f64 - ctx.f12.f64));
+	ctx.f31.f64 = static_cast<float>(ctx.f11.f64 - ctx.f12.f64);
 	// addi r11,r31,4
 	ctx.r11.s64 = ctx.r31.s64 + 4;
 	// fadds f30,f10,f12
@@ -40886,17 +40886,17 @@ loc_82E12FD4:
 	ctx.r11.s64 = ctx.r1.s64 + 496;
 	// fsubs f29,f0,f30
 	ctx.fpscr.disableFlushMode();
-	ctx.f29.f64 = double(float(ctx.f0.f64 - ctx.f30.f64));
+	ctx.f29.f64 = static_cast<float>(ctx.f0.f64 - ctx.f30.f64);
 	// fsubs f28,f13,f30
-	ctx.f28.f64 = double(float(ctx.f13.f64 - ctx.f30.f64));
+	ctx.f28.f64 = static_cast<float>(ctx.f13.f64 - ctx.f30.f64);
 	// lvx128 v13,r0,r30
 	simde_mm_store_si128((simde__m128i*)ctx.v13.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r30.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
 	// addi r28,r30,16
 	ctx.r28.s64 = ctx.r30.s64 + 16;
 	// fsubs f27,f0,f31
-	ctx.f27.f64 = double(float(ctx.f0.f64 - ctx.f31.f64));
+	ctx.f27.f64 = static_cast<float>(ctx.f0.f64 - ctx.f31.f64);
 	// fsubs f26,f13,f31
-	ctx.f26.f64 = double(float(ctx.f13.f64 - ctx.f31.f64));
+	ctx.f26.f64 = static_cast<float>(ctx.f13.f64 - ctx.f31.f64);
 	// stvx128 v13,r0,r11
 	simde_mm_store_si128((simde__m128i*)(base + ((ctx.r11.u32) & ~0xF)), simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)ctx.v13.u8), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
 	// addi r11,r1,512
@@ -40916,7 +40916,7 @@ loc_82E12FD4:
 	// bge cr6,0x82e13048
 	if (!ctx.cr6.lt) goto loc_82E13048;
 	// fsubs f0,f29,f28
-	ctx.f0.f64 = double(float(ctx.f29.f64 - ctx.f28.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f29.f64 - ctx.f28.f64);
 	// addi r11,r1,80
 	ctx.r11.s64 = ctx.r1.s64 + 80;
 	// lvx128 v11,r0,r22
@@ -40968,7 +40968,7 @@ loc_82E13048:
 	// bge cr6,0x82e130a8
 	if (!ctx.cr6.lt) goto loc_82E130A8;
 	// fsubs f0,f27,f26
-	ctx.f0.f64 = double(float(ctx.f27.f64 - ctx.f26.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f27.f64 - ctx.f26.f64);
 	// addi r11,r1,80
 	ctx.r11.s64 = ctx.r1.s64 + 80;
 	// lvx128 v13,r0,r22
@@ -41102,7 +41102,7 @@ loc_82E1314C:
 	// bge cr6,0x82e1318c
 	if (!ctx.cr6.lt) goto loc_82E1318C;
 	// fsubs f0,f27,f26
-	ctx.f0.f64 = double(float(ctx.f27.f64 - ctx.f26.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f27.f64 - ctx.f26.f64);
 	// addi r11,r1,80
 	ctx.r11.s64 = ctx.r1.s64 + 80;
 	// lvx128 v11,r0,r22
@@ -41152,7 +41152,7 @@ loc_82E1318C:
 	// bge cr6,0x82e131e8
 	if (!ctx.cr6.lt) goto loc_82E131E8;
 	// fsubs f0,f29,f28
-	ctx.f0.f64 = double(float(ctx.f29.f64 - ctx.f28.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f29.f64 - ctx.f28.f64);
 	// addi r11,r1,80
 	ctx.r11.s64 = ctx.r1.s64 + 80;
 	// lvx128 v13,r0,r22
@@ -41355,11 +41355,11 @@ loc_82E13288:
 	// fmuls f0,f9,f0
 	ctx.f0.f64 = double(float(ctx.f9.f64 * ctx.f0.f64));
 	// fmsubs f10,f10,f13,f12
-	ctx.f10.f64 = double(float(ctx.f10.f64 * ctx.f13.f64 - ctx.f12.f64));
+	ctx.f10.f64 = static_cast<float>(ctx.f10.f64 * ctx.f13.f64 - ctx.f12.f64);
 	// fmsubs f0,f0,f13,f12
-	ctx.f0.f64 = double(float(ctx.f0.f64 * ctx.f13.f64 - ctx.f12.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 * ctx.f13.f64 - ctx.f12.f64);
 	// fsubs f10,f10,f11
-	ctx.f10.f64 = double(float(ctx.f10.f64 - ctx.f11.f64));
+	ctx.f10.f64 = static_cast<float>(ctx.f10.f64 - ctx.f11.f64);
 	// fadds f0,f0,f11
 	ctx.f0.f64 = double(float(ctx.f0.f64 + ctx.f11.f64));
 	// b 0x82e13374
@@ -41398,7 +41398,7 @@ loc_82E13330:
 	// frsp f13,f13
 	ctx.f13.f64 = double(float(ctx.f13.f64));
 	// fsubs f10,f12,f0
-	ctx.f10.f64 = double(float(ctx.f12.f64 - ctx.f0.f64));
+	ctx.f10.f64 = static_cast<float>(ctx.f12.f64 - ctx.f0.f64);
 	// fadds f0,f13,f0
 	ctx.f0.f64 = double(float(ctx.f13.f64 + ctx.f0.f64));
 loc_82E13374:
@@ -41444,9 +41444,9 @@ loc_82E133B4:
 	ctx.r11.s64 = ctx.r30.s64 + 16;
 	// fsubs f13,f11,f0
 	ctx.fpscr.disableFlushMode();
-	ctx.f13.f64 = double(float(ctx.f11.f64 - ctx.f0.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f11.f64 - ctx.f0.f64);
 	// fsubs f0,f12,f0
-	ctx.f0.f64 = double(float(ctx.f12.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f12.f64 - ctx.f0.f64);
 	// ld r7,0(r30)
 	ctx.r7.u64 = PPC_LOAD_U64(ctx.r30.u32 + 0);
 	// addi r10,r1,528
@@ -41482,7 +41482,7 @@ loc_82E133B4:
 	// bge cr6,0x82e1343c
 	if (!ctx.cr6.lt) goto loc_82E1343C;
 	// fsubs f0,f13,f0
-	ctx.f0.f64 = double(float(ctx.f13.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f13.f64 - ctx.f0.f64);
 	// addi r11,r1,80
 	ctx.r11.s64 = ctx.r1.s64 + 80;
 	// lvx128 v13,r0,r22
@@ -41515,9 +41515,9 @@ loc_82E133B4:
 loc_82E1343C:
 	// fsubs f0,f11,f10
 	ctx.fpscr.disableFlushMode();
-	ctx.f0.f64 = double(float(ctx.f11.f64 - ctx.f10.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f11.f64 - ctx.f10.f64);
 	// fsubs f13,f12,f10
-	ctx.f13.f64 = double(float(ctx.f12.f64 - ctx.f10.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f12.f64 - ctx.f10.f64);
 	// fmuls f12,f13,f0
 	ctx.f12.f64 = double(float(ctx.f13.f64 * ctx.f0.f64));
 	// fcmpu cr6,f12,f24
@@ -41525,7 +41525,7 @@ loc_82E1343C:
 	// bge cr6,0x82e12878
 	if (!ctx.cr6.lt) goto loc_82E12878;
 	// fsubs f13,f0,f13
-	ctx.f13.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// addi r11,r1,80
 	ctx.r11.s64 = ctx.r1.s64 + 80;
 	// lvx128 v13,r0,r22
@@ -47490,7 +47490,7 @@ loc_82E15C84:
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 84);
 	ctx.f13.f64 = double(temp.f32);
 	// fsubs f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// stfs f0,168(r1)
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r1.u32 + 168, temp.u32);
@@ -47498,7 +47498,7 @@ loc_82E15C84:
 	temp.u32 = PPC_LOAD_U32(ctx.r31.u32 + 280);
 	ctx.f12.f64 = double(temp.f32);
 	// fsubs f0,f13,f11
-	ctx.f0.f64 = double(float(ctx.f13.f64 - ctx.f11.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f13.f64 - ctx.f11.f64);
 	// fcmpu cr6,f0,f12
 	ctx.cr6.compare(ctx.f0.f64, ctx.f12.f64);
 	// bge cr6,0x82e15cf8
@@ -47805,7 +47805,7 @@ loc_82E15E60:
 	// mr r10,r7
 	ctx.r10.u64 = ctx.r7.u64;
 	// fsubs f12,f10,f13
-	ctx.f12.f64 = double(float(ctx.f10.f64 - ctx.f13.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f10.f64 - ctx.f13.f64);
 loc_82E15ED0:
 	// lwz r8,0(r4)
 	ctx.r8.u64 = PPC_LOAD_U32(ctx.r4.u32 + 0);
@@ -48041,7 +48041,7 @@ loc_82E16020:
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 28);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f12,f0,f10
-	ctx.f12.f64 = double(float(ctx.f0.f64 - ctx.f10.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f0.f64 - ctx.f10.f64);
 	// lfs f11,-64(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + -64);
 	ctx.f11.f64 = double(temp.f32);
@@ -48058,7 +48058,7 @@ loc_82E16020:
 	temp.u32 = PPC_LOAD_U32(ctx.r10.u32 + 20688);
 	ctx.f0.f64 = double(temp.f32);
 	// fmadds f12,f12,f12,f0
-	ctx.f12.f64 = double(float(ctx.f12.f64 * ctx.f12.f64 + ctx.f0.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f12.f64 * ctx.f12.f64 + ctx.f0.f64);
 	// fcmpu cr6,f12,f9
 	ctx.cr6.compare(ctx.f12.f64, ctx.f9.f64);
 	// ble cr6,0x82e160a8
@@ -48075,14 +48075,14 @@ loc_82E160A8:
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 76);
 	ctx.f12.f64 = double(temp.f32);
 	// fsubs f12,f12,f10
-	ctx.f12.f64 = double(float(ctx.f12.f64 - ctx.f10.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f12.f64 - ctx.f10.f64);
 	// lfs f11,-60(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + -60);
 	ctx.f11.f64 = double(temp.f32);
 	// fmuls f9,f11,f13
 	ctx.f9.f64 = double(float(ctx.f11.f64 * ctx.f13.f64));
 	// fmadds f12,f12,f12,f0
-	ctx.f12.f64 = double(float(ctx.f12.f64 * ctx.f12.f64 + ctx.f0.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f12.f64 * ctx.f12.f64 + ctx.f0.f64);
 	// fcmpu cr6,f12,f9
 	ctx.cr6.compare(ctx.f12.f64, ctx.f9.f64);
 	// ble cr6,0x82e160d0
@@ -48099,14 +48099,14 @@ loc_82E160D0:
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 124);
 	ctx.f12.f64 = double(temp.f32);
 	// fsubs f12,f12,f10
-	ctx.f12.f64 = double(float(ctx.f12.f64 - ctx.f10.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f12.f64 - ctx.f10.f64);
 	// lfs f11,-56(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + -56);
 	ctx.f11.f64 = double(temp.f32);
 	// fmuls f9,f11,f13
 	ctx.f9.f64 = double(float(ctx.f11.f64 * ctx.f13.f64));
 	// fmadds f12,f12,f12,f0
-	ctx.f12.f64 = double(float(ctx.f12.f64 * ctx.f12.f64 + ctx.f0.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f12.f64 * ctx.f12.f64 + ctx.f0.f64);
 	// fcmpu cr6,f12,f9
 	ctx.cr6.compare(ctx.f12.f64, ctx.f9.f64);
 	// ble cr6,0x82e160f8
@@ -48128,9 +48128,9 @@ loc_82E160F8:
 	// fmuls f11,f11,f13
 	ctx.f11.f64 = double(float(ctx.f11.f64 * ctx.f13.f64));
 	// fsubs f13,f12,f10
-	ctx.f13.f64 = double(float(ctx.f12.f64 - ctx.f10.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f12.f64 - ctx.f10.f64);
 	// fmadds f0,f13,f13,f0
-	ctx.f0.f64 = double(float(ctx.f13.f64 * ctx.f13.f64 + ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f13.f64 * ctx.f13.f64 + ctx.f0.f64);
 	// fcmpu cr6,f0,f11
 	ctx.cr6.compare(ctx.f0.f64, ctx.f11.f64);
 	// ble cr6,0x82e16118
@@ -52051,7 +52051,7 @@ loc_82E17B50:
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 100);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f11,f13,f0
-	ctx.f11.f64 = double(float(ctx.f13.f64 - ctx.f0.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f13.f64 - ctx.f0.f64);
 	// lfs f13,104(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 104);
 	ctx.f13.f64 = double(temp.f32);
@@ -52059,7 +52059,7 @@ loc_82E17B50:
 	temp.u32 = PPC_LOAD_U32(ctx.r28.u32 + 360);
 	ctx.f12.f64 = double(temp.f32);
 	// fsubs f12,f12,f13
-	ctx.f12.f64 = double(float(ctx.f12.f64 - ctx.f13.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f12.f64 - ctx.f13.f64);
 	// fmuls f13,f11,f13
 	ctx.f13.f64 = double(float(ctx.f11.f64 * ctx.f13.f64));
 	// fmuls f0,f12,f0
@@ -52083,7 +52083,7 @@ loc_82E17B9C:
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 104);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f11,f13,f0
-	ctx.f11.f64 = double(float(ctx.f13.f64 - ctx.f0.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f13.f64 - ctx.f0.f64);
 	// lfs f13,96(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 96);
 	ctx.f13.f64 = double(temp.f32);
@@ -52091,7 +52091,7 @@ loc_82E17B9C:
 	temp.u32 = PPC_LOAD_U32(ctx.r27.u32 + 0);
 	ctx.f12.f64 = double(temp.f32);
 	// fsubs f12,f12,f13
-	ctx.f12.f64 = double(float(ctx.f12.f64 - ctx.f13.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f12.f64 - ctx.f13.f64);
 	// fmuls f13,f11,f13
 	ctx.f13.f64 = double(float(ctx.f11.f64 * ctx.f13.f64));
 	// fmuls f0,f12,f0
@@ -52142,7 +52142,7 @@ loc_82E17C00:
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 96);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f11,f13,f0
-	ctx.f11.f64 = double(float(ctx.f13.f64 - ctx.f0.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f13.f64 - ctx.f0.f64);
 	// lfs f13,100(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 100);
 	ctx.f13.f64 = double(temp.f32);
@@ -52150,7 +52150,7 @@ loc_82E17C00:
 	temp.u32 = PPC_LOAD_U32(ctx.r28.u32 + 356);
 	ctx.f12.f64 = double(temp.f32);
 	// fsubs f12,f12,f13
-	ctx.f12.f64 = double(float(ctx.f12.f64 - ctx.f13.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f12.f64 - ctx.f13.f64);
 	// fmuls f13,f11,f13
 	ctx.f13.f64 = double(float(ctx.f11.f64 * ctx.f13.f64));
 	// fmuls f0,f12,f0
@@ -53316,7 +53316,7 @@ loc_82E183CC:
 	// fdivs f0,f13,f0
 	ctx.f0.f64 = double(float(ctx.f13.f64 / ctx.f0.f64));
 	// fsubs f28,f28,f0
-	ctx.f28.f64 = double(float(ctx.f28.f64 - ctx.f0.f64));
+	ctx.f28.f64 = static_cast<float>(ctx.f28.f64 - ctx.f0.f64);
 	// stfs f28,88(r1)
 	temp.f32 = float(ctx.f28.f64);
 	PPC_STORE_U32(ctx.r1.u32 + 88, temp.u32);
@@ -57626,7 +57626,7 @@ loc_82E1A1B8:
 	temp.u32 = PPC_LOAD_U32(ctx.r8.u32 + 16);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f0,f13,f0
-	ctx.f0.f64 = double(float(ctx.f13.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f13.f64 - ctx.f0.f64);
 	// vspltw v11,v0,2
 	simde_mm_store_si128((simde__m128i*)ctx.v11.u32, simde_mm_shuffle_epi32(simde_mm_load_si128((simde__m128i*)ctx.v0.u32), 0x55));
 	// lfs f12,16(r7)
@@ -57641,7 +57641,7 @@ loc_82E1A1B8:
 	simde_mm_store_si128((simde__m128i*)ctx.v9.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r10.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
 	// fsubs f0,f0,f12
 	ctx.fpscr.disableFlushModeUnconditional();
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f12.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f12.f64);
 	// vmaddfp v13,v10,v12,v13
 	ctx.fpscr.enableFlushModeUnconditional();
 	simde_mm_store_ps(ctx.v13.f32, simde_mm_add_ps(simde_mm_mul_ps(simde_mm_load_ps(ctx.v10.f32), simde_mm_load_ps(ctx.v12.f32)), simde_mm_load_ps(ctx.v13.f32)));
@@ -57698,7 +57698,7 @@ loc_82E1A254:
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 16);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 loc_82E1A260:
 	// addi r8,r1,80
 	ctx.r8.s64 = ctx.r1.s64 + 80;
@@ -57842,9 +57842,9 @@ PPC_FUNC_IMPL(__imp__sub_82E1A2C8) {
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + -20);
 	ctx.f5.f64 = double(temp.f32);
 	// fmsubs f11,f9,f5,f0
-	ctx.f11.f64 = double(float(ctx.f9.f64 * ctx.f5.f64 - ctx.f0.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f9.f64 * ctx.f5.f64 - ctx.f0.f64);
 	// fsubs f0,f13,f12
-	ctx.f0.f64 = double(float(ctx.f13.f64 - ctx.f12.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f13.f64 - ctx.f12.f64);
 	// fabs f0,f0
 	ctx.f0.u64 = ctx.f0.u64 & ~0x8000000000000000;
 	// fmuls f8,f11,f0
@@ -57904,7 +57904,7 @@ loc_82E1A3A4:
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r1.u32 + -32, temp.u32);
 	// fmsubs f0,f10,f0,f7
-	ctx.f0.f64 = double(float(ctx.f10.f64 * ctx.f0.f64 - ctx.f7.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f10.f64 * ctx.f0.f64 - ctx.f7.f64);
 	// fcmpu cr6,f0,f9
 	ctx.cr6.compare(ctx.f0.f64, ctx.f9.f64);
 	// blt cr6,0x82e1a3c0
@@ -57931,7 +57931,7 @@ loc_82E1A3D0:
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r1.u32 + -28, temp.u32);
 	// fmadds f0,f10,f0,f5
-	ctx.f0.f64 = double(float(ctx.f10.f64 * ctx.f0.f64 + ctx.f5.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f10.f64 * ctx.f0.f64 + ctx.f5.f64);
 	// fcmpu cr6,f0,f8
 	ctx.cr6.compare(ctx.f0.f64, ctx.f8.f64);
 	// bgt cr6,0x82e1a3ec
@@ -58201,7 +58201,7 @@ PPC_FUNC_IMPL(__imp__sub_82E1A4F8) {
 	// vor v0,v13,v13
 	simde_mm_store_si128((simde__m128i*)ctx.v0.u8, simde_mm_load_si128((simde__m128i*)ctx.v13.u8));
 	// fmsubs f0,f11,f10,f0
-	ctx.f0.f64 = double(float(ctx.f11.f64 * ctx.f10.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f11.f64 * ctx.f10.f64 - ctx.f0.f64);
 	// vmsum3fp128 v0,v0,v0
 	ctx.fpscr.enableFlushModeUnconditional();
 	simde_mm_store_ps(ctx.v0.f32, simde_mm_dp_ps(simde_mm_load_ps(ctx.v0.f32), simde_mm_load_ps(ctx.v0.f32), 0xEF));
@@ -58621,7 +58621,7 @@ PPC_FUNC_IMPL(__imp__sub_82E1A7D8) {
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + -12);
 	ctx.f10.f64 = double(temp.f32);
 	// fmsubs f11,f13,f10,f0
-	ctx.f11.f64 = double(float(ctx.f13.f64 * ctx.f10.f64 - ctx.f0.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f13.f64 * ctx.f10.f64 - ctx.f0.f64);
 	// lfs f0,3084(r11)
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 3084);
 	ctx.f0.f64 = double(temp.f32);
@@ -58669,11 +58669,11 @@ PPC_FUNC_IMPL(__imp__sub_82E1A7D8) {
 	// fmuls f10,f9,f10
 	ctx.f10.f64 = double(float(ctx.f9.f64 * ctx.f10.f64));
 	// fmsubs f13,f9,f12,f13
-	ctx.f13.f64 = double(float(ctx.f9.f64 * ctx.f12.f64 - ctx.f13.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f9.f64 * ctx.f12.f64 - ctx.f13.f64);
 	// fmsubs f12,f8,f12,f10
-	ctx.f12.f64 = double(float(ctx.f8.f64 * ctx.f12.f64 - ctx.f10.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f8.f64 * ctx.f12.f64 - ctx.f10.f64);
 	// fsubs f11,f11,f13
-	ctx.f11.f64 = double(float(ctx.f11.f64 - ctx.f13.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f11.f64 - ctx.f13.f64);
 	// fmuls f13,f13,f0
 	ctx.f13.f64 = double(float(ctx.f13.f64 * ctx.f0.f64));
 	// stfs f13,0(r7)
@@ -58685,7 +58685,7 @@ PPC_FUNC_IMPL(__imp__sub_82E1A7D8) {
 	temp.f32 = float(ctx.f13.f64);
 	PPC_STORE_U32(ctx.r7.u32 + 8, temp.u32);
 	// fsubs f13,f11,f12
-	ctx.f13.f64 = double(float(ctx.f11.f64 - ctx.f12.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f11.f64 - ctx.f12.f64);
 	// fmuls f0,f13,f0
 	ctx.f0.f64 = double(float(ctx.f13.f64 * ctx.f0.f64));
 	// stfs f0,4(r7)
@@ -58754,7 +58754,7 @@ loc_82E1A89C:
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 3080);
 	ctx.f13.f64 = double(temp.f32);
 	// fsubs f0,f13,f0
-	ctx.f0.f64 = double(float(ctx.f13.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f13.f64 - ctx.f0.f64);
 	// stfs f0,8(r7)
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r7.u32 + 8, temp.u32);
@@ -58801,7 +58801,7 @@ loc_82E1A910:
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 3080);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// stfs f0,4(r7)
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r7.u32 + 4, temp.u32);
@@ -58846,7 +58846,7 @@ loc_82E1A948:
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 3080);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// stfs f0,8(r7)
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r7.u32 + 8, temp.u32);
@@ -58879,7 +58879,7 @@ loc_82E1A98C:
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 3080);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// stfs f0,4(r7)
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r7.u32 + 4, temp.u32);
@@ -58991,18 +58991,18 @@ PPC_FUNC_IMPL(__imp__sub_82E1A9C0) {
 	// addi r11,r11,29520
 	ctx.r11.s64 = ctx.r11.s64 + 29520;
 	// fmsubs f12,f13,f12,f10
-	ctx.f12.f64 = double(float(ctx.f13.f64 * ctx.f12.f64 - ctx.f10.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f13.f64 * ctx.f12.f64 - ctx.f10.f64);
 	// lvx128 v10,r11,r10
 	simde_mm_store_si128((simde__m128i*)ctx.v10.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r10.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
 	// lis r11,-32253
 	ctx.r11.s64 = -2113732608;
 	// fmsubs f13,f13,f11,f9
-	ctx.f13.f64 = double(float(ctx.f13.f64 * ctx.f11.f64 - ctx.f9.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f13.f64 * ctx.f11.f64 - ctx.f9.f64);
 	// lfs f11,20824(r11)
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 20824);
 	ctx.f11.f64 = double(temp.f32);
 	// fsubs f11,f11,f12
-	ctx.f11.f64 = double(float(ctx.f11.f64 - ctx.f12.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f11.f64 - ctx.f12.f64);
 	// fadds f12,f12,f0
 	ctx.f12.f64 = double(float(ctx.f12.f64 + ctx.f0.f64));
 	// stfs f12,96(r1)
@@ -59014,7 +59014,7 @@ PPC_FUNC_IMPL(__imp__sub_82E1A9C0) {
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r1.u32 + 104, temp.u32);
 	// fsubs f0,f11,f13
-	ctx.f0.f64 = double(float(ctx.f11.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f11.f64 - ctx.f13.f64);
 	// stfs f0,100(r1)
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r1.u32 + 100, temp.u32);
@@ -59580,9 +59580,9 @@ loc_82E1ADE8:
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 3080);
 	ctx.f30.f64 = double(temp.f32);
 	// fsubs f11,f7,f13
-	ctx.f11.f64 = double(float(ctx.f7.f64 - ctx.f13.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f7.f64 - ctx.f13.f64);
 	// fmsubs f12,f3,f0,f12
-	ctx.f12.f64 = double(float(ctx.f3.f64 * ctx.f0.f64 - ctx.f12.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f3.f64 * ctx.f0.f64 - ctx.f12.f64);
 	// fabs f8,f11
 	ctx.f8.u64 = ctx.f11.u64 & ~0x8000000000000000;
 	// fmuls f11,f12,f8
@@ -59638,7 +59638,7 @@ loc_82E1AEA0:
 	temp.f32 = float(ctx.f13.f64);
 	PPC_STORE_U32(ctx.r1.u32 + -144, temp.u32);
 	// fmsubs f13,f13,f4,f6
-	ctx.f13.f64 = double(float(ctx.f13.f64 * ctx.f4.f64 - ctx.f6.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f13.f64 * ctx.f4.f64 - ctx.f6.f64);
 	// fcmpu cr6,f13,f3
 	ctx.cr6.compare(ctx.f13.f64, ctx.f3.f64);
 	// blt cr6,0x82e1aebc
@@ -59665,7 +59665,7 @@ loc_82E1AECC:
 	temp.f32 = float(ctx.f13.f64);
 	PPC_STORE_U32(ctx.r1.u32 + -140, temp.u32);
 	// fmadds f13,f13,f4,f0
-	ctx.f13.f64 = double(float(ctx.f13.f64 * ctx.f4.f64 + ctx.f0.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f13.f64 * ctx.f4.f64 + ctx.f0.f64);
 	// fcmpu cr6,f13,f29
 	ctx.cr6.compare(ctx.f13.f64, ctx.f29.f64);
 	// bgt cr6,0x82e1aee8
@@ -59747,7 +59747,7 @@ loc_82E1AF10:
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 3120);
 	ctx.f5.f64 = double(temp.f32);
 	// fsubs f12,f5,f13
-	ctx.f12.f64 = double(float(ctx.f5.f64 - ctx.f13.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f5.f64 - ctx.f13.f64);
 	// vsubfp v13,v12,v13
 	ctx.fpscr.enableFlushModeUnconditional();
 	simde_mm_store_ps(ctx.v13.f32, simde_mm_sub_ps(simde_mm_load_ps(ctx.v12.f32), simde_mm_load_ps(ctx.v13.f32)));
@@ -59900,14 +59900,14 @@ loc_82E1B040:
 	ctx.r10.s64 = ctx.r1.s64 + -132;
 	// fsubs f12,f2,f13
 	ctx.fpscr.disableFlushMode();
-	ctx.f12.f64 = double(float(ctx.f2.f64 - ctx.f13.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f2.f64 - ctx.f13.f64);
 	// stfs f12,-132(r1)
 	temp.f32 = float(ctx.f12.f64);
 	PPC_STORE_U32(ctx.r1.u32 + -132, temp.u32);
 	// lis r11,-32256
 	ctx.r11.s64 = -2113929216;
 	// fsubs f13,f13,f10
-	ctx.f13.f64 = double(float(ctx.f13.f64 - ctx.f10.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f13.f64 - ctx.f10.f64);
 	// vmulfp128 v13,v13,v9
 	ctx.fpscr.enableFlushModeUnconditional();
 	simde_mm_store_ps(ctx.v13.f32, simde_mm_mul_ps(simde_mm_load_ps(ctx.v13.f32), simde_mm_load_ps(ctx.v9.f32)));
@@ -60163,12 +60163,12 @@ loc_82E1B200:
 	ctx.r8.s64 = ctx.r1.s64 + -136;
 	// fsubs f13,f2,f11
 	ctx.fpscr.disableFlushMode();
-	ctx.f13.f64 = double(float(ctx.f2.f64 - ctx.f11.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f2.f64 - ctx.f11.f64);
 	// stfs f13,-136(r1)
 	temp.f32 = float(ctx.f13.f64);
 	PPC_STORE_U32(ctx.r1.u32 + -136, temp.u32);
 	// fsubs f13,f11,f10
-	ctx.f13.f64 = double(float(ctx.f11.f64 - ctx.f10.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f11.f64 - ctx.f10.f64);
 	// stvx128 v13,r0,r10
 	simde_mm_store_si128((simde__m128i*)(base + ((ctx.r10.u32) & ~0xF)), simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)ctx.v13.u8), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
 	// stfs f13,0(r9)
@@ -60193,11 +60193,11 @@ loc_82E1B22C:
 	if (ctx.cr6.eq) goto loc_82E1B294;
 	// fsubs f13,f3,f12
 	ctx.fpscr.disableFlushMode();
-	ctx.f13.f64 = double(float(ctx.f3.f64 - ctx.f12.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f3.f64 - ctx.f12.f64);
 	// lvx128 v13,r0,r31
 	simde_mm_store_si128((simde__m128i*)ctx.v13.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r31.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
 	// fsubs f0,f31,f0
-	ctx.f0.f64 = double(float(ctx.f31.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f31.f64 - ctx.f0.f64);
 	// addi r11,r11,32
 	ctx.r11.s64 = ctx.r11.s64 + 32;
 	// addi r6,r6,1
@@ -60211,9 +60211,9 @@ loc_82E1B22C:
 	// vxor v11,v11,v9
 	simde_mm_store_si128((simde__m128i*)ctx.v11.u8, simde_mm_xor_si128(simde_mm_load_si128((simde__m128i*)ctx.v11.u8), simde_mm_load_si128((simde__m128i*)ctx.v9.u8)));
 	// fsubs f12,f13,f4
-	ctx.f12.f64 = double(float(ctx.f13.f64 - ctx.f4.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f13.f64 - ctx.f4.f64);
 	// fsubs f0,f0,f4
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f4.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f4.f64);
 	// b 0x82e1b0e0
 	goto loc_82E1B0E0;
 loc_82E1B264:
@@ -60241,7 +60241,7 @@ loc_82E1B264:
 	simde_mm_store_ps(ctx.v0.f32, simde_mm_mul_ps(simde_mm_load_ps(ctx.v13.f32), simde_mm_load_ps(ctx.v0.f32)));
 	// fmsubs f0,f13,f0,f10
 	ctx.fpscr.disableFlushModeUnconditional();
-	ctx.f0.f64 = double(float(ctx.f13.f64 * ctx.f0.f64 - ctx.f10.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f13.f64 * ctx.f0.f64 - ctx.f10.f64);
 	// stvx128 v0,r0,r11
 	simde_mm_store_si128((simde__m128i*)(base + ((ctx.r11.u32) & ~0xF)), simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)ctx.v0.u8), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
 	// stfs f0,0(r8)
@@ -60730,14 +60730,14 @@ loc_82E1B5B0:
 	ctx.r10.s64 = ctx.r1.s64 + 80;
 	// fsubs f0,f29,f10
 	ctx.fpscr.disableFlushMode();
-	ctx.f0.f64 = double(float(ctx.f29.f64 - ctx.f10.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f29.f64 - ctx.f10.f64);
 	// stfs f0,80(r1)
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r1.u32 + 80, temp.u32);
 	// addi r9,r1,128
 	ctx.r9.s64 = ctx.r1.s64 + 128;
 	// fsubs f13,f10,f11
-	ctx.f13.f64 = double(float(ctx.f10.f64 - ctx.f11.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f10.f64 - ctx.f11.f64);
 	// li r3,0
 	ctx.r3.s64 = 0;
 	// lvlx v0,0,r10
@@ -61324,7 +61324,7 @@ loc_82E1B8C0:
 	if (ctx.cr6.eq) goto loc_82E1BC78;
 	// fsubs f0,f8,f10
 	ctx.fpscr.disableFlushModeUnconditional();
-	ctx.f0.f64 = double(float(ctx.f8.f64 - ctx.f10.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f8.f64 - ctx.f10.f64);
 	// addi r7,r1,80
 	ctx.r7.s64 = ctx.r1.s64 + 80;
 	// lis r8,-32254
@@ -61427,7 +61427,7 @@ loc_82E1BA34:
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 28);
 	ctx.f12.f64 = double(temp.f32);
 	// fsubs f13,f13,f31
-	ctx.f13.f64 = double(float(ctx.f13.f64 - ctx.f31.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f13.f64 - ctx.f31.f64);
 	// fcmpu cr6,f13,f12
 	ctx.cr6.compare(ctx.f13.f64, ctx.f12.f64);
 	// ble cr6,0x82e1baa8
@@ -61441,7 +61441,7 @@ loc_82E1BA34:
 	// beq cr6,0x82e1ba78
 	if (ctx.cr6.eq) goto loc_82E1BA78;
 	// fsubs f0,f27,f0
-	ctx.f0.f64 = double(float(ctx.f27.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f27.f64 - ctx.f0.f64);
 	// stvx128 v11,r11,r20
 	simde_mm_store_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r20.u32) & ~0xF)), simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)ctx.v11.u8), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
 	// b 0x82e1ba8c
@@ -61457,7 +61457,7 @@ loc_82E1BA78:
 	// stvx128 v0,r11,r20
 	simde_mm_store_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r20.u32) & ~0xF)), simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)ctx.v0.u8), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
 	// fsubs f0,f12,f0
-	ctx.f0.f64 = double(float(ctx.f12.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f12.f64 - ctx.f0.f64);
 loc_82E1BA8C:
 	// stfs f0,80(r1)
 	ctx.fpscr.disableFlushMode();
@@ -61540,7 +61540,7 @@ loc_82E1BAEC:
 	temp.u32 = PPC_LOAD_U32(ctx.r9.u32 + ctx.r10.u32);
 	ctx.f0.f64 = double(temp.f32);
 	// fmadds f11,f0,f0,f7
-	ctx.f11.f64 = double(float(ctx.f0.f64 * ctx.f0.f64 + ctx.f7.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f0.f64 * ctx.f0.f64 + ctx.f7.f64);
 	// fmuls f3,f13,f13
 	ctx.f3.f64 = double(float(ctx.f13.f64 * ctx.f13.f64));
 	// fmuls f13,f10,f12
@@ -61548,7 +61548,7 @@ loc_82E1BAEC:
 	// fdivs f11,f30,f11
 	ctx.f11.f64 = double(float(ctx.f30.f64 / ctx.f11.f64));
 	// fmsubs f13,f8,f0,f13
-	ctx.f13.f64 = double(float(ctx.f8.f64 * ctx.f0.f64 - ctx.f13.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f8.f64 * ctx.f0.f64 - ctx.f13.f64);
 	// fmuls f13,f13,f13
 	ctx.f13.f64 = double(float(ctx.f13.f64 * ctx.f13.f64));
 	// fmuls f9,f13,f11
@@ -61560,7 +61560,7 @@ loc_82E1BAEC:
 	// fmuls f13,f10,f8
 	ctx.f13.f64 = double(float(ctx.f10.f64 * ctx.f8.f64));
 	// fmadds f13,f12,f0,f13
-	ctx.f13.f64 = double(float(ctx.f12.f64 * ctx.f0.f64 + ctx.f13.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f12.f64 * ctx.f0.f64 + ctx.f13.f64);
 	// fmuls f13,f13,f11
 	ctx.f13.f64 = double(float(ctx.f13.f64 * ctx.f11.f64));
 	// fneg f13,f13
@@ -61667,7 +61667,7 @@ loc_82E1BB8C:
 	simde_mm_store_si128((simde__m128i*)(base + ((ctx.r10.u32) & ~0xF)), simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)ctx.v0.u8), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
 	// fsubs f13,f27,f0
 	ctx.fpscr.disableFlushModeUnconditional();
-	ctx.f13.f64 = double(float(ctx.f27.f64 - ctx.f0.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f27.f64 - ctx.f0.f64);
 	// stfs f13,84(r1)
 	temp.f32 = float(ctx.f13.f64);
 	PPC_STORE_U32(ctx.r1.u32 + 84, temp.u32);
@@ -61675,7 +61675,7 @@ loc_82E1BB8C:
 	temp.u32 = ctx.r5.u32;
 	simde_mm_store_si128((simde__m128i*)ctx.v12.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + (temp.u32 & ~0xF))), simde_mm_load_si128((simde__m128i*)&VectorMaskL[(temp.u32 & 0xF) * 16])));
 	// fsubs f0,f0,f31
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f31.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f31.f64);
 	// vspltw v10,v12,0
 	simde_mm_store_si128((simde__m128i*)ctx.v10.u32, simde_mm_shuffle_epi32(simde_mm_load_si128((simde__m128i*)ctx.v12.u32), 0xFF));
 	// vmsum3fp128 v12,v0,v0
@@ -61975,7 +61975,7 @@ loc_82E1BDBC:
 	// fneg f13,f27
 	ctx.f13.u64 = ctx.f27.u64 ^ 0x8000000000000000;
 	// fsubs f13,f13,f0
-	ctx.f13.f64 = double(float(ctx.f13.f64 - ctx.f0.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f13.f64 - ctx.f0.f64);
 	// stfs f13,84(r1)
 	temp.f32 = float(ctx.f13.f64);
 	PPC_STORE_U32(ctx.r1.u32 + 84, temp.u32);
@@ -61991,7 +61991,7 @@ loc_82E1BDBC:
 	simde_mm_store_ps(ctx.v0.f32, simde_mm_add_ps(simde_mm_mul_ps(simde_mm_load_ps(ctx.v127.f32), simde_mm_load_ps(ctx.v13.f32)), simde_mm_load_ps(ctx.v0.f32)));
 	// fsubs f0,f0,f31
 	ctx.fpscr.disableFlushModeUnconditional();
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f31.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f31.f64);
 	// stvx128 v0,r0,r31
 	simde_mm_store_si128((simde__m128i*)(base + ((ctx.r31.u32) & ~0xF)), simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)ctx.v0.u8), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
 	// lvx128 v0,r0,r21
@@ -62008,7 +62008,7 @@ loc_82E1BDBC:
 loc_82E1BE34:
 	// fsubs f13,f27,f0
 	ctx.fpscr.disableFlushMode();
-	ctx.f13.f64 = double(float(ctx.f27.f64 - ctx.f0.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f27.f64 - ctx.f0.f64);
 	// stfs f13,84(r1)
 	temp.f32 = float(ctx.f13.f64);
 	PPC_STORE_U32(ctx.r1.u32 + 84, temp.u32);
@@ -62016,7 +62016,7 @@ loc_82E1BE34:
 	temp.u32 = ctx.r9.u32;
 	simde_mm_store_si128((simde__m128i*)ctx.v13.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + (temp.u32 & ~0xF))), simde_mm_load_si128((simde__m128i*)&VectorMaskL[(temp.u32 & 0xF) * 16])));
 	// fsubs f0,f0,f31
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f31.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f31.f64);
 	// vspltw v13,v13,0
 	simde_mm_store_si128((simde__m128i*)ctx.v13.u32, simde_mm_shuffle_epi32(simde_mm_load_si128((simde__m128i*)ctx.v13.u32), 0xFF));
 	// stvx128 v127,r31,r20
@@ -62285,7 +62285,7 @@ loc_82E1C00C:
 	ctx.r10.s64 = ctx.r1.s64 + 84;
 	// fsubs f13,f27,f0
 	ctx.fpscr.disableFlushMode();
-	ctx.f13.f64 = double(float(ctx.f27.f64 - ctx.f0.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f27.f64 - ctx.f0.f64);
 	// addi r9,r1,304
 	ctx.r9.s64 = ctx.r1.s64 + 304;
 	// stfs f13,84(r1)
@@ -62294,7 +62294,7 @@ loc_82E1C00C:
 	// stvx128 v0,r31,r20
 	simde_mm_store_si128((simde__m128i*)(base + ((ctx.r31.u32 + ctx.r20.u32) & ~0xF)), simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)ctx.v0.u8), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
 	// fsubs f0,f0,f31
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f31.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f31.f64);
 	// lvlx v12,0,r10
 	temp.u32 = ctx.r10.u32;
 	simde_mm_store_si128((simde__m128i*)ctx.v12.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + (temp.u32 & ~0xF))), simde_mm_load_si128((simde__m128i*)&VectorMaskL[(temp.u32 & 0xF) * 16])));
@@ -63668,7 +63668,7 @@ loc_82E1C870:
 	temp.u32 = PPC_LOAD_U32(ctx.r31.u32 + 100);
 	ctx.f6.f64 = double(temp.f32);
 	// fmadds f26,f5,f9,f26
-	ctx.f26.f64 = double(float(ctx.f5.f64 * ctx.f9.f64 + ctx.f26.f64));
+	ctx.f26.f64 = static_cast<float>(ctx.f5.f64 * ctx.f9.f64 + ctx.f26.f64);
 	// lfs f31,152(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 152);
 	ctx.f31.f64 = double(temp.f32);
@@ -63699,7 +63699,7 @@ loc_82E1C870:
 	simde_mm_store_ps(ctx.v6.f32, simde_mm_mul_ps(simde_mm_load_ps(ctx.v12.f32), simde_mm_load_ps(ctx.v12.f32)));
 	// fmadds f26,f3,f11,f26
 	ctx.fpscr.disableFlushModeUnconditional();
-	ctx.f26.f64 = double(float(ctx.f3.f64 * ctx.f11.f64 + ctx.f26.f64));
+	ctx.f26.f64 = static_cast<float>(ctx.f3.f64 * ctx.f11.f64 + ctx.f26.f64);
 	// vaddfp v11,v10,v5
 	ctx.fpscr.enableFlushModeUnconditional();
 	simde_mm_store_ps(ctx.v11.f32, simde_mm_add_ps(simde_mm_load_ps(ctx.v10.f32), simde_mm_load_ps(ctx.v5.f32)));
@@ -63753,26 +63753,26 @@ loc_82E1C870:
 	// fsqrts f23,f13
 	ctx.f23.f64 = double(float(sqrt(ctx.f13.f64)));
 	// fmadds f13,f5,f8,f24
-	ctx.f13.f64 = double(float(ctx.f5.f64 * ctx.f8.f64 + ctx.f24.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f5.f64 * ctx.f8.f64 + ctx.f24.f64);
 	// fmadds f25,f4,f8,f25
-	ctx.f25.f64 = double(float(ctx.f4.f64 * ctx.f8.f64 + ctx.f25.f64));
+	ctx.f25.f64 = static_cast<float>(ctx.f4.f64 * ctx.f8.f64 + ctx.f25.f64);
 	// fsqrts f24,f12
 	ctx.f24.f64 = double(float(sqrt(ctx.f12.f64)));
 	// fmadds f13,f1,f11,f13
-	ctx.f13.f64 = double(float(ctx.f1.f64 * ctx.f11.f64 + ctx.f13.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f1.f64 * ctx.f11.f64 + ctx.f13.f64);
 	// fmadds f25,f2,f11,f25
-	ctx.f25.f64 = double(float(ctx.f2.f64 * ctx.f11.f64 + ctx.f25.f64));
+	ctx.f25.f64 = static_cast<float>(ctx.f2.f64 * ctx.f11.f64 + ctx.f25.f64);
 	// fmadds f12,f31,f6,f26
-	ctx.f12.f64 = double(float(ctx.f31.f64 * ctx.f6.f64 + ctx.f26.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f31.f64 * ctx.f6.f64 + ctx.f26.f64);
 	// fsqrts f26,f27
 	ctx.f26.f64 = double(float(sqrt(ctx.f27.f64)));
 	// fmadds f13,f29,f6,f13
-	ctx.f13.f64 = double(float(ctx.f29.f64 * ctx.f6.f64 + ctx.f13.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f29.f64 * ctx.f6.f64 + ctx.f13.f64);
 	// stfs f12,96(r1)
 	temp.f32 = float(ctx.f12.f64);
 	PPC_STORE_U32(ctx.r1.u32 + 96, temp.u32);
 	// fmadds f12,f30,f6,f25
-	ctx.f12.f64 = double(float(ctx.f30.f64 * ctx.f6.f64 + ctx.f25.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f30.f64 * ctx.f6.f64 + ctx.f25.f64);
 	// stfs f13,104(r1)
 	temp.f32 = float(ctx.f13.f64);
 	PPC_STORE_U32(ctx.r1.u32 + 104, temp.u32);
@@ -63953,11 +63953,11 @@ loc_82E1CAD4:
 	// addi r11,r1,112
 	ctx.r11.s64 = ctx.r1.s64 + 112;
 	// fmadds f27,f31,f12,f27
-	ctx.f27.f64 = double(float(ctx.f31.f64 * ctx.f12.f64 + ctx.f27.f64));
+	ctx.f27.f64 = static_cast<float>(ctx.f31.f64 * ctx.f12.f64 + ctx.f27.f64);
 	// fmadds f26,f30,f12,f26
-	ctx.f26.f64 = double(float(ctx.f30.f64 * ctx.f12.f64 + ctx.f26.f64));
+	ctx.f26.f64 = static_cast<float>(ctx.f30.f64 * ctx.f12.f64 + ctx.f26.f64);
 	// fmadds f25,f29,f12,f25
-	ctx.f25.f64 = double(float(ctx.f29.f64 * ctx.f12.f64 + ctx.f25.f64));
+	ctx.f25.f64 = static_cast<float>(ctx.f29.f64 * ctx.f12.f64 + ctx.f25.f64);
 	// stvx128 v10,r0,r11
 	simde_mm_store_si128((simde__m128i*)(base + ((ctx.r11.u32) & ~0xF)), simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)ctx.v10.u8), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
 	// vspltw v10,v13,0
@@ -63989,11 +63989,11 @@ loc_82E1CAD4:
 	temp.f32 = float(ctx.f7.f64);
 	PPC_STORE_U32(ctx.r1.u32 + 124, temp.u32);
 	// fmadds f21,f1,f10,f27
-	ctx.f21.f64 = double(float(ctx.f1.f64 * ctx.f10.f64 + ctx.f27.f64));
+	ctx.f21.f64 = static_cast<float>(ctx.f1.f64 * ctx.f10.f64 + ctx.f27.f64);
 	// fmadds f20,f3,f9,f26
-	ctx.f20.f64 = double(float(ctx.f3.f64 * ctx.f9.f64 + ctx.f26.f64));
+	ctx.f20.f64 = static_cast<float>(ctx.f3.f64 * ctx.f9.f64 + ctx.f26.f64);
 	// fmadds f19,f3,f10,f25
-	ctx.f19.f64 = double(float(ctx.f3.f64 * ctx.f10.f64 + ctx.f25.f64));
+	ctx.f19.f64 = static_cast<float>(ctx.f3.f64 * ctx.f10.f64 + ctx.f25.f64);
 	// fsqrts f24,f24
 	ctx.f24.f64 = double(float(sqrt(ctx.f24.f64)));
 	// fsqrts f23,f23
@@ -64011,7 +64011,7 @@ loc_82E1CAD4:
 	ctx.fpscr.disableFlushModeUnconditional();
 	ctx.f25.f64 = double(float(ctx.f13.f64 / ctx.f22.f64));
 	// fmadds f24,f28,f11,f21
-	ctx.f24.f64 = double(float(ctx.f28.f64 * ctx.f11.f64 + ctx.f21.f64));
+	ctx.f24.f64 = static_cast<float>(ctx.f28.f64 * ctx.f11.f64 + ctx.f21.f64);
 	// vand v0,v0,v9
 	simde_mm_store_si128((simde__m128i*)ctx.v0.u8, simde_mm_and_si128(simde_mm_load_si128((simde__m128i*)ctx.v0.u8), simde_mm_load_si128((simde__m128i*)ctx.v9.u8)));
 	// stfs f27,112(r1)
@@ -64029,9 +64029,9 @@ loc_82E1CAD4:
 	temp.f32 = float(ctx.f24.f64);
 	PPC_STORE_U32(ctx.r1.u32 + 96, temp.u32);
 	// fmadds f24,f5,f11,f20
-	ctx.f24.f64 = double(float(ctx.f5.f64 * ctx.f11.f64 + ctx.f20.f64));
+	ctx.f24.f64 = static_cast<float>(ctx.f5.f64 * ctx.f11.f64 + ctx.f20.f64);
 	// fmadds f11,f4,f11,f19
-	ctx.f11.f64 = double(float(ctx.f4.f64 * ctx.f11.f64 + ctx.f19.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f4.f64 * ctx.f11.f64 + ctx.f19.f64);
 	// stfs f24,100(r1)
 	temp.f32 = float(ctx.f24.f64);
 	PPC_STORE_U32(ctx.r1.u32 + 100, temp.u32);
@@ -64177,11 +64177,11 @@ loc_82E1CC48:
 	// addi r11,r1,112
 	ctx.r11.s64 = ctx.r1.s64 + 112;
 	// fmadds f11,f3,f12,f11
-	ctx.f11.f64 = double(float(ctx.f3.f64 * ctx.f12.f64 + ctx.f11.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f3.f64 * ctx.f12.f64 + ctx.f11.f64);
 	// fmadds f3,f2,f12,f27
-	ctx.f3.f64 = double(float(ctx.f2.f64 * ctx.f12.f64 + ctx.f27.f64));
+	ctx.f3.f64 = static_cast<float>(ctx.f2.f64 * ctx.f12.f64 + ctx.f27.f64);
 	// fmadds f12,f1,f12,f8
-	ctx.f12.f64 = double(float(ctx.f1.f64 * ctx.f12.f64 + ctx.f8.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f1.f64 * ctx.f12.f64 + ctx.f8.f64);
 	// stvx128 v9,r0,r11
 	simde_mm_store_si128((simde__m128i*)(base + ((ctx.r11.u32) & ~0xF)), simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)ctx.v9.u8), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
 	// vspltw v9,v0,1
@@ -64203,14 +64203,14 @@ loc_82E1CC48:
 	simde_mm_store_ps(ctx.v0.f32, simde_mm_mul_ps(simde_mm_load_ps(ctx.v7.f32), simde_mm_load_ps(ctx.v0.f32)));
 	// fmadds f11,f29,f10,f11
 	ctx.fpscr.disableFlushModeUnconditional();
-	ctx.f11.f64 = double(float(ctx.f29.f64 * ctx.f10.f64 + ctx.f11.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f29.f64 * ctx.f10.f64 + ctx.f11.f64);
 	// fmadds f9,f31,f9,f3
-	ctx.f9.f64 = double(float(ctx.f31.f64 * ctx.f9.f64 + ctx.f3.f64));
+	ctx.f9.f64 = static_cast<float>(ctx.f31.f64 * ctx.f9.f64 + ctx.f3.f64);
 	// lfs f3,120(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 120);
 	ctx.f3.f64 = double(temp.f32);
 	// fmadds f12,f31,f10,f12
-	ctx.f12.f64 = double(float(ctx.f31.f64 * ctx.f10.f64 + ctx.f12.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f31.f64 * ctx.f10.f64 + ctx.f12.f64);
 	// lfs f10,116(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 116);
 	ctx.f10.f64 = double(temp.f32);
@@ -64219,7 +64219,7 @@ loc_82E1CC48:
 	// fadds f0,f3,f0
 	ctx.f0.f64 = double(float(ctx.f3.f64 + ctx.f0.f64));
 	// fmadds f11,f28,f6,f11
-	ctx.f11.f64 = double(float(ctx.f28.f64 * ctx.f6.f64 + ctx.f11.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f28.f64 * ctx.f6.f64 + ctx.f11.f64);
 	// stfs f11,96(r1)
 	temp.f32 = float(ctx.f11.f64);
 	PPC_STORE_U32(ctx.r1.u32 + 96, temp.u32);
@@ -64228,9 +64228,9 @@ loc_82E1CC48:
 	simde_mm_store_ps(ctx.v0.f32, simde_mm_sub_ps(simde_mm_load_ps(ctx.v12.f32), simde_mm_load_ps(ctx.v0.f32)));
 	// fmadds f11,f5,f6,f9
 	ctx.fpscr.disableFlushModeUnconditional();
-	ctx.f11.f64 = double(float(ctx.f5.f64 * ctx.f6.f64 + ctx.f9.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f5.f64 * ctx.f6.f64 + ctx.f9.f64);
 	// fmadds f12,f4,f6,f12
-	ctx.f12.f64 = double(float(ctx.f4.f64 * ctx.f6.f64 + ctx.f12.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f4.f64 * ctx.f6.f64 + ctx.f12.f64);
 	// stfs f12,104(r1)
 	temp.f32 = float(ctx.f12.f64);
 	PPC_STORE_U32(ctx.r1.u32 + 104, temp.u32);
@@ -64592,7 +64592,7 @@ PPC_FUNC_IMPL(__imp__sub_82E1CDF8) {
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + -128);
 	ctx.f8.f64 = double(temp.f32);
 	// fmsubs f11,f11,f12,f10
-	ctx.f11.f64 = double(float(ctx.f11.f64 * ctx.f12.f64 - ctx.f10.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f11.f64 * ctx.f12.f64 - ctx.f10.f64);
 	// lfsx f10,r11,r25
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + ctx.r25.u32);
 	ctx.f10.f64 = double(temp.f32);
@@ -64606,7 +64606,7 @@ PPC_FUNC_IMPL(__imp__sub_82E1CDF8) {
 	temp.u32 = PPC_LOAD_U32(ctx.r10.u32 + 3120);
 	ctx.f9.f64 = double(temp.f32);
 	// fmsubs f10,f10,f12,f7
-	ctx.f10.f64 = double(float(ctx.f10.f64 * ctx.f12.f64 - ctx.f7.f64));
+	ctx.f10.f64 = static_cast<float>(ctx.f10.f64 * ctx.f12.f64 - ctx.f7.f64);
 	// fmuls f6,f11,f9
 	ctx.f6.f64 = double(float(ctx.f11.f64 * ctx.f9.f64));
 	// fcmpu cr6,f10,f6
@@ -64629,7 +64629,7 @@ PPC_FUNC_IMPL(__imp__sub_82E1CDF8) {
 	// fmuls f10,f12,f9
 	ctx.f10.f64 = double(float(ctx.f12.f64 * ctx.f9.f64));
 	// fmsubs f13,f11,f13,f8
-	ctx.f13.f64 = double(float(ctx.f11.f64 * ctx.f13.f64 - ctx.f8.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f11.f64 * ctx.f13.f64 - ctx.f8.f64);
 	// fcmpu cr6,f13,f10
 	ctx.cr6.compare(ctx.f13.f64, ctx.f10.f64);
 	// ble cr6,0x82e1d0ac
@@ -64676,7 +64676,7 @@ PPC_FUNC_IMPL(__imp__sub_82E1CDF8) {
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + ctx.r10.u32);
 	ctx.f13.f64 = double(temp.f32);
 	// fmadds f0,f11,f0,f13
-	ctx.f0.f64 = double(float(ctx.f11.f64 * ctx.f0.f64 + ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f11.f64 * ctx.f0.f64 + ctx.f13.f64);
 	// stfsx f0,r11,r10
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r11.u32 + ctx.r10.u32, temp.u32);
@@ -65015,7 +65015,7 @@ loc_82E1D1D8:
 	temp.u32 = PPC_LOAD_U32(ctx.r31.u32 + 176);
 	ctx.f0.f64 = double(temp.f32);
 	// fmadds f0,f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 * ctx.f0.f64 + ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 * ctx.f0.f64 + ctx.f13.f64);
 	// lfs f12,84(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 84);
 	ctx.f12.f64 = double(temp.f32);
@@ -66909,7 +66909,7 @@ loc_82E1DE30:
 	temp.u32 = PPC_LOAD_U32(ctx.r9.u32 + ctx.r31.u32);
 	ctx.f12.f64 = double(temp.f32);
 	// fmsubs f0,f13,f0,f12
-	ctx.f0.f64 = double(float(ctx.f13.f64 * ctx.f0.f64 - ctx.f12.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f13.f64 * ctx.f0.f64 - ctx.f12.f64);
 	// stfs f0,52(r5)
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r5.u32 + 52, temp.u32);
@@ -67368,7 +67368,7 @@ loc_82E1E134:
 	// fneg f0,f0
 	ctx.f0.u64 = ctx.f0.u64 ^ 0x8000000000000000;
 	// fsubs f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// stfs f0,52(r5)
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r5.u32 + 52, temp.u32);
@@ -68036,7 +68036,7 @@ loc_82E1E580:
 	temp.u32 = PPC_LOAD_U32(ctx.r10.u32 + ctx.r9.u32);
 	ctx.f13.f64 = double(temp.f32);
 	// fmsubs f30,f13,f0,f12
-	ctx.f30.f64 = double(float(ctx.f13.f64 * ctx.f0.f64 - ctx.f12.f64));
+	ctx.f30.f64 = static_cast<float>(ctx.f13.f64 * ctx.f0.f64 - ctx.f12.f64);
 	// stfs f30,244(r1)
 	temp.f32 = float(ctx.f30.f64);
 	PPC_STORE_U32(ctx.r1.u32 + 244, temp.u32);
@@ -68243,7 +68243,7 @@ loc_82E1E6EC:
 	// fneg f13,f13
 	ctx.f13.u64 = ctx.f13.u64 ^ 0x8000000000000000;
 	// fsubs f31,f13,f12
-	ctx.f31.f64 = double(float(ctx.f13.f64 - ctx.f12.f64));
+	ctx.f31.f64 = static_cast<float>(ctx.f13.f64 - ctx.f12.f64);
 	// stfs f31,372(r1)
 	temp.f32 = float(ctx.f31.f64);
 	PPC_STORE_U32(ctx.r1.u32 + 372, temp.u32);
@@ -68729,7 +68729,7 @@ loc_82E1EB30:
 	// addi r9,r9,-1
 	ctx.r9.s64 = ctx.r9.s64 + -1;
 	// fsubs f12,f0,f13
-	ctx.f12.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// cmplwi cr6,r9,0
 	ctx.cr6.compare<uint32_t>(ctx.r9.u32, 0, ctx.xer);
 	// fsel f0,f12,f13,f0
@@ -68738,14 +68738,14 @@ loc_82E1EB30:
 	temp.u32 = PPC_LOAD_U32(ctx.r10.u32 + 0);
 	ctx.f13.f64 = double(temp.f32);
 	// fsubs f12,f0,f13
-	ctx.f12.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// fsel f0,f12,f13,f0
 	ctx.f0.f64 = ctx.f12.f64 >= 0.0 ? ctx.f13.f64 : ctx.f0.f64;
 	// lfs f13,-48(r10)
 	temp.u32 = PPC_LOAD_U32(ctx.r10.u32 + -48);
 	ctx.f13.f64 = double(temp.f32);
 	// fsubs f12,f0,f13
-	ctx.f12.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// fsel f0,f12,f13,f0
 	ctx.f0.f64 = ctx.f12.f64 >= 0.0 ? ctx.f13.f64 : ctx.f0.f64;
 	// lfs f13,-96(r10)
@@ -68754,7 +68754,7 @@ loc_82E1EB30:
 	// addi r10,r10,-192
 	ctx.r10.s64 = ctx.r10.s64 + -192;
 	// fsubs f12,f0,f13
-	ctx.f12.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// fsel f0,f12,f13,f0
 	ctx.f0.f64 = ctx.f12.f64 >= 0.0 ? ctx.f13.f64 : ctx.f0.f64;
 	// bne cr6,0x82e1eb30
@@ -68782,7 +68782,7 @@ loc_82E1EB8C:
 	// addi r11,r11,-1
 	ctx.r11.s64 = ctx.r11.s64 + -1;
 	// fsubs f12,f0,f13
-	ctx.f12.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// addi r10,r10,-48
 	ctx.r10.s64 = ctx.r10.s64 + -48;
 	// cmpwi cr6,r11,0
@@ -69274,7 +69274,7 @@ loc_82E1EEE0:
 	temp.u32 = PPC_LOAD_U32(ctx.r31.u32 + 176);
 	ctx.f0.f64 = double(temp.f32);
 	// fmadds f0,f0,f0,f29
-	ctx.f0.f64 = double(float(ctx.f0.f64 * ctx.f0.f64 + ctx.f29.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 * ctx.f0.f64 + ctx.f29.f64);
 	// lfs f13,80(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 80);
 	ctx.f13.f64 = double(temp.f32);
@@ -70282,7 +70282,7 @@ loc_82E1F528:
 	temp.u32 = PPC_LOAD_U32(ctx.r9.u32 + ctx.r8.u32);
 	ctx.f0.f64 = double(temp.f32);
 	// fmsubs f31,f0,f30,f13
-	ctx.f31.f64 = double(float(ctx.f0.f64 * ctx.f30.f64 - ctx.f13.f64));
+	ctx.f31.f64 = static_cast<float>(ctx.f0.f64 * ctx.f30.f64 - ctx.f13.f64);
 	// stfs f31,244(r1)
 	temp.f32 = float(ctx.f31.f64);
 	PPC_STORE_U32(ctx.r1.u32 + 244, temp.u32);
@@ -70305,7 +70305,7 @@ loc_82E1F62C:
 	if (ctx.cr6.eq) goto loc_82E1F968;
 	// fsubs f0,f28,f29
 	ctx.fpscr.disableFlushMode();
-	ctx.f0.f64 = double(float(ctx.f28.f64 - ctx.f29.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f28.f64 - ctx.f29.f64);
 	// fcmpu cr6,f31,f0
 	ctx.cr6.compare(ctx.f31.f64, ctx.f0.f64);
 	// blt cr6,0x82e1f968
@@ -70404,7 +70404,7 @@ loc_82E1F6C0:
 	temp.u32 = PPC_LOAD_U32(ctx.r31.u32 + 176);
 	ctx.f0.f64 = double(temp.f32);
 	// fmadds f0,f0,f0,f29
-	ctx.f0.f64 = double(float(ctx.f0.f64 * ctx.f0.f64 + ctx.f29.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 * ctx.f0.f64 + ctx.f29.f64);
 	// lfs f13,144(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 144);
 	ctx.f13.f64 = double(temp.f32);
@@ -70948,7 +70948,7 @@ loc_82E1F990:
 	// fneg f0,f0
 	ctx.f0.u64 = ctx.f0.u64 ^ 0x8000000000000000;
 	// fsubs f31,f0,f13
-	ctx.f31.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f31.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// stfs f31,244(r1)
 	temp.f32 = float(ctx.f31.f64);
 	PPC_STORE_U32(ctx.r1.u32 + 244, temp.u32);
@@ -70966,7 +70966,7 @@ loc_82E1FAE0:
 	if (ctx.cr6.eq) goto loc_82E1FE24;
 	// fsubs f0,f28,f29
 	ctx.fpscr.disableFlushMode();
-	ctx.f0.f64 = double(float(ctx.f28.f64 - ctx.f29.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f28.f64 - ctx.f29.f64);
 	// fcmpu cr6,f31,f0
 	ctx.cr6.compare(ctx.f31.f64, ctx.f0.f64);
 	// blt cr6,0x82e1fe24
@@ -71058,7 +71058,7 @@ loc_82E1FB68:
 	temp.u32 = PPC_LOAD_U32(ctx.r31.u32 + 176);
 	ctx.f0.f64 = double(temp.f32);
 	// fmadds f0,f0,f0,f29
-	ctx.f0.f64 = double(float(ctx.f0.f64 * ctx.f0.f64 + ctx.f29.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 * ctx.f0.f64 + ctx.f29.f64);
 	// lfs f13,112(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 112);
 	ctx.f13.f64 = double(temp.f32);
@@ -71584,7 +71584,7 @@ PPC_FUNC_IMPL(__imp__sub_82E1FE80) {
 	temp.u32 = PPC_LOAD_U32(ctx.r4.u32 + 160);
 	ctx.f12.f64 = double(temp.f32);
 	// fmadds f0,f12,f0,f13
-	ctx.f0.f64 = double(float(ctx.f12.f64 * ctx.f0.f64 + ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f12.f64 * ctx.f0.f64 + ctx.f13.f64);
 	// stfs f0,0(r9)
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r9.u32 + 0, temp.u32);
@@ -71649,7 +71649,7 @@ PPC_FUNC_IMPL(__imp__sub_82E1FF60) {
 	// addi r30,r1,-32
 	ctx.r30.s64 = ctx.r1.s64 + -32;
 	// fsubs f0,f1,f0
-	ctx.f0.f64 = double(float(ctx.f1.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f1.f64 - ctx.f0.f64);
 	// lfs f13,28(r11)
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 28);
 	ctx.f13.f64 = double(temp.f32);
@@ -71665,7 +71665,7 @@ PPC_FUNC_IMPL(__imp__sub_82E1FF60) {
 	// lis r8,-32253
 	ctx.r8.s64 = -2113732608;
 	// fsubs f12,f1,f12
-	ctx.f12.f64 = double(float(ctx.f1.f64 - ctx.f12.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f1.f64 - ctx.f12.f64);
 	// lfs f11,28(r10)
 	temp.u32 = PPC_LOAD_U32(ctx.r10.u32 + 28);
 	ctx.f11.f64 = double(temp.f32);
@@ -71818,7 +71818,7 @@ PPC_FUNC_IMPL(__imp__sub_82E20080) {
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 12);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f0,f1,f0
-	ctx.f0.f64 = double(float(ctx.f1.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f1.f64 - ctx.f0.f64);
 	// lfs f13,28(r11)
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 28);
 	ctx.f13.f64 = double(temp.f32);
@@ -71901,13 +71901,13 @@ PPC_FUNC_IMPL(__imp__sub_82E20080) {
 	// bgt cr6,0x82e20154
 	if (ctx.cr6.gt) goto loc_82E20154;
 	// fmadds f13,f0,f10,f13
-	ctx.f13.f64 = double(float(ctx.f0.f64 * ctx.f10.f64 + ctx.f13.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f0.f64 * ctx.f10.f64 + ctx.f13.f64);
 	// b 0x82e20158
 	goto loc_82E20158;
 loc_82E20154:
 	// fmadds f13,f0,f11,f13
 	ctx.fpscr.disableFlushMode();
-	ctx.f13.f64 = double(float(ctx.f0.f64 * ctx.f11.f64 + ctx.f13.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f0.f64 * ctx.f11.f64 + ctx.f13.f64);
 loc_82E20158:
 	// addi r11,r4,64
 	ctx.r11.s64 = ctx.r4.s64 + 64;
@@ -71924,7 +71924,7 @@ loc_82E20158:
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 12);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f0,f1,f0
-	ctx.f0.f64 = double(float(ctx.f1.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f1.f64 - ctx.f0.f64);
 	// lfs f9,28(r11)
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 28);
 	ctx.f9.f64 = double(temp.f32);
@@ -72258,7 +72258,7 @@ loc_82E2038C:
 	// ble cr6,0x82e20464
 	if (!ctx.cr6.gt) goto loc_82E20464;
 	// fsubs f0,f26,f29
-	ctx.f0.f64 = double(float(ctx.f26.f64 - ctx.f29.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f26.f64 - ctx.f29.f64);
 	// fneg f12,f27
 	ctx.f12.u64 = ctx.f27.u64 ^ 0x8000000000000000;
 	// fcmpu cr6,f0,f12
@@ -72266,7 +72266,7 @@ loc_82E2038C:
 	// bgt cr6,0x82e20464
 	if (ctx.cr6.gt) goto loc_82E20464;
 	// fsubs f13,f13,f29
-	ctx.f13.f64 = double(float(ctx.f13.f64 - ctx.f29.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f13.f64 - ctx.f29.f64);
 	// clrlwi r11,r29,31
 	ctx.r11.u64 = ctx.r29.u32 & 0x1;
 	// cmpwi cr6,r11,0
@@ -72276,17 +72276,17 @@ loc_82E2038C:
 	// bne cr6,0x82e203c8
 	if (!ctx.cr6.eq) goto loc_82E203C8;
 	// fsubs f13,f0,f24
-	ctx.f13.f64 = double(float(ctx.f0.f64 - ctx.f24.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f0.f64 - ctx.f24.f64);
 	// fsel f0,f13,f0,f24
 	ctx.f0.f64 = ctx.f13.f64 >= 0.0 ? ctx.f0.f64 : ctx.f24.f64;
 	// fsubs f13,f0,f23
-	ctx.f13.f64 = double(float(ctx.f0.f64 - ctx.f23.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f0.f64 - ctx.f23.f64);
 	// fsel f0,f13,f23,f0
 	ctx.f0.f64 = ctx.f13.f64 >= 0.0 ? ctx.f23.f64 : ctx.f0.f64;
 loc_82E203C8:
 	// fsubs f13,f25,f0
 	ctx.fpscr.disableFlushMode();
-	ctx.f13.f64 = double(float(ctx.f25.f64 - ctx.f0.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f25.f64 - ctx.f0.f64);
 	// addi r5,r1,96
 	ctx.r5.s64 = ctx.r1.s64 + 96;
 	// fmuls f0,f0,f28
@@ -72294,7 +72294,7 @@ loc_82E203C8:
 	// mr r3,r28
 	ctx.r3.u64 = ctx.r28.u64;
 	// fmadds f31,f13,f30,f0
-	ctx.f31.f64 = double(float(ctx.f13.f64 * ctx.f30.f64 + ctx.f0.f64));
+	ctx.f31.f64 = static_cast<float>(ctx.f13.f64 * ctx.f30.f64 + ctx.f0.f64);
 	// fmr f1,f31
 	ctx.f1.f64 = ctx.f31.f64;
 	// bl 0x82e201e8
@@ -72334,7 +72334,7 @@ loc_82E203C8:
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 80);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f12,f0,f13
-	ctx.f12.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// fabs f12,f12
 	ctx.f12.u64 = ctx.f12.u64 & ~0x8000000000000000;
 	// fcmpu cr6,f12,f27
@@ -72492,7 +72492,7 @@ loc_82E204FC:
 	sub_82E201E8(ctx, base);
 	// fsubs f31,f27,f30
 	ctx.fpscr.disableFlushMode();
-	ctx.f31.f64 = double(float(ctx.f27.f64 - ctx.f30.f64));
+	ctx.f31.f64 = static_cast<float>(ctx.f27.f64 - ctx.f30.f64);
 	// mr r11,r28
 	ctx.r11.u64 = ctx.r28.u64;
 	// lwz r31,0(r24)
@@ -72555,7 +72555,7 @@ loc_82E20538:
 	// addi r10,r1,400
 	ctx.r10.s64 = ctx.r1.s64 + 400;
 	// fsubs f13,f4,f0
-	ctx.f13.f64 = double(float(ctx.f4.f64 - ctx.f0.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f4.f64 - ctx.f0.f64);
 	// addi r11,r1,96
 	ctx.r11.s64 = ctx.r1.s64 + 96;
 	// lvx128 v0,r0,r10
@@ -72628,7 +72628,7 @@ loc_82E20538:
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 96);
 	ctx.f5.f64 = double(temp.f32);
 	// fmadds f13,f5,f31,f13
-	ctx.f13.f64 = double(float(ctx.f5.f64 * ctx.f31.f64 + ctx.f13.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f5.f64 * ctx.f31.f64 + ctx.f13.f64);
 	// fmuls f12,f12,f31
 	ctx.f12.f64 = double(float(ctx.f12.f64 * ctx.f31.f64));
 	// fmuls f12,f12,f23
@@ -72719,7 +72719,7 @@ loc_82E20668:
 	temp.u32 = PPC_LOAD_U32(ctx.r27.u32 + 4);
 	ctx.f13.f64 = double(temp.f32);
 	// fsubs f12,f4,f13
-	ctx.f12.f64 = double(float(ctx.f4.f64 - ctx.f13.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f4.f64 - ctx.f13.f64);
 	// lfs f0,28(r29)
 	temp.u32 = PPC_LOAD_U32(ctx.r29.u32 + 28);
 	ctx.f0.f64 = double(temp.f32);
@@ -72737,7 +72737,7 @@ loc_82E20668:
 	// fcmpu cr6,f5,f25
 	ctx.cr6.compare(ctx.f5.f64, ctx.f25.f64);
 	// fsubs f11,f11,f13
-	ctx.f11.f64 = double(float(ctx.f11.f64 - ctx.f13.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f11.f64 - ctx.f13.f64);
 	// fsqrts f13,f12
 	ctx.f13.f64 = double(float(sqrt(ctx.f12.f64)));
 	// fmuls f12,f11,f0
@@ -72749,7 +72749,7 @@ loc_82E20668:
 	// blt cr6,0x82e206e4
 	if (ctx.cr6.lt) goto loc_82E206E4;
 	// fmadds f13,f0,f29,f13
-	ctx.f13.f64 = double(float(ctx.f0.f64 * ctx.f29.f64 + ctx.f13.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f0.f64 * ctx.f29.f64 + ctx.f13.f64);
 	// b 0x82e206f0
 	goto loc_82E206F0;
 loc_82E206E4:
@@ -72757,7 +72757,7 @@ loc_82E206E4:
 	ctx.fpscr.disableFlushMode();
 	ctx.f0.u64 = ctx.f0.u64 ^ 0x8000000000000000;
 	// fsubs f11,f0,f13
-	ctx.f11.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// fsel f13,f11,f0,f13
 	ctx.f13.f64 = ctx.f11.f64 >= 0.0 ? ctx.f0.f64 : ctx.f13.f64;
 loc_82E206F0:
@@ -72774,13 +72774,13 @@ loc_82E206F0:
 	// fadds f13,f12,f13
 	ctx.f13.f64 = double(float(ctx.f12.f64 + ctx.f13.f64));
 	// fsubs f12,f13,f0
-	ctx.f12.f64 = double(float(ctx.f13.f64 - ctx.f0.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f13.f64 - ctx.f0.f64);
 	// fsel f0,f12,f13,f0
 	ctx.f0.f64 = ctx.f12.f64 >= 0.0 ? ctx.f13.f64 : ctx.f0.f64;
 	// fadds f0,f0,f30
 	ctx.f0.f64 = double(float(ctx.f0.f64 + ctx.f30.f64));
 	// fsubs f13,f28,f0
-	ctx.f13.f64 = double(float(ctx.f28.f64 - ctx.f0.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f28.f64 - ctx.f0.f64);
 	// fsel f28,f13,f0,f28
 	ctx.f28.f64 = ctx.f13.f64 >= 0.0 ? ctx.f0.f64 : ctx.f28.f64;
 loc_82E20718:
@@ -72992,12 +72992,12 @@ loc_82E20818:
 	temp.u32 = PPC_LOAD_U32(ctx.r29.u32 + 16);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f0,f13,f0
-	ctx.f0.f64 = double(float(ctx.f13.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f13.f64 - ctx.f0.f64);
 	// lfs f13,16(r28)
 	temp.u32 = PPC_LOAD_U32(ctx.r28.u32 + 16);
 	ctx.f13.f64 = double(temp.f32);
 	// fsubs f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// stfs f0,12(r27)
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r27.u32 + 12, temp.u32);
@@ -73160,7 +73160,7 @@ loc_82E20950:
 	// fmuls f0,f12,f0
 	ctx.f0.f64 = double(float(ctx.f12.f64 * ctx.f0.f64));
 	// fmadds f0,f11,f13,f0
-	ctx.f0.f64 = double(float(ctx.f11.f64 * ctx.f13.f64 + ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f11.f64 * ctx.f13.f64 + ctx.f0.f64);
 	// lfs f13,3120(r11)
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 3120);
 	ctx.f13.f64 = double(temp.f32);
@@ -73254,7 +73254,7 @@ PPC_FUNC_IMPL(__imp__sub_82E209B8) {
 	temp.u32 = PPC_LOAD_U32(ctx.r8.u32 + 2920);
 	ctx.f25.f64 = double(temp.f32);
 	// fsubs f13,f29,f28
-	ctx.f13.f64 = double(float(ctx.f29.f64 - ctx.f28.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f29.f64 - ctx.f28.f64);
 	// lwz r11,0(r11)
 	ctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 0);
 	// lfs f26,3052(r9)
@@ -73263,7 +73263,7 @@ PPC_FUNC_IMPL(__imp__sub_82E209B8) {
 	// li r20,0
 	ctx.r20.s64 = 0;
 	// fsubs f0,f24,f27
-	ctx.f0.f64 = double(float(ctx.f24.f64 - ctx.f27.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f24.f64 - ctx.f27.f64);
 	// li r21,32
 	ctx.r21.s64 = 32;
 	// li r22,160
@@ -73297,7 +73297,7 @@ loc_82E20A64:
 	temp.u32 = PPC_LOAD_U32(ctx.r26.u32 + 16);
 	ctx.f12.f64 = double(temp.f32);
 	// fsubs f0,f24,f27
-	ctx.f0.f64 = double(float(ctx.f24.f64 - ctx.f27.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f24.f64 - ctx.f27.f64);
 	// fneg f13,f12
 	ctx.f13.u64 = ctx.f12.u64 ^ 0x8000000000000000;
 	// fcmpu cr6,f0,f13
@@ -73316,7 +73316,7 @@ loc_82E20A80:
 	// li r11,1
 	ctx.r11.s64 = 1;
 	// fsubs f11,f24,f13
-	ctx.f11.f64 = double(float(ctx.f24.f64 - ctx.f13.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f24.f64 - ctx.f13.f64);
 	// fabs f11,f11
 	ctx.f11.u64 = ctx.f11.u64 & ~0x8000000000000000;
 	// fcmpu cr6,f11,f12
@@ -73344,25 +73344,25 @@ loc_82E20A9C:
 loc_82E20AB8:
 	// fsubs f13,f13,f27
 	ctx.fpscr.disableFlushMode();
-	ctx.f13.f64 = double(float(ctx.f13.f64 - ctx.f27.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f13.f64 - ctx.f27.f64);
 	// li r30,0
 	ctx.r30.s64 = 0;
 	// fdivs f0,f13,f0
 	ctx.f0.f64 = double(float(ctx.f13.f64 / ctx.f0.f64));
 	// fsubs f13,f0,f26
-	ctx.f13.f64 = double(float(ctx.f0.f64 - ctx.f26.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f0.f64 - ctx.f26.f64);
 	// fsel f0,f13,f0,f26
 	ctx.f0.f64 = ctx.f13.f64 >= 0.0 ? ctx.f0.f64 : ctx.f26.f64;
 	// fsubs f13,f0,f25
-	ctx.f13.f64 = double(float(ctx.f0.f64 - ctx.f25.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f0.f64 - ctx.f25.f64);
 	// fsel f0,f13,f25,f0
 	ctx.f0.f64 = ctx.f13.f64 >= 0.0 ? ctx.f25.f64 : ctx.f0.f64;
 	// fsubs f13,f23,f0
-	ctx.f13.f64 = double(float(ctx.f23.f64 - ctx.f0.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f23.f64 - ctx.f0.f64);
 	// fmuls f0,f0,f29
 	ctx.f0.f64 = double(float(ctx.f0.f64 * ctx.f29.f64));
 	// fmadds f31,f13,f28,f0
-	ctx.f31.f64 = double(float(ctx.f13.f64 * ctx.f28.f64 + ctx.f0.f64));
+	ctx.f31.f64 = static_cast<float>(ctx.f13.f64 * ctx.f28.f64 + ctx.f0.f64);
 loc_82E20AE0:
 	// addi r11,r18,8
 	ctx.r11.s64 = ctx.r18.s64 + 8;
@@ -73596,7 +73596,7 @@ loc_82E20C80:
 	// li r11,1
 	ctx.r11.s64 = 1;
 	// fsubs f30,f13,f21
-	ctx.f30.f64 = double(float(ctx.f13.f64 - ctx.f21.f64));
+	ctx.f30.f64 = static_cast<float>(ctx.f13.f64 - ctx.f21.f64);
 	// lfs f0,0(r26)
 	temp.u32 = PPC_LOAD_U32(ctx.r26.u32 + 0);
 	ctx.f0.f64 = double(temp.f32);
@@ -73604,7 +73604,7 @@ loc_82E20C80:
 	temp.u32 = PPC_LOAD_U32(ctx.r26.u32 + 16);
 	ctx.f13.f64 = double(temp.f32);
 	// fsubs f12,f30,f0
-	ctx.f12.f64 = double(float(ctx.f30.f64 - ctx.f0.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f30.f64 - ctx.f0.f64);
 	// fabs f12,f12
 	ctx.f12.u64 = ctx.f12.u64 & ~0x8000000000000000;
 	// fcmpu cr6,f12,f13
@@ -73679,7 +73679,7 @@ loc_82E20CF0:
 	temp.u32 = PPC_LOAD_U32(ctx.r14.u32 + 0);
 	ctx.f11.f64 = double(temp.f32);
 	// fsubs f10,f13,f0
-	ctx.f10.f64 = double(float(ctx.f13.f64 - ctx.f0.f64));
+	ctx.f10.f64 = static_cast<float>(ctx.f13.f64 - ctx.f0.f64);
 	// fsel f13,f10,f13,f0
 	ctx.f13.f64 = ctx.f10.f64 >= 0.0 ? ctx.f13.f64 : ctx.f0.f64;
 	// fadds f29,f13,f11
@@ -73692,7 +73692,7 @@ loc_82E20CF0:
 	temp.u32 = PPC_LOAD_U32(ctx.r14.u32 + 4);
 	ctx.f13.f64 = double(temp.f32);
 	// fsubs f0,f13,f0
-	ctx.f0.f64 = double(float(ctx.f13.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f13.f64 - ctx.f0.f64);
 	// fcmpu cr6,f29,f0
 	ctx.cr6.compare(ctx.f29.f64, ctx.f0.f64);
 	// bge cr6,0x82e21530
@@ -73745,7 +73745,7 @@ loc_82E20CF0:
 	temp.f32 = float(ctx.f30.f64);
 	PPC_STORE_U32(ctx.r1.u32 + 156, temp.u32);
 	// fsubs f0,f0,f30
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f30.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f30.f64);
 	// stfs f0,96(r1)
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r1.u32 + 96, temp.u32);
@@ -73941,7 +73941,7 @@ loc_82E20E94:
 	// addi r6,r9,8
 	ctx.r6.s64 = ctx.r9.s64 + 8;
 	// fsubs f0,f29,f0
-	ctx.f0.f64 = double(float(ctx.f29.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f29.f64 - ctx.f0.f64);
 	// lfs f13,28(r30)
 	temp.u32 = PPC_LOAD_U32(ctx.r30.u32 + 28);
 	ctx.f13.f64 = double(temp.f32);
@@ -73971,7 +73971,7 @@ loc_82E20E94:
 	temp.u32 = PPC_LOAD_U32(ctx.r29.u32 + 12);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f0,f29,f0
-	ctx.f0.f64 = double(float(ctx.f29.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f29.f64 - ctx.f0.f64);
 	// lfs f13,28(r29)
 	temp.u32 = PPC_LOAD_U32(ctx.r29.u32 + 28);
 	ctx.f13.f64 = double(temp.f32);
@@ -74223,7 +74223,7 @@ loc_82E20E94:
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 160);
 	ctx.f12.f64 = double(temp.f32);
 	// fmadds f0,f12,f13,f0
-	ctx.f0.f64 = double(float(ctx.f12.f64 * ctx.f13.f64 + ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f12.f64 * ctx.f13.f64 + ctx.f0.f64);
 	// lfs f13,96(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 96);
 	ctx.f13.f64 = double(temp.f32);
@@ -74362,7 +74362,7 @@ loc_82E21190:
 	// fmuls f0,f12,f0
 	ctx.f0.f64 = double(float(ctx.f12.f64 * ctx.f0.f64));
 	// fmadds f0,f11,f13,f0
-	ctx.f0.f64 = double(float(ctx.f11.f64 * ctx.f13.f64 + ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f11.f64 * ctx.f13.f64 + ctx.f0.f64);
 	// lfs f13,3120(r11)
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 3120);
 	ctx.f13.f64 = double(temp.f32);
@@ -74444,7 +74444,7 @@ loc_82E21240:
 	temp.u32 = PPC_LOAD_U32(ctx.r29.u32 + 12);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f0,f29,f0
-	ctx.f0.f64 = double(float(ctx.f29.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f29.f64 - ctx.f0.f64);
 	// addi r11,r1,96
 	ctx.r11.s64 = ctx.r1.s64 + 96;
 	// lfs f13,28(r29)
@@ -74466,7 +74466,7 @@ loc_82E21240:
 	// vxor v4,v10,v11
 	simde_mm_store_si128((simde__m128i*)ctx.v4.u8, simde_mm_xor_si128(simde_mm_load_si128((simde__m128i*)ctx.v10.u8), simde_mm_load_si128((simde__m128i*)ctx.v11.u8)));
 	// fsubs f12,f29,f12
-	ctx.f12.f64 = double(float(ctx.f29.f64 - ctx.f12.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f29.f64 - ctx.f12.f64);
 	// lfs f11,28(r30)
 	temp.u32 = PPC_LOAD_U32(ctx.r30.u32 + 28);
 	ctx.f11.f64 = double(temp.f32);
@@ -75029,7 +75029,7 @@ PPC_FUNC_IMPL(__imp__sub_82E21540) {
 	// clrlwi r11,r7,28
 	ctx.r11.u64 = ctx.r7.u32 & 0xF;
 	// fsubs f13,f12,f0
-	ctx.f13.f64 = double(float(ctx.f12.f64 - ctx.f0.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f12.f64 - ctx.f0.f64);
 	// vmulfp128 v0,v0,v12
 	ctx.fpscr.enableFlushModeUnconditional();
 	simde_mm_store_ps(ctx.v0.f32, simde_mm_mul_ps(simde_mm_load_ps(ctx.v0.f32), simde_mm_load_ps(ctx.v12.f32)));
@@ -75146,7 +75146,7 @@ PPC_FUNC_IMPL(__imp__sub_82E21540) {
 loc_82E21718:
 	// fsubs f13,f26,f31
 	ctx.fpscr.disableFlushMode();
-	ctx.f13.f64 = double(float(ctx.f26.f64 - ctx.f31.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f26.f64 - ctx.f31.f64);
 	// fcmpu cr6,f13,f16
 	ctx.cr6.compare(ctx.f13.f64, ctx.f16.f64);
 	// ble cr6,0x82e22620
@@ -75267,7 +75267,7 @@ loc_82E21718:
 	ea = (ctx.r7.u32) & ~0x3;
 	PPC_STORE_U32(ea, ctx.v13.u32[3 - ((ea & 0xF) >> 2)]);
 	// fmadds f12,f11,f0,f12
-	ctx.f12.f64 = double(float(ctx.f11.f64 * ctx.f0.f64 + ctx.f12.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f11.f64 * ctx.f0.f64 + ctx.f12.f64);
 	// lfs f11,100(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 100);
 	ctx.f11.f64 = double(temp.f32);
@@ -75287,7 +75287,7 @@ loc_82E21718:
 	// bgt cr6,0x82e22620
 	if (ctx.cr6.gt) goto loc_82E22620;
 	// fsubs f0,f0,f27
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f27.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f27.f64);
 	// fdivs f30,f0,f29
 	ctx.f30.f64 = double(float(ctx.f0.f64 / ctx.f29.f64));
 	// fcmpu cr6,f30,f21
@@ -75444,7 +75444,7 @@ loc_82E218F4:
 	// fmuls f0,f12,f0
 	ctx.f0.f64 = double(float(ctx.f12.f64 * ctx.f0.f64));
 	// fmadds f0,f11,f13,f0
-	ctx.f0.f64 = double(float(ctx.f11.f64 * ctx.f13.f64 + ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f11.f64 * ctx.f13.f64 + ctx.f0.f64);
 	// stfs f0,280(r1)
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r1.u32 + 280, temp.u32);
@@ -75480,7 +75480,7 @@ loc_82E21940:
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 1296);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f0,f0,f31
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f31.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f31.f64);
 	// fmuls f13,f30,f23
 	ctx.f13.f64 = double(float(ctx.f30.f64 * ctx.f23.f64));
 	// fcmpu cr6,f0,f13
@@ -75492,7 +75492,7 @@ loc_82E21940:
 loc_82E21974:
 	// fsubs f13,f30,f0
 	ctx.fpscr.disableFlushMode();
-	ctx.f13.f64 = double(float(ctx.f30.f64 - ctx.f0.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f30.f64 - ctx.f0.f64);
 	// fsel f30,f13,f30,f0
 	ctx.f30.f64 = ctx.f13.f64 >= 0.0 ? ctx.f30.f64 : ctx.f0.f64;
 loc_82E2197C:
@@ -75504,7 +75504,7 @@ loc_82E2197C:
 	// bge cr6,0x82e22620
 	if (!ctx.cr6.lt) goto loc_82E22620;
 	// fsubs f0,f25,f30
-	ctx.f0.f64 = double(float(ctx.f25.f64 - ctx.f30.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f25.f64 - ctx.f30.f64);
 	// lwz r31,0(r16)
 	ctx.r31.u64 = PPC_LOAD_U32(ctx.r16.u32 + 0);
 	// fmr f29,f31
@@ -75529,7 +75529,7 @@ loc_82E2197C:
 	// fadds f0,f0,f31
 	ctx.f0.f64 = double(float(ctx.f0.f64 + ctx.f31.f64));
 	// fsubs f12,f0,f26
-	ctx.f12.f64 = double(float(ctx.f0.f64 - ctx.f26.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f0.f64 - ctx.f26.f64);
 	// fsel f31,f12,f26,f0
 	ctx.f31.f64 = ctx.f12.f64 >= 0.0 ? ctx.f26.f64 : ctx.f0.f64;
 	// fmuls f30,f13,f31
@@ -75710,12 +75710,12 @@ loc_82E21A7C:
 	temp.u32 = PPC_LOAD_U32(ctx.r26.u32 + 16);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f0,f13,f0
-	ctx.f0.f64 = double(float(ctx.f13.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f13.f64 - ctx.f0.f64);
 	// lfs f13,16(r25)
 	temp.u32 = PPC_LOAD_U32(ctx.r25.u32 + 16);
 	ctx.f13.f64 = double(temp.f32);
 	// fsubs f0,f0,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f13.f64);
 	// stfs f0,0(r22)
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r22.u32 + 0, temp.u32);
@@ -75750,11 +75750,11 @@ loc_82E21B3C:
 	ctx.r11.u64 = PPC_LOAD_U32(ctx.r30.u32 + 0);
 	// fsubs f13,f0,f28
 	ctx.fpscr.disableFlushMode();
-	ctx.f13.f64 = double(float(ctx.f0.f64 - ctx.f28.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f0.f64 - ctx.f28.f64);
 	// lwz r10,0(r18)
 	ctx.r10.u64 = PPC_LOAD_U32(ctx.r18.u32 + 0);
 	// fsubs f12,f31,f29
-	ctx.f12.f64 = double(float(ctx.f31.f64 - ctx.f29.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f31.f64 - ctx.f29.f64);
 	// fmr f23,f0
 	ctx.f23.f64 = ctx.f0.f64;
 	// lis r9,-32256
@@ -75797,7 +75797,7 @@ loc_82E21B3C:
 loc_82E21B90:
 	// fsubs f0,f23,f28
 	ctx.fpscr.disableFlushMode();
-	ctx.f0.f64 = double(float(ctx.f23.f64 - ctx.f28.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f23.f64 - ctx.f28.f64);
 	// fcmpu cr6,f0,f21
 	ctx.cr6.compare(ctx.f0.f64, ctx.f21.f64);
 	// ble cr6,0x82e21ba4
@@ -75809,7 +75809,7 @@ loc_82E21B90:
 loc_82E21BA4:
 	// fsubs f13,f23,f22
 	ctx.fpscr.disableFlushMode();
-	ctx.f13.f64 = double(float(ctx.f23.f64 - ctx.f22.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f23.f64 - ctx.f22.f64);
 	// li r11,1
 	ctx.r11.s64 = 1;
 	// fabs f13,f13
@@ -75839,25 +75839,25 @@ loc_82E21BBC:
 loc_82E21BD8:
 	// fsubs f13,f22,f28
 	ctx.fpscr.disableFlushMode();
-	ctx.f13.f64 = double(float(ctx.f22.f64 - ctx.f28.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f22.f64 - ctx.f28.f64);
 	// mr r28,r21
 	ctx.r28.u64 = ctx.r21.u64;
 	// fdivs f0,f13,f0
 	ctx.f0.f64 = double(float(ctx.f13.f64 / ctx.f0.f64));
 	// fsubs f13,f0,f25
-	ctx.f13.f64 = double(float(ctx.f0.f64 - ctx.f25.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f0.f64 - ctx.f25.f64);
 	// fsel f0,f13,f0,f25
 	ctx.f0.f64 = ctx.f13.f64 >= 0.0 ? ctx.f0.f64 : ctx.f25.f64;
 	// fsubs f13,f0,f24
-	ctx.f13.f64 = double(float(ctx.f0.f64 - ctx.f24.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f0.f64 - ctx.f24.f64);
 	// fsel f0,f13,f24,f0
 	ctx.f0.f64 = ctx.f13.f64 >= 0.0 ? ctx.f24.f64 : ctx.f0.f64;
 	// fsubs f13,f26,f0
-	ctx.f13.f64 = double(float(ctx.f26.f64 - ctx.f0.f64));
+	ctx.f13.f64 = static_cast<float>(ctx.f26.f64 - ctx.f0.f64);
 	// fmuls f0,f0,f31
 	ctx.f0.f64 = double(float(ctx.f0.f64 * ctx.f31.f64));
 	// fmadds f30,f13,f29,f0
-	ctx.f30.f64 = double(float(ctx.f13.f64 * ctx.f29.f64 + ctx.f0.f64));
+	ctx.f30.f64 = static_cast<float>(ctx.f13.f64 * ctx.f29.f64 + ctx.f0.f64);
 loc_82E21C00:
 	// lwz r31,0(r16)
 	ctx.r31.u64 = PPC_LOAD_U32(ctx.r16.u32 + 0);
@@ -76093,9 +76093,9 @@ loc_82E21DA4:
 	// li r11,1
 	ctx.r11.s64 = 1;
 	// fsubs f27,f0,f20
-	ctx.f27.f64 = double(float(ctx.f0.f64 - ctx.f20.f64));
+	ctx.f27.f64 = static_cast<float>(ctx.f0.f64 - ctx.f20.f64);
 	// fsubs f0,f27,f22
-	ctx.f0.f64 = double(float(ctx.f27.f64 - ctx.f22.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f27.f64 - ctx.f22.f64);
 	// fabs f0,f0
 	ctx.f0.u64 = ctx.f0.u64 & ~0x8000000000000000;
 	// fcmpu cr6,f0,f17
@@ -76167,7 +76167,7 @@ loc_82E21E0C:
 	temp.u32 = PPC_LOAD_U32(ctx.r17.u32 + 0);
 	ctx.f12.f64 = double(temp.f32);
 	// fsubs f11,f0,f14
-	ctx.f11.f64 = double(float(ctx.f0.f64 - ctx.f14.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f0.f64 - ctx.f14.f64);
 	// fsel f0,f11,f0,f14
 	ctx.f0.f64 = ctx.f11.f64 >= 0.0 ? ctx.f0.f64 : ctx.f14.f64;
 	// fadds f31,f0,f12
@@ -76180,7 +76180,7 @@ loc_82E21E0C:
 	temp.u32 = PPC_LOAD_U32(ctx.r17.u32 + 4);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f0,f0,f14
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f14.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f14.f64);
 	// fcmpu cr6,f31,f0
 	ctx.cr6.compare(ctx.f31.f64, ctx.f0.f64);
 	// bge cr6,0x82e22620
@@ -76233,7 +76233,7 @@ loc_82E21E0C:
 	temp.f32 = float(ctx.f27.f64);
 	PPC_STORE_U32(ctx.r1.u32 + 156, temp.u32);
 	// fsubs f0,f0,f27
-	ctx.f0.f64 = double(float(ctx.f0.f64 - ctx.f27.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 - ctx.f27.f64);
 	// stfs f0,96(r1)
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r1.u32 + 96, temp.u32);
@@ -76409,7 +76409,7 @@ loc_82E21F9C:
 	// vpermwi128 v7,v0,99
 	simde_mm_store_si128((simde__m128i*)ctx.v7.u32, simde_mm_shuffle_epi32(simde_mm_load_si128((simde__m128i*)ctx.v0.u32), 0x9C));
 	// fsubs f0,f31,f0
-	ctx.f0.f64 = double(float(ctx.f31.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f31.f64 - ctx.f0.f64);
 	// lfs f13,28(r29)
 	temp.u32 = PPC_LOAD_U32(ctx.r29.u32 + 28);
 	ctx.f13.f64 = double(temp.f32);
@@ -76453,7 +76453,7 @@ loc_82E21F9C:
 	temp.u32 = PPC_LOAD_U32(ctx.r28.u32 + 12);
 	ctx.f0.f64 = double(temp.f32);
 	// fsubs f0,f31,f0
-	ctx.f0.f64 = double(float(ctx.f31.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f31.f64 - ctx.f0.f64);
 	// lfs f13,28(r28)
 	temp.u32 = PPC_LOAD_U32(ctx.r28.u32 + 28);
 	ctx.f13.f64 = double(temp.f32);
@@ -76701,7 +76701,7 @@ loc_82E21F9C:
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 160);
 	ctx.f12.f64 = double(temp.f32);
 	// fmadds f0,f12,f13,f0
-	ctx.f0.f64 = double(float(ctx.f12.f64 * ctx.f13.f64 + ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f12.f64 * ctx.f13.f64 + ctx.f0.f64);
 	// lfs f13,112(r1)
 	temp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 112);
 	ctx.f13.f64 = double(temp.f32);
@@ -76838,7 +76838,7 @@ loc_82E22298:
 	// fmuls f0,f12,f0
 	ctx.f0.f64 = double(float(ctx.f12.f64 * ctx.f0.f64));
 	// fmadds f0,f11,f13,f0
-	ctx.f0.f64 = double(float(ctx.f11.f64 * ctx.f13.f64 + ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f11.f64 * ctx.f13.f64 + ctx.f0.f64);
 	// stfs f0,552(r1)
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r1.u32 + 552, temp.u32);
@@ -76921,7 +76921,7 @@ loc_82E22340:
 	// addi r11,r1,96
 	ctx.r11.s64 = ctx.r1.s64 + 96;
 	// fsubs f0,f31,f0
-	ctx.f0.f64 = double(float(ctx.f31.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f31.f64 - ctx.f0.f64);
 	// lfs f13,28(r28)
 	temp.u32 = PPC_LOAD_U32(ctx.r28.u32 + 28);
 	ctx.f13.f64 = double(temp.f32);
@@ -76931,7 +76931,7 @@ loc_82E22340:
 	// addi r10,r1,96
 	ctx.r10.s64 = ctx.r1.s64 + 96;
 	// fsubs f12,f31,f12
-	ctx.f12.f64 = double(float(ctx.f31.f64 - ctx.f12.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f31.f64 - ctx.f12.f64);
 	// lfs f11,28(r29)
 	temp.u32 = PPC_LOAD_U32(ctx.r29.u32 + 28);
 	ctx.f11.f64 = double(temp.f32);

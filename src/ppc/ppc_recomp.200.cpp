@@ -6160,7 +6160,7 @@ loc_8320F388:
 loc_8320F390:
 	// fctiwz f0,f1
 	ctx.fpscr.disableFlushMode();
-	ctx.f0.s64 = (ctx.f1.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f1.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f1.f64));
 	// stfd f0,80(r1)
 	PPC_STORE_U64(ctx.r1.u32 + 80, ctx.f0.u64);
 	// lwz r28,84(r1)
@@ -6187,9 +6187,9 @@ loc_8320F390:
 	// addi r29,r11,2864
 	ctx.r29.s64 = ctx.r11.s64 + 2864;
 	// fsubs f31,f1,f0
-	ctx.f31.f64 = double(float(ctx.f1.f64 - ctx.f0.f64));
+	ctx.f31.f64 = static_cast<float>(ctx.f1.f64 - ctx.f0.f64);
 	// fctiwz f0,f31
-	ctx.f0.s64 = (ctx.f31.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f31.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f31.f64));
 	// stfd f0,80(r1)
 	PPC_STORE_U64(ctx.r1.u32 + 80, ctx.f0.u64);
 	// lwz r30,84(r1)
@@ -6213,11 +6213,11 @@ loc_8320F3D4:
 	// add r3,r31,r11
 	ctx.r3.u64 = ctx.r31.u64 + ctx.r11.u64;
 	// fsubs f0,f31,f0
-	ctx.f0.f64 = double(float(ctx.f31.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f31.f64 - ctx.f0.f64);
 	// fmuls f31,f0,f30
 	ctx.f31.f64 = double(float(ctx.f0.f64 * ctx.f30.f64));
 	// fctiwz f0,f31
-	ctx.f0.s64 = (ctx.f31.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f31.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f31.f64));
 	// stfd f0,88(r1)
 	PPC_STORE_U64(ctx.r1.u32 + 88, ctx.f0.u64);
 	// lwz r30,92(r1)

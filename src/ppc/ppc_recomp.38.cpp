@@ -3307,7 +3307,7 @@ loc_82501C10:
 	// fmul f11,f0,f13
 	ctx.f11.f64 = ctx.f0.f64 * ctx.f13.f64;
 	// fctiwz f10,f11
-	ctx.f10.s64 = (ctx.f11.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f11.f64));
+	ctx.f10.i64 = static_cast<int32_t>(std::trunc(ctx.f11.f64));
 	// stfd f10,88(r1)
 	PPC_STORE_U64(ctx.r1.u32 + 88, ctx.f10.u64);
 	// lwz r4,92(r1)
@@ -3331,7 +3331,7 @@ loc_82501C10:
 	// frsp f2,f5
 	ctx.f2.f64 = double(float(ctx.f5.f64));
 	// fsubs f1,f4,f3
-	ctx.f1.f64 = double(float(ctx.f4.f64 - ctx.f3.f64));
+	ctx.f1.f64 = static_cast<float>(ctx.f4.f64 - ctx.f3.f64);
 	// fcmpu cr6,f1,f2
 	ctx.cr6.compare(ctx.f1.f64, ctx.f2.f64);
 	// ble cr6,0x82501ca4
@@ -51191,7 +51191,7 @@ loc_82515D90:
 	// fsel f7,f8,f9,f0
 	ctx.f7.f64 = ctx.f8.f64 >= 0.0 ? ctx.f9.f64 : ctx.f0.f64;
 	// fsubs f6,f7,f13
-	ctx.f6.f64 = double(float(ctx.f7.f64 - ctx.f13.f64));
+	ctx.f6.f64 = static_cast<float>(ctx.f7.f64 - ctx.f13.f64);
 	// fcmpu cr6,f6,f0
 	ctx.cr6.compare(ctx.f6.f64, ctx.f0.f64);
 	// mfcr r4

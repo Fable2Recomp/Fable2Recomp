@@ -1287,7 +1287,7 @@ loc_8245D3F4:
 	if (ctx.cr6.eq) goto loc_8245D414;
 	// fctiwz f0,f31
 	ctx.fpscr.disableFlushMode();
-	ctx.f0.s64 = (ctx.f31.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f31.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f31.f64));
 	// li r4,79
 	ctx.r4.s64 = 79;
 	// stfd f0,80(r1)
@@ -1484,7 +1484,7 @@ loc_8245D558:
 	if (ctx.cr6.eq) goto loc_8245D578;
 	// fctiwz f0,f31
 	ctx.fpscr.disableFlushMode();
-	ctx.f0.s64 = (ctx.f31.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f31.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f31.f64));
 	// li r4,79
 	ctx.r4.s64 = 79;
 	// stfd f0,80(r1)

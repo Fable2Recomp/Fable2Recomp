@@ -5647,7 +5647,7 @@ PPC_FUNC_IMPL(__imp__sub_831FEAE8) {
 	// fdivs f0,f0,f10
 	ctx.f0.f64 = double(float(ctx.f0.f64 / ctx.f10.f64));
 	// fsubs f0,f12,f0
-	ctx.f0.f64 = double(float(ctx.f12.f64 - ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f12.f64 - ctx.f0.f64);
 	// fcmpu cr6,f1,f0
 	ctx.cr6.compare(ctx.f1.f64, ctx.f0.f64);
 	// ble cr6,0x831feb5c
@@ -5679,7 +5679,7 @@ loc_831FEB68:
 	// fmuls f0,f0,f1
 	ctx.f0.f64 = double(float(ctx.f0.f64 * ctx.f1.f64));
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// stfd f0,-8(r1)
 	PPC_STORE_U64(ctx.r1.u32 + -8, ctx.f0.u64);
 	// lwz r3,-4(r1)

@@ -7429,75 +7429,148 @@ PPC_FUNC_IMPL(__imp____restvmx_14) {
 	// li r11,-288
 	ctx.r11.s64 = -288;
 	// lvx v14,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v14.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.fpscr.enableFlushMode();
+	uint32_t addr14 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v14.u32[0] = mem::loadVolatileU32(addr14);
+	ctx.v14.u32[1] = mem::loadVolatileU32(addr14 + 4);
+	ctx.v14.u32[2] = mem::loadVolatileU32(addr14 + 8);
+	ctx.v14.u32[3] = mem::loadVolatileU32(addr14 + 12);
 	// li r11,-272
 	ctx.r11.s64 = -272;
 	// lvx v15,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v15.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr15 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v15.u32[0] = mem::loadVolatileU32(addr15);
+	ctx.v15.u32[1] = mem::loadVolatileU32(addr15 + 4);
+	ctx.v15.u32[2] = mem::loadVolatileU32(addr15 + 8);
+	ctx.v15.u32[3] = mem::loadVolatileU32(addr15 + 12);
 	// li r11,-256
 	ctx.r11.s64 = -256;
 	// lvx v16,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v16.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr16 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v16.u32[0] = mem::loadVolatileU32(addr16);
+	ctx.v16.u32[1] = mem::loadVolatileU32(addr16 + 4);
+	ctx.v16.u32[2] = mem::loadVolatileU32(addr16 + 8);
+	ctx.v16.u32[3] = mem::loadVolatileU32(addr16 + 12);
 	// li r11,-240
 	ctx.r11.s64 = -240;
 	// lvx v17,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v17.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr17 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v17.u32[0] = mem::loadVolatileU32(addr17);
+	ctx.v17.u32[1] = mem::loadVolatileU32(addr17 + 4);
+	ctx.v17.u32[2] = mem::loadVolatileU32(addr17 + 8);
+	ctx.v17.u32[3] = mem::loadVolatileU32(addr17 + 12);
 	// li r11,-224
 	ctx.r11.s64 = -224;
 	// lvx v18,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v18.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr18 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v18.u32[0] = mem::loadVolatileU32(addr18);
+	ctx.v18.u32[1] = mem::loadVolatileU32(addr18 + 4);
+	ctx.v18.u32[2] = mem::loadVolatileU32(addr18 + 8);
+	ctx.v18.u32[3] = mem::loadVolatileU32(addr18 + 12);
 	// li r11,-208
 	ctx.r11.s64 = -208;
 	// lvx v19,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v19.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr19 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v19.u32[0] = mem::loadVolatileU32(addr19);
+	ctx.v19.u32[1] = mem::loadVolatileU32(addr19 + 4);
+	ctx.v19.u32[2] = mem::loadVolatileU32(addr19 + 8);
+	ctx.v19.u32[3] = mem::loadVolatileU32(addr19 + 12);
 	// li r11,-192
 	ctx.r11.s64 = -192;
 	// lvx v20,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v20.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr20 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v20.u32[0] = mem::loadVolatileU32(addr20);
+	ctx.v20.u32[1] = mem::loadVolatileU32(addr20 + 4);
+	ctx.v20.u32[2] = mem::loadVolatileU32(addr20 + 8);
+	ctx.v20.u32[3] = mem::loadVolatileU32(addr20 + 12);
 	// li r11,-176
 	ctx.r11.s64 = -176;
 	// lvx v21,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v21.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr21 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v21.u32[0] = mem::loadVolatileU32(addr21);
+	ctx.v21.u32[1] = mem::loadVolatileU32(addr21 + 4);
+	ctx.v21.u32[2] = mem::loadVolatileU32(addr21 + 8);
+	ctx.v21.u32[3] = mem::loadVolatileU32(addr21 + 12);
 	// li r11,-160
 	ctx.r11.s64 = -160;
 	// lvx v22,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v22.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr22 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v22.u32[0] = mem::loadVolatileU32(addr22);
+	ctx.v22.u32[1] = mem::loadVolatileU32(addr22 + 4);
+	ctx.v22.u32[2] = mem::loadVolatileU32(addr22 + 8);
+	ctx.v22.u32[3] = mem::loadVolatileU32(addr22 + 12);
 	// li r11,-144
 	ctx.r11.s64 = -144;
 	// lvx v23,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v23.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr23 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v23.u32[0] = mem::loadVolatileU32(addr23);
+	ctx.v23.u32[1] = mem::loadVolatileU32(addr23 + 4);
+	ctx.v23.u32[2] = mem::loadVolatileU32(addr23 + 8);
+	ctx.v23.u32[3] = mem::loadVolatileU32(addr23 + 12);
 	// li r11,-128
 	ctx.r11.s64 = -128;
 	// lvx v24,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v24.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr24 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v24.u32[0] = mem::loadVolatileU32(addr24);
+	ctx.v24.u32[1] = mem::loadVolatileU32(addr24 + 4);
+	ctx.v24.u32[2] = mem::loadVolatileU32(addr24 + 8);
+	ctx.v24.u32[3] = mem::loadVolatileU32(addr24 + 12);
 	// li r11,-112
 	ctx.r11.s64 = -112;
 	// lvx v25,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v25.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr25 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v25.u32[0] = mem::loadVolatileU32(addr25);
+	ctx.v25.u32[1] = mem::loadVolatileU32(addr25 + 4);
+	ctx.v25.u32[2] = mem::loadVolatileU32(addr25 + 8);
+	ctx.v25.u32[3] = mem::loadVolatileU32(addr25 + 12);
 	// li r11,-96
 	ctx.r11.s64 = -96;
 	// lvx v26,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v26.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr26 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v26.u32[0] = mem::loadVolatileU32(addr26);
+	ctx.v26.u32[1] = mem::loadVolatileU32(addr26 + 4);
+	ctx.v26.u32[2] = mem::loadVolatileU32(addr26 + 8);
+	ctx.v26.u32[3] = mem::loadVolatileU32(addr26 + 12);
 	// li r11,-80
 	ctx.r11.s64 = -80;
 	// lvx v27,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v27.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr27 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v27.u32[0] = mem::loadVolatileU32(addr27);
+	ctx.v27.u32[1] = mem::loadVolatileU32(addr27 + 4);
+	ctx.v27.u32[2] = mem::loadVolatileU32(addr27 + 8);
+	ctx.v27.u32[3] = mem::loadVolatileU32(addr27 + 12);
 	// li r11,-64
 	ctx.r11.s64 = -64;
 	// lvx v28,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v28.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr28 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v28.u32[0] = mem::loadVolatileU32(addr28);
+	ctx.v28.u32[1] = mem::loadVolatileU32(addr28 + 4);
+	ctx.v28.u32[2] = mem::loadVolatileU32(addr28 + 8);
+	ctx.v28.u32[3] = mem::loadVolatileU32(addr28 + 12);
 	// li r11,-48
 	ctx.r11.s64 = -48;
 	// lvx v29,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v29.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr29 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v29.u32[0] = mem::loadVolatileU32(addr29);
+	ctx.v29.u32[1] = mem::loadVolatileU32(addr29 + 4);
+	ctx.v29.u32[2] = mem::loadVolatileU32(addr29 + 8);
+	ctx.v29.u32[3] = mem::loadVolatileU32(addr29 + 12);
 	// li r11,-32
 	ctx.r11.s64 = -32;
 	// lvx v30,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v30.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr30 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v30.u32[0] = mem::loadVolatileU32(addr30);
+	ctx.v30.u32[1] = mem::loadVolatileU32(addr30 + 4);
+	ctx.v30.u32[2] = mem::loadVolatileU32(addr30 + 8);
+	ctx.v30.u32[3] = mem::loadVolatileU32(addr30 + 12);
 	// li r11,-16
 	ctx.r11.s64 = -16;
 	// lvx v31,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v31.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr31 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v31.u32[0] = mem::loadVolatileU32(addr31);
+	ctx.v31.u32[1] = mem::loadVolatileU32(addr31 + 4);
+	ctx.v31.u32[2] = mem::loadVolatileU32(addr31 + 8);
+	ctx.v31.u32[3] = mem::loadVolatileU32(addr31 + 12);
 	// blr 
 	return;
 }
@@ -7511,71 +7584,140 @@ PPC_FUNC_IMPL(__imp____restvmx_15) {
 	// li r11,-272
 	ctx.r11.s64 = -272;
 	// lvx v15,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v15.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.fpscr.enableFlushMode();
+	uint32_t addr15 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v15.u32[0] = mem::loadVolatileU32(addr15);
+	ctx.v15.u32[1] = mem::loadVolatileU32(addr15 + 4);
+	ctx.v15.u32[2] = mem::loadVolatileU32(addr15 + 8);
+	ctx.v15.u32[3] = mem::loadVolatileU32(addr15 + 12);
 	// li r11,-256
 	ctx.r11.s64 = -256;
 	// lvx v16,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v16.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr16 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v16.u32[0] = mem::loadVolatileU32(addr16);
+	ctx.v16.u32[1] = mem::loadVolatileU32(addr16 + 4);
+	ctx.v16.u32[2] = mem::loadVolatileU32(addr16 + 8);
+	ctx.v16.u32[3] = mem::loadVolatileU32(addr16 + 12);
 	// li r11,-240
 	ctx.r11.s64 = -240;
 	// lvx v17,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v17.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr17 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v17.u32[0] = mem::loadVolatileU32(addr17);
+	ctx.v17.u32[1] = mem::loadVolatileU32(addr17 + 4);
+	ctx.v17.u32[2] = mem::loadVolatileU32(addr17 + 8);
+	ctx.v17.u32[3] = mem::loadVolatileU32(addr17 + 12);
 	// li r11,-224
 	ctx.r11.s64 = -224;
 	// lvx v18,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v18.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr18 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v18.u32[0] = mem::loadVolatileU32(addr18);
+	ctx.v18.u32[1] = mem::loadVolatileU32(addr18 + 4);
+	ctx.v18.u32[2] = mem::loadVolatileU32(addr18 + 8);
+	ctx.v18.u32[3] = mem::loadVolatileU32(addr18 + 12);
 	// li r11,-208
 	ctx.r11.s64 = -208;
 	// lvx v19,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v19.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr19 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v19.u32[0] = mem::loadVolatileU32(addr19);
+	ctx.v19.u32[1] = mem::loadVolatileU32(addr19 + 4);
+	ctx.v19.u32[2] = mem::loadVolatileU32(addr19 + 8);
+	ctx.v19.u32[3] = mem::loadVolatileU32(addr19 + 12);
 	// li r11,-192
 	ctx.r11.s64 = -192;
 	// lvx v20,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v20.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr20 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v20.u32[0] = mem::loadVolatileU32(addr20);
+	ctx.v20.u32[1] = mem::loadVolatileU32(addr20 + 4);
+	ctx.v20.u32[2] = mem::loadVolatileU32(addr20 + 8);
+	ctx.v20.u32[3] = mem::loadVolatileU32(addr20 + 12);
 	// li r11,-176
 	ctx.r11.s64 = -176;
 	// lvx v21,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v21.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr21 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v21.u32[0] = mem::loadVolatileU32(addr21);
+	ctx.v21.u32[1] = mem::loadVolatileU32(addr21 + 4);
+	ctx.v21.u32[2] = mem::loadVolatileU32(addr21 + 8);
+	ctx.v21.u32[3] = mem::loadVolatileU32(addr21 + 12);
 	// li r11,-160
 	ctx.r11.s64 = -160;
 	// lvx v22,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v22.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr22 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v22.u32[0] = mem::loadVolatileU32(addr22);
+	ctx.v22.u32[1] = mem::loadVolatileU32(addr22 + 4);
+	ctx.v22.u32[2] = mem::loadVolatileU32(addr22 + 8);
+	ctx.v22.u32[3] = mem::loadVolatileU32(addr22 + 12);
 	// li r11,-144
 	ctx.r11.s64 = -144;
 	// lvx v23,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v23.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr23 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v23.u32[0] = mem::loadVolatileU32(addr23);
+	ctx.v23.u32[1] = mem::loadVolatileU32(addr23 + 4);
+	ctx.v23.u32[2] = mem::loadVolatileU32(addr23 + 8);
+	ctx.v23.u32[3] = mem::loadVolatileU32(addr23 + 12);
 	// li r11,-128
 	ctx.r11.s64 = -128;
 	// lvx v24,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v24.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr24 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v24.u32[0] = mem::loadVolatileU32(addr24);
+	ctx.v24.u32[1] = mem::loadVolatileU32(addr24 + 4);
+	ctx.v24.u32[2] = mem::loadVolatileU32(addr24 + 8);
+	ctx.v24.u32[3] = mem::loadVolatileU32(addr24 + 12);
 	// li r11,-112
 	ctx.r11.s64 = -112;
 	// lvx v25,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v25.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr25 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v25.u32[0] = mem::loadVolatileU32(addr25);
+	ctx.v25.u32[1] = mem::loadVolatileU32(addr25 + 4);
+	ctx.v25.u32[2] = mem::loadVolatileU32(addr25 + 8);
+	ctx.v25.u32[3] = mem::loadVolatileU32(addr25 + 12);
 	// li r11,-96
 	ctx.r11.s64 = -96;
 	// lvx v26,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v26.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr26 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v26.u32[0] = mem::loadVolatileU32(addr26);
+	ctx.v26.u32[1] = mem::loadVolatileU32(addr26 + 4);
+	ctx.v26.u32[2] = mem::loadVolatileU32(addr26 + 8);
+	ctx.v26.u32[3] = mem::loadVolatileU32(addr26 + 12);
 	// li r11,-80
 	ctx.r11.s64 = -80;
 	// lvx v27,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v27.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr27 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v27.u32[0] = mem::loadVolatileU32(addr27);
+	ctx.v27.u32[1] = mem::loadVolatileU32(addr27 + 4);
+	ctx.v27.u32[2] = mem::loadVolatileU32(addr27 + 8);
+	ctx.v27.u32[3] = mem::loadVolatileU32(addr27 + 12);
 	// li r11,-64
 	ctx.r11.s64 = -64;
 	// lvx v28,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v28.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr28 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v28.u32[0] = mem::loadVolatileU32(addr28);
+	ctx.v28.u32[1] = mem::loadVolatileU32(addr28 + 4);
+	ctx.v28.u32[2] = mem::loadVolatileU32(addr28 + 8);
+	ctx.v28.u32[3] = mem::loadVolatileU32(addr28 + 12);
 	// li r11,-48
 	ctx.r11.s64 = -48;
 	// lvx v29,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v29.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr29 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v29.u32[0] = mem::loadVolatileU32(addr29);
+	ctx.v29.u32[1] = mem::loadVolatileU32(addr29 + 4);
+	ctx.v29.u32[2] = mem::loadVolatileU32(addr29 + 8);
+	ctx.v29.u32[3] = mem::loadVolatileU32(addr29 + 12);
 	// li r11,-32
 	ctx.r11.s64 = -32;
 	// lvx v30,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v30.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr30 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v30.u32[0] = mem::loadVolatileU32(addr30);
+	ctx.v30.u32[1] = mem::loadVolatileU32(addr30 + 4);
+	ctx.v30.u32[2] = mem::loadVolatileU32(addr30 + 8);
+	ctx.v30.u32[3] = mem::loadVolatileU32(addr30 + 12);
 	// li r11,-16
 	ctx.r11.s64 = -16;
 	// lvx v31,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v31.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr31 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v31.u32[0] = mem::loadVolatileU32(addr31);
+	ctx.v31.u32[1] = mem::loadVolatileU32(addr31 + 4);
+	ctx.v31.u32[2] = mem::loadVolatileU32(addr31 + 8);
+	ctx.v31.u32[3] = mem::loadVolatileU32(addr31 + 12);
 	// blr 
 	return;
 }
@@ -7589,67 +7731,132 @@ PPC_FUNC_IMPL(__imp____restvmx_16) {
 	// li r11,-256
 	ctx.r11.s64 = -256;
 	// lvx v16,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v16.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.fpscr.enableFlushMode();
+	uint32_t addr16 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v16.u32[0] = mem::loadVolatileU32(addr16);
+	ctx.v16.u32[1] = mem::loadVolatileU32(addr16 + 4);
+	ctx.v16.u32[2] = mem::loadVolatileU32(addr16 + 8);
+	ctx.v16.u32[3] = mem::loadVolatileU32(addr16 + 12);
 	// li r11,-240
 	ctx.r11.s64 = -240;
 	// lvx v17,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v17.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr17 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v17.u32[0] = mem::loadVolatileU32(addr17);
+	ctx.v17.u32[1] = mem::loadVolatileU32(addr17 + 4);
+	ctx.v17.u32[2] = mem::loadVolatileU32(addr17 + 8);
+	ctx.v17.u32[3] = mem::loadVolatileU32(addr17 + 12);
 	// li r11,-224
 	ctx.r11.s64 = -224;
 	// lvx v18,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v18.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr18 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v18.u32[0] = mem::loadVolatileU32(addr18);
+	ctx.v18.u32[1] = mem::loadVolatileU32(addr18 + 4);
+	ctx.v18.u32[2] = mem::loadVolatileU32(addr18 + 8);
+	ctx.v18.u32[3] = mem::loadVolatileU32(addr18 + 12);
 	// li r11,-208
 	ctx.r11.s64 = -208;
 	// lvx v19,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v19.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr19 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v19.u32[0] = mem::loadVolatileU32(addr19);
+	ctx.v19.u32[1] = mem::loadVolatileU32(addr19 + 4);
+	ctx.v19.u32[2] = mem::loadVolatileU32(addr19 + 8);
+	ctx.v19.u32[3] = mem::loadVolatileU32(addr19 + 12);
 	// li r11,-192
 	ctx.r11.s64 = -192;
 	// lvx v20,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v20.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr20 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v20.u32[0] = mem::loadVolatileU32(addr20);
+	ctx.v20.u32[1] = mem::loadVolatileU32(addr20 + 4);
+	ctx.v20.u32[2] = mem::loadVolatileU32(addr20 + 8);
+	ctx.v20.u32[3] = mem::loadVolatileU32(addr20 + 12);
 	// li r11,-176
 	ctx.r11.s64 = -176;
 	// lvx v21,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v21.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr21 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v21.u32[0] = mem::loadVolatileU32(addr21);
+	ctx.v21.u32[1] = mem::loadVolatileU32(addr21 + 4);
+	ctx.v21.u32[2] = mem::loadVolatileU32(addr21 + 8);
+	ctx.v21.u32[3] = mem::loadVolatileU32(addr21 + 12);
 	// li r11,-160
 	ctx.r11.s64 = -160;
 	// lvx v22,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v22.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr22 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v22.u32[0] = mem::loadVolatileU32(addr22);
+	ctx.v22.u32[1] = mem::loadVolatileU32(addr22 + 4);
+	ctx.v22.u32[2] = mem::loadVolatileU32(addr22 + 8);
+	ctx.v22.u32[3] = mem::loadVolatileU32(addr22 + 12);
 	// li r11,-144
 	ctx.r11.s64 = -144;
 	// lvx v23,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v23.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr23 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v23.u32[0] = mem::loadVolatileU32(addr23);
+	ctx.v23.u32[1] = mem::loadVolatileU32(addr23 + 4);
+	ctx.v23.u32[2] = mem::loadVolatileU32(addr23 + 8);
+	ctx.v23.u32[3] = mem::loadVolatileU32(addr23 + 12);
 	// li r11,-128
 	ctx.r11.s64 = -128;
 	// lvx v24,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v24.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr24 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v24.u32[0] = mem::loadVolatileU32(addr24);
+	ctx.v24.u32[1] = mem::loadVolatileU32(addr24 + 4);
+	ctx.v24.u32[2] = mem::loadVolatileU32(addr24 + 8);
+	ctx.v24.u32[3] = mem::loadVolatileU32(addr24 + 12);
 	// li r11,-112
 	ctx.r11.s64 = -112;
 	// lvx v25,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v25.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr25 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v25.u32[0] = mem::loadVolatileU32(addr25);
+	ctx.v25.u32[1] = mem::loadVolatileU32(addr25 + 4);
+	ctx.v25.u32[2] = mem::loadVolatileU32(addr25 + 8);
+	ctx.v25.u32[3] = mem::loadVolatileU32(addr25 + 12);
 	// li r11,-96
 	ctx.r11.s64 = -96;
 	// lvx v26,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v26.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr26 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v26.u32[0] = mem::loadVolatileU32(addr26);
+	ctx.v26.u32[1] = mem::loadVolatileU32(addr26 + 4);
+	ctx.v26.u32[2] = mem::loadVolatileU32(addr26 + 8);
+	ctx.v26.u32[3] = mem::loadVolatileU32(addr26 + 12);
 	// li r11,-80
 	ctx.r11.s64 = -80;
 	// lvx v27,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v27.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr27 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v27.u32[0] = mem::loadVolatileU32(addr27);
+	ctx.v27.u32[1] = mem::loadVolatileU32(addr27 + 4);
+	ctx.v27.u32[2] = mem::loadVolatileU32(addr27 + 8);
+	ctx.v27.u32[3] = mem::loadVolatileU32(addr27 + 12);
 	// li r11,-64
 	ctx.r11.s64 = -64;
 	// lvx v28,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v28.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr28 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v28.u32[0] = mem::loadVolatileU32(addr28);
+	ctx.v28.u32[1] = mem::loadVolatileU32(addr28 + 4);
+	ctx.v28.u32[2] = mem::loadVolatileU32(addr28 + 8);
+	ctx.v28.u32[3] = mem::loadVolatileU32(addr28 + 12);
 	// li r11,-48
 	ctx.r11.s64 = -48;
 	// lvx v29,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v29.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr29 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v29.u32[0] = mem::loadVolatileU32(addr29);
+	ctx.v29.u32[1] = mem::loadVolatileU32(addr29 + 4);
+	ctx.v29.u32[2] = mem::loadVolatileU32(addr29 + 8);
+	ctx.v29.u32[3] = mem::loadVolatileU32(addr29 + 12);
 	// li r11,-32
 	ctx.r11.s64 = -32;
 	// lvx v30,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v30.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr30 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v30.u32[0] = mem::loadVolatileU32(addr30);
+	ctx.v30.u32[1] = mem::loadVolatileU32(addr30 + 4);
+	ctx.v30.u32[2] = mem::loadVolatileU32(addr30 + 8);
+	ctx.v30.u32[3] = mem::loadVolatileU32(addr30 + 12);
 	// li r11,-16
 	ctx.r11.s64 = -16;
 	// lvx v31,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v31.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr31 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v31.u32[0] = mem::loadVolatileU32(addr31);
+	ctx.v31.u32[1] = mem::loadVolatileU32(addr31 + 4);
+	ctx.v31.u32[2] = mem::loadVolatileU32(addr31 + 8);
+	ctx.v31.u32[3] = mem::loadVolatileU32(addr31 + 12);
 	// blr 
 	return;
 }
@@ -7663,63 +7870,124 @@ PPC_FUNC_IMPL(__imp____restvmx_17) {
 	// li r11,-240
 	ctx.r11.s64 = -240;
 	// lvx v17,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v17.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.fpscr.enableFlushMode();
+	uint32_t addr17 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v17.u32[0] = mem::loadVolatileU32(addr17);
+	ctx.v17.u32[1] = mem::loadVolatileU32(addr17 + 4);
+	ctx.v17.u32[2] = mem::loadVolatileU32(addr17 + 8);
+	ctx.v17.u32[3] = mem::loadVolatileU32(addr17 + 12);
 	// li r11,-224
 	ctx.r11.s64 = -224;
 	// lvx v18,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v18.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr18 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v18.u32[0] = mem::loadVolatileU32(addr18);
+	ctx.v18.u32[1] = mem::loadVolatileU32(addr18 + 4);
+	ctx.v18.u32[2] = mem::loadVolatileU32(addr18 + 8);
+	ctx.v18.u32[3] = mem::loadVolatileU32(addr18 + 12);
 	// li r11,-208
 	ctx.r11.s64 = -208;
 	// lvx v19,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v19.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr19 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v19.u32[0] = mem::loadVolatileU32(addr19);
+	ctx.v19.u32[1] = mem::loadVolatileU32(addr19 + 4);
+	ctx.v19.u32[2] = mem::loadVolatileU32(addr19 + 8);
+	ctx.v19.u32[3] = mem::loadVolatileU32(addr19 + 12);
 	// li r11,-192
 	ctx.r11.s64 = -192;
 	// lvx v20,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v20.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr20 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v20.u32[0] = mem::loadVolatileU32(addr20);
+	ctx.v20.u32[1] = mem::loadVolatileU32(addr20 + 4);
+	ctx.v20.u32[2] = mem::loadVolatileU32(addr20 + 8);
+	ctx.v20.u32[3] = mem::loadVolatileU32(addr20 + 12);
 	// li r11,-176
 	ctx.r11.s64 = -176;
 	// lvx v21,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v21.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr21 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v21.u32[0] = mem::loadVolatileU32(addr21);
+	ctx.v21.u32[1] = mem::loadVolatileU32(addr21 + 4);
+	ctx.v21.u32[2] = mem::loadVolatileU32(addr21 + 8);
+	ctx.v21.u32[3] = mem::loadVolatileU32(addr21 + 12);
 	// li r11,-160
 	ctx.r11.s64 = -160;
 	// lvx v22,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v22.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr22 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v22.u32[0] = mem::loadVolatileU32(addr22);
+	ctx.v22.u32[1] = mem::loadVolatileU32(addr22 + 4);
+	ctx.v22.u32[2] = mem::loadVolatileU32(addr22 + 8);
+	ctx.v22.u32[3] = mem::loadVolatileU32(addr22 + 12);
 	// li r11,-144
 	ctx.r11.s64 = -144;
 	// lvx v23,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v23.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr23 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v23.u32[0] = mem::loadVolatileU32(addr23);
+	ctx.v23.u32[1] = mem::loadVolatileU32(addr23 + 4);
+	ctx.v23.u32[2] = mem::loadVolatileU32(addr23 + 8);
+	ctx.v23.u32[3] = mem::loadVolatileU32(addr23 + 12);
 	// li r11,-128
 	ctx.r11.s64 = -128;
 	// lvx v24,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v24.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr24 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v24.u32[0] = mem::loadVolatileU32(addr24);
+	ctx.v24.u32[1] = mem::loadVolatileU32(addr24 + 4);
+	ctx.v24.u32[2] = mem::loadVolatileU32(addr24 + 8);
+	ctx.v24.u32[3] = mem::loadVolatileU32(addr24 + 12);
 	// li r11,-112
 	ctx.r11.s64 = -112;
 	// lvx v25,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v25.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr25 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v25.u32[0] = mem::loadVolatileU32(addr25);
+	ctx.v25.u32[1] = mem::loadVolatileU32(addr25 + 4);
+	ctx.v25.u32[2] = mem::loadVolatileU32(addr25 + 8);
+	ctx.v25.u32[3] = mem::loadVolatileU32(addr25 + 12);
 	// li r11,-96
 	ctx.r11.s64 = -96;
 	// lvx v26,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v26.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr26 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v26.u32[0] = mem::loadVolatileU32(addr26);
+	ctx.v26.u32[1] = mem::loadVolatileU32(addr26 + 4);
+	ctx.v26.u32[2] = mem::loadVolatileU32(addr26 + 8);
+	ctx.v26.u32[3] = mem::loadVolatileU32(addr26 + 12);
 	// li r11,-80
 	ctx.r11.s64 = -80;
 	// lvx v27,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v27.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr27 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v27.u32[0] = mem::loadVolatileU32(addr27);
+	ctx.v27.u32[1] = mem::loadVolatileU32(addr27 + 4);
+	ctx.v27.u32[2] = mem::loadVolatileU32(addr27 + 8);
+	ctx.v27.u32[3] = mem::loadVolatileU32(addr27 + 12);
 	// li r11,-64
 	ctx.r11.s64 = -64;
 	// lvx v28,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v28.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr28 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v28.u32[0] = mem::loadVolatileU32(addr28);
+	ctx.v28.u32[1] = mem::loadVolatileU32(addr28 + 4);
+	ctx.v28.u32[2] = mem::loadVolatileU32(addr28 + 8);
+	ctx.v28.u32[3] = mem::loadVolatileU32(addr28 + 12);
 	// li r11,-48
 	ctx.r11.s64 = -48;
 	// lvx v29,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v29.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr29 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v29.u32[0] = mem::loadVolatileU32(addr29);
+	ctx.v29.u32[1] = mem::loadVolatileU32(addr29 + 4);
+	ctx.v29.u32[2] = mem::loadVolatileU32(addr29 + 8);
+	ctx.v29.u32[3] = mem::loadVolatileU32(addr29 + 12);
 	// li r11,-32
 	ctx.r11.s64 = -32;
 	// lvx v30,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v30.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr30 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v30.u32[0] = mem::loadVolatileU32(addr30);
+	ctx.v30.u32[1] = mem::loadVolatileU32(addr30 + 4);
+	ctx.v30.u32[2] = mem::loadVolatileU32(addr30 + 8);
+	ctx.v30.u32[3] = mem::loadVolatileU32(addr30 + 12);
 	// li r11,-16
 	ctx.r11.s64 = -16;
 	// lvx v31,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v31.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr31 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v31.u32[0] = mem::loadVolatileU32(addr31);
+	ctx.v31.u32[1] = mem::loadVolatileU32(addr31 + 4);
+	ctx.v31.u32[2] = mem::loadVolatileU32(addr31 + 8);
+	ctx.v31.u32[3] = mem::loadVolatileU32(addr31 + 12);
 	// blr 
 	return;
 }
@@ -7733,59 +8001,116 @@ PPC_FUNC_IMPL(__imp____restvmx_18) {
 	// li r11,-224
 	ctx.r11.s64 = -224;
 	// lvx v18,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v18.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.fpscr.enableFlushMode();
+	uint32_t addr18 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v18.u32[0] = mem::loadVolatileU32(addr18);
+	ctx.v18.u32[1] = mem::loadVolatileU32(addr18 + 4);
+	ctx.v18.u32[2] = mem::loadVolatileU32(addr18 + 8);
+	ctx.v18.u32[3] = mem::loadVolatileU32(addr18 + 12);
 	// li r11,-208
 	ctx.r11.s64 = -208;
 	// lvx v19,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v19.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr19 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v19.u32[0] = mem::loadVolatileU32(addr19);
+	ctx.v19.u32[1] = mem::loadVolatileU32(addr19 + 4);
+	ctx.v19.u32[2] = mem::loadVolatileU32(addr19 + 8);
+	ctx.v19.u32[3] = mem::loadVolatileU32(addr19 + 12);
 	// li r11,-192
 	ctx.r11.s64 = -192;
 	// lvx v20,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v20.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr20 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v20.u32[0] = mem::loadVolatileU32(addr20);
+	ctx.v20.u32[1] = mem::loadVolatileU32(addr20 + 4);
+	ctx.v20.u32[2] = mem::loadVolatileU32(addr20 + 8);
+	ctx.v20.u32[3] = mem::loadVolatileU32(addr20 + 12);
 	// li r11,-176
 	ctx.r11.s64 = -176;
 	// lvx v21,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v21.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr21 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v21.u32[0] = mem::loadVolatileU32(addr21);
+	ctx.v21.u32[1] = mem::loadVolatileU32(addr21 + 4);
+	ctx.v21.u32[2] = mem::loadVolatileU32(addr21 + 8);
+	ctx.v21.u32[3] = mem::loadVolatileU32(addr21 + 12);
 	// li r11,-160
 	ctx.r11.s64 = -160;
 	// lvx v22,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v22.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr22 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v22.u32[0] = mem::loadVolatileU32(addr22);
+	ctx.v22.u32[1] = mem::loadVolatileU32(addr22 + 4);
+	ctx.v22.u32[2] = mem::loadVolatileU32(addr22 + 8);
+	ctx.v22.u32[3] = mem::loadVolatileU32(addr22 + 12);
 	// li r11,-144
 	ctx.r11.s64 = -144;
 	// lvx v23,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v23.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr23 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v23.u32[0] = mem::loadVolatileU32(addr23);
+	ctx.v23.u32[1] = mem::loadVolatileU32(addr23 + 4);
+	ctx.v23.u32[2] = mem::loadVolatileU32(addr23 + 8);
+	ctx.v23.u32[3] = mem::loadVolatileU32(addr23 + 12);
 	// li r11,-128
 	ctx.r11.s64 = -128;
 	// lvx v24,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v24.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr24 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v24.u32[0] = mem::loadVolatileU32(addr24);
+	ctx.v24.u32[1] = mem::loadVolatileU32(addr24 + 4);
+	ctx.v24.u32[2] = mem::loadVolatileU32(addr24 + 8);
+	ctx.v24.u32[3] = mem::loadVolatileU32(addr24 + 12);
 	// li r11,-112
 	ctx.r11.s64 = -112;
 	// lvx v25,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v25.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr25 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v25.u32[0] = mem::loadVolatileU32(addr25);
+	ctx.v25.u32[1] = mem::loadVolatileU32(addr25 + 4);
+	ctx.v25.u32[2] = mem::loadVolatileU32(addr25 + 8);
+	ctx.v25.u32[3] = mem::loadVolatileU32(addr25 + 12);
 	// li r11,-96
 	ctx.r11.s64 = -96;
 	// lvx v26,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v26.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr26 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v26.u32[0] = mem::loadVolatileU32(addr26);
+	ctx.v26.u32[1] = mem::loadVolatileU32(addr26 + 4);
+	ctx.v26.u32[2] = mem::loadVolatileU32(addr26 + 8);
+	ctx.v26.u32[3] = mem::loadVolatileU32(addr26 + 12);
 	// li r11,-80
 	ctx.r11.s64 = -80;
 	// lvx v27,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v27.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr27 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v27.u32[0] = mem::loadVolatileU32(addr27);
+	ctx.v27.u32[1] = mem::loadVolatileU32(addr27 + 4);
+	ctx.v27.u32[2] = mem::loadVolatileU32(addr27 + 8);
+	ctx.v27.u32[3] = mem::loadVolatileU32(addr27 + 12);
 	// li r11,-64
 	ctx.r11.s64 = -64;
 	// lvx v28,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v28.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr28 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v28.u32[0] = mem::loadVolatileU32(addr28);
+	ctx.v28.u32[1] = mem::loadVolatileU32(addr28 + 4);
+	ctx.v28.u32[2] = mem::loadVolatileU32(addr28 + 8);
+	ctx.v28.u32[3] = mem::loadVolatileU32(addr28 + 12);
 	// li r11,-48
 	ctx.r11.s64 = -48;
 	// lvx v29,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v29.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr29 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v29.u32[0] = mem::loadVolatileU32(addr29);
+	ctx.v29.u32[1] = mem::loadVolatileU32(addr29 + 4);
+	ctx.v29.u32[2] = mem::loadVolatileU32(addr29 + 8);
+	ctx.v29.u32[3] = mem::loadVolatileU32(addr29 + 12);
 	// li r11,-32
 	ctx.r11.s64 = -32;
 	// lvx v30,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v30.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr30 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v30.u32[0] = mem::loadVolatileU32(addr30);
+	ctx.v30.u32[1] = mem::loadVolatileU32(addr30 + 4);
+	ctx.v30.u32[2] = mem::loadVolatileU32(addr30 + 8);
+	ctx.v30.u32[3] = mem::loadVolatileU32(addr30 + 12);
 	// li r11,-16
 	ctx.r11.s64 = -16;
 	// lvx v31,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v31.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr31 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v31.u32[0] = mem::loadVolatileU32(addr31);
+	ctx.v31.u32[1] = mem::loadVolatileU32(addr31 + 4);
+	ctx.v31.u32[2] = mem::loadVolatileU32(addr31 + 8);
+	ctx.v31.u32[3] = mem::loadVolatileU32(addr31 + 12);
 	// blr 
 	return;
 }
@@ -7799,55 +8124,108 @@ PPC_FUNC_IMPL(__imp____restvmx_19) {
 	// li r11,-208
 	ctx.r11.s64 = -208;
 	// lvx v19,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v19.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.fpscr.enableFlushMode();
+	uint32_t addr19 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v19.u32[0] = mem::loadVolatileU32(addr19);
+	ctx.v19.u32[1] = mem::loadVolatileU32(addr19 + 4);
+	ctx.v19.u32[2] = mem::loadVolatileU32(addr19 + 8);
+	ctx.v19.u32[3] = mem::loadVolatileU32(addr19 + 12);
 	// li r11,-192
 	ctx.r11.s64 = -192;
 	// lvx v20,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v20.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr20 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v20.u32[0] = mem::loadVolatileU32(addr20);
+	ctx.v20.u32[1] = mem::loadVolatileU32(addr20 + 4);
+	ctx.v20.u32[2] = mem::loadVolatileU32(addr20 + 8);
+	ctx.v20.u32[3] = mem::loadVolatileU32(addr20 + 12);
 	// li r11,-176
 	ctx.r11.s64 = -176;
 	// lvx v21,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v21.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr21 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v21.u32[0] = mem::loadVolatileU32(addr21);
+	ctx.v21.u32[1] = mem::loadVolatileU32(addr21 + 4);
+	ctx.v21.u32[2] = mem::loadVolatileU32(addr21 + 8);
+	ctx.v21.u32[3] = mem::loadVolatileU32(addr21 + 12);
 	// li r11,-160
 	ctx.r11.s64 = -160;
 	// lvx v22,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v22.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr22 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v22.u32[0] = mem::loadVolatileU32(addr22);
+	ctx.v22.u32[1] = mem::loadVolatileU32(addr22 + 4);
+	ctx.v22.u32[2] = mem::loadVolatileU32(addr22 + 8);
+	ctx.v22.u32[3] = mem::loadVolatileU32(addr22 + 12);
 	// li r11,-144
 	ctx.r11.s64 = -144;
 	// lvx v23,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v23.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr23 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v23.u32[0] = mem::loadVolatileU32(addr23);
+	ctx.v23.u32[1] = mem::loadVolatileU32(addr23 + 4);
+	ctx.v23.u32[2] = mem::loadVolatileU32(addr23 + 8);
+	ctx.v23.u32[3] = mem::loadVolatileU32(addr23 + 12);
 	// li r11,-128
 	ctx.r11.s64 = -128;
 	// lvx v24,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v24.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr24 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v24.u32[0] = mem::loadVolatileU32(addr24);
+	ctx.v24.u32[1] = mem::loadVolatileU32(addr24 + 4);
+	ctx.v24.u32[2] = mem::loadVolatileU32(addr24 + 8);
+	ctx.v24.u32[3] = mem::loadVolatileU32(addr24 + 12);
 	// li r11,-112
 	ctx.r11.s64 = -112;
 	// lvx v25,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v25.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr25 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v25.u32[0] = mem::loadVolatileU32(addr25);
+	ctx.v25.u32[1] = mem::loadVolatileU32(addr25 + 4);
+	ctx.v25.u32[2] = mem::loadVolatileU32(addr25 + 8);
+	ctx.v25.u32[3] = mem::loadVolatileU32(addr25 + 12);
 	// li r11,-96
 	ctx.r11.s64 = -96;
 	// lvx v26,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v26.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr26 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v26.u32[0] = mem::loadVolatileU32(addr26);
+	ctx.v26.u32[1] = mem::loadVolatileU32(addr26 + 4);
+	ctx.v26.u32[2] = mem::loadVolatileU32(addr26 + 8);
+	ctx.v26.u32[3] = mem::loadVolatileU32(addr26 + 12);
 	// li r11,-80
 	ctx.r11.s64 = -80;
 	// lvx v27,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v27.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr27 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v27.u32[0] = mem::loadVolatileU32(addr27);
+	ctx.v27.u32[1] = mem::loadVolatileU32(addr27 + 4);
+	ctx.v27.u32[2] = mem::loadVolatileU32(addr27 + 8);
+	ctx.v27.u32[3] = mem::loadVolatileU32(addr27 + 12);
 	// li r11,-64
 	ctx.r11.s64 = -64;
 	// lvx v28,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v28.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr28 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v28.u32[0] = mem::loadVolatileU32(addr28);
+	ctx.v28.u32[1] = mem::loadVolatileU32(addr28 + 4);
+	ctx.v28.u32[2] = mem::loadVolatileU32(addr28 + 8);
+	ctx.v28.u32[3] = mem::loadVolatileU32(addr28 + 12);
 	// li r11,-48
 	ctx.r11.s64 = -48;
 	// lvx v29,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v29.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr29 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v29.u32[0] = mem::loadVolatileU32(addr29);
+	ctx.v29.u32[1] = mem::loadVolatileU32(addr29 + 4);
+	ctx.v29.u32[2] = mem::loadVolatileU32(addr29 + 8);
+	ctx.v29.u32[3] = mem::loadVolatileU32(addr29 + 12);
 	// li r11,-32
 	ctx.r11.s64 = -32;
 	// lvx v30,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v30.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr30 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v30.u32[0] = mem::loadVolatileU32(addr30);
+	ctx.v30.u32[1] = mem::loadVolatileU32(addr30 + 4);
+	ctx.v30.u32[2] = mem::loadVolatileU32(addr30 + 8);
+	ctx.v30.u32[3] = mem::loadVolatileU32(addr30 + 12);
 	// li r11,-16
 	ctx.r11.s64 = -16;
 	// lvx v31,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v31.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr31 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v31.u32[0] = mem::loadVolatileU32(addr31);
+	ctx.v31.u32[1] = mem::loadVolatileU32(addr31 + 4);
+	ctx.v31.u32[2] = mem::loadVolatileU32(addr31 + 8);
+	ctx.v31.u32[3] = mem::loadVolatileU32(addr31 + 12);
 	// blr 
 	return;
 }
@@ -7861,51 +8239,100 @@ PPC_FUNC_IMPL(__imp____restvmx_20) {
 	// li r11,-192
 	ctx.r11.s64 = -192;
 	// lvx v20,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v20.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.fpscr.enableFlushMode();
+	uint32_t addr20 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v20.u32[0] = mem::loadVolatileU32(addr20);
+	ctx.v20.u32[1] = mem::loadVolatileU32(addr20 + 4);
+	ctx.v20.u32[2] = mem::loadVolatileU32(addr20 + 8);
+	ctx.v20.u32[3] = mem::loadVolatileU32(addr20 + 12);
 	// li r11,-176
 	ctx.r11.s64 = -176;
 	// lvx v21,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v21.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr21 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v21.u32[0] = mem::loadVolatileU32(addr21);
+	ctx.v21.u32[1] = mem::loadVolatileU32(addr21 + 4);
+	ctx.v21.u32[2] = mem::loadVolatileU32(addr21 + 8);
+	ctx.v21.u32[3] = mem::loadVolatileU32(addr21 + 12);
 	// li r11,-160
 	ctx.r11.s64 = -160;
 	// lvx v22,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v22.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr22 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v22.u32[0] = mem::loadVolatileU32(addr22);
+	ctx.v22.u32[1] = mem::loadVolatileU32(addr22 + 4);
+	ctx.v22.u32[2] = mem::loadVolatileU32(addr22 + 8);
+	ctx.v22.u32[3] = mem::loadVolatileU32(addr22 + 12);
 	// li r11,-144
 	ctx.r11.s64 = -144;
 	// lvx v23,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v23.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr23 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v23.u32[0] = mem::loadVolatileU32(addr23);
+	ctx.v23.u32[1] = mem::loadVolatileU32(addr23 + 4);
+	ctx.v23.u32[2] = mem::loadVolatileU32(addr23 + 8);
+	ctx.v23.u32[3] = mem::loadVolatileU32(addr23 + 12);
 	// li r11,-128
 	ctx.r11.s64 = -128;
 	// lvx v24,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v24.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr24 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v24.u32[0] = mem::loadVolatileU32(addr24);
+	ctx.v24.u32[1] = mem::loadVolatileU32(addr24 + 4);
+	ctx.v24.u32[2] = mem::loadVolatileU32(addr24 + 8);
+	ctx.v24.u32[3] = mem::loadVolatileU32(addr24 + 12);
 	// li r11,-112
 	ctx.r11.s64 = -112;
 	// lvx v25,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v25.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr25 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v25.u32[0] = mem::loadVolatileU32(addr25);
+	ctx.v25.u32[1] = mem::loadVolatileU32(addr25 + 4);
+	ctx.v25.u32[2] = mem::loadVolatileU32(addr25 + 8);
+	ctx.v25.u32[3] = mem::loadVolatileU32(addr25 + 12);
 	// li r11,-96
 	ctx.r11.s64 = -96;
 	// lvx v26,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v26.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr26 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v26.u32[0] = mem::loadVolatileU32(addr26);
+	ctx.v26.u32[1] = mem::loadVolatileU32(addr26 + 4);
+	ctx.v26.u32[2] = mem::loadVolatileU32(addr26 + 8);
+	ctx.v26.u32[3] = mem::loadVolatileU32(addr26 + 12);
 	// li r11,-80
 	ctx.r11.s64 = -80;
 	// lvx v27,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v27.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr27 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v27.u32[0] = mem::loadVolatileU32(addr27);
+	ctx.v27.u32[1] = mem::loadVolatileU32(addr27 + 4);
+	ctx.v27.u32[2] = mem::loadVolatileU32(addr27 + 8);
+	ctx.v27.u32[3] = mem::loadVolatileU32(addr27 + 12);
 	// li r11,-64
 	ctx.r11.s64 = -64;
 	// lvx v28,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v28.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr28 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v28.u32[0] = mem::loadVolatileU32(addr28);
+	ctx.v28.u32[1] = mem::loadVolatileU32(addr28 + 4);
+	ctx.v28.u32[2] = mem::loadVolatileU32(addr28 + 8);
+	ctx.v28.u32[3] = mem::loadVolatileU32(addr28 + 12);
 	// li r11,-48
 	ctx.r11.s64 = -48;
 	// lvx v29,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v29.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr29 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v29.u32[0] = mem::loadVolatileU32(addr29);
+	ctx.v29.u32[1] = mem::loadVolatileU32(addr29 + 4);
+	ctx.v29.u32[2] = mem::loadVolatileU32(addr29 + 8);
+	ctx.v29.u32[3] = mem::loadVolatileU32(addr29 + 12);
 	// li r11,-32
 	ctx.r11.s64 = -32;
 	// lvx v30,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v30.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr30 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v30.u32[0] = mem::loadVolatileU32(addr30);
+	ctx.v30.u32[1] = mem::loadVolatileU32(addr30 + 4);
+	ctx.v30.u32[2] = mem::loadVolatileU32(addr30 + 8);
+	ctx.v30.u32[3] = mem::loadVolatileU32(addr30 + 12);
 	// li r11,-16
 	ctx.r11.s64 = -16;
 	// lvx v31,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v31.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr31 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v31.u32[0] = mem::loadVolatileU32(addr31);
+	ctx.v31.u32[1] = mem::loadVolatileU32(addr31 + 4);
+	ctx.v31.u32[2] = mem::loadVolatileU32(addr31 + 8);
+	ctx.v31.u32[3] = mem::loadVolatileU32(addr31 + 12);
 	// blr 
 	return;
 }
@@ -7919,47 +8346,92 @@ PPC_FUNC_IMPL(__imp____restvmx_21) {
 	// li r11,-176
 	ctx.r11.s64 = -176;
 	// lvx v21,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v21.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.fpscr.enableFlushMode();
+	uint32_t addr21 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v21.u32[0] = mem::loadVolatileU32(addr21);
+	ctx.v21.u32[1] = mem::loadVolatileU32(addr21 + 4);
+	ctx.v21.u32[2] = mem::loadVolatileU32(addr21 + 8);
+	ctx.v21.u32[3] = mem::loadVolatileU32(addr21 + 12);
 	// li r11,-160
 	ctx.r11.s64 = -160;
 	// lvx v22,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v22.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr22 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v22.u32[0] = mem::loadVolatileU32(addr22);
+	ctx.v22.u32[1] = mem::loadVolatileU32(addr22 + 4);
+	ctx.v22.u32[2] = mem::loadVolatileU32(addr22 + 8);
+	ctx.v22.u32[3] = mem::loadVolatileU32(addr22 + 12);
 	// li r11,-144
 	ctx.r11.s64 = -144;
 	// lvx v23,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v23.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr23 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v23.u32[0] = mem::loadVolatileU32(addr23);
+	ctx.v23.u32[1] = mem::loadVolatileU32(addr23 + 4);
+	ctx.v23.u32[2] = mem::loadVolatileU32(addr23 + 8);
+	ctx.v23.u32[3] = mem::loadVolatileU32(addr23 + 12);
 	// li r11,-128
 	ctx.r11.s64 = -128;
 	// lvx v24,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v24.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr24 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v24.u32[0] = mem::loadVolatileU32(addr24);
+	ctx.v24.u32[1] = mem::loadVolatileU32(addr24 + 4);
+	ctx.v24.u32[2] = mem::loadVolatileU32(addr24 + 8);
+	ctx.v24.u32[3] = mem::loadVolatileU32(addr24 + 12);
 	// li r11,-112
 	ctx.r11.s64 = -112;
 	// lvx v25,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v25.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr25 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v25.u32[0] = mem::loadVolatileU32(addr25);
+	ctx.v25.u32[1] = mem::loadVolatileU32(addr25 + 4);
+	ctx.v25.u32[2] = mem::loadVolatileU32(addr25 + 8);
+	ctx.v25.u32[3] = mem::loadVolatileU32(addr25 + 12);
 	// li r11,-96
 	ctx.r11.s64 = -96;
 	// lvx v26,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v26.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr26 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v26.u32[0] = mem::loadVolatileU32(addr26);
+	ctx.v26.u32[1] = mem::loadVolatileU32(addr26 + 4);
+	ctx.v26.u32[2] = mem::loadVolatileU32(addr26 + 8);
+	ctx.v26.u32[3] = mem::loadVolatileU32(addr26 + 12);
 	// li r11,-80
 	ctx.r11.s64 = -80;
 	// lvx v27,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v27.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr27 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v27.u32[0] = mem::loadVolatileU32(addr27);
+	ctx.v27.u32[1] = mem::loadVolatileU32(addr27 + 4);
+	ctx.v27.u32[2] = mem::loadVolatileU32(addr27 + 8);
+	ctx.v27.u32[3] = mem::loadVolatileU32(addr27 + 12);
 	// li r11,-64
 	ctx.r11.s64 = -64;
 	// lvx v28,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v28.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr28 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v28.u32[0] = mem::loadVolatileU32(addr28);
+	ctx.v28.u32[1] = mem::loadVolatileU32(addr28 + 4);
+	ctx.v28.u32[2] = mem::loadVolatileU32(addr28 + 8);
+	ctx.v28.u32[3] = mem::loadVolatileU32(addr28 + 12);
 	// li r11,-48
 	ctx.r11.s64 = -48;
 	// lvx v29,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v29.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr29 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v29.u32[0] = mem::loadVolatileU32(addr29);
+	ctx.v29.u32[1] = mem::loadVolatileU32(addr29 + 4);
+	ctx.v29.u32[2] = mem::loadVolatileU32(addr29 + 8);
+	ctx.v29.u32[3] = mem::loadVolatileU32(addr29 + 12);
 	// li r11,-32
 	ctx.r11.s64 = -32;
 	// lvx v30,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v30.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr30 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v30.u32[0] = mem::loadVolatileU32(addr30);
+	ctx.v30.u32[1] = mem::loadVolatileU32(addr30 + 4);
+	ctx.v30.u32[2] = mem::loadVolatileU32(addr30 + 8);
+	ctx.v30.u32[3] = mem::loadVolatileU32(addr30 + 12);
 	// li r11,-16
 	ctx.r11.s64 = -16;
 	// lvx v31,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v31.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr31 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v31.u32[0] = mem::loadVolatileU32(addr31);
+	ctx.v31.u32[1] = mem::loadVolatileU32(addr31 + 4);
+	ctx.v31.u32[2] = mem::loadVolatileU32(addr31 + 8);
+	ctx.v31.u32[3] = mem::loadVolatileU32(addr31 + 12);
 	// blr 
 	return;
 }
@@ -7973,43 +8445,84 @@ PPC_FUNC_IMPL(__imp____restvmx_22) {
 	// li r11,-160
 	ctx.r11.s64 = -160;
 	// lvx v22,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v22.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.fpscr.enableFlushMode();
+	uint32_t addr22 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v22.u32[0] = mem::loadVolatileU32(addr22);
+	ctx.v22.u32[1] = mem::loadVolatileU32(addr22 + 4);
+	ctx.v22.u32[2] = mem::loadVolatileU32(addr22 + 8);
+	ctx.v22.u32[3] = mem::loadVolatileU32(addr22 + 12);
 	// li r11,-144
 	ctx.r11.s64 = -144;
 	// lvx v23,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v23.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr23 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v23.u32[0] = mem::loadVolatileU32(addr23);
+	ctx.v23.u32[1] = mem::loadVolatileU32(addr23 + 4);
+	ctx.v23.u32[2] = mem::loadVolatileU32(addr23 + 8);
+	ctx.v23.u32[3] = mem::loadVolatileU32(addr23 + 12);
 	// li r11,-128
 	ctx.r11.s64 = -128;
 	// lvx v24,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v24.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr24 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v24.u32[0] = mem::loadVolatileU32(addr24);
+	ctx.v24.u32[1] = mem::loadVolatileU32(addr24 + 4);
+	ctx.v24.u32[2] = mem::loadVolatileU32(addr24 + 8);
+	ctx.v24.u32[3] = mem::loadVolatileU32(addr24 + 12);
 	// li r11,-112
 	ctx.r11.s64 = -112;
 	// lvx v25,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v25.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr25 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v25.u32[0] = mem::loadVolatileU32(addr25);
+	ctx.v25.u32[1] = mem::loadVolatileU32(addr25 + 4);
+	ctx.v25.u32[2] = mem::loadVolatileU32(addr25 + 8);
+	ctx.v25.u32[3] = mem::loadVolatileU32(addr25 + 12);
 	// li r11,-96
 	ctx.r11.s64 = -96;
 	// lvx v26,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v26.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr26 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v26.u32[0] = mem::loadVolatileU32(addr26);
+	ctx.v26.u32[1] = mem::loadVolatileU32(addr26 + 4);
+	ctx.v26.u32[2] = mem::loadVolatileU32(addr26 + 8);
+	ctx.v26.u32[3] = mem::loadVolatileU32(addr26 + 12);
 	// li r11,-80
 	ctx.r11.s64 = -80;
 	// lvx v27,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v27.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr27 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v27.u32[0] = mem::loadVolatileU32(addr27);
+	ctx.v27.u32[1] = mem::loadVolatileU32(addr27 + 4);
+	ctx.v27.u32[2] = mem::loadVolatileU32(addr27 + 8);
+	ctx.v27.u32[3] = mem::loadVolatileU32(addr27 + 12);
 	// li r11,-64
 	ctx.r11.s64 = -64;
 	// lvx v28,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v28.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr28 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v28.u32[0] = mem::loadVolatileU32(addr28);
+	ctx.v28.u32[1] = mem::loadVolatileU32(addr28 + 4);
+	ctx.v28.u32[2] = mem::loadVolatileU32(addr28 + 8);
+	ctx.v28.u32[3] = mem::loadVolatileU32(addr28 + 12);
 	// li r11,-48
 	ctx.r11.s64 = -48;
 	// lvx v29,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v29.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr29 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v29.u32[0] = mem::loadVolatileU32(addr29);
+	ctx.v29.u32[1] = mem::loadVolatileU32(addr29 + 4);
+	ctx.v29.u32[2] = mem::loadVolatileU32(addr29 + 8);
+	ctx.v29.u32[3] = mem::loadVolatileU32(addr29 + 12);
 	// li r11,-32
 	ctx.r11.s64 = -32;
 	// lvx v30,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v30.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr30 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v30.u32[0] = mem::loadVolatileU32(addr30);
+	ctx.v30.u32[1] = mem::loadVolatileU32(addr30 + 4);
+	ctx.v30.u32[2] = mem::loadVolatileU32(addr30 + 8);
+	ctx.v30.u32[3] = mem::loadVolatileU32(addr30 + 12);
 	// li r11,-16
 	ctx.r11.s64 = -16;
 	// lvx v31,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v31.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr31 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v31.u32[0] = mem::loadVolatileU32(addr31);
+	ctx.v31.u32[1] = mem::loadVolatileU32(addr31 + 4);
+	ctx.v31.u32[2] = mem::loadVolatileU32(addr31 + 8);
+	ctx.v31.u32[3] = mem::loadVolatileU32(addr31 + 12);
 	// blr 
 	return;
 }
@@ -8023,39 +8536,76 @@ PPC_FUNC_IMPL(__imp____restvmx_23) {
 	// li r11,-144
 	ctx.r11.s64 = -144;
 	// lvx v23,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v23.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.fpscr.enableFlushMode();
+	uint32_t addr23 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v23.u32[0] = mem::loadVolatileU32(addr23);
+	ctx.v23.u32[1] = mem::loadVolatileU32(addr23 + 4);
+	ctx.v23.u32[2] = mem::loadVolatileU32(addr23 + 8);
+	ctx.v23.u32[3] = mem::loadVolatileU32(addr23 + 12);
 	// li r11,-128
 	ctx.r11.s64 = -128;
 	// lvx v24,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v24.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr24 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v24.u32[0] = mem::loadVolatileU32(addr24);
+	ctx.v24.u32[1] = mem::loadVolatileU32(addr24 + 4);
+	ctx.v24.u32[2] = mem::loadVolatileU32(addr24 + 8);
+	ctx.v24.u32[3] = mem::loadVolatileU32(addr24 + 12);
 	// li r11,-112
 	ctx.r11.s64 = -112;
 	// lvx v25,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v25.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr25 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v25.u32[0] = mem::loadVolatileU32(addr25);
+	ctx.v25.u32[1] = mem::loadVolatileU32(addr25 + 4);
+	ctx.v25.u32[2] = mem::loadVolatileU32(addr25 + 8);
+	ctx.v25.u32[3] = mem::loadVolatileU32(addr25 + 12);
 	// li r11,-96
 	ctx.r11.s64 = -96;
 	// lvx v26,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v26.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr26 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v26.u32[0] = mem::loadVolatileU32(addr26);
+	ctx.v26.u32[1] = mem::loadVolatileU32(addr26 + 4);
+	ctx.v26.u32[2] = mem::loadVolatileU32(addr26 + 8);
+	ctx.v26.u32[3] = mem::loadVolatileU32(addr26 + 12);
 	// li r11,-80
 	ctx.r11.s64 = -80;
 	// lvx v27,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v27.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr27 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v27.u32[0] = mem::loadVolatileU32(addr27);
+	ctx.v27.u32[1] = mem::loadVolatileU32(addr27 + 4);
+	ctx.v27.u32[2] = mem::loadVolatileU32(addr27 + 8);
+	ctx.v27.u32[3] = mem::loadVolatileU32(addr27 + 12);
 	// li r11,-64
 	ctx.r11.s64 = -64;
 	// lvx v28,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v28.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr28 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v28.u32[0] = mem::loadVolatileU32(addr28);
+	ctx.v28.u32[1] = mem::loadVolatileU32(addr28 + 4);
+	ctx.v28.u32[2] = mem::loadVolatileU32(addr28 + 8);
+	ctx.v28.u32[3] = mem::loadVolatileU32(addr28 + 12);
 	// li r11,-48
 	ctx.r11.s64 = -48;
 	// lvx v29,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v29.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr29 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v29.u32[0] = mem::loadVolatileU32(addr29);
+	ctx.v29.u32[1] = mem::loadVolatileU32(addr29 + 4);
+	ctx.v29.u32[2] = mem::loadVolatileU32(addr29 + 8);
+	ctx.v29.u32[3] = mem::loadVolatileU32(addr29 + 12);
 	// li r11,-32
 	ctx.r11.s64 = -32;
 	// lvx v30,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v30.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr30 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v30.u32[0] = mem::loadVolatileU32(addr30);
+	ctx.v30.u32[1] = mem::loadVolatileU32(addr30 + 4);
+	ctx.v30.u32[2] = mem::loadVolatileU32(addr30 + 8);
+	ctx.v30.u32[3] = mem::loadVolatileU32(addr30 + 12);
 	// li r11,-16
 	ctx.r11.s64 = -16;
 	// lvx v31,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v31.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr31 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v31.u32[0] = mem::loadVolatileU32(addr31);
+	ctx.v31.u32[1] = mem::loadVolatileU32(addr31 + 4);
+	ctx.v31.u32[2] = mem::loadVolatileU32(addr31 + 8);
+	ctx.v31.u32[3] = mem::loadVolatileU32(addr31 + 12);
 	// blr 
 	return;
 }
@@ -8069,35 +8619,68 @@ PPC_FUNC_IMPL(__imp____restvmx_24) {
 	// li r11,-128
 	ctx.r11.s64 = -128;
 	// lvx v24,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v24.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.fpscr.enableFlushMode();
+	uint32_t addr24 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v24.u32[0] = mem::loadVolatileU32(addr24);
+	ctx.v24.u32[1] = mem::loadVolatileU32(addr24 + 4);
+	ctx.v24.u32[2] = mem::loadVolatileU32(addr24 + 8);
+	ctx.v24.u32[3] = mem::loadVolatileU32(addr24 + 12);
 	// li r11,-112
 	ctx.r11.s64 = -112;
 	// lvx v25,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v25.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr25 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v25.u32[0] = mem::loadVolatileU32(addr25);
+	ctx.v25.u32[1] = mem::loadVolatileU32(addr25 + 4);
+	ctx.v25.u32[2] = mem::loadVolatileU32(addr25 + 8);
+	ctx.v25.u32[3] = mem::loadVolatileU32(addr25 + 12);
 	// li r11,-96
 	ctx.r11.s64 = -96;
 	// lvx v26,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v26.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr26 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v26.u32[0] = mem::loadVolatileU32(addr26);
+	ctx.v26.u32[1] = mem::loadVolatileU32(addr26 + 4);
+	ctx.v26.u32[2] = mem::loadVolatileU32(addr26 + 8);
+	ctx.v26.u32[3] = mem::loadVolatileU32(addr26 + 12);
 	// li r11,-80
 	ctx.r11.s64 = -80;
 	// lvx v27,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v27.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr27 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v27.u32[0] = mem::loadVolatileU32(addr27);
+	ctx.v27.u32[1] = mem::loadVolatileU32(addr27 + 4);
+	ctx.v27.u32[2] = mem::loadVolatileU32(addr27 + 8);
+	ctx.v27.u32[3] = mem::loadVolatileU32(addr27 + 12);
 	// li r11,-64
 	ctx.r11.s64 = -64;
 	// lvx v28,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v28.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr28 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v28.u32[0] = mem::loadVolatileU32(addr28);
+	ctx.v28.u32[1] = mem::loadVolatileU32(addr28 + 4);
+	ctx.v28.u32[2] = mem::loadVolatileU32(addr28 + 8);
+	ctx.v28.u32[3] = mem::loadVolatileU32(addr28 + 12);
 	// li r11,-48
 	ctx.r11.s64 = -48;
 	// lvx v29,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v29.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr29 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v29.u32[0] = mem::loadVolatileU32(addr29);
+	ctx.v29.u32[1] = mem::loadVolatileU32(addr29 + 4);
+	ctx.v29.u32[2] = mem::loadVolatileU32(addr29 + 8);
+	ctx.v29.u32[3] = mem::loadVolatileU32(addr29 + 12);
 	// li r11,-32
 	ctx.r11.s64 = -32;
 	// lvx v30,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v30.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr30 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v30.u32[0] = mem::loadVolatileU32(addr30);
+	ctx.v30.u32[1] = mem::loadVolatileU32(addr30 + 4);
+	ctx.v30.u32[2] = mem::loadVolatileU32(addr30 + 8);
+	ctx.v30.u32[3] = mem::loadVolatileU32(addr30 + 12);
 	// li r11,-16
 	ctx.r11.s64 = -16;
 	// lvx v31,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v31.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr31 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v31.u32[0] = mem::loadVolatileU32(addr31);
+	ctx.v31.u32[1] = mem::loadVolatileU32(addr31 + 4);
+	ctx.v31.u32[2] = mem::loadVolatileU32(addr31 + 8);
+	ctx.v31.u32[3] = mem::loadVolatileU32(addr31 + 12);
 	// blr 
 	return;
 }
@@ -8111,31 +8694,60 @@ PPC_FUNC_IMPL(__imp____restvmx_25) {
 	// li r11,-112
 	ctx.r11.s64 = -112;
 	// lvx v25,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v25.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.fpscr.enableFlushMode();
+	uint32_t addr25 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v25.u32[0] = mem::loadVolatileU32(addr25);
+	ctx.v25.u32[1] = mem::loadVolatileU32(addr25 + 4);
+	ctx.v25.u32[2] = mem::loadVolatileU32(addr25 + 8);
+	ctx.v25.u32[3] = mem::loadVolatileU32(addr25 + 12);
 	// li r11,-96
 	ctx.r11.s64 = -96;
 	// lvx v26,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v26.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr26 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v26.u32[0] = mem::loadVolatileU32(addr26);
+	ctx.v26.u32[1] = mem::loadVolatileU32(addr26 + 4);
+	ctx.v26.u32[2] = mem::loadVolatileU32(addr26 + 8);
+	ctx.v26.u32[3] = mem::loadVolatileU32(addr26 + 12);
 	// li r11,-80
 	ctx.r11.s64 = -80;
 	// lvx v27,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v27.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr27 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v27.u32[0] = mem::loadVolatileU32(addr27);
+	ctx.v27.u32[1] = mem::loadVolatileU32(addr27 + 4);
+	ctx.v27.u32[2] = mem::loadVolatileU32(addr27 + 8);
+	ctx.v27.u32[3] = mem::loadVolatileU32(addr27 + 12);
 	// li r11,-64
 	ctx.r11.s64 = -64;
 	// lvx v28,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v28.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr28 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v28.u32[0] = mem::loadVolatileU32(addr28);
+	ctx.v28.u32[1] = mem::loadVolatileU32(addr28 + 4);
+	ctx.v28.u32[2] = mem::loadVolatileU32(addr28 + 8);
+	ctx.v28.u32[3] = mem::loadVolatileU32(addr28 + 12);
 	// li r11,-48
 	ctx.r11.s64 = -48;
 	// lvx v29,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v29.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr29 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v29.u32[0] = mem::loadVolatileU32(addr29);
+	ctx.v29.u32[1] = mem::loadVolatileU32(addr29 + 4);
+	ctx.v29.u32[2] = mem::loadVolatileU32(addr29 + 8);
+	ctx.v29.u32[3] = mem::loadVolatileU32(addr29 + 12);
 	// li r11,-32
 	ctx.r11.s64 = -32;
 	// lvx v30,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v30.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr30 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v30.u32[0] = mem::loadVolatileU32(addr30);
+	ctx.v30.u32[1] = mem::loadVolatileU32(addr30 + 4);
+	ctx.v30.u32[2] = mem::loadVolatileU32(addr30 + 8);
+	ctx.v30.u32[3] = mem::loadVolatileU32(addr30 + 12);
 	// li r11,-16
 	ctx.r11.s64 = -16;
 	// lvx v31,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v31.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr31 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v31.u32[0] = mem::loadVolatileU32(addr31);
+	ctx.v31.u32[1] = mem::loadVolatileU32(addr31 + 4);
+	ctx.v31.u32[2] = mem::loadVolatileU32(addr31 + 8);
+	ctx.v31.u32[3] = mem::loadVolatileU32(addr31 + 12);
 	// blr 
 	return;
 }
@@ -8149,27 +8761,52 @@ PPC_FUNC_IMPL(__imp____restvmx_26) {
 	// li r11,-96
 	ctx.r11.s64 = -96;
 	// lvx v26,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v26.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.fpscr.enableFlushMode();
+	uint32_t addr26 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v26.u32[0] = mem::loadVolatileU32(addr26);
+	ctx.v26.u32[1] = mem::loadVolatileU32(addr26 + 4);
+	ctx.v26.u32[2] = mem::loadVolatileU32(addr26 + 8);
+	ctx.v26.u32[3] = mem::loadVolatileU32(addr26 + 12);
 	// li r11,-80
 	ctx.r11.s64 = -80;
 	// lvx v27,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v27.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr27 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v27.u32[0] = mem::loadVolatileU32(addr27);
+	ctx.v27.u32[1] = mem::loadVolatileU32(addr27 + 4);
+	ctx.v27.u32[2] = mem::loadVolatileU32(addr27 + 8);
+	ctx.v27.u32[3] = mem::loadVolatileU32(addr27 + 12);
 	// li r11,-64
 	ctx.r11.s64 = -64;
 	// lvx v28,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v28.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr28 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v28.u32[0] = mem::loadVolatileU32(addr28);
+	ctx.v28.u32[1] = mem::loadVolatileU32(addr28 + 4);
+	ctx.v28.u32[2] = mem::loadVolatileU32(addr28 + 8);
+	ctx.v28.u32[3] = mem::loadVolatileU32(addr28 + 12);
 	// li r11,-48
 	ctx.r11.s64 = -48;
 	// lvx v29,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v29.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr29 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v29.u32[0] = mem::loadVolatileU32(addr29);
+	ctx.v29.u32[1] = mem::loadVolatileU32(addr29 + 4);
+	ctx.v29.u32[2] = mem::loadVolatileU32(addr29 + 8);
+	ctx.v29.u32[3] = mem::loadVolatileU32(addr29 + 12);
 	// li r11,-32
 	ctx.r11.s64 = -32;
 	// lvx v30,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v30.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr30 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v30.u32[0] = mem::loadVolatileU32(addr30);
+	ctx.v30.u32[1] = mem::loadVolatileU32(addr30 + 4);
+	ctx.v30.u32[2] = mem::loadVolatileU32(addr30 + 8);
+	ctx.v30.u32[3] = mem::loadVolatileU32(addr30 + 12);
 	// li r11,-16
 	ctx.r11.s64 = -16;
 	// lvx v31,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v31.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr31 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v31.u32[0] = mem::loadVolatileU32(addr31);
+	ctx.v31.u32[1] = mem::loadVolatileU32(addr31 + 4);
+	ctx.v31.u32[2] = mem::loadVolatileU32(addr31 + 8);
+	ctx.v31.u32[3] = mem::loadVolatileU32(addr31 + 12);
 	// blr 
 	return;
 }
@@ -8183,23 +8820,44 @@ PPC_FUNC_IMPL(__imp____restvmx_27) {
 	// li r11,-80
 	ctx.r11.s64 = -80;
 	// lvx v27,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v27.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.fpscr.enableFlushMode();
+	uint32_t addr27 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v27.u32[0] = mem::loadVolatileU32(addr27);
+	ctx.v27.u32[1] = mem::loadVolatileU32(addr27 + 4);
+	ctx.v27.u32[2] = mem::loadVolatileU32(addr27 + 8);
+	ctx.v27.u32[3] = mem::loadVolatileU32(addr27 + 12);
 	// li r11,-64
 	ctx.r11.s64 = -64;
 	// lvx v28,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v28.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr28 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v28.u32[0] = mem::loadVolatileU32(addr28);
+	ctx.v28.u32[1] = mem::loadVolatileU32(addr28 + 4);
+	ctx.v28.u32[2] = mem::loadVolatileU32(addr28 + 8);
+	ctx.v28.u32[3] = mem::loadVolatileU32(addr28 + 12);
 	// li r11,-48
 	ctx.r11.s64 = -48;
 	// lvx v29,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v29.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr29 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v29.u32[0] = mem::loadVolatileU32(addr29);
+	ctx.v29.u32[1] = mem::loadVolatileU32(addr29 + 4);
+	ctx.v29.u32[2] = mem::loadVolatileU32(addr29 + 8);
+	ctx.v29.u32[3] = mem::loadVolatileU32(addr29 + 12);
 	// li r11,-32
 	ctx.r11.s64 = -32;
 	// lvx v30,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v30.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr30 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v30.u32[0] = mem::loadVolatileU32(addr30);
+	ctx.v30.u32[1] = mem::loadVolatileU32(addr30 + 4);
+	ctx.v30.u32[2] = mem::loadVolatileU32(addr30 + 8);
+	ctx.v30.u32[3] = mem::loadVolatileU32(addr30 + 12);
 	// li r11,-16
 	ctx.r11.s64 = -16;
 	// lvx v31,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v31.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr31 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v31.u32[0] = mem::loadVolatileU32(addr31);
+	ctx.v31.u32[1] = mem::loadVolatileU32(addr31 + 4);
+	ctx.v31.u32[2] = mem::loadVolatileU32(addr31 + 8);
+	ctx.v31.u32[3] = mem::loadVolatileU32(addr31 + 12);
 	// blr 
 	return;
 }
@@ -8213,19 +8871,36 @@ PPC_FUNC_IMPL(__imp____restvmx_28) {
 	// li r11,-64
 	ctx.r11.s64 = -64;
 	// lvx v28,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v28.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.fpscr.enableFlushMode();
+	uint32_t addr28 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v28.u32[0] = mem::loadVolatileU32(addr28);
+	ctx.v28.u32[1] = mem::loadVolatileU32(addr28 + 4);
+	ctx.v28.u32[2] = mem::loadVolatileU32(addr28 + 8);
+	ctx.v28.u32[3] = mem::loadVolatileU32(addr28 + 12);
 	// li r11,-48
 	ctx.r11.s64 = -48;
 	// lvx v29,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v29.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr29 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v29.u32[0] = mem::loadVolatileU32(addr29);
+	ctx.v29.u32[1] = mem::loadVolatileU32(addr29 + 4);
+	ctx.v29.u32[2] = mem::loadVolatileU32(addr29 + 8);
+	ctx.v29.u32[3] = mem::loadVolatileU32(addr29 + 12);
 	// li r11,-32
 	ctx.r11.s64 = -32;
 	// lvx v30,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v30.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr30 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v30.u32[0] = mem::loadVolatileU32(addr30);
+	ctx.v30.u32[1] = mem::loadVolatileU32(addr30 + 4);
+	ctx.v30.u32[2] = mem::loadVolatileU32(addr30 + 8);
+	ctx.v30.u32[3] = mem::loadVolatileU32(addr30 + 12);
 	// li r11,-16
 	ctx.r11.s64 = -16;
 	// lvx v31,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v31.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr31 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v31.u32[0] = mem::loadVolatileU32(addr31);
+	ctx.v31.u32[1] = mem::loadVolatileU32(addr31 + 4);
+	ctx.v31.u32[2] = mem::loadVolatileU32(addr31 + 8);
+	ctx.v31.u32[3] = mem::loadVolatileU32(addr31 + 12);
 	// blr 
 	return;
 }
@@ -8239,15 +8914,28 @@ PPC_FUNC_IMPL(__imp____restvmx_29) {
 	// li r11,-48
 	ctx.r11.s64 = -48;
 	// lvx v29,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v29.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.fpscr.enableFlushMode();
+	uint32_t addr29 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v29.u32[0] = mem::loadVolatileU32(addr29);
+	ctx.v29.u32[1] = mem::loadVolatileU32(addr29 + 4);
+	ctx.v29.u32[2] = mem::loadVolatileU32(addr29 + 8);
+	ctx.v29.u32[3] = mem::loadVolatileU32(addr29 + 12);
 	// li r11,-32
 	ctx.r11.s64 = -32;
 	// lvx v30,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v30.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr30 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v30.u32[0] = mem::loadVolatileU32(addr30);
+	ctx.v30.u32[1] = mem::loadVolatileU32(addr30 + 4);
+	ctx.v30.u32[2] = mem::loadVolatileU32(addr30 + 8);
+	ctx.v30.u32[3] = mem::loadVolatileU32(addr30 + 12);
 	// li r11,-16
 	ctx.r11.s64 = -16;
 	// lvx v31,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v31.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr31 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v31.u32[0] = mem::loadVolatileU32(addr31);
+	ctx.v31.u32[1] = mem::loadVolatileU32(addr31 + 4);
+	ctx.v31.u32[2] = mem::loadVolatileU32(addr31 + 8);
+	ctx.v31.u32[3] = mem::loadVolatileU32(addr31 + 12);
 	// blr 
 	return;
 }
@@ -8261,11 +8949,20 @@ PPC_FUNC_IMPL(__imp____restvmx_30) {
 	// li r11,-32
 	ctx.r11.s64 = -32;
 	// lvx v30,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v30.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.fpscr.enableFlushMode();
+	uint32_t addr30 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v30.u32[0] = mem::loadVolatileU32(addr30);
+	ctx.v30.u32[1] = mem::loadVolatileU32(addr30 + 4);
+	ctx.v30.u32[2] = mem::loadVolatileU32(addr30 + 8);
+	ctx.v30.u32[3] = mem::loadVolatileU32(addr30 + 12);
 	// li r11,-16
 	ctx.r11.s64 = -16;
 	// lvx v31,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v31.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	uint32_t addr31 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v31.u32[0] = mem::loadVolatileU32(addr31);
+	ctx.v31.u32[1] = mem::loadVolatileU32(addr31 + 4);
+	ctx.v31.u32[2] = mem::loadVolatileU32(addr31 + 8);
+	ctx.v31.u32[3] = mem::loadVolatileU32(addr31 + 12);
 	// blr 
 	return;
 }
@@ -8279,7 +8976,12 @@ PPC_FUNC_IMPL(__imp____restvmx_31) {
 	// li r11,-16
 	ctx.r11.s64 = -16;
 	// lvx v31,r11,r12
-	simde_mm_store_si128((simde__m128i*)ctx.v31.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r12.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.fpscr.enableFlushMode();
+	uint32_t addr31 = (ctx.r11 + ctx.r12) & ~0xF;
+	ctx.v31.u32[0] = mem::loadVolatileU32(addr31);
+	ctx.v31.u32[1] = mem::loadVolatileU32(addr31 + 4);
+	ctx.v31.u32[2] = mem::loadVolatileU32(addr31 + 8);
+	ctx.v31.u32[3] = mem::loadVolatileU32(addr31 + 12);
 	// blr 
 	return;
 }

@@ -86,7 +86,7 @@ loc_8232EAFC:
 	sub_82309520(ctx, base);
 	// fctiwz f0,f31
 	ctx.fpscr.disableFlushMode();
-	ctx.f0.s64 = (ctx.f31.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f31.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f31.f64));
 	// mr r4,r31
 	ctx.r4.u64 = ctx.r31.u64;
 	// stfd f0,88(r1)
@@ -1027,11 +1027,11 @@ PPC_FUNC_IMPL(__imp__sub_8232EF88) {
 	// fmuls f6,f13,f13
 	ctx.f6.f64 = double(float(ctx.f13.f64 * ctx.f13.f64));
 	// fmadds f5,f12,f12,f6
-	ctx.f5.f64 = double(float(ctx.f12.f64 * ctx.f12.f64 + ctx.f6.f64));
+	ctx.f5.f64 = static_cast<float>(ctx.f12.f64 * ctx.f12.f64 + ctx.f6.f64);
 	// fmadds f4,f0,f0,f5
-	ctx.f4.f64 = double(float(ctx.f0.f64 * ctx.f0.f64 + ctx.f5.f64));
+	ctx.f4.f64 = static_cast<float>(ctx.f0.f64 * ctx.f0.f64 + ctx.f5.f64);
 	// fsubs f3,f11,f4
-	ctx.f3.f64 = double(float(ctx.f11.f64 - ctx.f4.f64));
+	ctx.f3.f64 = static_cast<float>(ctx.f11.f64 - ctx.f4.f64);
 	// fsqrts f11,f3
 	ctx.f11.f64 = double(float(sqrt(ctx.f3.f64)));
 	// bgt cr6,0x8232f1f4
@@ -11442,7 +11442,7 @@ PPC_FUNC_IMPL(__imp__sub_82333720) {
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + -15672);
 	ctx.f0.f64 = double(temp.f32);
 	// fmadds f0,f0,f1,f13
-	ctx.f0.f64 = double(float(ctx.f0.f64 * ctx.f1.f64 + ctx.f13.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 * ctx.f1.f64 + ctx.f13.f64);
 	// b 0x82333768
 	goto loc_82333768;
 loc_8233375C:
@@ -11522,7 +11522,7 @@ loc_82333768:
 	// fsel f10,f11,f12,f0
 	ctx.f10.f64 = ctx.f11.f64 >= 0.0 ? ctx.f12.f64 : ctx.f0.f64;
 	// fsubs f9,f10,f31
-	ctx.f9.f64 = double(float(ctx.f10.f64 - ctx.f31.f64));
+	ctx.f9.f64 = static_cast<float>(ctx.f10.f64 - ctx.f31.f64);
 	// fcmpu cr6,f9,f0
 	ctx.cr6.compare(ctx.f9.f64, ctx.f0.f64);
 	// mfcr r11
@@ -43238,7 +43238,7 @@ PPC_FUNC_IMPL(__imp__sub_823409C0) {
 	temp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 15632);
 	ctx.f0.f64 = double(temp.f32);
 	// fmadds f31,f9,f0,f10
-	ctx.f31.f64 = double(float(ctx.f9.f64 * ctx.f0.f64 + ctx.f10.f64));
+	ctx.f31.f64 = static_cast<float>(ctx.f9.f64 * ctx.f0.f64 + ctx.f10.f64);
 	// fcmpu cr6,f31,f30
 	ctx.cr6.compare(ctx.f31.f64, ctx.f30.f64);
 	// ble cr6,0x82340afc
@@ -43288,7 +43288,7 @@ loc_82340ADC:
 loc_82340AF0:
 	// fsubs f31,f31,f30
 	ctx.fpscr.disableFlushMode();
-	ctx.f31.f64 = double(float(ctx.f31.f64 - ctx.f30.f64));
+	ctx.f31.f64 = static_cast<float>(ctx.f31.f64 - ctx.f30.f64);
 	// fcmpu cr6,f31,f30
 	ctx.cr6.compare(ctx.f31.f64, ctx.f30.f64);
 	// bgt cr6,0x82340aa4

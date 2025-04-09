@@ -46263,7 +46263,7 @@ loc_82B62E3C:
 	// frsp f12,f13
 	ctx.f12.f64 = double(float(ctx.f13.f64));
 	// fsubs f1,f26,f12
-	ctx.f1.f64 = double(float(ctx.f26.f64 - ctx.f12.f64));
+	ctx.f1.f64 = static_cast<float>(ctx.f26.f64 - ctx.f12.f64);
 	// bl 0x8222c3e8
 	ctx.lr = 0x82B62EA0;
 	sub_8222C3E8(ctx, base);
@@ -46450,9 +46450,9 @@ loc_82B62FA8:
 	// fadds f13,f9,f25
 	ctx.f13.f64 = double(float(ctx.f9.f64 + ctx.f25.f64));
 	// fsubs f0,f13,f26
-	ctx.f0.f64 = double(float(ctx.f13.f64 - ctx.f26.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f13.f64 - ctx.f26.f64);
 	// fmadds f27,f0,f12,f26
-	ctx.f27.f64 = double(float(ctx.f0.f64 * ctx.f12.f64 + ctx.f26.f64));
+	ctx.f27.f64 = static_cast<float>(ctx.f0.f64 * ctx.f12.f64 + ctx.f26.f64);
 	// blt cr6,0x82b6300c
 	if (ctx.cr6.lt) goto loc_82B6300C;
 	// lwz r10,16(r11)
@@ -46479,14 +46479,14 @@ loc_82B63010:
 	ctx.r8.u64 = PPC_LOAD_U32(ctx.r11.u32 + 12);
 	// fsubs f12,f23,f24
 	ctx.fpscr.disableFlushMode();
-	ctx.f12.f64 = double(float(ctx.f23.f64 - ctx.f24.f64));
+	ctx.f12.f64 = static_cast<float>(ctx.f23.f64 - ctx.f24.f64);
 	// add r9,r9,r7
 	ctx.r9.u64 = ctx.r9.u64 + ctx.r7.u64;
 	// lfs f11,24(r19)
 	temp.u32 = PPC_LOAD_U32(ctx.r19.u32 + 24);
 	ctx.f11.f64 = double(temp.f32);
 	// fmadds f10,f11,f0,f26
-	ctx.f10.f64 = double(float(ctx.f11.f64 * ctx.f0.f64 + ctx.f26.f64));
+	ctx.f10.f64 = static_cast<float>(ctx.f11.f64 * ctx.f0.f64 + ctx.f26.f64);
 	// rlwinm r9,r9,3,0,28
 	ctx.r9.u64 = __builtin_rotateleft64(ctx.r9.u32 | (ctx.r9.u64 << 32), 3) & 0xFFFFFFF8;
 	// lwz r7,24(r10)
@@ -46502,11 +46502,11 @@ loc_82B63010:
 	// lhz r3,18(r8)
 	ctx.r3.u64 = PPC_LOAD_U16(ctx.r8.u32 + 18);
 	// fmadds f9,f12,f11,f24
-	ctx.f9.f64 = double(float(ctx.f12.f64 * ctx.f11.f64 + ctx.f24.f64));
+	ctx.f9.f64 = static_cast<float>(ctx.f12.f64 * ctx.f11.f64 + ctx.f24.f64);
 	// lhzx r9,r5,r6
 	ctx.r9.u64 = PPC_LOAD_U16(ctx.r5.u32 + ctx.r6.u32);
 	// fmadds f28,f12,f11,f24
-	ctx.f28.f64 = double(float(ctx.f12.f64 * ctx.f11.f64 + ctx.f24.f64));
+	ctx.f28.f64 = static_cast<float>(ctx.f12.f64 * ctx.f11.f64 + ctx.f24.f64);
 	// extsh r7,r3
 	ctx.r7.s64 = ctx.r3.s16;
 	// cmpwi cr6,r9,0
@@ -46528,11 +46528,11 @@ loc_82B63010:
 	// frsp f4,f7
 	ctx.f4.f64 = double(float(ctx.f7.f64));
 	// fmadds f29,f1,f11,f10
-	ctx.f29.f64 = double(float(ctx.f1.f64 * ctx.f11.f64 + ctx.f10.f64));
+	ctx.f29.f64 = static_cast<float>(ctx.f1.f64 * ctx.f11.f64 + ctx.f10.f64);
 	// fadds f2,f4,f31
 	ctx.f2.f64 = double(float(ctx.f4.f64 + ctx.f31.f64));
 	// fmadds f30,f2,f11,f9
-	ctx.f30.f64 = double(float(ctx.f2.f64 * ctx.f11.f64 + ctx.f9.f64));
+	ctx.f30.f64 = static_cast<float>(ctx.f2.f64 * ctx.f11.f64 + ctx.f9.f64);
 	// blt cr6,0x82b630a4
 	if (ctx.cr6.lt) goto loc_82B630A4;
 	// lwz r8,16(r10)
@@ -46680,12 +46680,12 @@ loc_82B63104:
 	sub_829FF648(ctx, base);
 	// fsubs f10,f21,f31
 	ctx.fpscr.disableFlushMode();
-	ctx.f10.f64 = double(float(ctx.f21.f64 - ctx.f31.f64));
+	ctx.f10.f64 = static_cast<float>(ctx.f21.f64 - ctx.f31.f64);
 	// lfs f6,0(r30)
 	temp.u32 = PPC_LOAD_U32(ctx.r30.u32 + 0);
 	ctx.f6.f64 = double(temp.f32);
 	// fsubs f9,f20,f31
-	ctx.f9.f64 = double(float(ctx.f20.f64 - ctx.f31.f64));
+	ctx.f9.f64 = static_cast<float>(ctx.f20.f64 - ctx.f31.f64);
 	// lfs f5,12(r30)
 	temp.u32 = PPC_LOAD_U32(ctx.r30.u32 + 12);
 	ctx.f5.f64 = double(temp.f32);

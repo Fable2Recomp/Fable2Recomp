@@ -8477,13 +8477,13 @@ loc_82C0CB14:
 	// frsp f6,f9
 	ctx.f6.f64 = double(float(ctx.f9.f64));
 	// fsubs f7,f13,f0
-	ctx.f7.f64 = double(float(ctx.f13.f64 - ctx.f0.f64));
+	ctx.f7.f64 = static_cast<float>(ctx.f13.f64 - ctx.f0.f64);
 	// frsp f8,f10
 	ctx.f8.f64 = double(float(ctx.f10.f64));
 	// fdivs f5,f8,f6
 	ctx.f5.f64 = double(float(ctx.f8.f64 / ctx.f6.f64));
 	// fmadds f0,f5,f7,f0
-	ctx.f0.f64 = double(float(ctx.f5.f64 * ctx.f7.f64 + ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f5.f64 * ctx.f7.f64 + ctx.f0.f64);
 loc_82C0CB50:
 	// stfs f0,8(r3)
 	ctx.fpscr.disableFlushMode();
@@ -17928,13 +17928,13 @@ loc_82C10818:
 	// frsp f6,f9
 	ctx.f6.f64 = double(float(ctx.f9.f64));
 	// fsubs f7,f13,f0
-	ctx.f7.f64 = double(float(ctx.f13.f64 - ctx.f0.f64));
+	ctx.f7.f64 = static_cast<float>(ctx.f13.f64 - ctx.f0.f64);
 	// frsp f8,f10
 	ctx.f8.f64 = double(float(ctx.f10.f64));
 	// fdivs f5,f8,f6
 	ctx.f5.f64 = double(float(ctx.f8.f64 / ctx.f6.f64));
 	// fmadds f0,f5,f7,f0
-	ctx.f0.f64 = double(float(ctx.f5.f64 * ctx.f7.f64 + ctx.f0.f64));
+	ctx.f0.f64 = static_cast<float>(ctx.f5.f64 * ctx.f7.f64 + ctx.f0.f64);
 	// stfs f0,0(r29)
 	temp.f32 = float(ctx.f0.f64);
 	PPC_STORE_U32(ctx.r29.u32 + 0, temp.u32);

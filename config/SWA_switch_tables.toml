@@ -25429,28 +25429,28 @@ labels = [
     0x82BA7920,
 ]
 
-#To Do?
+#To FIX?
 [[switch]]
-base = 0x82BE9798
+base = 0x82BE9774
 r = 30
 default = 0x82BE9EF8
 labels = [
-#    0x82BE979C,
-#    0x82BE97D8,
-#    0x82BE9824,
-#    0x82BE984C,
-#    0x82BE98D0,
-#    0x82BE98F8,
-#    0x82BE9928,
-#    0x82BE9958,
-#    0x82BE9A24,
-#    0x82BE9AE0,
-#    0x82BE9BE8,
-#    0x82BE9C10,
-#    0x82BE9D84,
-#    0x82BE9E30,
-#    0x82BE9EA8,
-#    0x82BE9ED0,
+    0x82BE979C,
+    0x82BE97D8,
+    0x82BE9824,
+    0x82BE984C,
+    0x82BE98D0,
+    0x82BE98F8,
+    0x82BE9928,
+    0x82BE9958,
+    0x82BE9A24,
+    0x82BE9AE0,
+    0x82BE9BE8,
+    0x82BE9C10,
+    0x82BE9D84,
+    0x82BE9E30,
+    0x82BE9EA8,
+    0x82BE9ED0,
 ]
 
 [[switch]]
@@ -28996,26 +28996,35 @@ labels = [
 ]
 
 [[switch]]
-base = 0x831169B4
+base = 0x83116984
 r = 28
 default = 0x83116A00
 labels = [
-    0x831169B4,
-    0x831169B8,
-    0x831169BC,
-    0x831169C0,
-    0x831169C4,
-    0x831169C8,
-    0x831169CC,
-    0x831169D0,
-    0x831169D4,
-    0x831169D8,
-    0x831169DC,
-    0x831169E0,
-    0x831169E4,
-    0x831169E8,
-    0x831169EC,
-    0x831169F0,
+    0x831169B4,  
+    0x83116A10,
+    0x83116A10,
+    0x83116A90,
+    0x83116A90,
+    0x83116AAC,
+    0x83116AAC,
+    0x83116B38,
+    0x83116B50,
+    0x83116B68,
+    0x83116B80,
+    0x83116B90,
+    0x83116BA8,
+    0x83116A90,
+    0x83116A90,
+    0x83116BBC,
+]
+
+[[switch]]
+base = 0x83116CC0
+r = 28
+default = 0x831167B4
+labels = [
+    0x83116CE0,
+    0x831167B4,
 ]
 
 [[switch]]
@@ -29272,4 +29281,15 @@ labels = [
     0x82B8DE80,
     0x82B8DEA0,
     0x82B8DEC0,
+]
+
+[[switch]]
+base = 0x82B8D5D0
+r = 29
+default = 0x82B8D584
+labels = [
+    0x82B8D5F8,
+    0x82B8D650,
+    0x82B8D6A8,
+    0x82B8D724,
 ]

@@ -48758,7 +48758,7 @@ loc_83071034:
 	ctx.fpscr.disableFlushMode();
 	ctx.f0.u64 = PPC_LOAD_U64(ctx.r10.u32 + 8);
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// stfiwx f0,r11,r14
 	PPC_STORE_U32(ctx.r11.u32 + ctx.r14.u32, ctx.f0.u32);
 	// b 0x8307108c

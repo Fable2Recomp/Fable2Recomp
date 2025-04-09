@@ -18568,7 +18568,7 @@ loc_82B48018:
 	// frsp f7,f8
 	ctx.f7.f64 = double(float(ctx.f8.f64));
 	// fmadds f11,f11,f10,f7
-	ctx.f11.f64 = double(float(ctx.f11.f64 * ctx.f10.f64 + ctx.f7.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f11.f64 * ctx.f10.f64 + ctx.f7.f64);
 	// b 0x82b48068
 	goto loc_82B48068;
 loc_82B48044:
@@ -18634,7 +18634,7 @@ loc_82B48090:
 	// frsp f7,f8
 	ctx.f7.f64 = double(float(ctx.f8.f64));
 	// fmadds f11,f11,f10,f7
-	ctx.f11.f64 = double(float(ctx.f11.f64 * ctx.f10.f64 + ctx.f7.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f11.f64 * ctx.f10.f64 + ctx.f7.f64);
 	// b 0x82b480e0
 	goto loc_82B480E0;
 loc_82B480BC:
@@ -18700,7 +18700,7 @@ loc_82B48108:
 	// frsp f7,f8
 	ctx.f7.f64 = double(float(ctx.f8.f64));
 	// fmadds f11,f11,f10,f7
-	ctx.f11.f64 = double(float(ctx.f11.f64 * ctx.f10.f64 + ctx.f7.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f11.f64 * ctx.f10.f64 + ctx.f7.f64);
 	// b 0x82b48158
 	goto loc_82B48158;
 loc_82B48134:
@@ -18766,7 +18766,7 @@ loc_82B48180:
 	// frsp f7,f8
 	ctx.f7.f64 = double(float(ctx.f8.f64));
 	// fmadds f11,f11,f10,f7
-	ctx.f11.f64 = double(float(ctx.f11.f64 * ctx.f10.f64 + ctx.f7.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f11.f64 * ctx.f10.f64 + ctx.f7.f64);
 	// b 0x82b481d0
 	goto loc_82B481D0;
 loc_82B481AC:
@@ -18846,7 +18846,7 @@ loc_82B4820C:
 	// frsp f7,f8
 	ctx.f7.f64 = double(float(ctx.f8.f64));
 	// fmadds f11,f11,f10,f7
-	ctx.f11.f64 = double(float(ctx.f11.f64 * ctx.f10.f64 + ctx.f7.f64));
+	ctx.f11.f64 = static_cast<float>(ctx.f11.f64 * ctx.f10.f64 + ctx.f7.f64);
 	// b 0x82b4825c
 	goto loc_82B4825C;
 loc_82B48238:

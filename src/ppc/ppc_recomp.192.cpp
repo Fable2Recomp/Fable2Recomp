@@ -19318,7 +19318,7 @@ loc_831149D0:
 	ctx.fpscr.disableFlushMode();
 	ctx.f0.u64 = PPC_LOAD_U64(ctx.r11.u32 + 8);
 	// fctiwz f0,f0
-	ctx.f0.s64 = (ctx.f0.f64 > double(INT_MAX)) ? INT_MAX : simde_mm_cvttsd_si32(simde_mm_load_sd(&ctx.f0.f64));
+	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
 	// stfiwx f0,r10,r30
 	PPC_STORE_U32(ctx.r10.u32 + ctx.r30.u32, ctx.f0.u32);
 	// b 0x83114a54
@@ -23700,6 +23700,7 @@ loc_831166DC:
 	ctx.cr0.compare<int32_t>(ctx.r11.s32, 0, ctx.xer);
 	// beq 0x831167ec
 	if (ctx.cr0.eq) goto loc_831167EC;
+loc_831167B4:
 	// li r3,0
 	ctx.r3.s64 = 0;
 	// b 0x83116a08
@@ -24040,50 +24041,36 @@ loc_83116980:
 loc_831169B4:
 	// addi r7,r1,104
 	ctx.r7.s64 = ctx.r1.s64 + 104;
-loc_831169B8:
 	// std r3,96(r1)
 	PPC_STORE_U64(ctx.r1.u32 + 96, ctx.r3.u64);
-loc_831169BC:
 	// addi r10,r1,104
 	ctx.r10.s64 = ctx.r1.s64 + 104;
-loc_831169C0:
 	// addi r9,r1,96
 	ctx.r9.s64 = ctx.r1.s64 + 96;
-loc_831169C4:
 	// addi r8,r10,8
 	ctx.r8.s64 = ctx.r10.s64 + 8;
-loc_831169C8:
 	// std r23,0(r7)
 	PPC_STORE_U64(ctx.r7.u32 + 0, ctx.r23.u64);
-loc_831169CC:
 	// lwz r7,108(r1)
 	ctx.r7.u64 = PPC_LOAD_U32(ctx.r1.u32 + 108);
-loc_831169D0:
 	// rlwimi r11,r7,0,21,15
 	ctx.r11.u64 = (__builtin_rotateleft32(ctx.r7.u32, 0) & 0xFFFFFFFFFFFF07FF) | (ctx.r11.u64 & 0xF800);
-loc_831169D4:
 	// stw r11,108(r1)
 	PPC_STORE_U32(ctx.r1.u32 + 108, ctx.r11.u32);
 loc_831169D8:
 	// lbz r11,0(r10)
 	ctx.r11.u64 = PPC_LOAD_U8(ctx.r10.u32 + 0);
-loc_831169DC:
 	// lbz r7,0(r9)
 	ctx.r7.u64 = PPC_LOAD_U8(ctx.r9.u32 + 0);
-loc_831169E0:
 	// subf. r11,r7,r11
 	ctx.r11.s64 = ctx.r11.s64 - ctx.r7.s64;
 	ctx.cr0.compare<int32_t>(ctx.r11.s32, 0, ctx.xer);
-loc_831169E4:
 	// bne 0x831169f8
 	if (!ctx.cr0.eq) goto loc_831169F8;
-loc_831169E8:
 	// addi r10,r10,1
 	ctx.r10.s64 = ctx.r10.s64 + 1;
-loc_831169EC:
 	// addi r9,r9,1
 	ctx.r9.s64 = ctx.r9.s64 + 1;
-loc_831169F0:
 	// cmpw cr6,r10,r8
 	ctx.cr6.compare<int32_t>(ctx.r10.s32, ctx.r8.s32, ctx.xer);
 	// bne cr6,0x831169d8
@@ -24503,40 +24490,13 @@ loc_83116CB8:
 	// bctr 
 	switch (ctx.r28.u64) {
 	case 0:
-		goto loc_831169B4;
+		goto loc_83116CE0;
 	case 1:
-		goto loc_831169B8;
-	case 2:
-		goto loc_831169BC;
-	case 3:
-		goto loc_831169C0;
-	case 4:
-		goto loc_831169C4;
-	case 5:
-		goto loc_831169C8;
-	case 6:
-		goto loc_831169CC;
-	case 7:
-		goto loc_831169D0;
-	case 8:
-		goto loc_831169D4;
-	case 9:
-		goto loc_831169D8;
-	case 10:
-		goto loc_831169DC;
-	case 11:
-		goto loc_831169E0;
-	case 12:
-		goto loc_831169E4;
-	case 13:
-		goto loc_831169E8;
-	case 14:
-		goto loc_831169EC;
-	case 15:
-		goto loc_831169F0;
+		goto loc_831167B4;
 	default:
 		__builtin_unreachable();
 	}
+loc_83116CE0:
 	// addic. r27,r27,1
 	ctx.xer.ca = ctx.r27.u32 > 4294967294;
 	ctx.r27.s64 = ctx.r27.s64 + 1;
