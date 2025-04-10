@@ -1,124 +1,99 @@
 cmake_minimum_required(VERSION 3.10)
 project(Fable2Recomp)
 
-# Set C++ standard
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Platform-specific setup
-if(WIN32)
-    # Set vcpkg toolchain file if not already set (Windows)
-    if(DEFINED ENV{VCPKG_ROOT} AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
-        set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
-            CACHE STRING "")
-    endif()
-    
-    # Find required packages using vcpkg on Windows
-    find_package(toml11 CONFIG REQUIRED)
-    find_package(spdlog CONFIG REQUIRED)
-    find_package(imgui CONFIG REQUIRED)
-    find_package(implot CONFIG REQUIRED)
-    find_package(glm CONFIG REQUIRED)
-    find_package(tinyxml2 CONFIG REQUIRED)
-    
-    set(PLATFORM_LIBS
-        toml11::toml11
-        spdlog::spdlog
-        imgui::imgui
-        implot::implot
-        glm::glm
-        tinyxml2::tinyxml2
-    )
-else()
-    # Linux: Use system packages
-    find_package(PkgConfig REQUIRED)
-    pkg_check_modules(SPDLOG REQUIRED spdlog)
-    pkg_check_modules(TINYXML2 REQUIRED tinyxml2)
-    
-    # GLM is header-only, just need to find the include directory
-    find_path(GLM_INCLUDE_DIR glm/glm.hpp
-        PATHS
-        /usr/include
-        /usr/local/include
-    )
-    
-    if(NOT GLM_INCLUDE_DIR)
-        message(FATAL_ERROR "GLM headers not found!")
-    endif()
-    
-    # Find imgui
-    find_path(IMGUI_INCLUDE_DIR imgui.h
-        PATHS
-        /usr/include
-        /usr/local/include
-    )
-    find_library(IMGUI_LIBRARY imgui)
-    
-    if(NOT IMGUI_INCLUDE_DIR OR NOT IMGUI_LIBRARY)
-        message(FATAL_ERROR "ImGui not found! Please install it from AUR: yay -S imgui")
-    endif()
-    
-    # Find implot
-    find_path(IMPLOT_INCLUDE_DIR implot.h
-        PATHS
-        /usr/include
-        /usr/local/include
-    )
-    find_library(IMPLOT_LIBRARY implot)
-    
-    if(NOT IMPLOT_INCLUDE_DIR OR NOT IMPLOT_LIBRARY)
-        message(FATAL_ERROR "ImPlot not found! Please build and install it from source")
-    endif()
-    
-    # Note: Some packages might need manual include path setup
-    set(PLATFORM_LIBS
-        ${SPDLOG_LIBRARIES}
-        ${TINYXML2_LIBRARIES}
-        ${IMGUI_LIBRARY}
-        ${IMPLOT_LIBRARY}
-    )
-    
-    set(PLATFORM_INCLUDE_DIRS
-        ${SPDLOG_INCLUDE_DIRS}
-        ${TINYXML2_INCLUDE_DIRS}
-        ${GLM_INCLUDE_DIR}
-        ${IMGUI_INCLUDE_DIR}
-        ${IMPLOT_INCLUDE_DIR}
-    )
-    
-    message(STATUS "On Linux, please install required packages:")
-    message(STATUS "sudo pacman -S spdlog glm tinyxml2 toml11")
-    message(STATUS "yay -S imgui")
-    message(STATUS "For implot, build from source: git clone https://github.com/epezent/implot.git")
-    message(STATUS "Or for Ubuntu/Debian:")
-    message(STATUS "sudo apt install libspdlog-dev libglm-dev libtinyxml2-dev")
-endif()
+# === Paths ===
+set(EXTERN_DIR "${CMAKE_SOURCE_DIR}/extern")
 
-# Add source files
+# === Header-only libraries ===
+set(SPDLOG_INCLUDE_DIR "${EXTERN_DIR}/spdlog/include")
+set(GLM_INCLUDE_DIR    "${EXTERN_DIR}/glm")
+set(TOML11_INCLUDE_DIR "${EXTERN_DIR}/toml11/include")
+
+# === fmtlib ===
+set(FMT_INCLUDE_DIR "${EXTERN_DIR}/fmt/include")
+set(FMT_SOURCES
+    ${EXTERN_DIR}/fmt/src/format.cc
+    ${EXTERN_DIR}/fmt/src/os.cc
+)
+
+# === tinyxml2 ===
+set(TINYXML2_INCLUDE_DIR "${EXTERN_DIR}/tinyxml2")
+set(TINYXML2_SOURCES
+    ${EXTERN_DIR}/tinyxml2/tinyxml2.cpp
+)
+
+# === ImGui ===
+set(IMGUI_INCLUDE_DIR "${EXTERN_DIR}/imgui")
+set(IMGUI_SOURCES
+    ${EXTERN_DIR}/imgui/imgui.cpp
+    ${EXTERN_DIR}/imgui/imgui_draw.cpp
+    ${EXTERN_DIR}/imgui/imgui_widgets.cpp
+    ${EXTERN_DIR}/imgui/imgui_tables.cpp
+    ${EXTERN_DIR}/imgui/imgui_demo.cpp
+)
+
+# === ImPlot ===
+set(IMPLOT_INCLUDE_DIR "${EXTERN_DIR}/implot")
+set(IMPLOT_SOURCES
+    ${EXTERN_DIR}/implot/implot.cpp
+    ${EXTERN_DIR}/implot/implot_items.cpp
+    ${EXTERN_DIR}/implot/implot_demo.cpp
+)
+
+# === Project source files ===
 set(SOURCES
     src/main.cpp
     src/cpu/ppc_recomp.cpp
     src/cpu/ppc_integration.cpp
     src/os/logger.cpp
+    ${TINYXML2_SOURCES}
+    ${IMGUI_SOURCES}
+    ${IMPLOT_SOURCES}
+    ${FMT_SOURCES}
 )
 
-# Add header files
+# === Header files (for IDEs) ===
 set(HEADERS
     src/cpu/ppc_recomp.h
     src/cpu/ppc_integration.h
     src/os/logger.h
 )
 
-# Create executable
+# === Include directories ===
+set(PLATFORM_INCLUDE_DIRS
+    ${SPDLOG_INCLUDE_DIR}
+    ${GLM_INCLUDE_DIR}
+    ${TINYXML2_INCLUDE_DIR}
+    ${IMGUI_INCLUDE_DIR}
+    ${IMPLOT_INCLUDE_DIR}
+    ${TOML11_INCLUDE_DIR}
+    ${FMT_INCLUDE_DIR}
+)
+
+# === Libraries to link (none needed unless more system libs added) ===
+set(PLATFORM_LIBS "")
+
+# === Create executable ===
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 
-# Link libraries
+# === Apply includes and link libraries ===
+target_include_directories(${PROJECT_NAME} PRIVATE
+    ${CMAKE_SOURCE_DIR}/src
+    ${PLATFORM_INCLUDE_DIRS}
+)
+
 target_link_libraries(${PROJECT_NAME} PRIVATE
     ${PLATFORM_LIBS}
 )
 
-# Include directories
-target_include_directories(${PROJECT_NAME} PRIVATE
-    ${CMAKE_SOURCE_DIR}/src
-    ${PLATFORM_INCLUDE_DIRS}
-) 
+# === Status messages ===
+message(STATUS "Using ImGui from: ${IMGUI_INCLUDE_DIR}")
+message(STATUS "Using ImPlot from: ${IMPLOT_INCLUDE_DIR}")
+message(STATUS "Using GLM from: ${GLM_INCLUDE_DIR}")
+message(STATUS "Using spdlog from: ${SPDLOG_INCLUDE_DIR}")
+message(STATUS "Using toml11 from: ${TOML11_INCLUDE_DIR}")
+message(STATUS "Using tinyxml2 from: ${TINYXML2_INCLUDE_DIR}")
+message(STATUS "Using fmtlib from: ${FMT_INCLUDE_DIR}")
