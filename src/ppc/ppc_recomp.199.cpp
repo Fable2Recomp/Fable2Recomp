@@ -1,5 +1,30 @@
 #include "ppc_recomp_shared.h"
 
+PPC_FUNC_IMPL(__imp__sub_831FC6D8) {
+	PPC_FUNC_PROLOGUE();
+	// lwz r11,4(r4)
+	ctx.r11.u64 = PPC_LOAD_U32(ctx.r4.u32 + 4);
+	// cmplwi cr6,r11,0
+	ctx.cr6.compare<uint32_t>(ctx.r11.u32, 0, ctx.xer);
+	// stw r11,4(r3)
+	PPC_STORE_U32(ctx.r3.u32 + 4, ctx.r11.u32);
+	// beq cr6,0x831fc6ec
+	if (ctx.cr6.eq) goto loc_831FC6EC;
+	// stw r3,8(r11)
+	PPC_STORE_U32(ctx.r11.u32 + 8, ctx.r3.u32);
+loc_831FC6EC:
+	// stw r4,8(r3)
+	PPC_STORE_U32(ctx.r3.u32 + 8, ctx.r4.u32);
+	// stw r3,4(r4)
+	PPC_STORE_U32(ctx.r4.u32 + 4, ctx.r3.u32);
+	// blr 
+	return;
+}
+
+PPC_WEAK_FUNC(sub_831FC6D8) {
+	__imp__sub_831FC6D8(ctx, base);
+}
+
 PPC_FUNC_IMPL(__imp__sub_831FC6F8) {
 	PPC_FUNC_PROLOGUE();
 	// lwz r11,8(r4)
@@ -5679,7 +5704,7 @@ loc_831FEB68:
 	// fmuls f0,f0,f1
 	ctx.f0.f64 = double(float(ctx.f0.f64 * ctx.f1.f64));
 	// fctiwz f0,f0
-	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
+	ctx.f0.u64 = uint64_t(int32_t(std::trunc(ctx.f0.f64)));
 	// stfd f0,-8(r1)
 	PPC_STORE_U64(ctx.r1.u32 + -8, ctx.f0.u64);
 	// lwz r3,-4(r1)
@@ -39426,68 +39451,5 @@ loc_8320CB78:
 
 PPC_WEAK_FUNC(sub_8320CB28) {
 	__imp__sub_8320CB28(ctx, base);
-}
-
-PPC_FUNC_IMPL(__imp__sub_8320CB80) {
-	PPC_FUNC_PROLOGUE();
-	uint32_t ea{};
-	// mflr r12
-	ctx.r12.u64 = ctx.lr;
-	// bl 0x82ca2be8
-	ctx.lr = 0x8320CB88;
-	__savegprlr_28(ctx, base);
-	// stwu r1,-128(r1)
-	ea = -128 + ctx.r1.u32;
-	PPC_STORE_U32(ea, ctx.r1.u32);
-	ctx.r1.u32 = ea;
-	// mr r31,r5
-	ctx.r31.u64 = ctx.r5.u64;
-	// mr r30,r3
-	ctx.r30.u64 = ctx.r3.u64;
-	// mr r29,r4
-	ctx.r29.u64 = ctx.r4.u64;
-	// li r4,56
-	ctx.r4.s64 = 56;
-	// lwz r28,1452(r31)
-	ctx.r28.u64 = PPC_LOAD_U32(ctx.r31.u32 + 1452);
-	// mr r3,r28
-	ctx.r3.u64 = ctx.r28.u64;
-	// bl 0x831c58b0
-	ctx.lr = 0x8320CBA8;
-	sub_831C58B0(ctx, base);
-	// mr r11,r3
-	ctx.r11.u64 = ctx.r3.u64;
-	// addic. r3,r11,4
-	ctx.xer.ca = ctx.r11.u32 > 4294967291;
-	ctx.r3.s64 = ctx.r11.s64 + 4;
-	ctx.cr0.compare<int32_t>(ctx.r3.s32, 0, ctx.xer);
-	// stw r28,0(r11)
-	PPC_STORE_U32(ctx.r11.u32 + 0, ctx.r28.u32);
-	// beq 0x8320cbcc
-	if (ctx.cr0.eq) goto loc_8320CBCC;
-	// mr r6,r31
-	ctx.r6.u64 = ctx.r31.u64;
-	// mr r5,r29
-	ctx.r5.u64 = ctx.r29.u64;
-	// mr r4,r30
-	ctx.r4.u64 = ctx.r30.u64;
-	// bl 0x831fe7b0
-	ctx.lr = 0x8320CBC8;
-	sub_831FE7B0(ctx, base);
-	// b 0x8320cbd0
-	goto loc_8320CBD0;
-loc_8320CBCC:
-	// li r3,0
-	ctx.r3.s64 = 0;
-loc_8320CBD0:
-	// addi r1,r1,128
-	ctx.r1.s64 = ctx.r1.s64 + 128;
-	// b 0x82ca2c38
-	__restgprlr_28(ctx, base);
-	return;
-}
-
-PPC_WEAK_FUNC(sub_8320CB80) {
-	__imp__sub_8320CB80(ctx, base);
 }
 

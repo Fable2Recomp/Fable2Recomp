@@ -37,3 +37,6 @@
 [submodule "extern/fmt"]
 	path = extern/fmt
 	url = https://github.com/fmtlib/fmt
+[submodule "extern/smide"]
+	path = extern/smide
+	url = https://github.com/simd-everywhere/simde-no-tests.git

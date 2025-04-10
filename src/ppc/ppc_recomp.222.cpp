@@ -1,5 +1,43 @@
 #include "ppc_recomp_shared.h"
 
+PPC_FUNC_IMPL(__imp__sub_8328D518) {
+	PPC_FUNC_PROLOGUE();
+	uint32_t ea{};
+	// mflr r12
+	ctx.r12.u64 = ctx.lr;
+	// stw r12,-8(r1)
+	PPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);
+	// stwu r1,-96(r1)
+	ea = -96 + ctx.r1.u32;
+	PPC_STORE_U32(ea, ctx.r1.u32);
+	ctx.r1.u32 = ea;
+	// lis r11,-32240
+	ctx.r11.s64 = -2112880640;
+	// addi r3,r11,-16624
+	ctx.r3.s64 = ctx.r11.s64 + -16624;
+	// bl 0x82188cf0
+	ctx.lr = 0x8328D530;
+	sub_82188CF0(ctx, base);
+	// lis r10,-31924
+	ctx.r10.s64 = -2092171264;
+	// clrlwi r11,r3,5
+	ctx.r11.u64 = ctx.r3.u32 & 0x7FFFFFF;
+	// stw r11,-7532(r10)
+	PPC_STORE_U32(ctx.r10.u32 + -7532, ctx.r11.u32);
+	// addi r1,r1,96
+	ctx.r1.s64 = ctx.r1.s64 + 96;
+	// lwz r12,-8(r1)
+	ctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);
+	// mtlr r12
+	ctx.lr = ctx.r12.u64;
+	// blr 
+	return;
+}
+
+PPC_WEAK_FUNC(sub_8328D518) {
+	__imp__sub_8328D518(ctx, base);
+}
+
 PPC_FUNC_IMPL(__imp__sub_8328D550) {
 	PPC_FUNC_PROLOGUE();
 	uint32_t ea{};
@@ -9765,50 +9803,5 @@ PPC_FUNC_IMPL(__imp__sub_83290C88) {
 
 PPC_WEAK_FUNC(sub_83290C88) {
 	__imp__sub_83290C88(ctx, base);
-}
-
-PPC_FUNC_IMPL(__imp__sub_83290CC8) {
-	PPC_FUNC_PROLOGUE();
-	uint32_t ea{};
-	// mflr r12
-	ctx.r12.u64 = ctx.lr;
-	// stw r12,-8(r1)
-	PPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);
-	// stwu r1,-96(r1)
-	ea = -96 + ctx.r1.u32;
-	PPC_STORE_U32(ea, ctx.r1.u32);
-	ctx.r1.u32 = ea;
-	// lis r11,-32255
-	ctx.r11.s64 = -2113863680;
-	// lis r10,-31949
-	ctx.r10.s64 = -2093809664;
-	// addi r4,r11,-15792
-	ctx.r4.s64 = ctx.r11.s64 + -15792;
-	// addi r3,r10,19900
-	ctx.r3.s64 = ctx.r10.s64 + 19900;
-	// li r5,-1
-	ctx.r5.s64 = -1;
-	// bl 0x8222cf18
-	ctx.lr = 0x83290CEC;
-	sub_8222CF18(ctx, base);
-	// lis r9,-31957
-	ctx.r9.s64 = -2094333952;
-	// addi r3,r9,592
-	ctx.r3.s64 = ctx.r9.s64 + 592;
-	// bl 0x82ca3700
-	ctx.lr = 0x83290CF8;
-	sub_82CA3700(ctx, base);
-	// addi r1,r1,96
-	ctx.r1.s64 = ctx.r1.s64 + 96;
-	// lwz r12,-8(r1)
-	ctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);
-	// mtlr r12
-	ctx.lr = ctx.r12.u64;
-	// blr 
-	return;
-}
-
-PPC_WEAK_FUNC(sub_83290CC8) {
-	__imp__sub_83290CC8(ctx, base);
 }
 

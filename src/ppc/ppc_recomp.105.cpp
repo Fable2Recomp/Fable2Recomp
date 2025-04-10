@@ -24747,17 +24747,17 @@ PPC_FUNC_IMPL(__imp__sub_82B9B298) {
 	// addi r9,r9,-22032
 	ctx.r9.s64 = ctx.r9.s64 + -22032;
 	// lvx128 v0,r0,r11
-	simde_mm_store_si128((simde__m128i*)ctx.v0.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.v0 = simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32) & ~0xF)), simde_mm_load_si128((simde__m128i*)VectorMaskL));
 	// vspltw v10,v0,0
 	simde_mm_store_si128((simde__m128i*)ctx.v10.u32, simde_mm_shuffle_epi32(simde_mm_load_si128((simde__m128i*)ctx.v0.u32), 0xFF));
 	// vspltw v9,v0,2
 	simde_mm_store_si128((simde__m128i*)ctx.v9.u32, simde_mm_shuffle_epi32(simde_mm_load_si128((simde__m128i*)ctx.v0.u32), 0x55));
 	// lvx128 v13,r0,r10
-	simde_mm_store_si128((simde__m128i*)ctx.v13.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r10.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.v13 = simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r10.u32) & ~0xF)), simde_mm_load_si128((simde__m128i*)VectorMaskL));
 	// vspltw v8,v0,3
 	simde_mm_store_si128((simde__m128i*)ctx.v8.u32, simde_mm_shuffle_epi32(simde_mm_load_si128((simde__m128i*)ctx.v0.u32), 0x0));
 	// lvx128 v12,r0,r9
-	simde_mm_store_si128((simde__m128i*)ctx.v12.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r9.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.v12 = simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r9.u32) & ~0xF)), simde_mm_load_si128((simde__m128i*)VectorMaskL));
 	// vspltw v7,v0,1
 	simde_mm_store_si128((simde__m128i*)ctx.v7.u32, simde_mm_shuffle_epi32(simde_mm_load_si128((simde__m128i*)ctx.v0.u32), 0xAA));
 	// vmulfp128 v10,v11,v10
@@ -30991,7 +30991,7 @@ loc_82B9DB84:
 	temp.u32 = PPC_LOAD_U32(ctx.r10.u32 + 1004);
 	ctx.f13.f64 = double(temp.f32);
 	// fmsubs f1,f12,f0,f13
-	ctx.f1.f64 = static_cast<float>(ctx.f12.f64 * ctx.f0.f64 - ctx.f13.f64);
+	ctx.f1.f64 = double(std::fma(float(ctx.f12.f64), float(ctx.f0.f64), -float(ctx.f13.f64)));
 loc_82B9DBA8:
 	// addi r1,r1,96
 	ctx.r1.s64 = ctx.r1.s64 + 96;
@@ -31334,7 +31334,7 @@ loc_82B9DDC8:
 	ctx.fpscr.disableFlushMode();
 	ctx.f0.f64 = double(float(ctx.f1.f64));
 	// fmsubs f0,f0,f24,f30
-	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 * ctx.f24.f64 - ctx.f30.f64);
+	ctx.f0.f64 = double(std::fma(float(ctx.f0.f64), float(ctx.f24.f64), -float(ctx.f30.f64)));
 	// b 0x82b9dde8
 	goto loc_82B9DDE8;
 loc_82B9DDDC:
@@ -31373,7 +31373,7 @@ loc_82B9DE04:
 	ctx.fpscr.disableFlushMode();
 	ctx.f0.f64 = double(float(ctx.f1.f64));
 	// fmsubs f0,f0,f22,f31
-	ctx.f0.f64 = static_cast<float>(ctx.f0.f64 * ctx.f22.f64 - ctx.f31.f64);
+	ctx.f0.f64 = double(std::fma(float(ctx.f0.f64), float(ctx.f22.f64), -float(ctx.f31.f64)));
 loc_82B9DE14:
 	// lfd f13,120(r1)
 	ctx.fpscr.disableFlushMode();
@@ -31381,7 +31381,7 @@ loc_82B9DE14:
 	// fmadd f0,f0,f14,f13
 	ctx.f0.f64 = ctx.f0.f64 * ctx.f14.f64 + ctx.f13.f64;
 	// fctiwz f0,f0
-	ctx.f0.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
+	ctx.f0.u64 = uint64_t(int32_t(std::trunc(ctx.f0.f64)));
 	// stfd f0,128(r1)
 	PPC_STORE_U64(ctx.r1.u32 + 128, ctx.f0.u64);
 	// lwz r11,132(r1)

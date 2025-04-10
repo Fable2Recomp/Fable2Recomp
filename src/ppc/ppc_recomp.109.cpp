@@ -25485,7 +25485,7 @@ PPC_FUNC_IMPL(__imp__sub_82BE1C40) {
 	temp.u32 = PPC_LOAD_U32(ctx.r3.u32 + 0);
 	ctx.f0.f64 = double(temp.f32);
 	// fctiwz f13,f0
-	ctx.f13.i64 = static_cast<int32_t>(std::trunc(ctx.f0.f64));
+	ctx.f13.u64 = uint64_t(int32_t(std::trunc(ctx.f0.f64)));
 	// stfd f13,80(r1)
 	PPC_STORE_U64(ctx.r1.u32 + 80, ctx.f13.u64);
 	// lwz r3,84(r1)
@@ -31771,7 +31771,7 @@ loc_82BE44A4:
 	// addi r8,r1,80
 	ctx.r8.s64 = ctx.r1.s64 + 80;
 	// lvx128 v0,r11,r3
-	simde_mm_store_si128((simde__m128i*)ctx.v0.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r3.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.v0 = simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r3.u32) & ~0xF)), simde_mm_load_si128((simde__m128i*)VectorMaskL));
 	// addi r28,r1,80
 	ctx.r28.s64 = ctx.r1.s64 + 80;
 	// lwz r7,4(r31)
@@ -31811,7 +31811,7 @@ loc_82BE44A4:
 	// fmuls f8,f13,f9
 	ctx.f8.f64 = double(float(ctx.f13.f64 * ctx.f9.f64));
 	// fmadds f7,f12,f11,f8
-	ctx.f7.f64 = static_cast<float>(ctx.f12.f64 * ctx.f11.f64 + ctx.f8.f64);
+	ctx.f7.f64 = double(std::fma(float(ctx.f12.f64), float(ctx.f11.f64), float(ctx.f8.f64)));
 	// addi r21,r1,112
 	ctx.r21.s64 = ctx.r1.s64 + 112;
 	// addi r20,r1,112
@@ -31823,12 +31823,12 @@ loc_82BE44A4:
 	ctx.r9.s64 = ctx.r9.s64 + -1;
 	ctx.cr0.compare<int32_t>(ctx.r9.s32, 0, ctx.xer);
 	// fmadds f6,f0,f10,f7
-	ctx.f6.f64 = static_cast<float>(ctx.f0.f64 * ctx.f10.f64 + ctx.f7.f64);
+	ctx.f6.f64 = double(std::fma(float(ctx.f0.f64), float(ctx.f10.f64), float(ctx.f7.f64)));
 	// stfsx f6,r7,r10
 	temp.f32 = float(ctx.f6.f64);
 	PPC_STORE_U32(ctx.r7.u32 + ctx.r10.u32, temp.u32);
 	// lvx128 v13,r0,r11
-	simde_mm_store_si128((simde__m128i*)ctx.v13.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.v13 = simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32) & ~0xF)), simde_mm_load_si128((simde__m128i*)VectorMaskL));
 	// lwz r7,4(r31)
 	ctx.r7.u64 = PPC_LOAD_U32(ctx.r31.u32 + 4);
 	// stvx128 v13,r0,r28
@@ -31853,14 +31853,14 @@ loc_82BE44A4:
 	// fmuls f2,f13,f3
 	ctx.f2.f64 = double(float(ctx.f13.f64 * ctx.f3.f64));
 	// fmadds f1,f12,f5,f2
-	ctx.f1.f64 = static_cast<float>(ctx.f12.f64 * ctx.f5.f64 + ctx.f2.f64);
+	ctx.f1.f64 = double(std::fma(float(ctx.f12.f64), float(ctx.f5.f64), float(ctx.f2.f64)));
 	// fmadds f11,f0,f4,f1
-	ctx.f11.f64 = static_cast<float>(ctx.f0.f64 * ctx.f4.f64 + ctx.f1.f64);
+	ctx.f11.f64 = double(std::fma(float(ctx.f0.f64), float(ctx.f4.f64), float(ctx.f1.f64)));
 	// stfs f11,4(r7)
 	temp.f32 = float(ctx.f11.f64);
 	PPC_STORE_U32(ctx.r7.u32 + 4, temp.u32);
 	// lvx128 v12,r11,r4
-	simde_mm_store_si128((simde__m128i*)ctx.v12.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r4.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.v12 = simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r4.u32) & ~0xF)), simde_mm_load_si128((simde__m128i*)VectorMaskL));
 	// lwz r7,4(r31)
 	ctx.r7.u64 = PPC_LOAD_U32(ctx.r31.u32 + 4);
 	// stvx128 v12,r0,r23
@@ -31883,14 +31883,14 @@ loc_82BE44A4:
 	// fmuls f7,f13,f8
 	ctx.f7.f64 = double(float(ctx.f13.f64 * ctx.f8.f64));
 	// fmadds f6,f12,f10,f7
-	ctx.f6.f64 = static_cast<float>(ctx.f12.f64 * ctx.f10.f64 + ctx.f7.f64);
+	ctx.f6.f64 = double(std::fma(float(ctx.f12.f64), float(ctx.f10.f64), float(ctx.f7.f64)));
 	// fmadds f5,f0,f9,f6
-	ctx.f5.f64 = static_cast<float>(ctx.f0.f64 * ctx.f9.f64 + ctx.f6.f64);
+	ctx.f5.f64 = double(std::fma(float(ctx.f0.f64), float(ctx.f9.f64), float(ctx.f6.f64)));
 	// stfs f5,-4(r7)
 	temp.f32 = float(ctx.f5.f64);
 	PPC_STORE_U32(ctx.r7.u32 + -4, temp.u32);
 	// lvx128 v11,r11,r5
-	simde_mm_store_si128((simde__m128i*)ctx.v11.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r5.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.v11 = simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r11.u32 + ctx.r5.u32) & ~0xF)), simde_mm_load_si128((simde__m128i*)VectorMaskL));
 	// lwz r7,4(r31)
 	ctx.r7.u64 = PPC_LOAD_U32(ctx.r31.u32 + 4);
 	// stvx128 v11,r0,r27
@@ -31913,9 +31913,9 @@ loc_82BE44A4:
 	// fmuls f1,f13,f2
 	ctx.f1.f64 = double(float(ctx.f13.f64 * ctx.f2.f64));
 	// fmadds f11,f12,f4,f1
-	ctx.f11.f64 = static_cast<float>(ctx.f12.f64 * ctx.f4.f64 + ctx.f1.f64);
+	ctx.f11.f64 = double(std::fma(float(ctx.f12.f64), float(ctx.f4.f64), float(ctx.f1.f64)));
 	// fmadds f10,f0,f3,f11
-	ctx.f10.f64 = static_cast<float>(ctx.f0.f64 * ctx.f3.f64 + ctx.f11.f64);
+	ctx.f10.f64 = double(std::fma(float(ctx.f0.f64), float(ctx.f3.f64), float(ctx.f11.f64)));
 	// stfsx f10,r7,r8
 	temp.f32 = float(ctx.f10.f64);
 	PPC_STORE_U32(ctx.r7.u32 + ctx.r8.u32, temp.u32);
@@ -31968,7 +31968,7 @@ loc_82BE45FC:
 	// addi r8,r1,80
 	ctx.r8.s64 = ctx.r1.s64 + 80;
 	// lvx128 v0,r0,r10
-	simde_mm_store_si128((simde__m128i*)ctx.v0.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r10.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.v0 = simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r10.u32) & ~0xF)), simde_mm_load_si128((simde__m128i*)VectorMaskL));
 	// addi r7,r1,96
 	ctx.r7.s64 = ctx.r1.s64 + 96;
 	// lwz r6,4(r31)
@@ -32000,9 +32000,9 @@ loc_82BE45FC:
 	// fmuls f8,f13,f9
 	ctx.f8.f64 = double(float(ctx.f13.f64 * ctx.f9.f64));
 	// fmadds f7,f12,f11,f8
-	ctx.f7.f64 = static_cast<float>(ctx.f12.f64 * ctx.f11.f64 + ctx.f8.f64);
+	ctx.f7.f64 = double(std::fma(float(ctx.f12.f64), float(ctx.f11.f64), float(ctx.f8.f64)));
 	// fmadds f6,f0,f10,f7
-	ctx.f6.f64 = static_cast<float>(ctx.f0.f64 * ctx.f10.f64 + ctx.f7.f64);
+	ctx.f6.f64 = double(std::fma(float(ctx.f0.f64), float(ctx.f10.f64), float(ctx.f7.f64)));
 	// stfsx f6,r6,r9
 	temp.f32 = float(ctx.f6.f64);
 	PPC_STORE_U32(ctx.r6.u32 + ctx.r9.u32, temp.u32);
@@ -32016,7 +32016,7 @@ loc_82BE4648:
 	// li r0,-128
 	ctx.r0.s64 = -128;
 	// lvx128 v127,r1,r0
-	simde_mm_store_si128((simde__m128i*)ctx.v127.u8, simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r1.u32 + ctx.r0.u32) & ~0xF))), simde_mm_load_si128((simde__m128i*)VectorMaskL)));
+	ctx.v127 = simde_mm_shuffle_epi8(simde_mm_load_si128((simde__m128i*)(base + ((ctx.r1.u32 + ctx.r0.u32) & ~0xF)), simde_mm_load_si128((simde__m128i*)VectorMaskL));
 	// b 0x82ca2c18
 	__restgprlr_20(ctx, base);
 	return;
@@ -39103,7 +39103,7 @@ loc_82BE7638:
 	// fmuls f10,f0,f11
 	ctx.f10.f64 = double(float(ctx.f0.f64 * ctx.f11.f64));
 	// fctiwz f9,f10
-	ctx.f9.i64 = static_cast<int32_t>(std::trunc(ctx.f10.f64));
+	ctx.f9.u64 = uint64_t(int32_t(std::trunc(ctx.f10.f64)));
 	// stfd f9,80(r1)
 	PPC_STORE_U64(ctx.r1.u32 + 80, ctx.f9.u64);
 	// lwz r11,84(r1)
@@ -44023,53 +44023,53 @@ loc_82BE976C:
 	// bctr 
 	switch (ctx.r30.u64) {
 	case 0:
-		// ERROR: 0x82BE979C
-		return;
+		// WARNING: Target 0x82BE979C is outside current function but inside image
+		goto loc_82BE979C;
 	case 1:
-		// ERROR: 0x82BE97D8
-		return;
+		// WARNING: Target 0x82BE97D8 is outside current function but inside image
+		goto loc_82BE97D8;
 	case 2:
-		// ERROR: 0x82BE9824
-		return;
+		// WARNING: Target 0x82BE9824 is outside current function but inside image
+		goto loc_82BE9824;
 	case 3:
-		// ERROR: 0x82BE984C
-		return;
+		// WARNING: Target 0x82BE984C is outside current function but inside image
+		goto loc_82BE984C;
 	case 4:
-		// ERROR: 0x82BE98D0
-		return;
+		// WARNING: Target 0x82BE98D0 is outside current function but inside image
+		goto loc_82BE98D0;
 	case 5:
-		// ERROR: 0x82BE98F8
-		return;
+		// WARNING: Target 0x82BE98F8 is outside current function but inside image
+		goto loc_82BE98F8;
 	case 6:
-		// ERROR: 0x82BE9928
-		return;
+		// WARNING: Target 0x82BE9928 is outside current function but inside image
+		goto loc_82BE9928;
 	case 7:
-		// ERROR: 0x82BE9958
-		return;
+		// WARNING: Target 0x82BE9958 is outside current function but inside image
+		goto loc_82BE9958;
 	case 8:
-		// ERROR: 0x82BE9A24
-		return;
+		// WARNING: Target 0x82BE9A24 is outside current function but inside image
+		goto loc_82BE9A24;
 	case 9:
-		// ERROR: 0x82BE9AE0
-		return;
+		// WARNING: Target 0x82BE9AE0 is outside current function but inside image
+		goto loc_82BE9AE0;
 	case 10:
-		// ERROR: 0x82BE9BE8
-		return;
+		// WARNING: Target 0x82BE9BE8 is outside current function but inside image
+		goto loc_82BE9BE8;
 	case 11:
-		// ERROR: 0x82BE9C10
-		return;
+		// WARNING: Target 0x82BE9C10 is outside current function but inside image
+		goto loc_82BE9C10;
 	case 12:
-		// ERROR: 0x82BE9D84
-		return;
+		// WARNING: Target 0x82BE9D84 is outside current function but inside image
+		goto loc_82BE9D84;
 	case 13:
-		// ERROR: 0x82BE9E30
-		return;
+		// WARNING: Target 0x82BE9E30 is outside current function but inside image
+		goto loc_82BE9E30;
 	case 14:
-		// ERROR: 0x82BE9EA8
-		return;
+		// WARNING: Target 0x82BE9EA8 is outside current function but inside image
+		goto loc_82BE9EA8;
 	case 15:
-		// ERROR: 0x82BE9ED0
-		return;
+		// WARNING: Target 0x82BE9ED0 is outside current function but inside image
+		goto loc_82BE9ED0;
 	default:
 		__builtin_unreachable();
 	}
