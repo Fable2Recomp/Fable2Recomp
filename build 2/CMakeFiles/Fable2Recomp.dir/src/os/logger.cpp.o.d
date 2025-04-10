@@ -536,8 +536,8 @@ CMakeFiles/Fable2Recomp.dir/src/os/logger.cpp.o: \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/detail/type_half.inl \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/integer.hpp \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/glm/glm/detail/func_integer.inl \
- /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/tinyxml2/tinyxml2.h \
- /usr/include/gtest/gtest.h /usr/include/gtest/gtest-assertion-result.h \
+ /usr/include/tinyxml2.h /usr/include/gtest/gtest.h \
+ /usr/include/gtest/gtest-assertion-result.h \
  /usr/include/gtest/gtest-message.h \
  /usr/include/gtest/internal/gtest-port.h /usr/include/c++/13/iostream \
  /usr/include/x86_64-linux-gnu/sys/stat.h \
