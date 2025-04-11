@@ -52,6 +52,13 @@
 #include <gtest/gtest.h>
 #include <spdlog/spdlog.h>
 
+// SIMDe (cross-platform SIMD abstraction)
+#include <simde/x86/sse.h>
+#include <simde/x86/sse2.h>
+#include <simde/x86/sse4.1.h>
+#include <simde/simde-math.h>
+
+
 // Project includes
 #include "os/logger.h"
 #include "os/os.h"
