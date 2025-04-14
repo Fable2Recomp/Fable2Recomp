@@ -1,3 +1,0 @@
-/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build 2/CMakeFiles/Fable2Recomp.dir
-/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build 2/CMakeFiles/edit_cache.dir
-/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build 2/CMakeFiles/rebuild_cache.dir

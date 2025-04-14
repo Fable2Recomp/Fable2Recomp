@@ -21,7 +21,7 @@
 #include <simde/x86/sse.h>        // SSE and SSE2
 #include <simde/x86/sse2.h>       // SSE2 (explicit)
 #include <simde/x86/sse4.1.h>     // SSE4.1 (needed for blend/shuffle/etc)
-#include <simde/math.h>           // For simde_math_recipf, simde_math_sqrtf, etc.
+#include <simde/simde-math.h>           // For simde_math_recipf, simde_math_sqrtf, etc.
 
 // SSE3 constants are missing from simde
 #ifndef _MM_DENORMALS_ZERO_MASK
