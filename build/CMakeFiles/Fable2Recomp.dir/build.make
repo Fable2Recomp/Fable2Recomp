@@ -316,6 +316,7 @@ Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/cpu/ppc_recomp.cpp.o
 Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/cpu/ppc_integration.cpp.o
 Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/os/logger.cpp.o
 Fable2Recomp: CMakeFiles/Fable2Recomp.dir/build.make
+Fable2Recomp: extern/SDL3/libSDL3.a
 Fable2Recomp: CMakeFiles/Fable2Recomp.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable Fable2Recomp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Fable2Recomp.dir/link.txt --verbose=$(VERBOSE)

@@ -14,6 +14,17 @@
 # EXTERNAL cache entries
 ########################
 
+//The ALSA (asound) include directory
+ALSA_INCLUDE_DIR:PATH=/usr/include
+
+//The ALSA (asound) library
+ALSA_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libasound.so
+
+//Path to a library.
+ASOUND_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libasound.so
+
+BUILD_SHARED_LIBS:BOOL=OFF
+
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
 
@@ -103,8 +114,56 @@ CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=
 //Value Computed by CMake.
 CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles/pkgRedirects
 
+//User executables (bin)
+CMAKE_INSTALL_BINDIR:PATH=bin
+
+//Read-only architecture-independent data (DATAROOTDIR)
+CMAKE_INSTALL_DATADIR:PATH=
+
+//Read-only architecture-independent data root (share)
+CMAKE_INSTALL_DATAROOTDIR:PATH=share
+
+//Documentation root (DATAROOTDIR/doc/PROJECT_NAME)
+CMAKE_INSTALL_DOCDIR:PATH=
+
+//C header files (include)
+CMAKE_INSTALL_INCLUDEDIR:PATH=include
+
+//Info documentation (DATAROOTDIR/info)
+CMAKE_INSTALL_INFODIR:PATH=
+
+//Object code libraries (lib)
+CMAKE_INSTALL_LIBDIR:PATH=lib
+
+//Program executables (libexec)
+CMAKE_INSTALL_LIBEXECDIR:PATH=libexec
+
+//Locale-dependent data (DATAROOTDIR/locale)
+CMAKE_INSTALL_LOCALEDIR:PATH=
+
+//Modifiable single-machine data (var)
+CMAKE_INSTALL_LOCALSTATEDIR:PATH=var
+
+//Man documentation (DATAROOTDIR/man)
+CMAKE_INSTALL_MANDIR:PATH=
+
+//C header files for non-gcc (/usr/include)
+CMAKE_INSTALL_OLDINCLUDEDIR:PATH=/usr/include
+
 //Install path prefix, prepended onto install directories.
 CMAKE_INSTALL_PREFIX:PATH=/usr/local
+
+//Run-time variable data (LOCALSTATEDIR/run)
+CMAKE_INSTALL_RUNSTATEDIR:PATH=
+
+//System admin executables (sbin)
+CMAKE_INSTALL_SBINDIR:PATH=sbin
+
+//Modifiable architecture-independent data (com)
+CMAKE_INSTALL_SHAREDSTATEDIR:PATH=com
+
+//Read-only single-machine data (etc)
+CMAKE_INSTALL_SYSCONFDIR:PATH=etc
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=/usr/bin/ld
@@ -149,6 +208,21 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
 CMAKE_PROJECT_NAME:STATIC=Fable2Recomp
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION:STATIC=3.3.0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MAJOR:STATIC=3
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MINOR:STATIC=3
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_PATCH:STATIC=0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_TWEAK:STATIC=
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -215,6 +289,24 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Path to a library.
+DECOR_0_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libdecor-0.so
+
+//Path to a library.
+DRM_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libdrm.so
+
+//Path to a file.
+FREETYPE_INCLUDE_DIR_freetype2:PATH=/usr/include/freetype2
+
+//Path to a file.
+FREETYPE_INCLUDE_DIR_ft2build:PATH=/usr/include/freetype2
+
+//Path to a library.
+FREETYPE_LIBRARY_DEBUG:FILEPATH=FREETYPE_LIBRARY_DEBUG-NOTFOUND
+
+//Path to a library.
+FREETYPE_LIBRARY_RELEASE:FILEPATH=/usr/lib/x86_64-linux-gnu/libfreetype.so
+
 //Value Computed by CMake
 Fable2Recomp_BINARY_DIR:STATIC=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build
 
@@ -224,11 +316,971 @@ Fable2Recomp_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 Fable2Recomp_SOURCE_DIR:STATIC=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp
 
+//Path to a file.
+Fontconfig_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a library.
+Fontconfig_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libfontconfig.so
+
+//Path to a library.
+GBM_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libgbm.so
+
+//Git command line client
+GIT_EXECUTABLE:FILEPATH=/usr/bin/git
+
+//Path to a file.
+HAVE_LIBURING_H:PATH=HAVE_LIBURING_H-NOTFOUND
+
+//Path to a file.
+HAVE_XCURSOR_H:FILEPATH=/usr/include/X11/Xcursor/Xcursor.h
+
+//Path to a file.
+HAVE_XDBE_H:FILEPATH=/usr/include/X11/extensions/Xdbe.h
+
+//Path to a file.
+HAVE_XEXT_H:FILEPATH=/usr/include/X11/extensions/Xext.h
+
+//Path to a file.
+HAVE_XFIXES_H_:FILEPATH=/usr/include/X11/extensions/Xfixes.h
+
+//Path to a file.
+HAVE_XINPUT2_H:FILEPATH=/usr/include/X11/extensions/XInput2.h
+
+//Path to a file.
+HAVE_XRANDR_H:FILEPATH=/usr/include/X11/extensions/Xrandr.h
+
+//Path to a file.
+HAVE_XRENDER_H:FILEPATH=/usr/include/X11/extensions/Xrender.h
+
+//Path to a file.
+HAVE_XSHAPE_H:FILEPATH=/usr/include/X11/extensions/shape.h
+
+//Path to a file.
+HAVE_XSS_H:FILEPATH=/usr/include/X11/extensions/scrnsaver.h
+
+//Path to a file.
+HAVE_XSYNC_H:FILEPATH=/usr/include/X11/extensions/sync.h
+
+//Path to a file.
+HAVE_XTEST_H:FILEPATH=/usr/include/X11/extensions/XTest.h
+
+//Extra compile options of LibUSB
+LibUSB_COMPILE_OPTIONS:STRING=
+
+//Path to a file.
+LibUSB_INCLUDE_PATH:PATH=/usr/include/libusb-1.0
+
+//Path to a library.
+LibUSB_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libusb-1.0.so
+
+//Extra link flags of LibUSB
+LibUSB_LINK_FLAGS:STRING=
+
+//Extra link libraries of LibUSB
+LibUSB_LINK_LIBRARIES:STRING=
+
+//Path to a file.
+OPENGL_EGL_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a file.
+OPENGL_GLES2_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a file.
+OPENGL_GLES3_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a file.
+OPENGL_GLX_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a file.
+OPENGL_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a library.
+OPENGL_egl_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libEGL.so
+
+//Path to a library.
+OPENGL_gles2_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libGLESv2.so
+
+//Path to a library.
+OPENGL_gles3_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libGLESv2.so
+
+//Path to a library.
+OPENGL_glu_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libGLU.so
+
+//Path to a library.
+OPENGL_glx_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libGLX.so
+
+//Path to a library.
+OPENGL_opengl_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libOpenGL.so
+
+//Path to a file.
+OPENGL_xmesa_INCLUDE_DIR:PATH=OPENGL_xmesa_INCLUDE_DIR-NOTFOUND
+
+//Path to a library.
+PIPEWIRE_0.3_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libpipewire-0.3.so
+
 //Arguments to supply to pkg-config
 PKG_CONFIG_ARGN:STRING=
 
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
+
+//Path to a library.
+PULSE_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libpulse.so
+
+//Value Computed by CMake
+SDL3_BINARY_DIR:STATIC=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/extern/SDL3
+
+SDL3_DISABLE_INSTALL:BOOL=ON
+
+SDL3_DISABLE_SHARED:BOOL=ON
+
+SDL3_DISABLE_STATIC:BOOL=OFF
+
+//Value Computed by CMake
+SDL3_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+SDL3_SOURCE_DIR:STATIC=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/SDL3
+
+//Support the ALSA audio API
+SDL_ALSA:BOOL=ON
+
+//Dynamically load ALSA audio support
+SDL_ALSA_SHARED:BOOL=ON
+
+//Use AddressSanitizer to detect memory errors
+SDL_ASAN:BOOL=OFF
+
+//Enable assembly routines
+SDL_ASSEMBLY:BOOL=ON
+
+//Enable internal sanity checks (auto/disabled/release/enabled/paranoid)
+SDL_ASSERTIONS:STRING=auto
+
+//Enable the Audio subsystem
+SDL_AUDIO:BOOL=ON
+
+//Use AVX assembly routines
+SDL_AVX:BOOL=ON
+
+//Use AVX2 assembly routines
+SDL_AVX2:BOOL=ON
+
+//Use AVX512F assembly routines
+SDL_AVX512F:BOOL=ON
+
+//number to use for magic backgrounding signal or 'OFF'
+SDL_BACKGROUNDING_SIGNAL:STRING=OFF
+
+//Enable the Camera subsystem
+SDL_CAMERA:BOOL=ON
+
+//Use Ccache to speed up build
+SDL_CCACHE:BOOL=OFF
+
+//Extra includes (for CMAKE_REQUIRED_INCLUDES)
+SDL_CHECK_REQUIRED_INCLUDES:STRING=
+
+//Extra link options (for CMAKE_REQUIRED_LINK_OPTIONS)
+SDL_CHECK_REQUIRED_LINK_OPTIONS:STRING=
+
+//Run clang-tidy static analysis
+SDL_CLANG_TIDY:BOOL=OFF
+
+//Use clock_gettime() instead of gettimeofday()
+SDL_CLOCK_GETTIME:BOOL=ON
+
+//Linker identification
+SDL_CMAKE_C_COMPILER_LINKER_ID:STRING=GNUlike
+
+//Detected architecture ARM32
+SDL_CPU_ARM32:BOOL=0
+
+//Detected architecture ARM64
+SDL_CPU_ARM64:BOOL=0
+
+//Detected architecture ARM64EC
+SDL_CPU_ARM64EC:BOOL=0
+
+//Detected architecture EMSCRIPTEN
+SDL_CPU_EMSCRIPTEN:BOOL=0
+
+//Detected architecture LOONGARCH64
+SDL_CPU_LOONGARCH64:BOOL=0
+
+//Detected architecture POWERPC32
+SDL_CPU_POWERPC32:BOOL=0
+
+//Detected architecture POWERPC64
+SDL_CPU_POWERPC64:BOOL=0
+
+//Detected architecture X64
+SDL_CPU_X64:BOOL=1
+
+//Detected architecture X86
+SDL_CPU_X86:BOOL=0
+
+//Enable D-Bus support
+SDL_DBUS:BOOL=ON
+
+//Load dependencies dynamically
+SDL_DEPS_SHARED:BOOL=ON
+
+//Enable the Dialog subsystem
+SDL_DIALOG:BOOL=ON
+
+//Support the disk writer audio driver
+SDL_DISKAUDIO:BOOL=ON
+
+//Support the dummy audio driver
+SDL_DUMMYAUDIO:BOOL=ON
+
+//Support the dummy camera driver
+SDL_DUMMYCAMERA:BOOL=ON
+
+//Use dummy video driver
+SDL_DUMMYVIDEO:BOOL=ON
+
+//Build the examples directory
+SDL_EXAMPLES:BOOL=OFF
+
+//number to use for magic foregrounding signal or 'OFF'
+SDL_FOREGROUNDING_SIGNAL:STRING=OFF
+
+//Use gcc builtin atomics
+SDL_GCC_ATOMICS:BOOL=ON
+
+//Enable the GPU subsystem
+SDL_GPU:BOOL=ON
+
+//Build SDL_GPU with DXVK support
+SDL_GPU_DXVK:BOOL=OFF
+
+//Enable the Haptic subsystem
+SDL_HAPTIC:BOOL=ON
+
+//Enable the HIDAPI subsystem
+SDL_HIDAPI:BOOL=ON
+
+//Use HIDAPI for low level joystick drivers
+SDL_HIDAPI_JOYSTICK:BOOL=ON
+
+//Use libusb for low level joystick drivers
+SDL_HIDAPI_LIBUSB:BOOL=ON
+
+//Dynamically load libusb support
+SDL_HIDAPI_LIBUSB_SHARED:BOOL=ON
+
+//Enable IBus support
+SDL_IBUS:BOOL=ON
+
+//Enable installation of SDL3
+SDL_INSTALL:BOOL=OFF
+
+//Root folder where to install SDL3Config.cmake related files (SDL3
+// subfolder for MSVC projects)
+SDL_INSTALL_CMAKEDIR_ROOT:STRING=lib/cmake/SDL3
+
+//Support the JACK audio API
+SDL_JACK:BOOL=ON
+
+//Dynamically load JACK audio support
+SDL_JACK_SHARED:BOOL=ON
+
+//Enable the Joystick subsystem
+SDL_JOYSTICK:BOOL=ON
+
+//Use KMS DRM video driver
+SDL_KMSDRM:BOOL=ON
+
+//Dynamically load KMS DRM support
+SDL_KMSDRM_SHARED:BOOL=ON
+
+//Use the system C library
+SDL_LIBC:BOOL=ON
+
+//Prefer iconv() from libiconv, if available, over libc version
+SDL_LIBICONV:BOOL=OFF
+
+//Enable libudev support
+SDL_LIBUDEV:BOOL=ON
+
+//Enable liburing support
+SDL_LIBURING:BOOL=ON
+
+//Use MMX assembly routines
+SDL_MMX:BOOL=ON
+
+//Use offscreen video driver
+SDL_OFFSCREEN:BOOL=ON
+
+//Include OpenGL support
+SDL_OPENGL:BOOL=ON
+
+//Include OpenGL ES support
+SDL_OPENGLES:BOOL=ON
+
+//Use OpenVR video driver
+SDL_OPENVR:BOOL=OFF
+
+//Support the OSS audio API
+SDL_OSS:BOOL=OFF
+
+//Use Pipewire audio
+SDL_PIPEWIRE:BOOL=ON
+
+//Dynamically load Pipewire support
+SDL_PIPEWIRE_SHARED:BOOL=ON
+
+//Enable the Power subsystem
+SDL_POWER:BOOL=ON
+
+//Use POSIX threads for multi-threading
+SDL_PTHREADS:BOOL=ON
+
+//Use pthread semaphores
+SDL_PTHREADS_SEM:BOOL=ON
+
+//Use PulseAudio
+SDL_PULSEAUDIO:BOOL=ON
+
+//Dynamically load PulseAudio support
+SDL_PULSEAUDIO_SHARED:BOOL=ON
+
+//Enable the Render subsystem
+SDL_RENDER:BOOL=ON
+
+//Enable the SDL_GPU render driver
+SDL_RENDER_GPU:BOOL=ON
+
+//Enable the Metal render driver
+SDL_RENDER_METAL:BOOL=ON
+
+//Enable the Vulkan render driver
+SDL_RENDER_VULKAN:BOOL=ON
+
+//Custom SDL revision (only used when REVISION.txt does not exist)
+SDL_REVISION:STRING=
+
+//Use an rpath when linking SDL
+SDL_RPATH:BOOL=ON
+
+//Enable the Sensor subsystem
+SDL_SENSOR:BOOL=ON
+
+//Build a shared version of the library
+SDL_SHARED:BOOL=OFF
+
+//Support the sndio audio API
+SDL_SNDIO:BOOL=ON
+
+//Dynamically load the sndio audio API
+SDL_SNDIO_SHARED:BOOL=ON
+
+//Use SSE assembly routines
+SDL_SSE:BOOL=ON
+
+//Use SSE2 assembly routines
+SDL_SSE2:BOOL=ON
+
+//Use SSE3 assembly routines
+SDL_SSE3:BOOL=ON
+
+//Use SSE4.1 assembly routines
+SDL_SSE4_1:BOOL=ON
+
+//Use SSE4.2 assembly routines
+SDL_SSE4_2:BOOL=ON
+
+//Build a static version of the library
+SDL_STATIC:BOOL=ON
+
+//Use iconv() from system-installed libraries
+SDL_SYSTEM_ICONV:BOOL=ON
+
+SDL_TEST:BOOL=OFF
+
+//Build the test directory
+SDL_TESTS:BOOL=OFF
+
+//Timeout multiplier to account for really slow machines
+SDL_TESTS_TIMEOUT_MULTIPLIER:STRING=1
+
+//Build the SDL3_test library
+SDL_TEST_LIBRARY:BOOL=ON
+
+//Enable uninstallation of SDL3
+SDL_UNINSTALL:BOOL=OFF
+
+//Vendor name and/or version to add to SDL_REVISION
+SDL_VENDOR_INFO:STRING=
+
+//Enable the Video subsystem
+SDL_VIDEO:BOOL=ON
+
+//Enable the virtual-joystick driver
+SDL_VIRTUAL_JOYSTICK:BOOL=ON
+
+//Enable Vulkan support
+SDL_VULKAN:BOOL=ON
+
+//Use Wayland video driver
+SDL_WAYLAND:BOOL=ON
+
+//Use client-side window decorations on Wayland
+SDL_WAYLAND_LIBDECOR:BOOL=ON
+
+//Dynamically load libdecor support
+SDL_WAYLAND_LIBDECOR_SHARED:BOOL=ON
+
+//Dynamically load Wayland support
+SDL_WAYLAND_SHARED:BOOL=ON
+
+//Enable -Werror
+SDL_WERROR:BOOL=OFF
+
+//Use X11 video driver
+SDL_X11:BOOL=ON
+
+//Dynamically load X11 support
+SDL_X11_SHARED:BOOL=ON
+
+//Enable Xcursor support
+SDL_X11_XCURSOR:BOOL=ON
+
+//Enable Xdbe support
+SDL_X11_XDBE:BOOL=ON
+
+//Enable Xfixes support
+SDL_X11_XFIXES:BOOL=ON
+
+//Enable XInput support
+SDL_X11_XINPUT:BOOL=ON
+
+//Enable Xrandr support
+SDL_X11_XRANDR:BOOL=ON
+
+//Enable Xscrnsaver support
+SDL_X11_XSCRNSAVER:BOOL=ON
+
+//Enable XShape support
+SDL_X11_XSHAPE:BOOL=ON
+
+//Enable Xsync support
+SDL_X11_XSYNC:BOOL=ON
+
+//Enable XTest support
+SDL_X11_XTEST:BOOL=ON
+
+//Path to a library.
+SNDIO_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libsndio.so
+
+//Path to a library.
+UDEV_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libudev.so
+
+//Path to a library.
+WAYLAND_CLIENT_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libwayland-client.so
+
+//Path to a library.
+WAYLAND_CURSOR_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libwayland-cursor.so
+
+//Path to a library.
+WAYLAND_EGL_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libwayland-egl.so
+
+//Path to a program.
+WAYLAND_SCANNER:FILEPATH=/usr/bin/wayland-scanner
+
+//Path to a file.
+X11_ICE_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a library.
+X11_ICE_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libICE.so
+
+//Path to a file.
+X11_INCLUDEDIR:PATH=/usr/include
+
+//Path to a library.
+X11_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libX11.so
+
+//Path to a file.
+X11_SM_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a library.
+X11_SM_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libSM.so
+
+//Path to a file.
+X11_X11_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a library.
+X11_X11_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libX11.so
+
+//Path to a file.
+X11_X11_xcb_INCLUDE_PATH:PATH=X11_X11_xcb_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_X11_xcb_LIB:FILEPATH=X11_X11_xcb_LIB-NOTFOUND
+
+//Path to a file.
+X11_XRes_INCLUDE_PATH:PATH=X11_XRes_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_XRes_LIB:FILEPATH=X11_XRes_LIB-NOTFOUND
+
+//Path to a file.
+X11_XShm_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a file.
+X11_XSync_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a file.
+X11_Xaccessrules_INCLUDE_PATH:PATH=X11_Xaccessrules_INCLUDE_PATH-NOTFOUND
+
+//Path to a file.
+X11_Xaccessstr_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a file.
+X11_Xau_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a library.
+X11_Xau_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libXau.so
+
+//Path to a file.
+X11_Xaw_INCLUDE_PATH:PATH=X11_Xaw_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_Xaw_LIB:FILEPATH=X11_Xaw_LIB-NOTFOUND
+
+//Path to a file.
+X11_Xcomposite_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a library.
+X11_Xcomposite_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libXcomposite.so
+
+//Path to a file.
+X11_Xcursor_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a library.
+X11_Xcursor_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libXcursor.so
+
+//Path to a file.
+X11_Xdamage_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a library.
+X11_Xdamage_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libXdamage.so
+
+//Path to a file.
+X11_Xdmcp_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a library.
+X11_Xdmcp_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libXdmcp.so
+
+//Path to a file.
+X11_Xext_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a library.
+X11_Xext_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libXext.so
+
+//Path to a file.
+X11_Xfixes_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a library.
+X11_Xfixes_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libXfixes.so
+
+//Path to a file.
+X11_Xft_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a library.
+X11_Xft_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libXft.so
+
+//Path to a file.
+X11_Xi_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a library.
+X11_Xi_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libXi.so
+
+//Path to a file.
+X11_Xinerama_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a library.
+X11_Xinerama_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libXinerama.so
+
+//Path to a file.
+X11_Xkb_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a file.
+X11_Xkblib_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a file.
+X11_Xlib_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a file.
+X11_Xmu_INCLUDE_PATH:PATH=X11_Xmu_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_Xmu_LIB:FILEPATH=X11_Xmu_LIB-NOTFOUND
+
+//Path to a file.
+X11_Xpm_INCLUDE_PATH:PATH=X11_Xpm_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_Xpm_LIB:FILEPATH=X11_Xpm_LIB-NOTFOUND
+
+//Path to a file.
+X11_Xrandr_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a library.
+X11_Xrandr_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libXrandr.so
+
+//Path to a file.
+X11_Xrender_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a library.
+X11_Xrender_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libXrender.so
+
+//Path to a file.
+X11_Xshape_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a file.
+X11_Xss_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a library.
+X11_Xss_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libXss.so
+
+//Path to a file.
+X11_Xt_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a library.
+X11_Xt_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libXt.so
+
+//Path to a file.
+X11_Xtst_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a library.
+X11_Xtst_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libXtst.so
+
+//Path to a file.
+X11_Xutil_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a file.
+X11_Xv_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a library.
+X11_Xv_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libXv.so
+
+//Path to a file.
+X11_Xxf86misc_INCLUDE_PATH:PATH=X11_Xxf86misc_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_Xxf86misc_LIB:FILEPATH=X11_Xxf86misc_LIB-NOTFOUND
+
+//Path to a file.
+X11_Xxf86vm_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a library.
+X11_Xxf86vm_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libXxf86vm.so
+
+//Path to a file.
+X11_dpms_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a file.
+X11_xcb_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a library.
+X11_xcb_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libxcb.so
+
+//Path to a file.
+X11_xcb_composite_INCLUDE_PATH:PATH=X11_xcb_composite_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_composite_LIB:FILEPATH=X11_xcb_composite_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_cursor_INCLUDE_PATH:PATH=X11_xcb_cursor_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_cursor_LIB:FILEPATH=X11_xcb_cursor_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_damage_INCLUDE_PATH:PATH=X11_xcb_damage_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_damage_LIB:FILEPATH=X11_xcb_damage_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_dpms_INCLUDE_PATH:PATH=X11_xcb_dpms_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_dpms_LIB:FILEPATH=X11_xcb_dpms_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_dri2_INCLUDE_PATH:PATH=X11_xcb_dri2_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_dri2_LIB:FILEPATH=X11_xcb_dri2_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_dri3_INCLUDE_PATH:PATH=X11_xcb_dri3_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_dri3_LIB:FILEPATH=X11_xcb_dri3_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_errors_INCLUDE_PATH:PATH=X11_xcb_errors_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_errors_LIB:FILEPATH=X11_xcb_errors_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_ewmh_INCLUDE_PATH:PATH=X11_xcb_ewmh_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_ewmh_LIB:FILEPATH=X11_xcb_ewmh_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_glx_INCLUDE_PATH:PATH=X11_xcb_glx_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_glx_LIB:FILEPATH=X11_xcb_glx_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_icccm_INCLUDE_PATH:PATH=X11_xcb_icccm_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_icccm_LIB:FILEPATH=X11_xcb_icccm_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_image_INCLUDE_PATH:PATH=X11_xcb_image_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_image_LIB:FILEPATH=X11_xcb_image_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_keysyms_INCLUDE_PATH:PATH=X11_xcb_keysyms_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_keysyms_LIB:FILEPATH=X11_xcb_keysyms_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_present_INCLUDE_PATH:PATH=X11_xcb_present_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_present_LIB:FILEPATH=X11_xcb_present_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_randr_INCLUDE_PATH:PATH=X11_xcb_randr_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_randr_LIB:FILEPATH=X11_xcb_randr_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_record_INCLUDE_PATH:PATH=X11_xcb_record_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_record_LIB:FILEPATH=X11_xcb_record_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_render_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a library.
+X11_xcb_render_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libxcb-render.so
+
+//Path to a file.
+X11_xcb_render_util_INCLUDE_PATH:PATH=X11_xcb_render_util_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_render_util_LIB:FILEPATH=X11_xcb_render_util_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_res_INCLUDE_PATH:PATH=X11_xcb_res_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_res_LIB:FILEPATH=X11_xcb_res_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_screensaver_INCLUDE_PATH:PATH=X11_xcb_screensaver_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_screensaver_LIB:FILEPATH=X11_xcb_screensaver_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_shape_INCLUDE_PATH:PATH=X11_xcb_shape_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_shape_LIB:FILEPATH=X11_xcb_shape_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_shm_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a library.
+X11_xcb_shm_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libxcb-shm.so
+
+//Path to a file.
+X11_xcb_sync_INCLUDE_PATH:PATH=X11_xcb_sync_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_sync_LIB:FILEPATH=X11_xcb_sync_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_util_INCLUDE_PATH:PATH=X11_xcb_util_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_util_LIB:FILEPATH=X11_xcb_util_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_xf86dri_INCLUDE_PATH:PATH=X11_xcb_xf86dri_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_xf86dri_LIB:FILEPATH=X11_xcb_xf86dri_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_xfixes_INCLUDE_PATH:PATH=X11_xcb_xfixes_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_xfixes_LIB:FILEPATH=X11_xcb_xfixes_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_xinerama_INCLUDE_PATH:PATH=X11_xcb_xinerama_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_xinerama_LIB:FILEPATH=X11_xcb_xinerama_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_xinput_INCLUDE_PATH:PATH=X11_xcb_xinput_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_xinput_LIB:FILEPATH=X11_xcb_xinput_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_xkb_INCLUDE_PATH:PATH=X11_xcb_xkb_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_xkb_LIB:FILEPATH=X11_xcb_xkb_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_xrm_INCLUDE_PATH:PATH=X11_xcb_xrm_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_xrm_LIB:FILEPATH=X11_xcb_xrm_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_xtest_INCLUDE_PATH:PATH=X11_xcb_xtest_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_xtest_LIB:FILEPATH=X11_xcb_xtest_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_xv_INCLUDE_PATH:PATH=X11_xcb_xv_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_xv_LIB:FILEPATH=X11_xcb_xv_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_xvmc_INCLUDE_PATH:PATH=X11_xcb_xvmc_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_xvmc_LIB:FILEPATH=X11_xcb_xvmc_LIB-NOTFOUND
+
+//Path to a file.
+X11_xkbcommon_INCLUDE_PATH:PATH=/usr/include
+
+//Path to a library.
+X11_xkbcommon_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libxkbcommon.so
+
+//Path to a file.
+X11_xkbcommon_X11_INCLUDE_PATH:PATH=X11_xkbcommon_X11_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xkbcommon_X11_LIB:FILEPATH=X11_xkbcommon_X11_LIB-NOTFOUND
+
+//Path to a file.
+X11_xkbfile_INCLUDE_PATH:PATH=X11_xkbfile_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xkbfile_LIB:FILEPATH=X11_xkbfile_LIB-NOTFOUND
+
+//Path to a library.
+XCURSOR_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libXcursor.so
+
+//Path to a library.
+XEXT_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libXext.so
+
+//Path to a library.
+XFIXES_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libXfixes.so
+
+//Path to a library.
+XI_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libXi.so
+
+//Path to a library.
+XKBCOMMON_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libxkbcommon.so
+
+//Path to a library.
+XRANDR_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libXrandr.so
+
+//Path to a library.
+XRENDER_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libXrender.so
+
+//Path to a library.
+XSS_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libXss.so
+
+//Path to a library.
+XTST_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libXtst.so
+
+//Path to a library.
+pkgcfg_lib_DBUS_dbus-1:FILEPATH=/usr/lib/x86_64-linux-gnu/libdbus-1.so
+
+//Path to a library.
+pkgcfg_lib_IBUS_gio-2.0:FILEPATH=/usr/lib/x86_64-linux-gnu/libgio-2.0.so
+
+//Path to a library.
+pkgcfg_lib_IBUS_glib-2.0:FILEPATH=/usr/lib/x86_64-linux-gnu/libglib-2.0.so
+
+//Path to a library.
+pkgcfg_lib_IBUS_gobject-2.0:FILEPATH=/usr/lib/x86_64-linux-gnu/libgobject-2.0.so
+
+//Path to a library.
+pkgcfg_lib_IBUS_ibus-1.0:FILEPATH=/usr/lib/x86_64-linux-gnu/libibus-1.0.so
+
+//Path to a library.
+pkgcfg_lib_PC_GBM_gbm:FILEPATH=/usr/lib/x86_64-linux-gnu/libgbm.so
+
+//Path to a library.
+pkgcfg_lib_PC_LIBDECOR_decor-0:FILEPATH=/usr/lib/x86_64-linux-gnu/libdecor-0.so
+
+//Path to a library.
+pkgcfg_lib_PC_LIBDRM_drm:FILEPATH=/usr/lib/x86_64-linux-gnu/libdrm.so
+
+//Path to a library.
+pkgcfg_lib_PC_LibUSB_usb-1.0:FILEPATH=/usr/lib/x86_64-linux-gnu/libusb-1.0.so
+
+//Path to a library.
+pkgcfg_lib_PC_PIPEWIRE_pipewire-0.3:FILEPATH=/usr/lib/x86_64-linux-gnu/libpipewire-0.3.so
+
+//Path to a library.
+pkgcfg_lib_PC_PULSEAUDIO_pulse:FILEPATH=/usr/lib/x86_64-linux-gnu/libpulse.so
+
+//Path to a library.
+pkgcfg_lib_PC_SNDIO_sndio:FILEPATH=/usr/lib/x86_64-linux-gnu/libsndio.so
+
+//Path to a library.
+pkgcfg_lib_PC_WAYLAND_EGL:FILEPATH=/usr/lib/x86_64-linux-gnu/libEGL.so
+
+//Path to a library.
+pkgcfg_lib_PC_WAYLAND_wayland-client:FILEPATH=/usr/lib/x86_64-linux-gnu/libwayland-client.so
+
+//Path to a library.
+pkgcfg_lib_PC_WAYLAND_wayland-cursor:FILEPATH=/usr/lib/x86_64-linux-gnu/libwayland-cursor.so
+
+//Path to a library.
+pkgcfg_lib_PC_WAYLAND_wayland-egl:FILEPATH=/usr/lib/x86_64-linux-gnu/libwayland-egl.so
+
+//Path to a library.
+pkgcfg_lib_PC_WAYLAND_xkbcommon:FILEPATH=/usr/lib/x86_64-linux-gnu/libxkbcommon.so
+
+//Path to a library.
+pkgcfg_lib_PKG_FONTCONFIG_fontconfig:FILEPATH=/usr/lib/x86_64-linux-gnu/libfontconfig.so
+
+//Path to a library.
+pkgcfg_lib_PKG_FONTCONFIG_freetype:FILEPATH=/usr/lib/x86_64-linux-gnu/libfreetype.so
 
 //Path to a library.
 pkgcfg_lib_TINYXML2_tinyxml2:FILEPATH=/usr/lib/x86_64-linux-gnu/libtinyxml2.so
@@ -238,6 +1290,10 @@ pkgcfg_lib_TINYXML2_tinyxml2:FILEPATH=/usr/lib/x86_64-linux-gnu/libtinyxml2.so
 # INTERNAL cache entries
 ########################
 
+//ADVANCED property for variable: ALSA_INCLUDE_DIR
+ALSA_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ALSA_LIBRARY
+ALSA_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_ADDR2LINE
 CMAKE_ADDR2LINE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
@@ -316,11 +1372,53 @@ CMAKE_GENERATOR_INSTANCE:INTERNAL=
 CMAKE_GENERATOR_PLATFORM:INTERNAL=
 //Name of generator toolset.
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
+//Have function connect
+CMAKE_HAVE_CONNECT:INTERNAL=1
+//Have function gethostbyname
+CMAKE_HAVE_GETHOSTBYNAME:INTERNAL=1
+//Have function remove
+CMAKE_HAVE_REMOVE:INTERNAL=1
+//Have function shmat
+CMAKE_HAVE_SHMAT:INTERNAL=1
 //Source directory with the top level CMakeLists.txt file for this
 // project
 CMAKE_HOME_DIRECTORY:INTERNAL=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp
+//ADVANCED property for variable: CMAKE_INSTALL_BINDIR
+CMAKE_INSTALL_BINDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_DATADIR
+CMAKE_INSTALL_DATADIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_DATAROOTDIR
+CMAKE_INSTALL_DATAROOTDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_DOCDIR
+CMAKE_INSTALL_DOCDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_INCLUDEDIR
+CMAKE_INSTALL_INCLUDEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_INFODIR
+CMAKE_INSTALL_INFODIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LIBDIR
+CMAKE_INSTALL_LIBDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LIBEXECDIR
+CMAKE_INSTALL_LIBEXECDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LOCALEDIR
+CMAKE_INSTALL_LOCALEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LOCALSTATEDIR
+CMAKE_INSTALL_LOCALSTATEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_MANDIR
+CMAKE_INSTALL_MANDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_OLDINCLUDEDIR
+CMAKE_INSTALL_OLDINCLUDEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_RUNSTATEDIR
+CMAKE_INSTALL_RUNSTATEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_SBINDIR
+CMAKE_INSTALL_SBINDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_SHAREDSTATEDIR
+CMAKE_INSTALL_SHAREDSTATEDIR-ADVANCED:INTERNAL=1
 //Install .so files without execute permission.
 CMAKE_INSTALL_SO_NO_EXE:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_SYSCONFDIR
+CMAKE_INSTALL_SYSCONFDIR-ADVANCED:INTERNAL=1
+//Have library ICE
+CMAKE_LIB_ICE_HAS_ICECONNECTIONNUMBER:INTERNAL=1
 //ADVANCED property for variable: CMAKE_LINKER
 CMAKE_LINKER-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MAKE_PROGRAM
@@ -338,7 +1436,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -383,12 +1481,963 @@ CMAKE_TAPI-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Test COMPILER_HAS_SEM_TIMEDWAIT
+COMPILER_HAS_SEM_TIMEDWAIT:INTERNAL=1
+//Test COMPILER_SUPPORTS_AVX
+COMPILER_SUPPORTS_AVX:INTERNAL=1
+//Test COMPILER_SUPPORTS_AVX2
+COMPILER_SUPPORTS_AVX2:INTERNAL=1
+//Test COMPILER_SUPPORTS_AVX512F
+COMPILER_SUPPORTS_AVX512F:INTERNAL=1
+//Test COMPILER_SUPPORTS_FDIAGNOSTICS_COLOR_ALWAYS
+COMPILER_SUPPORTS_FDIAGNOSTICS_COLOR_ALWAYS:INTERNAL=1
+//Test COMPILER_SUPPORTS_GCC_ATOMICS
+COMPILER_SUPPORTS_GCC_ATOMICS:INTERNAL=1
+//Test COMPILER_SUPPORTS_MMX
+COMPILER_SUPPORTS_MMX:INTERNAL=1
+//Test COMPILER_SUPPORTS_SSE
+COMPILER_SUPPORTS_SSE:INTERNAL=1
+//Test COMPILER_SUPPORTS_SSE2
+COMPILER_SUPPORTS_SSE2:INTERNAL=1
+//Test COMPILER_SUPPORTS_SSE3
+COMPILER_SUPPORTS_SSE3:INTERNAL=1
+//Test COMPILER_SUPPORTS_SSE41
+COMPILER_SUPPORTS_SSE41:INTERNAL=1
+//Test COMPILER_SUPPORTS_SSE4_1
+COMPILER_SUPPORTS_SSE4_1:INTERNAL=1
+//Test COMPILER_SUPPORTS_SSE4_2
+COMPILER_SUPPORTS_SSE4_2:INTERNAL=1
+DBUS_CFLAGS:INTERNAL=-I/usr/include/dbus-1.0;-I/usr/lib/x86_64-linux-gnu/dbus-1.0/include
+DBUS_CFLAGS_I:INTERNAL=
+DBUS_CFLAGS_OTHER:INTERNAL=
+DBUS_FOUND:INTERNAL=1
+DBUS_INCLUDEDIR:INTERNAL=/usr/include
+DBUS_INCLUDE_DIRS:INTERNAL=/usr/include/dbus-1.0;/usr/lib/x86_64-linux-gnu/dbus-1.0/include
+DBUS_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-ldbus-1
+DBUS_LDFLAGS_OTHER:INTERNAL=
+DBUS_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+DBUS_LIBRARIES:INTERNAL=dbus-1
+DBUS_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+DBUS_LIBS:INTERNAL=
+DBUS_LIBS_L:INTERNAL=
+DBUS_LIBS_OTHER:INTERNAL=
+DBUS_LIBS_PATHS:INTERNAL=
+DBUS_MODULE_NAME:INTERNAL=dbus-1
+DBUS_PREFIX:INTERNAL=/usr
+DBUS_STATIC_CFLAGS:INTERNAL=-I/usr/include/dbus-1.0;-I/usr/lib/x86_64-linux-gnu/dbus-1.0/include
+DBUS_STATIC_CFLAGS_I:INTERNAL=
+DBUS_STATIC_CFLAGS_OTHER:INTERNAL=
+DBUS_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include/dbus-1.0;/usr/lib/x86_64-linux-gnu/dbus-1.0/include
+DBUS_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-ldbus-1;-lsystemd
+DBUS_STATIC_LDFLAGS_OTHER:INTERNAL=
+DBUS_STATIC_LIBDIR:INTERNAL=
+DBUS_STATIC_LIBRARIES:INTERNAL=dbus-1;systemd
+DBUS_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+DBUS_STATIC_LIBS:INTERNAL=
+DBUS_STATIC_LIBS_L:INTERNAL=
+DBUS_STATIC_LIBS_OTHER:INTERNAL=
+DBUS_STATIC_LIBS_PATHS:INTERNAL=
+DBUS_VERSION:INTERNAL=1.14.10
+DBUS_dbus-1_INCLUDEDIR:INTERNAL=
+DBUS_dbus-1_LIBDIR:INTERNAL=
+DBUS_dbus-1_PREFIX:INTERNAL=
+DBUS_dbus-1_VERSION:INTERNAL=
+//Details about finding ALSA
+FIND_PACKAGE_MESSAGE_DETAILS_ALSA:INTERNAL=[/usr/lib/x86_64-linux-gnu/libasound.so][/usr/include][v1.2.11()]
+//Details about finding LibUSB
+FIND_PACKAGE_MESSAGE_DETAILS_LibUSB:INTERNAL=[/usr/lib/x86_64-linux-gnu/libusb-1.0.so][/usr/include/libusb-1.0][v1.0.27()]
+//Details about finding OpenGL
+FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[/usr/lib/x86_64-linux-gnu/libOpenGL.so][/usr/lib/x86_64-linux-gnu/libGLX.so][/usr/include][c ][v()]
 //Details about finding PkgConfig
 FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v1.8.1()]
+//Details about finding X11
+FIND_PACKAGE_MESSAGE_DETAILS_X11:INTERNAL=[/usr/include][/usr/lib/x86_64-linux-gnu/libX11.so][c ][v()]
+//Have library c
+FOUND_CLOCK_GETTIME_LIBC:INTERNAL=1
+//ADVANCED property for variable: FREETYPE_INCLUDE_DIR_freetype2
+FREETYPE_INCLUDE_DIR_freetype2-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FREETYPE_INCLUDE_DIR_ft2build
+FREETYPE_INCLUDE_DIR_ft2build-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FREETYPE_LIBRARY_DEBUG
+FREETYPE_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FREETYPE_LIBRARY_RELEASE
+FREETYPE_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Fontconfig_INCLUDE_DIR
+Fontconfig_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Fontconfig_LIBRARY
+Fontconfig_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GIT_EXECUTABLE
+GIT_EXECUTABLE-ADVANCED:INTERNAL=1
+//Have include alloca.h
+HAVE_ALLOCA_H:INTERNAL=1
+//Test HAVE_CLANG_COMMENT_BLOCK_COMMANDS
+HAVE_CLANG_COMMENT_BLOCK_COMMANDS:INTERNAL=
+//Have symbol dlopen
+HAVE_DLOPEN_IN_LIBC:INTERNAL=1
+//Have symbol elf_aux_info
+HAVE_ELF_AUX_INFO:INTERNAL=
+//Test HAVE_ENABLE_NEW_DTAGS
+HAVE_ENABLE_NEW_DTAGS:INTERNAL=1
+//Have symbol fdatasync
+HAVE_FDATASYNC:INTERNAL=1
+//Test HAVE_GCC_COMMENT_BLOCK_COMMANDS
+HAVE_GCC_COMMENT_BLOCK_COMMANDS:INTERNAL=
+//Test HAVE_GCC_FVISIBILITY
+HAVE_GCC_FVISIBILITY:INTERNAL=1
+//Test HAVE_GCC_NO_STRICT_ALIASING
+HAVE_GCC_NO_STRICT_ALIASING:INTERNAL=1
+//Test HAVE_GCC_WALL
+HAVE_GCC_WALL:INTERNAL=1
+//Test HAVE_GCC_WDOCUMENTATION
+HAVE_GCC_WDOCUMENTATION:INTERNAL=
+//Test HAVE_GCC_WDOCUMENTATION_UNKNOWN_COMMAND
+HAVE_GCC_WDOCUMENTATION_UNKNOWN_COMMAND:INTERNAL=
+//Test HAVE_GCC_WFLOAT_CONVERSION
+HAVE_GCC_WFLOAT_CONVERSION:INTERNAL=1
+//Test HAVE_GCC_WIMPLICIT_FALLTHROUGH
+HAVE_GCC_WIMPLICIT_FALLTHROUGH:INTERNAL=1
+//Test HAVE_GCC_WSHADOW
+HAVE_GCC_WSHADOW:INTERNAL=1
+//Test HAVE_GCC_WUNDEF
+HAVE_GCC_WUNDEF:INTERNAL=1
+//Test HAVE_GCC_WUNUSED_LOCAL_TYPEDEFS
+HAVE_GCC_WUNUSED_LOCAL_TYPEDEFS:INTERNAL=1
+//Have symbol getauxval
+HAVE_GETAUXVAL:INTERNAL=1
+//Have symbol gethostname
+HAVE_GETHOSTNAME:INTERNAL=1
+//Have symbol getpagesize
+HAVE_GETPAGESIZE:INTERNAL=1
+//Have symbol gmtime_r
+HAVE_GMTIME_R:INTERNAL=1
+//Have symbol inotify_init
+HAVE_INOTIFY_INIT:INTERNAL=1
+//Have symbol inotify_init1
+HAVE_INOTIFY_INIT1:INTERNAL=1
+//Test HAVE_INPUT_KD
+HAVE_INPUT_KD:INTERNAL=1
+//Have library m
+HAVE_LIBM:INTERNAL=1
+//Have include libudev.h
+HAVE_LIBUDEV_HEADER:INTERNAL=1
+//Test HAVE_LIBUSB_H
+HAVE_LIBUSB_H:INTERNAL=1
+//Test HAVE_LINUX_INPUT_H
+HAVE_LINUX_INPUT_H:INTERNAL=1
+//Test HAVE_LINUX_VIDEODEV2_H
+HAVE_LINUX_VIDEODEV2_H:INTERNAL=1
+//Have symbol localtime_r
+HAVE_LOCALTIME_R:INTERNAL=1
+//Have symbol memfd_create
+HAVE_MEMFD_CREATE:INTERNAL=1
+//Have symbol nanosleep
+HAVE_NANOSLEEP:INTERNAL=1
+//Have symbol nl_langinfo
+HAVE_NL_LANGINFO:INTERNAL=1
+//Test HAVE_OPENGL
+HAVE_OPENGL:INTERNAL=1
+//Test HAVE_OPENGLES_V1
+HAVE_OPENGLES_V1:INTERNAL=1
+//Test HAVE_OPENGLES_V2
+HAVE_OPENGLES_V2:INTERNAL=1
+//Test HAVE_OPENGL_EGL
+HAVE_OPENGL_EGL:INTERNAL=1
+//Test HAVE_OPENGL_GLX
+HAVE_OPENGL_GLX:INTERNAL=1
+//Test HAVE_O_CLOEXEC
+HAVE_O_CLOEXEC:INTERNAL=1
+//Have symbol poll
+HAVE_POLL:INTERNAL=1
+//Have symbol posix_fallocate
+HAVE_POSIX_FALLOCATE:INTERNAL=1
+//Test HAVE_POSIX_SPAWN
+HAVE_POSIX_SPAWN:INTERNAL=1
+//Have symbol posix_spawn_file_actions_addchdir
+HAVE_POSIX_SPAWN_FILE_ACTIONS_ADDCHDIR:INTERNAL=
+//Have symbol posix_spawn_file_actions_addchdir_np
+HAVE_POSIX_SPAWN_FILE_ACTIONS_ADDCHDIR_NP:INTERNAL=1
+//Test HAVE_PTHREADS
+HAVE_PTHREADS:INTERNAL=1
+//Test HAVE_PTHREADS_SEM
+HAVE_PTHREADS_SEM:INTERNAL=1
+//Have include pthread.h
+HAVE_PTHREAD_H:INTERNAL=1
+//Have include pthread_np.h
+HAVE_PTHREAD_NP_H:INTERNAL=
+//Test HAVE_PTHREAD_SETNAME_NP
+HAVE_PTHREAD_SETNAME_NP:INTERNAL=1
+//Test HAVE_RECURSIVE_MUTEXES
+HAVE_RECURSIVE_MUTEXES:INTERNAL=1
+//Test HAVE_SA_SIGACTION
+HAVE_SA_SIGACTION:INTERNAL=1
+//Have symbol setjmp
+HAVE_SETJMP:INTERNAL=1
+//Have symbol shmat
+HAVE_SHMAT_IN_LIBC:INTERNAL=1
+//Have symbol sigaction
+HAVE_SIGACTION:INTERNAL=1
+//Test HAVE_ST_MTIM
+HAVE_ST_MTIM:INTERNAL=1
+//Have symbol sysconf
+HAVE_SYSCONF:INTERNAL=1
+//Have symbol sysctlbyname
+HAVE_SYSCTLBYNAME:INTERNAL=
+//Have include sys/inotify.h
+HAVE_SYS_INOTIFY_H:INTERNAL=1
+//Test HAVE_XFIXES_H
+HAVE_XFIXES_H:INTERNAL=1
+//Test HAVE_XGENERICEVENT
+HAVE_XGENERICEVENT:INTERNAL=1
+//Test HAVE_XINPUT2_MULTITOUCH
+HAVE_XINPUT2_MULTITOUCH:INTERNAL=1
+IBUS_CFLAGS:INTERNAL=-I/usr/include/ibus-1.0;-I/usr/include;-I/usr/include/glib-2.0;-I/usr/lib/x86_64-linux-gnu/glib-2.0/include;-pthread;-I/usr/include/libmount;-I/usr/include/blkid
+IBUS_CFLAGS_I:INTERNAL=
+IBUS_CFLAGS_OTHER:INTERNAL=-pthread
+IBUS_FOUND:INTERNAL=1
+IBUS_INCLUDEDIR:INTERNAL=/usr/include
+IBUS_INCLUDE_DIRS:INTERNAL=/usr/include/ibus-1.0;/usr/include;/usr/include/glib-2.0;/usr/lib/x86_64-linux-gnu/glib-2.0/include;/usr/include/libmount;/usr/include/blkid
+IBUS_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-libus-1.0;-lgio-2.0;-lgobject-2.0;-lglib-2.0
+IBUS_LDFLAGS_OTHER:INTERNAL=
+IBUS_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+IBUS_LIBRARIES:INTERNAL=ibus-1.0;gio-2.0;gobject-2.0;glib-2.0
+IBUS_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+IBUS_LIBS:INTERNAL=
+IBUS_LIBS_L:INTERNAL=
+IBUS_LIBS_OTHER:INTERNAL=
+IBUS_LIBS_PATHS:INTERNAL=
+IBUS_MODULE_NAME:INTERNAL=ibus-1.0
+IBUS_PREFIX:INTERNAL=/usr
+IBUS_STATIC_CFLAGS:INTERNAL=-I/usr/include/ibus-1.0;-I/usr/include;-I/usr/include/glib-2.0;-I/usr/lib/x86_64-linux-gnu/glib-2.0/include;-pthread;-I/usr/include/libmount;-I/usr/include/blkid
+IBUS_STATIC_CFLAGS_I:INTERNAL=
+IBUS_STATIC_CFLAGS_OTHER:INTERNAL=-pthread
+IBUS_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include/ibus-1.0;/usr/include;/usr/include/glib-2.0;/usr/lib/x86_64-linux-gnu/glib-2.0/include;/usr/include/libmount;/usr/include/blkid
+IBUS_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-libus-1.0;-lm;-pthread;-L/usr/lib/x86_64-linux-gnu;-lpcre2-8;-lffi;-lgio-2.0;-lm;-pthread;-L/usr/lib/x86_64-linux-gnu;-lpcre2-8;-lgobject-2.0;-lglib-2.0;-lm;-pthread;-L/usr/lib/x86_64-linux-gnu;-lpcre2-8;-lffi;-L/usr/lib/x86_64-linux-gnu;-lgmodule-2.0;-pthread;-L/usr/lib/x86_64-linux-gnu;-lglib-2.0;-lm;-pthread;-L/usr/lib/x86_64-linux-gnu;-lz;-lmount;-ldl;-L/usr/lib/x86_64-linux-gnu;-lblkid;-L/usr/lib;-L/usr/lib/x86_64-linux-gnu;-lsepol;-lselinux;-L/usr/lib/x86_64-linux-gnu;-lsepol;-lpcre2-8
+IBUS_STATIC_LDFLAGS_OTHER:INTERNAL=-pthread;-pthread;-pthread;-pthread;-pthread
+IBUS_STATIC_LIBDIR:INTERNAL=
+IBUS_STATIC_LIBRARIES:INTERNAL=ibus-1.0;m;pcre2-8;ffi;gio-2.0;m;pcre2-8;gobject-2.0;glib-2.0;m;pcre2-8;ffi;gmodule-2.0;glib-2.0;m;z;mount;dl;blkid;sepol;selinux;sepol;pcre2-8
+IBUS_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu;/usr/lib/x86_64-linux-gnu;/usr/lib/x86_64-linux-gnu;/usr/lib/x86_64-linux-gnu;/usr/lib/x86_64-linux-gnu;/usr/lib/x86_64-linux-gnu;/usr/lib/x86_64-linux-gnu;/usr/lib/x86_64-linux-gnu;/usr/lib;/usr/lib/x86_64-linux-gnu;/usr/lib/x86_64-linux-gnu
+IBUS_STATIC_LIBS:INTERNAL=
+IBUS_STATIC_LIBS_L:INTERNAL=
+IBUS_STATIC_LIBS_OTHER:INTERNAL=
+IBUS_STATIC_LIBS_PATHS:INTERNAL=
+IBUS_VERSION:INTERNAL=1.5.29-rc2
+IBUS_ibus-1.0_INCLUDEDIR:INTERNAL=
+IBUS_ibus-1.0_LIBDIR:INTERNAL=
+IBUS_ibus-1.0_PREFIX:INTERNAL=
+IBUS_ibus-1.0_VERSION:INTERNAL=
+//Test ICONV_IN_LIBC
+ICONV_IN_LIBC:INTERNAL=1
+//Test ICONV_IN_LIBICONV
+ICONV_IN_LIBICONV:INTERNAL=
+//Have symbol abs
+LIBC_HAS_ABS:INTERNAL=1
+//Have symbol acos
+LIBC_HAS_ACOS:INTERNAL=1
+//Have symbol acosf
+LIBC_HAS_ACOSF:INTERNAL=1
+//Have symbol asin
+LIBC_HAS_ASIN:INTERNAL=1
+//Have symbol asinf
+LIBC_HAS_ASINF:INTERNAL=1
+//Have symbol atan
+LIBC_HAS_ATAN:INTERNAL=1
+//Have symbol atan2
+LIBC_HAS_ATAN2:INTERNAL=1
+//Have symbol atan2f
+LIBC_HAS_ATAN2F:INTERNAL=1
+//Have symbol atanf
+LIBC_HAS_ATANF:INTERNAL=1
+//Have symbol atof
+LIBC_HAS_ATOF:INTERNAL=1
+//Have symbol atoi
+LIBC_HAS_ATOI:INTERNAL=1
+//Have symbol bcopy
+LIBC_HAS_BCOPY:INTERNAL=1
+//Have symbol ceil
+LIBC_HAS_CEIL:INTERNAL=1
+//Have symbol ceilf
+LIBC_HAS_CEILF:INTERNAL=1
+//Have symbol copysign
+LIBC_HAS_COPYSIGN:INTERNAL=1
+//Have symbol copysignf
+LIBC_HAS_COPYSIGNF:INTERNAL=1
+//Have symbol cos
+LIBC_HAS_COS:INTERNAL=1
+//Have symbol cosf
+LIBC_HAS_COSF:INTERNAL=1
+//Have symbol exp
+LIBC_HAS_EXP:INTERNAL=1
+//Have symbol expf
+LIBC_HAS_EXPF:INTERNAL=1
+//Have symbol fabs
+LIBC_HAS_FABS:INTERNAL=1
+//Have symbol fabsf
+LIBC_HAS_FABSF:INTERNAL=1
+//Have include float.h
+LIBC_HAS_FLOAT_H:INTERNAL=1
+//Have symbol floor
+LIBC_HAS_FLOOR:INTERNAL=1
+//Have symbol floorf
+LIBC_HAS_FLOORF:INTERNAL=1
+//Have symbol fmod
+LIBC_HAS_FMOD:INTERNAL=1
+//Have symbol fmodf
+LIBC_HAS_FMODF:INTERNAL=1
+//Have symbol fopen64
+LIBC_HAS_FOPEN64:INTERNAL=1
+//Have symbol fseeko
+LIBC_HAS_FSEEKO:INTERNAL=1
+//Have symbol fseeko64
+LIBC_HAS_FSEEKO64:INTERNAL=1
+//Have symbol getenv
+LIBC_HAS_GETENV:INTERNAL=1
+//Have include iconv.h
+LIBC_HAS_ICONV_H:INTERNAL=1
+//Have symbol index
+LIBC_HAS_INDEX:INTERNAL=1
+//Have include inttypes.h
+LIBC_HAS_INTTYPES_H:INTERNAL=1
+//Test LIBC_HAS_ISINF
+LIBC_HAS_ISINF:INTERNAL=1
+//Test LIBC_HAS_ISINFF
+LIBC_HAS_ISINFF:INTERNAL=1
+//Test LIBC_HAS_ISNAN
+LIBC_HAS_ISNAN:INTERNAL=1
+//Test LIBC_HAS_ISNANF
+LIBC_HAS_ISNANF:INTERNAL=1
+//Have symbol itoa
+LIBC_HAS_ITOA:INTERNAL=
+//Have include limits.h
+LIBC_HAS_LIMITS_H:INTERNAL=1
+//Have symbol log
+LIBC_HAS_LOG:INTERNAL=1
+//Have symbol log10
+LIBC_HAS_LOG10:INTERNAL=1
+//Have symbol log10f
+LIBC_HAS_LOG10F:INTERNAL=1
+//Have symbol logf
+LIBC_HAS_LOGF:INTERNAL=1
+//Have symbol lround
+LIBC_HAS_LROUND:INTERNAL=1
+//Have symbol lroundf
+LIBC_HAS_LROUNDF:INTERNAL=1
+//Have symbol malloc
+LIBC_HAS_MALLOC:INTERNAL=1
+//Have include malloc.h
+LIBC_HAS_MALLOC_H:INTERNAL=1
+//Have include math.h
+LIBC_HAS_MATH_H:INTERNAL=1
+//Have symbol memcmp
+LIBC_HAS_MEMCMP:INTERNAL=1
+//Have symbol memcpy
+LIBC_HAS_MEMCPY:INTERNAL=1
+//Have symbol memmove
+LIBC_HAS_MEMMOVE:INTERNAL=1
+//Have include memory.h
+LIBC_HAS_MEMORY_H:INTERNAL=1
+//Have symbol memset
+LIBC_HAS_MEMSET:INTERNAL=1
+//Have symbol modf
+LIBC_HAS_MODF:INTERNAL=1
+//Have symbol modff
+LIBC_HAS_MODFF:INTERNAL=1
+//Have symbol pow
+LIBC_HAS_POW:INTERNAL=1
+//Have symbol powf
+LIBC_HAS_POWF:INTERNAL=1
+//Have symbol putenv
+LIBC_HAS_PUTENV:INTERNAL=1
+//Have symbol rindex
+LIBC_HAS_RINDEX:INTERNAL=1
+//Have symbol round
+LIBC_HAS_ROUND:INTERNAL=1
+//Have symbol roundf
+LIBC_HAS_ROUNDF:INTERNAL=1
+//Have symbol scalbn
+LIBC_HAS_SCALBN:INTERNAL=1
+//Have symbol scalbnf
+LIBC_HAS_SCALBNF:INTERNAL=1
+//Have symbol setenv
+LIBC_HAS_SETENV:INTERNAL=1
+//Have include signal.h
+LIBC_HAS_SIGNAL_H:INTERNAL=1
+//Have symbol sin
+LIBC_HAS_SIN:INTERNAL=1
+//Have symbol sinf
+LIBC_HAS_SINF:INTERNAL=1
+//Have symbol sqr
+LIBC_HAS_SQR:INTERNAL=
+//Have symbol sqrt
+LIBC_HAS_SQRT:INTERNAL=1
+//Have symbol sqrtf
+LIBC_HAS_SQRTF:INTERNAL=1
+//Have symbol sscanf
+LIBC_HAS_SSCANF:INTERNAL=1
+//Have include stdarg.h
+LIBC_HAS_STDARG_H:INTERNAL=1
+//Have include stdbool.h
+LIBC_HAS_STDBOOL_H:INTERNAL=1
+//Have include stddef.h
+LIBC_HAS_STDDEF_H:INTERNAL=1
+//Have include stdint.h
+LIBC_HAS_STDINT_H:INTERNAL=1
+//Have include stdio.h
+LIBC_HAS_STDIO_H:INTERNAL=1
+//Have include stdlib.h
+LIBC_HAS_STDLIB_H:INTERNAL=1
+//Have symbol strcasestr
+LIBC_HAS_STRCASESTR:INTERNAL=1
+//Have symbol strchr
+LIBC_HAS_STRCHR:INTERNAL=1
+//Have symbol strcmp
+LIBC_HAS_STRCMP:INTERNAL=1
+//Have include strings.h
+LIBC_HAS_STRINGS_H:INTERNAL=1
+//Have include string.h
+LIBC_HAS_STRING_H:INTERNAL=1
+//Have symbol strlcat
+LIBC_HAS_STRLCAT:INTERNAL=1
+//Have symbol strlcpy
+LIBC_HAS_STRLCPY:INTERNAL=1
+//Have symbol strlen
+LIBC_HAS_STRLEN:INTERNAL=1
+//Have symbol strncmp
+LIBC_HAS_STRNCMP:INTERNAL=1
+//Have symbol strnlen
+LIBC_HAS_STRNLEN:INTERNAL=1
+//Have symbol strnstr
+LIBC_HAS_STRNSTR:INTERNAL=
+//Have symbol strpbrk
+LIBC_HAS_STRPBRK:INTERNAL=1
+//Have symbol strrchr
+LIBC_HAS_STRRCHR:INTERNAL=1
+//Have symbol strstr
+LIBC_HAS_STRSTR:INTERNAL=1
+//Have symbol strtod
+LIBC_HAS_STRTOD:INTERNAL=1
+//Have symbol strtok_r
+LIBC_HAS_STRTOK_R:INTERNAL=1
+//Have symbol strtol
+LIBC_HAS_STRTOL:INTERNAL=1
+//Have symbol strtoll
+LIBC_HAS_STRTOLL:INTERNAL=1
+//Have symbol strtoul
+LIBC_HAS_STRTOUL:INTERNAL=1
+//Have symbol strtoull
+LIBC_HAS_STRTOULL:INTERNAL=1
+//Have include sys/types.h
+LIBC_HAS_SYS_TYPES_H:INTERNAL=1
+//Have symbol tan
+LIBC_HAS_TAN:INTERNAL=1
+//Have symbol tanf
+LIBC_HAS_TANF:INTERNAL=1
+//Have include time.h
+LIBC_HAS_TIME_H:INTERNAL=1
+//Have symbol trunc
+LIBC_HAS_TRUNC:INTERNAL=1
+//Have symbol truncf
+LIBC_HAS_TRUNCF:INTERNAL=1
+//Have symbol unsetenv
+LIBC_HAS_UNSETENV:INTERNAL=1
+//Have symbol vsnprintf
+LIBC_HAS_VSNPRINTF:INTERNAL=1
+//Have symbol vsscanf
+LIBC_HAS_VSSCANF:INTERNAL=1
+//Have include wchar.h
+LIBC_HAS_WCHAR_H:INTERNAL=1
+//Have symbol wcscmp
+LIBC_HAS_WCSCMP:INTERNAL=1
+//Have symbol wcsdup
+LIBC_HAS_WCSDUP:INTERNAL=1
+//Have symbol wcslcat
+LIBC_HAS_WCSLCAT:INTERNAL=1
+//Have symbol wcslcpy
+LIBC_HAS_WCSLCPY:INTERNAL=1
+//Have symbol wcslen
+LIBC_HAS_WCSLEN:INTERNAL=1
+//Have symbol wcsncmp
+LIBC_HAS_WCSNCMP:INTERNAL=1
+//Have symbol wcsnlen
+LIBC_HAS_WCSNLEN:INTERNAL=1
+//Have symbol wcsstr
+LIBC_HAS_WCSSTR:INTERNAL=1
+//Have symbol wcstol
+LIBC_HAS_WCSTOL:INTERNAL=1
+//Test LIBC_HAS_WORKING_LIBUNWIND
+LIBC_HAS_WORKING_LIBUNWIND:INTERNAL=
+//Have symbol _Exit
+LIBC_HAS__EXIT:INTERNAL=1
+//Have symbol _i64toa
+LIBC_HAS__I64TOA:INTERNAL=
+//Have symbol _ltoa
+LIBC_HAS__LTOA:INTERNAL=
+//Test LIBC_ISINF_HANDLES_FLOAT
+LIBC_ISINF_HANDLES_FLOAT:INTERNAL=1
+//Test LIBC_ISNAN_HANDLES_FLOAT
+LIBC_ISNAN_HANDLES_FLOAT:INTERNAL=1
+//Have symbol __GLIBC__
+LIBC_IS_GLIBC:INTERNAL=1
+//Test LIBUNWIND_HAS_WORKINGLIBUNWIND
+LIBUNWIND_HAS_WORKINGLIBUNWIND:INTERNAL=
+LIBURING_CFLAGS:INTERNAL=
+LIBURING_CFLAGS_I:INTERNAL=
+LIBURING_CFLAGS_OTHER:INTERNAL=
+LIBURING_FOUND:INTERNAL=
+LIBURING_INCLUDEDIR:INTERNAL=
+LIBURING_LIBDIR:INTERNAL=
+LIBURING_LIBS:INTERNAL=
+LIBURING_LIBS_L:INTERNAL=
+LIBURING_LIBS_OTHER:INTERNAL=
+LIBURING_LIBS_PATHS:INTERNAL=
+LIBURING_MODULE_NAME:INTERNAL=
+LIBURING_PREFIX:INTERNAL=
+LIBURING_STATIC_CFLAGS:INTERNAL=
+LIBURING_STATIC_CFLAGS_I:INTERNAL=
+LIBURING_STATIC_CFLAGS_OTHER:INTERNAL=
+LIBURING_STATIC_LIBDIR:INTERNAL=
+LIBURING_STATIC_LIBS:INTERNAL=
+LIBURING_STATIC_LIBS_L:INTERNAL=
+LIBURING_STATIC_LIBS_OTHER:INTERNAL=
+LIBURING_STATIC_LIBS_PATHS:INTERNAL=
+LIBURING_VERSION:INTERNAL=
+LIBURING_liburing-ffi_INCLUDEDIR:INTERNAL=
+LIBURING_liburing-ffi_LIBDIR:INTERNAL=
+LIBURING_liburing-ffi_PREFIX:INTERNAL=
+LIBURING_liburing-ffi_VERSION:INTERNAL=
+//Test LINKER_SUPPORTS_VERSION_SCRIPT
+LINKER_SUPPORTS_VERSION_SCRIPT:INTERNAL=1
+//Test LINKER_SUPPORTS_WL_NO_UNDEFINED
+LINKER_SUPPORTS_WL_NO_UNDEFINED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_EGL_INCLUDE_DIR
+OPENGL_EGL_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_GLES2_INCLUDE_DIR
+OPENGL_GLES2_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_GLES3_INCLUDE_DIR
+OPENGL_GLES3_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_GLX_INCLUDE_DIR
+OPENGL_GLX_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_INCLUDE_DIR
+OPENGL_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_egl_LIBRARY
+OPENGL_egl_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_gles2_LIBRARY
+OPENGL_gles2_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_gles3_LIBRARY
+OPENGL_gles3_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_glu_LIBRARY
+OPENGL_glu_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_glx_LIBRARY
+OPENGL_glx_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_opengl_LIBRARY
+OPENGL_opengl_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_xmesa_INCLUDE_DIR
+OPENGL_xmesa_INCLUDE_DIR-ADVANCED:INTERNAL=1
+PC_GBM_CFLAGS:INTERNAL=-I/usr/include
+PC_GBM_CFLAGS_I:INTERNAL=
+PC_GBM_CFLAGS_OTHER:INTERNAL=
+PC_GBM_FOUND:INTERNAL=1
+PC_GBM_INCLUDEDIR:INTERNAL=/usr/include
+PC_GBM_INCLUDE_DIRS:INTERNAL=/usr/include
+PC_GBM_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lgbm
+PC_GBM_LDFLAGS_OTHER:INTERNAL=
+PC_GBM_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_GBM_LIBRARIES:INTERNAL=gbm
+PC_GBM_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_GBM_LIBS:INTERNAL=
+PC_GBM_LIBS_L:INTERNAL=
+PC_GBM_LIBS_OTHER:INTERNAL=
+PC_GBM_LIBS_PATHS:INTERNAL=
+PC_GBM_MODULE_NAME:INTERNAL=gbm
+PC_GBM_PREFIX:INTERNAL=/usr
+PC_GBM_STATIC_CFLAGS:INTERNAL=-I/usr/include
+PC_GBM_STATIC_CFLAGS_I:INTERNAL=
+PC_GBM_STATIC_CFLAGS_OTHER:INTERNAL=
+PC_GBM_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include
+PC_GBM_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lgbm
+PC_GBM_STATIC_LDFLAGS_OTHER:INTERNAL=
+PC_GBM_STATIC_LIBDIR:INTERNAL=
+PC_GBM_STATIC_LIBRARIES:INTERNAL=gbm
+PC_GBM_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_GBM_STATIC_LIBS:INTERNAL=
+PC_GBM_STATIC_LIBS_L:INTERNAL=
+PC_GBM_STATIC_LIBS_OTHER:INTERNAL=
+PC_GBM_STATIC_LIBS_PATHS:INTERNAL=
+PC_GBM_VERSION:INTERNAL=25.0.4
+PC_GBM_gbm_INCLUDEDIR:INTERNAL=
+PC_GBM_gbm_LIBDIR:INTERNAL=
+PC_GBM_gbm_PREFIX:INTERNAL=
+PC_GBM_gbm_VERSION:INTERNAL=
+PC_JACK_CFLAGS:INTERNAL=
+PC_JACK_CFLAGS_I:INTERNAL=
+PC_JACK_CFLAGS_OTHER:INTERNAL=
+PC_JACK_FOUND:INTERNAL=
+PC_JACK_INCLUDEDIR:INTERNAL=
+PC_JACK_LIBDIR:INTERNAL=
+PC_JACK_LIBS:INTERNAL=
+PC_JACK_LIBS_L:INTERNAL=
+PC_JACK_LIBS_OTHER:INTERNAL=
+PC_JACK_LIBS_PATHS:INTERNAL=
+PC_JACK_MODULE_NAME:INTERNAL=
+PC_JACK_PREFIX:INTERNAL=
+PC_JACK_STATIC_CFLAGS:INTERNAL=
+PC_JACK_STATIC_CFLAGS_I:INTERNAL=
+PC_JACK_STATIC_CFLAGS_OTHER:INTERNAL=
+PC_JACK_STATIC_LIBDIR:INTERNAL=
+PC_JACK_STATIC_LIBS:INTERNAL=
+PC_JACK_STATIC_LIBS_L:INTERNAL=
+PC_JACK_STATIC_LIBS_OTHER:INTERNAL=
+PC_JACK_STATIC_LIBS_PATHS:INTERNAL=
+PC_JACK_VERSION:INTERNAL=
+PC_JACK_jack_INCLUDEDIR:INTERNAL=
+PC_JACK_jack_LIBDIR:INTERNAL=
+PC_JACK_jack_PREFIX:INTERNAL=
+PC_JACK_jack_VERSION:INTERNAL=
+PC_LIBDECOR_CFLAGS:INTERNAL=-I/usr/include/libdecor-0;-I/usr/include
+PC_LIBDECOR_CFLAGS_I:INTERNAL=
+PC_LIBDECOR_CFLAGS_OTHER:INTERNAL=
+PC_LIBDECOR_FOUND:INTERNAL=1
+PC_LIBDECOR_INCLUDEDIR:INTERNAL=/usr/include
+PC_LIBDECOR_INCLUDE_DIRS:INTERNAL=/usr/include/libdecor-0;/usr/include
+PC_LIBDECOR_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-ldecor-0
+PC_LIBDECOR_LDFLAGS_OTHER:INTERNAL=
+PC_LIBDECOR_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_LIBDECOR_LIBRARIES:INTERNAL=decor-0
+PC_LIBDECOR_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_LIBDECOR_LIBS:INTERNAL=
+PC_LIBDECOR_LIBS_L:INTERNAL=
+PC_LIBDECOR_LIBS_OTHER:INTERNAL=
+PC_LIBDECOR_LIBS_PATHS:INTERNAL=
+PC_LIBDECOR_MODULE_NAME:INTERNAL=libdecor-0
+PC_LIBDECOR_PREFIX:INTERNAL=/usr
+PC_LIBDECOR_STATIC_CFLAGS:INTERNAL=-I/usr/include/libdecor-0;-I/usr/include
+PC_LIBDECOR_STATIC_CFLAGS_I:INTERNAL=
+PC_LIBDECOR_STATIC_CFLAGS_OTHER:INTERNAL=
+PC_LIBDECOR_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include/libdecor-0;/usr/include
+PC_LIBDECOR_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-ldecor-0;-L/usr/lib/x86_64-linux-gnu;-lwayland-client;-lm;-pthread;-lrt;-lffi
+PC_LIBDECOR_STATIC_LDFLAGS_OTHER:INTERNAL=-pthread
+PC_LIBDECOR_STATIC_LIBDIR:INTERNAL=
+PC_LIBDECOR_STATIC_LIBRARIES:INTERNAL=decor-0;wayland-client;m;rt;ffi
+PC_LIBDECOR_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu;/usr/lib/x86_64-linux-gnu
+PC_LIBDECOR_STATIC_LIBS:INTERNAL=
+PC_LIBDECOR_STATIC_LIBS_L:INTERNAL=
+PC_LIBDECOR_STATIC_LIBS_OTHER:INTERNAL=
+PC_LIBDECOR_STATIC_LIBS_PATHS:INTERNAL=
+PC_LIBDECOR_VERSION:INTERNAL=0.2.2
+PC_LIBDECOR_libdecor-0_INCLUDEDIR:INTERNAL=
+PC_LIBDECOR_libdecor-0_LIBDIR:INTERNAL=
+PC_LIBDECOR_libdecor-0_PREFIX:INTERNAL=
+PC_LIBDECOR_libdecor-0_VERSION:INTERNAL=
+PC_LIBDRM_CFLAGS:INTERNAL=-I/usr/include;-I/usr/include/libdrm
+PC_LIBDRM_CFLAGS_I:INTERNAL=
+PC_LIBDRM_CFLAGS_OTHER:INTERNAL=
+PC_LIBDRM_FOUND:INTERNAL=1
+PC_LIBDRM_INCLUDEDIR:INTERNAL=/usr/include
+PC_LIBDRM_INCLUDE_DIRS:INTERNAL=/usr/include;/usr/include/libdrm
+PC_LIBDRM_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-ldrm
+PC_LIBDRM_LDFLAGS_OTHER:INTERNAL=
+PC_LIBDRM_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_LIBDRM_LIBRARIES:INTERNAL=drm
+PC_LIBDRM_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_LIBDRM_LIBS:INTERNAL=
+PC_LIBDRM_LIBS_L:INTERNAL=
+PC_LIBDRM_LIBS_OTHER:INTERNAL=
+PC_LIBDRM_LIBS_PATHS:INTERNAL=
+PC_LIBDRM_MODULE_NAME:INTERNAL=libdrm
+PC_LIBDRM_PREFIX:INTERNAL=/usr
+PC_LIBDRM_STATIC_CFLAGS:INTERNAL=-I/usr/include;-I/usr/include/libdrm
+PC_LIBDRM_STATIC_CFLAGS_I:INTERNAL=
+PC_LIBDRM_STATIC_CFLAGS_OTHER:INTERNAL=
+PC_LIBDRM_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include;/usr/include/libdrm
+PC_LIBDRM_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-ldrm
+PC_LIBDRM_STATIC_LDFLAGS_OTHER:INTERNAL=
+PC_LIBDRM_STATIC_LIBDIR:INTERNAL=
+PC_LIBDRM_STATIC_LIBRARIES:INTERNAL=drm
+PC_LIBDRM_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_LIBDRM_STATIC_LIBS:INTERNAL=
+PC_LIBDRM_STATIC_LIBS_L:INTERNAL=
+PC_LIBDRM_STATIC_LIBS_OTHER:INTERNAL=
+PC_LIBDRM_STATIC_LIBS_PATHS:INTERNAL=
+PC_LIBDRM_VERSION:INTERNAL=2.4.122
+PC_LIBDRM_libdrm_INCLUDEDIR:INTERNAL=
+PC_LIBDRM_libdrm_LIBDIR:INTERNAL=
+PC_LIBDRM_libdrm_PREFIX:INTERNAL=
+PC_LIBDRM_libdrm_VERSION:INTERNAL=
+PC_LIBUNWIND_CFLAGS:INTERNAL=
+PC_LIBUNWIND_CFLAGS_I:INTERNAL=
+PC_LIBUNWIND_CFLAGS_OTHER:INTERNAL=
+PC_LIBUNWIND_FOUND:INTERNAL=
+PC_LIBUNWIND_INCLUDEDIR:INTERNAL=
+PC_LIBUNWIND_LIBDIR:INTERNAL=
+PC_LIBUNWIND_LIBS:INTERNAL=
+PC_LIBUNWIND_LIBS_L:INTERNAL=
+PC_LIBUNWIND_LIBS_OTHER:INTERNAL=
+PC_LIBUNWIND_LIBS_PATHS:INTERNAL=
+PC_LIBUNWIND_MODULE_NAME:INTERNAL=
+PC_LIBUNWIND_PREFIX:INTERNAL=
+PC_LIBUNWIND_STATIC_CFLAGS:INTERNAL=
+PC_LIBUNWIND_STATIC_CFLAGS_I:INTERNAL=
+PC_LIBUNWIND_STATIC_CFLAGS_OTHER:INTERNAL=
+PC_LIBUNWIND_STATIC_LIBDIR:INTERNAL=
+PC_LIBUNWIND_STATIC_LIBS:INTERNAL=
+PC_LIBUNWIND_STATIC_LIBS_L:INTERNAL=
+PC_LIBUNWIND_STATIC_LIBS_OTHER:INTERNAL=
+PC_LIBUNWIND_STATIC_LIBS_PATHS:INTERNAL=
+PC_LIBUNWIND_VERSION:INTERNAL=
+PC_LIBUNWIND_libunwind-generic_INCLUDEDIR:INTERNAL=
+PC_LIBUNWIND_libunwind-generic_LIBDIR:INTERNAL=
+PC_LIBUNWIND_libunwind-generic_PREFIX:INTERNAL=
+PC_LIBUNWIND_libunwind-generic_VERSION:INTERNAL=
+PC_LIBUNWIND_libunwind_INCLUDEDIR:INTERNAL=
+PC_LIBUNWIND_libunwind_LIBDIR:INTERNAL=
+PC_LIBUNWIND_libunwind_PREFIX:INTERNAL=
+PC_LIBUNWIND_libunwind_VERSION:INTERNAL=
+PC_LibUSB_CFLAGS:INTERNAL=-I/usr/include/libusb-1.0
+PC_LibUSB_CFLAGS_I:INTERNAL=
+PC_LibUSB_CFLAGS_OTHER:INTERNAL=
+PC_LibUSB_FOUND:INTERNAL=1
+PC_LibUSB_INCLUDEDIR:INTERNAL=/usr/include
+PC_LibUSB_INCLUDE_DIRS:INTERNAL=/usr/include/libusb-1.0
+PC_LibUSB_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lusb-1.0
+PC_LibUSB_LDFLAGS_OTHER:INTERNAL=
+PC_LibUSB_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_LibUSB_LIBRARIES:INTERNAL=usb-1.0
+PC_LibUSB_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_LibUSB_LIBS:INTERNAL=
+PC_LibUSB_LIBS_L:INTERNAL=
+PC_LibUSB_LIBS_OTHER:INTERNAL=
+PC_LibUSB_LIBS_PATHS:INTERNAL=
+PC_LibUSB_MODULE_NAME:INTERNAL=libusb-1.0
+PC_LibUSB_PREFIX:INTERNAL=/usr
+PC_LibUSB_STATIC_CFLAGS:INTERNAL=-I/usr/include/libusb-1.0
+PC_LibUSB_STATIC_CFLAGS_I:INTERNAL=
+PC_LibUSB_STATIC_CFLAGS_OTHER:INTERNAL=
+PC_LibUSB_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include/libusb-1.0
+PC_LibUSB_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lusb-1.0;-ludev
+PC_LibUSB_STATIC_LDFLAGS_OTHER:INTERNAL=
+PC_LibUSB_STATIC_LIBDIR:INTERNAL=
+PC_LibUSB_STATIC_LIBRARIES:INTERNAL=usb-1.0;udev
+PC_LibUSB_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_LibUSB_STATIC_LIBS:INTERNAL=
+PC_LibUSB_STATIC_LIBS_L:INTERNAL=
+PC_LibUSB_STATIC_LIBS_OTHER:INTERNAL=
+PC_LibUSB_STATIC_LIBS_PATHS:INTERNAL=
+PC_LibUSB_VERSION:INTERNAL=1.0.27
+PC_LibUSB_libusb-1.0_INCLUDEDIR:INTERNAL=
+PC_LibUSB_libusb-1.0_LIBDIR:INTERNAL=
+PC_LibUSB_libusb-1.0_PREFIX:INTERNAL=
+PC_LibUSB_libusb-1.0_VERSION:INTERNAL=
+PC_PIPEWIRE_CFLAGS:INTERNAL=-I/usr/include/pipewire-0.3;-I/usr/include/spa-0.2;-D_REENTRANT
+PC_PIPEWIRE_CFLAGS_I:INTERNAL=
+PC_PIPEWIRE_CFLAGS_OTHER:INTERNAL=-D_REENTRANT
+PC_PIPEWIRE_FOUND:INTERNAL=1
+PC_PIPEWIRE_INCLUDEDIR:INTERNAL=/usr/include
+PC_PIPEWIRE_INCLUDE_DIRS:INTERNAL=/usr/include/pipewire-0.3;/usr/include/spa-0.2
+PC_PIPEWIRE_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lpipewire-0.3
+PC_PIPEWIRE_LDFLAGS_OTHER:INTERNAL=
+PC_PIPEWIRE_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_PIPEWIRE_LIBRARIES:INTERNAL=pipewire-0.3
+PC_PIPEWIRE_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_PIPEWIRE_LIBS:INTERNAL=
+PC_PIPEWIRE_LIBS_L:INTERNAL=
+PC_PIPEWIRE_LIBS_OTHER:INTERNAL=
+PC_PIPEWIRE_LIBS_PATHS:INTERNAL=
+PC_PIPEWIRE_MODULE_NAME:INTERNAL=libpipewire-0.3
+PC_PIPEWIRE_PREFIX:INTERNAL=/usr
+PC_PIPEWIRE_STATIC_CFLAGS:INTERNAL=-I/usr/include/pipewire-0.3;-I/usr/include/spa-0.2;-D_REENTRANT
+PC_PIPEWIRE_STATIC_CFLAGS_I:INTERNAL=
+PC_PIPEWIRE_STATIC_CFLAGS_OTHER:INTERNAL=-D_REENTRANT
+PC_PIPEWIRE_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include/pipewire-0.3;/usr/include/spa-0.2
+PC_PIPEWIRE_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lpipewire-0.3
+PC_PIPEWIRE_STATIC_LDFLAGS_OTHER:INTERNAL=
+PC_PIPEWIRE_STATIC_LIBDIR:INTERNAL=
+PC_PIPEWIRE_STATIC_LIBRARIES:INTERNAL=pipewire-0.3
+PC_PIPEWIRE_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_PIPEWIRE_STATIC_LIBS:INTERNAL=
+PC_PIPEWIRE_STATIC_LIBS_L:INTERNAL=
+PC_PIPEWIRE_STATIC_LIBS_OTHER:INTERNAL=
+PC_PIPEWIRE_STATIC_LIBS_PATHS:INTERNAL=
+PC_PIPEWIRE_VERSION:INTERNAL=1.0.5
+PC_PIPEWIRE_libpipewire-0.3_INCLUDEDIR:INTERNAL=
+PC_PIPEWIRE_libpipewire-0.3_LIBDIR:INTERNAL=
+PC_PIPEWIRE_libpipewire-0.3_PREFIX:INTERNAL=
+PC_PIPEWIRE_libpipewire-0.3_VERSION:INTERNAL=
+PC_PULSEAUDIO_CFLAGS:INTERNAL=-I/usr/include;-D_REENTRANT
+PC_PULSEAUDIO_CFLAGS_I:INTERNAL=
+PC_PULSEAUDIO_CFLAGS_OTHER:INTERNAL=-D_REENTRANT
+PC_PULSEAUDIO_FOUND:INTERNAL=1
+PC_PULSEAUDIO_INCLUDEDIR:INTERNAL=/usr/include
+PC_PULSEAUDIO_INCLUDE_DIRS:INTERNAL=/usr/include
+PC_PULSEAUDIO_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lpulse;-pthread
+PC_PULSEAUDIO_LDFLAGS_OTHER:INTERNAL=-pthread
+PC_PULSEAUDIO_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_PULSEAUDIO_LIBRARIES:INTERNAL=pulse
+PC_PULSEAUDIO_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_PULSEAUDIO_LIBS:INTERNAL=
+PC_PULSEAUDIO_LIBS_L:INTERNAL=
+PC_PULSEAUDIO_LIBS_OTHER:INTERNAL=
+PC_PULSEAUDIO_LIBS_PATHS:INTERNAL=
+PC_PULSEAUDIO_MODULE_NAME:INTERNAL=libpulse
+PC_PULSEAUDIO_PREFIX:INTERNAL=/usr
+PC_PULSEAUDIO_STATIC_CFLAGS:INTERNAL=-I/usr/include;-D_REENTRANT
+PC_PULSEAUDIO_STATIC_CFLAGS_I:INTERNAL=
+PC_PULSEAUDIO_STATIC_CFLAGS_OTHER:INTERNAL=-D_REENTRANT
+PC_PULSEAUDIO_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include
+PC_PULSEAUDIO_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lpulse;-pthread;-L/usr/lib/x86_64-linux-gnu/pulseaudio;-lpulsecommon-16.1
+PC_PULSEAUDIO_STATIC_LDFLAGS_OTHER:INTERNAL=-pthread
+PC_PULSEAUDIO_STATIC_LIBDIR:INTERNAL=
+PC_PULSEAUDIO_STATIC_LIBRARIES:INTERNAL=pulse;pulsecommon-16.1
+PC_PULSEAUDIO_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu;/usr/lib/x86_64-linux-gnu/pulseaudio
+PC_PULSEAUDIO_STATIC_LIBS:INTERNAL=
+PC_PULSEAUDIO_STATIC_LIBS_L:INTERNAL=
+PC_PULSEAUDIO_STATIC_LIBS_OTHER:INTERNAL=
+PC_PULSEAUDIO_STATIC_LIBS_PATHS:INTERNAL=
+PC_PULSEAUDIO_VERSION:INTERNAL=16.1
+PC_PULSEAUDIO_libpulse_INCLUDEDIR:INTERNAL=
+PC_PULSEAUDIO_libpulse_LIBDIR:INTERNAL=
+PC_PULSEAUDIO_libpulse_PREFIX:INTERNAL=
+PC_PULSEAUDIO_libpulse_VERSION:INTERNAL=
+PC_SNDIO_CFLAGS:INTERNAL=-I/usr/include
+PC_SNDIO_CFLAGS_I:INTERNAL=
+PC_SNDIO_CFLAGS_OTHER:INTERNAL=
+PC_SNDIO_FOUND:INTERNAL=1
+PC_SNDIO_INCLUDEDIR:INTERNAL=/usr/include
+PC_SNDIO_INCLUDE_DIRS:INTERNAL=/usr/include
+PC_SNDIO_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lsndio
+PC_SNDIO_LDFLAGS_OTHER:INTERNAL=
+PC_SNDIO_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_SNDIO_LIBRARIES:INTERNAL=sndio
+PC_SNDIO_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_SNDIO_LIBS:INTERNAL=
+PC_SNDIO_LIBS_L:INTERNAL=
+PC_SNDIO_LIBS_OTHER:INTERNAL=
+PC_SNDIO_LIBS_PATHS:INTERNAL=
+PC_SNDIO_MODULE_NAME:INTERNAL=sndio
+PC_SNDIO_PREFIX:INTERNAL=/usr
+PC_SNDIO_STATIC_CFLAGS:INTERNAL=-I/usr/include
+PC_SNDIO_STATIC_CFLAGS_I:INTERNAL=
+PC_SNDIO_STATIC_CFLAGS_OTHER:INTERNAL=
+PC_SNDIO_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include
+PC_SNDIO_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lsndio
+PC_SNDIO_STATIC_LDFLAGS_OTHER:INTERNAL=
+PC_SNDIO_STATIC_LIBDIR:INTERNAL=
+PC_SNDIO_STATIC_LIBRARIES:INTERNAL=sndio
+PC_SNDIO_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_SNDIO_STATIC_LIBS:INTERNAL=
+PC_SNDIO_STATIC_LIBS_L:INTERNAL=
+PC_SNDIO_STATIC_LIBS_OTHER:INTERNAL=
+PC_SNDIO_STATIC_LIBS_PATHS:INTERNAL=
+PC_SNDIO_VERSION:INTERNAL=1.9.0
+PC_SNDIO_sndio_INCLUDEDIR:INTERNAL=
+PC_SNDIO_sndio_LIBDIR:INTERNAL=
+PC_SNDIO_sndio_PREFIX:INTERNAL=
+PC_SNDIO_sndio_VERSION:INTERNAL=
+PC_WAYLAND_CFLAGS:INTERNAL=-I/usr/include
+PC_WAYLAND_CFLAGS_I:INTERNAL=
+PC_WAYLAND_CFLAGS_OTHER:INTERNAL=
+PC_WAYLAND_FOUND:INTERNAL=1
+PC_WAYLAND_INCLUDEDIR:INTERNAL=
+PC_WAYLAND_INCLUDE_DIRS:INTERNAL=/usr/include
+PC_WAYLAND_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lwayland-egl;-lwayland-client;-lwayland-cursor;-lEGL;-lxkbcommon
+PC_WAYLAND_LDFLAGS_OTHER:INTERNAL=
+PC_WAYLAND_LIBDIR:INTERNAL=
+PC_WAYLAND_LIBRARIES:INTERNAL=wayland-egl;wayland-client;wayland-cursor;EGL;xkbcommon
+PC_WAYLAND_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_WAYLAND_LIBS:INTERNAL=
+PC_WAYLAND_LIBS_L:INTERNAL=
+PC_WAYLAND_LIBS_OTHER:INTERNAL=
+PC_WAYLAND_LIBS_PATHS:INTERNAL=
+PC_WAYLAND_MODULE_NAME:INTERNAL=
+PC_WAYLAND_PREFIX:INTERNAL=
+PC_WAYLAND_STATIC_CFLAGS:INTERNAL=-I/usr/include
+PC_WAYLAND_STATIC_CFLAGS_I:INTERNAL=
+PC_WAYLAND_STATIC_CFLAGS_OTHER:INTERNAL=
+PC_WAYLAND_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include
+PC_WAYLAND_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lm;-pthread;-lrt;-lffi;-lwayland-egl;-lwayland-client;-lm;-pthread;-lrt;-lffi;-lwayland-cursor;-L/usr/lib/x86_64-linux-gnu;-lwayland-client;-lm;-pthread;-lrt;-lffi;-lEGL;-lxkbcommon
+PC_WAYLAND_STATIC_LDFLAGS_OTHER:INTERNAL=-pthread;-pthread;-pthread
+PC_WAYLAND_STATIC_LIBDIR:INTERNAL=
+PC_WAYLAND_STATIC_LIBRARIES:INTERNAL=m;rt;ffi;wayland-egl;wayland-client;m;rt;ffi;wayland-cursor;wayland-client;m;rt;ffi;EGL;xkbcommon
+PC_WAYLAND_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu;/usr/lib/x86_64-linux-gnu
+PC_WAYLAND_STATIC_LIBS:INTERNAL=
+PC_WAYLAND_STATIC_LIBS_L:INTERNAL=
+PC_WAYLAND_STATIC_LIBS_OTHER:INTERNAL=
+PC_WAYLAND_STATIC_LIBS_PATHS:INTERNAL=
+PC_WAYLAND_VERSION:INTERNAL=
+PC_WAYLAND_egl_INCLUDEDIR:INTERNAL=/usr/include
+PC_WAYLAND_egl_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_WAYLAND_egl_MODULE_NAME:INTERNAL=egl
+PC_WAYLAND_egl_PREFIX:INTERNAL=/usr
+PC_WAYLAND_egl_VERSION:INTERNAL=1.5
+PC_WAYLAND_wayland-client_INCLUDEDIR:INTERNAL=/usr/include
+PC_WAYLAND_wayland-client_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_WAYLAND_wayland-client_MODULE_NAME:INTERNAL=wayland-client
+PC_WAYLAND_wayland-client_PREFIX:INTERNAL=/usr
+PC_WAYLAND_wayland-client_VERSION:INTERNAL=1.22.0
+PC_WAYLAND_wayland-cursor_INCLUDEDIR:INTERNAL=/usr/include
+PC_WAYLAND_wayland-cursor_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_WAYLAND_wayland-cursor_MODULE_NAME:INTERNAL=wayland-cursor
+PC_WAYLAND_wayland-cursor_PREFIX:INTERNAL=/usr
+PC_WAYLAND_wayland-cursor_VERSION:INTERNAL=1.22.0
+PC_WAYLAND_wayland-egl_INCLUDEDIR:INTERNAL=/usr/include
+PC_WAYLAND_wayland-egl_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_WAYLAND_wayland-egl_MODULE_NAME:INTERNAL=wayland-egl
+PC_WAYLAND_wayland-egl_PREFIX:INTERNAL=/usr
+PC_WAYLAND_wayland-egl_VERSION:INTERNAL=18.1.0
+PC_WAYLAND_xkbcommon_INCLUDEDIR:INTERNAL=/usr/include
+PC_WAYLAND_xkbcommon_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_WAYLAND_xkbcommon_MODULE_NAME:INTERNAL=xkbcommon
+PC_WAYLAND_xkbcommon_PREFIX:INTERNAL=/usr
+PC_WAYLAND_xkbcommon_VERSION:INTERNAL=1.6.0
 //ADVANCED property for variable: PKG_CONFIG_ARGN
 PKG_CONFIG_ARGN-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
 PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
+PKG_FONTCONFIG_CFLAGS:INTERNAL=-I/usr/include;-I/usr/include/freetype2;-I/usr/include/libpng16
+PKG_FONTCONFIG_CFLAGS_I:INTERNAL=
+PKG_FONTCONFIG_CFLAGS_OTHER:INTERNAL=
+PKG_FONTCONFIG_FOUND:INTERNAL=1
+PKG_FONTCONFIG_INCLUDEDIR:INTERNAL=/usr/include
+PKG_FONTCONFIG_INCLUDE_DIRS:INTERNAL=/usr/include;/usr/include/freetype2;/usr/include/libpng16
+PKG_FONTCONFIG_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lfontconfig;-lfreetype
+PKG_FONTCONFIG_LDFLAGS_OTHER:INTERNAL=
+PKG_FONTCONFIG_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+PKG_FONTCONFIG_LIBRARIES:INTERNAL=fontconfig;freetype
+PKG_FONTCONFIG_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+PKG_FONTCONFIG_LIBS:INTERNAL=
+PKG_FONTCONFIG_LIBS_L:INTERNAL=
+PKG_FONTCONFIG_LIBS_OTHER:INTERNAL=
+PKG_FONTCONFIG_LIBS_PATHS:INTERNAL=
+PKG_FONTCONFIG_MODULE_NAME:INTERNAL=fontconfig
+PKG_FONTCONFIG_PREFIX:INTERNAL=/usr
+PKG_FONTCONFIG_STATIC_CFLAGS:INTERNAL=-I/usr/include;-I/usr/include/freetype2;-I/usr/include/libpng16;-DXML_STATIC
+PKG_FONTCONFIG_STATIC_CFLAGS_I:INTERNAL=
+PKG_FONTCONFIG_STATIC_CFLAGS_OTHER:INTERNAL=-DXML_STATIC
+PKG_FONTCONFIG_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include;/usr/include/freetype2;/usr/include/libpng16
+PKG_FONTCONFIG_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lfontconfig;-lfreetype;-lbz2;-L/usr/lib/x86_64-linux-gnu;-L/usr/lib/x86_64-linux-gnu;-lz;-lpng16;-lm;-lz;-lm;-L/usr/lib/x86_64-linux-gnu;-L/usr/lib/x86_64-linux-gnu;-lz;-lbrotlidec;-L/usr/lib/x86_64-linux-gnu;-lbrotlicommon;-L/usr/lib/x86_64-linux-gnu;-lexpat;-lm
+PKG_FONTCONFIG_STATIC_LDFLAGS_OTHER:INTERNAL=
+PKG_FONTCONFIG_STATIC_LIBDIR:INTERNAL=
+PKG_FONTCONFIG_STATIC_LIBRARIES:INTERNAL=fontconfig;freetype;bz2;z;png16;m;z;m;z;brotlidec;brotlicommon;expat;m
+PKG_FONTCONFIG_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu;/usr/lib/x86_64-linux-gnu;/usr/lib/x86_64-linux-gnu;/usr/lib/x86_64-linux-gnu;/usr/lib/x86_64-linux-gnu;/usr/lib/x86_64-linux-gnu;/usr/lib/x86_64-linux-gnu
+PKG_FONTCONFIG_STATIC_LIBS:INTERNAL=
+PKG_FONTCONFIG_STATIC_LIBS_L:INTERNAL=
+PKG_FONTCONFIG_STATIC_LIBS_OTHER:INTERNAL=
+PKG_FONTCONFIG_STATIC_LIBS_PATHS:INTERNAL=
+PKG_FONTCONFIG_VERSION:INTERNAL=2.15.0
+PKG_FONTCONFIG_fontconfig_INCLUDEDIR:INTERNAL=
+PKG_FONTCONFIG_fontconfig_LIBDIR:INTERNAL=
+PKG_FONTCONFIG_fontconfig_PREFIX:INTERNAL=
+PKG_FONTCONFIG_fontconfig_VERSION:INTERNAL=
+//ADVANCED property for variable: SDL_CHECK_REQUIRED_INCLUDES
+SDL_CHECK_REQUIRED_INCLUDES-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: SDL_CHECK_REQUIRED_LINK_OPTIONS
+SDL_CHECK_REQUIRED_LINK_OPTIONS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: SDL_CMAKE_C_COMPILER_LINKER_ID
+SDL_CMAKE_C_COMPILER_LINKER_ID-ADVANCED:INTERNAL=1
+//Result of TRY_COMPILE
+SDL_CPU_CHECK_ALL:INTERNAL=TRUE
+//Install test-cases
+SDL_INSTALL_TESTS:INTERNAL=OFF
+//Have symbol XkbLookupKeySym
+SDL_VIDEO_DRIVER_X11_HAS_XKBLOOKUPKEYSYM:INTERNAL=1
 TINYXML2_CFLAGS:INTERNAL=-I/usr/include
 TINYXML2_CFLAGS_I:INTERNAL=
 TINYXML2_CFLAGS_OTHER:INTERNAL=
@@ -424,10 +2473,341 @@ TINYXML2_tinyxml2_INCLUDEDIR:INTERNAL=
 TINYXML2_tinyxml2_LIBDIR:INTERNAL=
 TINYXML2_tinyxml2_PREFIX:INTERNAL=
 TINYXML2_tinyxml2_VERSION:INTERNAL=
+//ADVANCED property for variable: X11_ICE_INCLUDE_PATH
+X11_ICE_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_ICE_LIB
+X11_ICE_LIB-ADVANCED:INTERNAL=1
+//Have library /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so
+X11_LIB_X11_SOLO:INTERNAL=1
+//ADVANCED property for variable: X11_SM_INCLUDE_PATH
+X11_SM_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_SM_LIB
+X11_SM_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_X11_INCLUDE_PATH
+X11_X11_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_X11_LIB
+X11_X11_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_X11_xcb_INCLUDE_PATH
+X11_X11_xcb_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_X11_xcb_LIB
+X11_X11_xcb_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_XRes_INCLUDE_PATH
+X11_XRes_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_XRes_LIB
+X11_XRes_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_XShm_INCLUDE_PATH
+X11_XShm_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_XSync_INCLUDE_PATH
+X11_XSync_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xaccessrules_INCLUDE_PATH
+X11_Xaccessrules_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xaccessstr_INCLUDE_PATH
+X11_Xaccessstr_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xau_INCLUDE_PATH
+X11_Xau_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xau_LIB
+X11_Xau_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xaw_INCLUDE_PATH
+X11_Xaw_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xaw_LIB
+X11_Xaw_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xcomposite_INCLUDE_PATH
+X11_Xcomposite_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xcomposite_LIB
+X11_Xcomposite_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xcursor_INCLUDE_PATH
+X11_Xcursor_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xcursor_LIB
+X11_Xcursor_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xdamage_INCLUDE_PATH
+X11_Xdamage_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xdamage_LIB
+X11_Xdamage_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xdmcp_INCLUDE_PATH
+X11_Xdmcp_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xdmcp_LIB
+X11_Xdmcp_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xext_INCLUDE_PATH
+X11_Xext_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xext_LIB
+X11_Xext_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xfixes_INCLUDE_PATH
+X11_Xfixes_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xfixes_LIB
+X11_Xfixes_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xft_INCLUDE_PATH
+X11_Xft_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xft_LIB
+X11_Xft_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xi_INCLUDE_PATH
+X11_Xi_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xi_LIB
+X11_Xi_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xinerama_INCLUDE_PATH
+X11_Xinerama_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xinerama_LIB
+X11_Xinerama_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xkb_INCLUDE_PATH
+X11_Xkb_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xkblib_INCLUDE_PATH
+X11_Xkblib_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xlib_INCLUDE_PATH
+X11_Xlib_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xmu_INCLUDE_PATH
+X11_Xmu_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xmu_LIB
+X11_Xmu_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xpm_INCLUDE_PATH
+X11_Xpm_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xpm_LIB
+X11_Xpm_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xrandr_INCLUDE_PATH
+X11_Xrandr_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xrandr_LIB
+X11_Xrandr_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xrender_INCLUDE_PATH
+X11_Xrender_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xrender_LIB
+X11_Xrender_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xshape_INCLUDE_PATH
+X11_Xshape_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xss_INCLUDE_PATH
+X11_Xss_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xss_LIB
+X11_Xss_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xt_INCLUDE_PATH
+X11_Xt_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xt_LIB
+X11_Xt_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xtst_INCLUDE_PATH
+X11_Xtst_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xtst_LIB
+X11_Xtst_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xutil_INCLUDE_PATH
+X11_Xutil_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xv_INCLUDE_PATH
+X11_Xv_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xv_LIB
+X11_Xv_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xxf86misc_INCLUDE_PATH
+X11_Xxf86misc_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xxf86misc_LIB
+X11_Xxf86misc_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xxf86vm_INCLUDE_PATH
+X11_Xxf86vm_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xxf86vm_LIB
+X11_Xxf86vm_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_dpms_INCLUDE_PATH
+X11_dpms_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_INCLUDE_PATH
+X11_xcb_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_LIB
+X11_xcb_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_composite_INCLUDE_PATH
+X11_xcb_composite_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_composite_LIB
+X11_xcb_composite_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_cursor_INCLUDE_PATH
+X11_xcb_cursor_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_cursor_LIB
+X11_xcb_cursor_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_damage_INCLUDE_PATH
+X11_xcb_damage_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_damage_LIB
+X11_xcb_damage_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_dpms_INCLUDE_PATH
+X11_xcb_dpms_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_dpms_LIB
+X11_xcb_dpms_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_dri2_INCLUDE_PATH
+X11_xcb_dri2_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_dri2_LIB
+X11_xcb_dri2_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_dri3_INCLUDE_PATH
+X11_xcb_dri3_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_dri3_LIB
+X11_xcb_dri3_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_errors_INCLUDE_PATH
+X11_xcb_errors_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_errors_LIB
+X11_xcb_errors_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_ewmh_INCLUDE_PATH
+X11_xcb_ewmh_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_ewmh_LIB
+X11_xcb_ewmh_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_glx_INCLUDE_PATH
+X11_xcb_glx_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_glx_LIB
+X11_xcb_glx_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_icccm_INCLUDE_PATH
+X11_xcb_icccm_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_icccm_LIB
+X11_xcb_icccm_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_image_INCLUDE_PATH
+X11_xcb_image_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_image_LIB
+X11_xcb_image_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_keysyms_INCLUDE_PATH
+X11_xcb_keysyms_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_keysyms_LIB
+X11_xcb_keysyms_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_present_INCLUDE_PATH
+X11_xcb_present_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_present_LIB
+X11_xcb_present_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_randr_INCLUDE_PATH
+X11_xcb_randr_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_randr_LIB
+X11_xcb_randr_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_record_INCLUDE_PATH
+X11_xcb_record_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_record_LIB
+X11_xcb_record_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_render_INCLUDE_PATH
+X11_xcb_render_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_render_LIB
+X11_xcb_render_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_render_util_INCLUDE_PATH
+X11_xcb_render_util_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_render_util_LIB
+X11_xcb_render_util_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_res_INCLUDE_PATH
+X11_xcb_res_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_res_LIB
+X11_xcb_res_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_screensaver_INCLUDE_PATH
+X11_xcb_screensaver_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_screensaver_LIB
+X11_xcb_screensaver_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_shape_INCLUDE_PATH
+X11_xcb_shape_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_shape_LIB
+X11_xcb_shape_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_shm_INCLUDE_PATH
+X11_xcb_shm_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_shm_LIB
+X11_xcb_shm_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_sync_INCLUDE_PATH
+X11_xcb_sync_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_sync_LIB
+X11_xcb_sync_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_util_INCLUDE_PATH
+X11_xcb_util_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_util_LIB
+X11_xcb_util_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xf86dri_INCLUDE_PATH
+X11_xcb_xf86dri_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xf86dri_LIB
+X11_xcb_xf86dri_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xfixes_INCLUDE_PATH
+X11_xcb_xfixes_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xfixes_LIB
+X11_xcb_xfixes_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xinerama_INCLUDE_PATH
+X11_xcb_xinerama_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xinerama_LIB
+X11_xcb_xinerama_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xinput_INCLUDE_PATH
+X11_xcb_xinput_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xinput_LIB
+X11_xcb_xinput_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xkb_LIB
+X11_xcb_xkb_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xrm_INCLUDE_PATH
+X11_xcb_xrm_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xrm_LIB
+X11_xcb_xrm_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xtest_INCLUDE_PATH
+X11_xcb_xtest_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xtest_LIB
+X11_xcb_xtest_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xv_INCLUDE_PATH
+X11_xcb_xv_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xv_LIB
+X11_xcb_xv_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xvmc_INCLUDE_PATH
+X11_xcb_xvmc_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xvmc_LIB
+X11_xcb_xvmc_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xkbcommon_INCLUDE_PATH
+X11_xkbcommon_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xkbcommon_LIB
+X11_xkbcommon_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xkbcommon_X11_INCLUDE_PATH
+X11_xkbcommon_X11_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xkbcommon_X11_LIB
+X11_xkbcommon_X11_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xkbfile_INCLUDE_PATH
+X11_xkbfile_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xkbfile_LIB
+X11_xkbfile_LIB-ADVANCED:INTERNAL=1
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
+//CMAKE_INSTALL_PREFIX during last run
+_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/usr/local
+__pkg_config_arguments_PC_GBM:INTERNAL=IMPORTED_TARGET;gbm
+__pkg_config_arguments_PC_LIBDECOR:INTERNAL=IMPORTED_TARGET;libdecor-0
+__pkg_config_arguments_PC_LIBDRM:INTERNAL=IMPORTED_TARGET;libdrm
+__pkg_config_arguments_PC_LibUSB:INTERNAL=libusb-1.0>=1.0.16
+__pkg_config_arguments_PC_PIPEWIRE:INTERNAL=IMPORTED_TARGET;libpipewire-0.3>=0.3.44
+__pkg_config_arguments_PC_PULSEAUDIO:INTERNAL=IMPORTED_TARGET;libpulse>=0.9.15
+__pkg_config_arguments_PC_SNDIO:INTERNAL=IMPORTED_TARGET;sndio
+__pkg_config_arguments_PC_WAYLAND:INTERNAL=IMPORTED_TARGET;wayland-client>=1.18;wayland-egl;wayland-cursor;egl;xkbcommon>=0.5.0
+__pkg_config_arguments_PKG_FONTCONFIG:INTERNAL=QUIET;fontconfig
 __pkg_config_arguments_TINYXML2:INTERNAL=REQUIRED;tinyxml2
+__pkg_config_checked_DBUS:INTERNAL=1
+__pkg_config_checked_IBUS:INTERNAL=1
+__pkg_config_checked_LIBURING:INTERNAL=1
+__pkg_config_checked_PC_GBM:INTERNAL=1
+__pkg_config_checked_PC_JACK:INTERNAL=1
+__pkg_config_checked_PC_LIBDECOR:INTERNAL=1
+__pkg_config_checked_PC_LIBDRM:INTERNAL=1
+__pkg_config_checked_PC_LIBUNWIND:INTERNAL=1
+__pkg_config_checked_PC_LibUSB:INTERNAL=1
+__pkg_config_checked_PC_PIPEWIRE:INTERNAL=1
+__pkg_config_checked_PC_PULSEAUDIO:INTERNAL=1
+__pkg_config_checked_PC_SNDIO:INTERNAL=1
+__pkg_config_checked_PC_WAYLAND:INTERNAL=1
+__pkg_config_checked_PKG_FONTCONFIG:INTERNAL=1
 __pkg_config_checked_TINYXML2:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_DBUS_dbus-1
+pkgcfg_lib_DBUS_dbus-1-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_IBUS_gio-2.0
+pkgcfg_lib_IBUS_gio-2.0-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_IBUS_glib-2.0
+pkgcfg_lib_IBUS_glib-2.0-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_IBUS_gobject-2.0
+pkgcfg_lib_IBUS_gobject-2.0-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_IBUS_ibus-1.0
+pkgcfg_lib_IBUS_ibus-1.0-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_GBM_gbm
+pkgcfg_lib_PC_GBM_gbm-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_LIBDECOR_decor-0
+pkgcfg_lib_PC_LIBDECOR_decor-0-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_LIBDRM_drm
+pkgcfg_lib_PC_LIBDRM_drm-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_LibUSB_usb-1.0
+pkgcfg_lib_PC_LibUSB_usb-1.0-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_PIPEWIRE_pipewire-0.3
+pkgcfg_lib_PC_PIPEWIRE_pipewire-0.3-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_PULSEAUDIO_pulse
+pkgcfg_lib_PC_PULSEAUDIO_pulse-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_SNDIO_sndio
+pkgcfg_lib_PC_SNDIO_sndio-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_WAYLAND_EGL
+pkgcfg_lib_PC_WAYLAND_EGL-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_WAYLAND_wayland-client
+pkgcfg_lib_PC_WAYLAND_wayland-client-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_WAYLAND_wayland-cursor
+pkgcfg_lib_PC_WAYLAND_wayland-cursor-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_WAYLAND_wayland-egl
+pkgcfg_lib_PC_WAYLAND_wayland-egl-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_WAYLAND_xkbcommon
+pkgcfg_lib_PC_WAYLAND_xkbcommon-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PKG_FONTCONFIG_fontconfig
+pkgcfg_lib_PKG_FONTCONFIG_fontconfig-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PKG_FONTCONFIG_freetype
+pkgcfg_lib_PKG_FONTCONFIG_freetype-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: pkgcfg_lib_TINYXML2_tinyxml2
 pkgcfg_lib_TINYXML2_tinyxml2-ADVANCED:INTERNAL=1
 prefix_result:INTERNAL=/usr/lib/x86_64-linux-gnu
