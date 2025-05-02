@@ -37,12 +37,8 @@
 #include <span>
 
 // Third-party includes
-#if __has_include(<SDL3/SDL.h>)
-    #include <SDL3/SDL.h>
-#else
-    #include <SDL2/SDL.h>
-#endif
-
+#include "simde_wrapper/simd_wrapper.h"
+#include <SDL3/SDL.h>
 #include <vulkan/vulkan.h>
 #include <imgui.h>
 #include <implot.h>
@@ -51,13 +47,6 @@
 #include <tinyxml2.h>
 #include <gtest/gtest.h>
 #include <spdlog/spdlog.h>
-
-// SIMDe (cross-platform SIMD abstraction)
-#include <simde/x86/sse.h>
-#include <simde/x86/sse2.h>
-#include <simde/x86/sse4.1.h>
-#include <simde/simde-math.h>
-
 
 // Project includes
 #include "os/logger.h"

@@ -129,6 +129,45 @@ Fable2Recomp/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/build
 .PHONY : Fable2Recomp/fast
 
+#=============================================================================
+# Target rules for targets named SDL3-static
+
+# Build rule for target.
+SDL3-static: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SDL3-static
+.PHONY : SDL3-static
+
+# fast build rule for target.
+SDL3-static/fast:
+	$(MAKE) $(MAKESILENT) -f extern/SDL3/CMakeFiles/SDL3-static.dir/build.make extern/SDL3/CMakeFiles/SDL3-static.dir/build
+.PHONY : SDL3-static/fast
+
+#=============================================================================
+# Target rules for targets named SDL3_test
+
+# Build rule for target.
+SDL3_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SDL3_test
+.PHONY : SDL3_test
+
+# fast build rule for target.
+SDL3_test/fast:
+	$(MAKE) $(MAKESILENT) -f extern/SDL3/CMakeFiles/SDL3_test.dir/build.make extern/SDL3/CMakeFiles/SDL3_test.dir/build
+.PHONY : SDL3_test/fast
+
+#=============================================================================
+# Target rules for targets named SDL_uclibc
+
+# Build rule for target.
+SDL_uclibc: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SDL_uclibc
+.PHONY : SDL_uclibc
+
+# fast build rule for target.
+SDL_uclibc/fast:
+	$(MAKE) $(MAKESILENT) -f extern/SDL3/CMakeFiles/SDL_uclibc.dir/build.make extern/SDL3/CMakeFiles/SDL_uclibc.dir/build
+.PHONY : SDL_uclibc/fast
+
 extern/fmt/src/format.o: extern/fmt/src/format.cc.o
 .PHONY : extern/fmt/src/format.o
 
@@ -498,6 +537,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Fable2Recomp"
+	@echo "... SDL3-static"
+	@echo "... SDL3_test"
+	@echo "... SDL_uclibc"
 	@echo "... extern/fmt/src/format.o"
 	@echo "... extern/fmt/src/format.i"
 	@echo "... extern/fmt/src/format.s"

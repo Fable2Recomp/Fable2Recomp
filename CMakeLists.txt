@@ -14,6 +14,20 @@ set(GLM_INCLUDE_DIR    "${EXTERN_DIR}/glm")
 set(TOML11_INCLUDE_DIR "${EXTERN_DIR}/toml11/include")
 set(SIMDE_INCLUDE_DIR  "${EXTERN_DIR}/simde")
 
+# === SDL3 ===
+set(SDL3_DIR "${EXTERN_DIR}/SDL3")
+
+# Disable shared lib (prevents symlink errors on NTFS/exFAT)
+set(SDL_SHARED OFF CACHE BOOL "" FORCE)
+set(SDL_STATIC ON CACHE BOOL "" FORCE)
+set(SDL_TEST OFF CACHE BOOL "" FORCE)
+set(SDL_INSTALL_TESTS OFF CACHE BOOL "" FORCE)
+set(SDL_INSTALL OFF CACHE BOOL "" FORCE)
+
+add_subdirectory(${SDL3_DIR} EXCLUDE_FROM_ALL)
+
+set(SDL3_INCLUDE_DIR "${SDL3_DIR}/include")
+
 # === fmtlib ===
 set(FMT_INCLUDE_DIR "${EXTERN_DIR}/fmt/include")
 set(FMT_SOURCES
@@ -78,6 +92,7 @@ else()
     endif()
 
     set(PLATFORM_INCLUDE_DIRS
+        ${SDL3_INCLUDE_DIR}
         ${TINYXML2_INCLUDE_DIRS}
         ${GLM_INCLUDE_DIR}
         ${SPDLOG_INCLUDE_DIR}
@@ -133,31 +148,46 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 
 # === Link libraries ===
 target_link_libraries(${PROJECT_NAME} PRIVATE
+    SDL3::SDL3-static
     ${PLATFORM_LIBS}
 )
 
-# === SIMD configuration ===
-if(CMAKE_SYSTEM_PROCESSOR MATCHES "x86_64")
-    message(STATUS "Target is x86_64: enabling native SIMD for SIMDe")
+# === SIMD configuration (SIMDe) ===
+# Enable SIMDe native aliases (allows _mm_* to resolve when supported)
+add_definitions(
+    -DSIMDE_ENABLE_NATIVE_ALIASES=1
+    -DSIMDE_SSE2=1
+    -DSIMDE_SSE4_1=1
+)
 
-    target_compile_definitions(${PROJECT_NAME} PRIVATE
-        SIMDE_ENABLE_NATIVE_ALIASES
-        SIMDE_SSE4_1_NATIVE
-    )
+# Detect platform + compiler support for native intrinsics
+include(CheckCXXCompilerFlag)
 
-    if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-        target_compile_options(${PROJECT_NAME} PRIVATE -msse4.1)
-    endif()
+check_cxx_compiler_flag("-msse4.1" COMPILER_SUPPORTS_SSE41)
+
+if(CMAKE_SYSTEM_PROCESSOR MATCHES "x86_64" AND COMPILER_SUPPORTS_SSE41)
+    message(STATUS "SIMDe: Enabling native SSE4.1 support (-msse4.1)")
+    add_compile_options(-msse4.1)
+elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "aarch64")
+    message(STATUS "SIMDe: ARM64 target detected — enabling NEON flags")
+    add_definitions(-DSIMDE_ARM_NEON_A32=1)
+    add_compile_options(-mfpu=neon)
 else()
-    message(STATUS "Target is non-x86_64 (e.g., ARM): using SIMDe emulation")
+    message(STATUS "SIMDe: Using portable-only SIMD mode (no native flags)")
+endif()
 
-    target_compile_definitions(${PROJECT_NAME} PRIVATE
-        SIMDE_ENABLE_NATIVE_ALIASES
-        SIMDE_NO_NATIVE
-    )
+# Cross-compiling fallback: disable native SIMD entirely
+if(CMAKE_CROSSCOMPILING)
+    message(STATUS "SIMDe: Cross-compiling — forcing portable-only fallback")
+    add_definitions(-DSIMDE_NO_NATIVE=1)
+endif()
+if(CMAKE_CROSSCOMPILING)
+    message(STATUS "Cross-compiling: Defining SDL_DISABLE_IMMINTRIN_H to prevent <immintrin.h> issues.")
+    add_definitions(-DSDL_DISABLE_IMMINTRIN_H)
 endif()
 
 # === Status messages ===
+message(STATUS "Using SDL3 (static) from: ${SDL3_INCLUDE_DIR}")
 message(STATUS "Using ImGui from: ${IMGUI_INCLUDE_DIR}")
 message(STATUS "Using ImPlot from: ${IMPLOT_INCLUDE_DIR}")
 message(STATUS "Using GLM from: ${GLM_INCLUDE_DIR}")
