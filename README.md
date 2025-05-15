@@ -30,3 +30,5 @@ We welcome contributions to Fable2Recomp! If you're interested in enhancing Fabl
 
 ## XenonRecomp
 https://github.com/hedge-dev/XenonRecomp
+
+The current version of Xenon Recomp used for the Fable 2 Recomp can be found at https://github.com/Fable2Recomp/XenonRecomp
