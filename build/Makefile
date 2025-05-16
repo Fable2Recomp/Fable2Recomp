@@ -168,6 +168,19 @@ SDL_uclibc/fast:
 	$(MAKE) $(MAKESILENT) -f extern/SDL3/CMakeFiles/SDL_uclibc.dir/build.make extern/SDL3/CMakeFiles/SDL_uclibc.dir/build
 .PHONY : SDL_uclibc/fast
 
+#=============================================================================
+# Target rules for targets named SDL3_mixer-static
+
+# Build rule for target.
+SDL3_mixer-static: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SDL3_mixer-static
+.PHONY : SDL3_mixer-static
+
+# fast build rule for target.
+SDL3_mixer-static/fast:
+	$(MAKE) $(MAKESILENT) -f extern/SDL_mixer/CMakeFiles/SDL3_mixer-static.dir/build.make extern/SDL_mixer/CMakeFiles/SDL3_mixer-static.dir/build
+.PHONY : SDL3_mixer-static/fast
+
 extern/fmt/src/format.o: extern/fmt/src/format.cc.o
 .PHONY : extern/fmt/src/format.o
 
@@ -408,6 +421,30 @@ extern/implot/implot_items.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/extern/implot/implot_items.cpp.s
 .PHONY : extern/implot/implot_items.cpp.s
 
+extern/o1heap/o1heap.o: extern/o1heap/o1heap.c.o
+.PHONY : extern/o1heap/o1heap.o
+
+# target to build an object file
+extern/o1heap/o1heap.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/extern/o1heap/o1heap.c.o
+.PHONY : extern/o1heap/o1heap.c.o
+
+extern/o1heap/o1heap.i: extern/o1heap/o1heap.c.i
+.PHONY : extern/o1heap/o1heap.i
+
+# target to preprocess a source file
+extern/o1heap/o1heap.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/extern/o1heap/o1heap.c.i
+.PHONY : extern/o1heap/o1heap.c.i
+
+extern/o1heap/o1heap.s: extern/o1heap/o1heap.c.s
+.PHONY : extern/o1heap/o1heap.s
+
+# target to generate assembly for a file
+extern/o1heap/o1heap.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/extern/o1heap/o1heap.c.s
+.PHONY : extern/o1heap/o1heap.c.s
+
 extern/tinyxml2/tinyxml2.o: extern/tinyxml2/tinyxml2.cpp.o
 .PHONY : extern/tinyxml2/tinyxml2.o
 
@@ -431,6 +468,30 @@ extern/tinyxml2/tinyxml2.s: extern/tinyxml2/tinyxml2.cpp.s
 extern/tinyxml2/tinyxml2.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/extern/tinyxml2/tinyxml2.cpp.s
 .PHONY : extern/tinyxml2/tinyxml2.cpp.s
+
+extern/volk/volk.o: extern/volk/volk.c.o
+.PHONY : extern/volk/volk.o
+
+# target to build an object file
+extern/volk/volk.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/extern/volk/volk.c.o
+.PHONY : extern/volk/volk.c.o
+
+extern/volk/volk.i: extern/volk/volk.c.i
+.PHONY : extern/volk/volk.i
+
+# target to preprocess a source file
+extern/volk/volk.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/extern/volk/volk.c.i
+.PHONY : extern/volk/volk.c.i
+
+extern/volk/volk.s: extern/volk/volk.c.s
+.PHONY : extern/volk/volk.s
+
+# target to generate assembly for a file
+extern/volk/volk.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/extern/volk/volk.c.s
+.PHONY : extern/volk/volk.c.s
 
 src/cpu/ppc_integration.o: src/cpu/ppc_integration.cpp.o
 .PHONY : src/cpu/ppc_integration.o
@@ -538,6 +599,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Fable2Recomp"
 	@echo "... SDL3-static"
+	@echo "... SDL3_mixer-static"
 	@echo "... SDL3_test"
 	@echo "... SDL_uclibc"
 	@echo "... extern/fmt/src/format.o"
@@ -570,9 +632,15 @@ help:
 	@echo "... extern/implot/implot_items.o"
 	@echo "... extern/implot/implot_items.i"
 	@echo "... extern/implot/implot_items.s"
+	@echo "... extern/o1heap/o1heap.o"
+	@echo "... extern/o1heap/o1heap.i"
+	@echo "... extern/o1heap/o1heap.s"
 	@echo "... extern/tinyxml2/tinyxml2.o"
 	@echo "... extern/tinyxml2/tinyxml2.i"
 	@echo "... extern/tinyxml2/tinyxml2.s"
+	@echo "... extern/volk/volk.o"
+	@echo "... extern/volk/volk.i"
+	@echo "... extern/volk/volk.s"
 	@echo "... src/cpu/ppc_integration.o"
 	@echo "... src/cpu/ppc_integration.i"
 	@echo "... src/cpu/ppc_integration.s"

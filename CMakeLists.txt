@@ -13,6 +13,23 @@ set(SPDLOG_INCLUDE_DIR "${EXTERN_DIR}/spdlog/include")
 set(GLM_INCLUDE_DIR    "${EXTERN_DIR}/glm")
 set(TOML11_INCLUDE_DIR "${EXTERN_DIR}/toml11/include")
 set(SIMDE_INCLUDE_DIR  "${EXTERN_DIR}/simde")
+set(O1HEAP_INCLUDE_DIR  "${EXTERN_DIR}/o1heap")
+set(VULKAN_HEADERS_DIR "${EXTERN_DIR}/Vulkan-Headers/include")
+set(VMA_INCLUDE_DIR "${EXTERN_DIR}/VMA/include")
+
+# === o1heap ===
+set(O1HEAP_SOURCES
+    ${O1HEAP_INCLUDE_DIR}/o1heap.c
+)
+list(APPEND SOURCES ${O1HEAP_SOURCES})
+
+# === ddspp ===
+set(DDSPP_DIR "${EXTERN_DIR}/ddspp")
+set(DDSPP_INCLUDE_DIR "${DDSPP_DIR}")
+list(APPEND PLATFORM_INCLUDE_DIRS ${DDSPP_INCLUDE_DIR})
+
+# Force static builds globally before adding subdirs
+set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
 
 # === SDL3 ===
 set(SDL3_DIR "${EXTERN_DIR}/SDL3")
@@ -26,7 +43,42 @@ set(SDL_INSTALL OFF CACHE BOOL "" FORCE)
 
 add_subdirectory(${SDL3_DIR} EXCLUDE_FROM_ALL)
 
+# Manually define alias SDL3::SDL3 to satisfy SDL_mixer's find_package(SDL3)
+set(SDL3_FOUND TRUE)
+
 set(SDL3_INCLUDE_DIR "${SDL3_DIR}/include")
+
+# === SDL_mixer ===
+set(SDL_MIXER_DIR "${EXTERN_DIR}/SDL_mixer")
+set(SDL3_MIXER_INCLUDE_DIR "${SDL_MIXER_DIR}/include")
+set(SDL3_MIXER_PUBLIC_INCLUDE_DIR "${SDL_MIXER_DIR}/include/SDL3_mixer")
+list(APPEND PLATFORM_INCLUDE_DIRS ${SDL3_INCLUDE_DIR} ${SDL3_MIXER_INCLUDE_DIR} ${SDL3_MIXER_PUBLIC_INCLUDE_DIR})
+
+# Required to use SDL3-style include path layout
+set(SDL3MIXER_SDL3 ON CACHE BOOL "" FORCE)
+
+# Force static linking
+set(SDL_MIXER_STATIC ON CACHE BOOL "" FORCE)
+set(SDL_MIXER_SHARED OFF CACHE BOOL "" FORCE)
+set(SDL3MIXER_BUILD_STATIC_LIBS ON CACHE BOOL "" FORCE)
+set(SDL3MIXER_BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
+
+# Enable Vorbis via libvorbisfile
+set(SDL_MIXER_VORBIS ON CACHE BOOL "" FORCE)
+set(SDL_MIXER_VORBIS_LIBRARY_TYPE "VORBISFILE" CACHE STRING "" FORCE)
+
+# Optional codecs OFF unless needed
+set(SDL_MIXER_VENDORED ON CACHE BOOL "" FORCE)
+set(SDL_MIXER_FLAC     OFF CACHE BOOL "" FORCE)
+set(SDL_MIXER_MOD      OFF CACHE BOOL "" FORCE)
+set(SDL_MIXER_MP3      OFF CACHE BOOL "" FORCE)
+set(SDL_MIXER_OPUS     OFF CACHE BOOL "" FORCE)
+set(SDL_MIXER_MIDI     OFF CACHE BOOL "" FORCE)
+set(SDL_MIXER_SAMPLES  OFF CACHE BOOL "" FORCE)  # Optional
+set(SDL_MIXER_INSTALL  OFF CACHE BOOL "" FORCE)
+
+set(SDL3MIXER_DEPS_REQUIRED ON CACHE BOOL "" FORCE)
+add_subdirectory(${SDL_MIXER_DIR} EXCLUDE_FROM_ALL)
 
 # === fmtlib ===
 set(FMT_INCLUDE_DIR "${EXTERN_DIR}/fmt/include")
@@ -59,6 +111,15 @@ set(IMPLOT_SOURCES
     ${EXTERN_DIR}/implot/implot_demo.cpp
 )
 
+# === D3D12 Memory Allocator ===
+set(D3D12MA_INCLUDE_DIR "${EXTERN_DIR}/D3D12MA/include")
+set(D3D12MA_SOURCES "${EXTERN_DIR}/D3D12MA/src/D3D12MemAlloc.cpp")
+
+# === Volk ===
+set(VOLK_DIR "${EXTERN_DIR}/volk")
+set(VOLK_INCLUDE_DIR "${VOLK_DIR}")
+set(VOLK_SOURCES "${VOLK_DIR}/volk.c")
+
 # === Platform-specific setup ===
 if(WIN32)
     # Windows + vcpkg setup
@@ -72,6 +133,8 @@ if(WIN32)
     find_package(implot CONFIG REQUIRED)
     find_package(glm CONFIG REQUIRED)
     find_package(tinyxml2 CONFIG REQUIRED)
+    list(APPEND PLATFORM_INCLUDE_DIRS ${D3D12MA_INCLUDE_DIR})
+    list(APPEND SOURCES ${D3D12MA_SOURCES})
 
     set(PLATFORM_LIBS
         toml11::toml11
@@ -86,11 +149,6 @@ else()
     find_package(PkgConfig REQUIRED)
     pkg_check_modules(TINYXML2 REQUIRED tinyxml2)
 
-    find_path(GLM_INCLUDE_DIR glm/glm.hpp PATHS /usr/include /usr/local/include)
-    if(NOT GLM_INCLUDE_DIR)
-        message(FATAL_ERROR "GLM headers not found!")
-    endif()
-
     set(PLATFORM_INCLUDE_DIRS
         ${SDL3_INCLUDE_DIR}
         ${TINYXML2_INCLUDE_DIRS}
@@ -101,6 +159,9 @@ else()
         ${TOML11_INCLUDE_DIR}
         ${FMT_INCLUDE_DIR}
         ${SIMDE_INCLUDE_DIR}
+        ${VULKAN_HEADERS_DIR}
+        ${VMA_INCLUDE_DIR}
+        ${VOLK_INCLUDE_DIR}
     )
 
     list(APPEND SOURCES
@@ -108,17 +169,19 @@ else()
         ${IMGUI_SOURCES}
         ${IMPLOT_SOURCES}
         ${FMT_SOURCES}
+        ${VOLK_SOURCES}
     )
 
     set(PLATFORM_LIBS
         ${TINYXML2_LIBRARIES}
     )
 
-    message(STATUS "On Linux, please install required packages:")
-    message(STATUS "sudo pacman -S glm tinyxml2 toml11")
-    message(STATUS "yay -S imgui")
-    message(STATUS "For implot, use extern/ or build from source")
-    message(STATUS "Ubuntu/Debian: sudo apt install libglm-dev libtinyxml2-dev")
+    if(NOT WIN32)
+        message(STATUS "Note: All core libraries are bundled. System Vulkan loader is still required at runtime.")
+        message(STATUS "To install Vulkan loader:")
+        message(STATUS "  - Arch: sudo pacman -S vulkan-icd-loader")
+        message(STATUS "  - Debian/Ubuntu: sudo apt install libvulkan1")
+    endif()
 endif()
 
 # === Project source files ===
@@ -144,20 +207,25 @@ add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_SOURCE_DIR}/src
     ${PLATFORM_INCLUDE_DIRS}
+    ${O1HEAP_INCLUDE_DIR}
+    ${DDSPP_DIR}
+    ${SDL3_INCLUDE_DIR}
+    ${SDL3_MIXER_INCLUDE_DIR}
+    ${SDL3_MIXER_PUBLIC_INCLUDE_DIR}
 )
 
 # === Link libraries ===
 target_link_libraries(${PROJECT_NAME} PRIVATE
     SDL3::SDL3-static
+    SDL3_mixer::SDL3_mixer
     ${PLATFORM_LIBS}
 )
 
 # === SIMD configuration (SIMDe) ===
 # Enable SIMDe native aliases (allows _mm_* to resolve when supported)
 add_definitions(
-    -DSIMDE_ENABLE_NATIVE_ALIASES=1
-    -DSIMDE_SSE2=1
-    -DSIMDE_SSE4_1=1
+  -DSIMDE_NO_NATIVE=1
+  -DSDL_DISABLE_IMMINTRIN_H
 )
 
 # Detect platform + compiler support for native intrinsics
@@ -188,6 +256,12 @@ endif()
 
 # === Status messages ===
 message(STATUS "Using SDL3 (static) from: ${SDL3_INCLUDE_DIR}")
+message(STATUS "Using SDL_mixer (static) from: ${SDL3_INCLUDE_DIR}")
+message(STATUS "Using Vulkan-Headers from: ${VULKAN_HEADERS_DIR}")
+message(STATUS "Using VulkanMemoryAllocator from: ${VMA_INCLUDE_DIR}")
+message(STATUS "Using Volk from: ${VOLK_DIR}")
+message(STATUS "Using D3D12MemoryAllocator from: ${D3D12MA_INCLUDE_DIR} -Windows Only-")
+message(STATUS "Using ddspp from: ${DDSPP_DIR}")
 message(STATUS "Using ImGui from: ${IMGUI_INCLUDE_DIR}")
 message(STATUS "Using ImPlot from: ${IMPLOT_INCLUDE_DIR}")
 message(STATUS "Using GLM from: ${GLM_INCLUDE_DIR}")

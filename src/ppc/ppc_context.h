@@ -15,7 +15,7 @@
 #include <cstdlib>
 #include <cstring>
 
-#include "simd_wrapper.h"
+#include "simde_wrapper/simd_wrapper.h"
 
 // SSE3 constants are missing from simde
 #ifndef _MM_DENORMALS_ZERO_MASK
@@ -697,15 +697,25 @@ inline simde__m128i simde_mm_vsr(simde__m128i a, simde__m128i b)
 
 inline simde__m128i simde_mm_vctuxs(simde__m128 src1)
 {
-    simde__m128 xmm0 = simde_mm_max_ps(src1, simde_mm_set1_epi32(0));
-    simde__m128 xmm1 = simde_mm_cmpge_ps(xmm0, simde_mm_set1_ps((float)0x80000000));
-    simde__m128 xmm2 = simde_mm_sub_ps(xmm0, simde_mm_set1_ps((float)0x80000000));
+    // Clamp to 0.0f if negative
+    simde__m128 xmm0 = simde_mm_max_ps(src1, simde_mm_set1_ps(0.0f));
+
+    // Check if value is >= 0x80000000 (i.e., overflow risk for unsigned 32-bit)
+    simde__m128 xmm1 = simde_mm_cmpge_ps(xmm0, simde_mm_set1_ps(2147483648.0f));
+
+    // Subtract 2^31 if it's going to overflow, to fold into unsigned space
+    simde__m128 xmm2 = simde_mm_sub_ps(xmm0, simde_mm_set1_ps(2147483648.0f));
     xmm0 = simde_mm_blendv_ps(xmm0, xmm2, xmm1);
+
+    // Convert to signed integer
     simde__m128i dest = simde_mm_cvttps_epi32(xmm0);
-    xmm0 = simde_mm_cmpeq_epi32(dest, simde_mm_set1_epi32(INT_MIN));
-    xmm1 = simde_mm_and_si128(xmm1, simde_mm_set1_epi32(INT_MIN));
-    dest = simde_mm_add_epi32(dest, xmm1);
-    return simde_mm_or_si128(dest, xmm0);
+
+    // Saturate INT_MIN results
+    simde__m128i mask_min = simde_mm_cmpeq_epi32(dest, simde_mm_set1_epi32(INT_MIN));
+    simde__m128i correction = simde_mm_and_si128(simde_mm_castps_si128(xmm1), simde_mm_set1_epi32(INT_MIN));
+    dest = simde_mm_add_epi32(dest, correction);
+
+    return simde_mm_or_si128(dest, mask_min);
 }
 
 #if defined(__aarch64__) || defined(_M_ARM64)

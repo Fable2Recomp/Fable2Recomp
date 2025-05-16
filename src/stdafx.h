@@ -36,17 +36,21 @@
 #include <optional>
 #include <span>
 
-// Third-party includes
+// External includes
 #include "simde_wrapper/simd_wrapper.h"
 #include <SDL3/SDL.h>
+#include <SDL3_mixer/SDL_mixer.h>
 #include <vulkan/vulkan.h>
 #include <imgui.h>
+#include <imgui_internal.h>
 #include <implot.h>
 #include <fmt/format.h>
 #include <glm/glm.hpp>
 #include <tinyxml2.h>
 #include <gtest/gtest.h>
 #include <spdlog/spdlog.h>
+#include <o1heap.h>
+
 
 // Project includes
 #include "os/logger.h"
@@ -55,6 +59,7 @@
 #include "ppc_recomp/include/ppc/decoder.h"
 #include "ppc_recomp/include/ppc/recompiler.h"
 #include "ppc_recomp/include/ppc/instructions.h"
+#include <ppc/ppc_recomp_shared.h>
 
 // Common types
 using u8 = uint8_t;

@@ -43,3 +43,21 @@
 [submodule "extern/SDL3"]
 	path = extern/SDL3
 	url = https://github.com/libsdl-org/SDL.git
+[submodule "extern/SDL_mixer"]
+	path = extern/SDL_mixer
+	url = https://github.com/libsdl-org/SDL_mixer
+[submodule "extern/Vulkan-Headers"]
+	path = extern/Vulkan-Headers
+	url = https://github.com/KhronosGroup/Vulkan-Headers.git
+[submodule "extern/VMA"]
+	path = extern/VMA
+	url = https://github.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator.git
+[submodule "extern/D3D12MA"]
+	path = extern/D3D12MA
+	url = https://github.com/GPUOpen-LibrariesAndSDKs/D3D12MemoryAllocator.git
+[submodule "extern/volk"]
+	path = extern/volk
+	url = https://github.com/zeux/volk.git
+[submodule "extern/ddspp"]
+	path = extern/ddspp
+	url = https://github.com/redorav/ddspp.git
