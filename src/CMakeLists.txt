@@ -57,7 +57,7 @@ include_directories(
     ${FMT_INCLUDE_DIRS}
     ${GTEST_INCLUDE_DIRS}
     ${SHADERC_INCLUDE_DIRS}
-    ${CMAKE_SOURCE_DIR}/src/thirdparty/ImGui
+    ${IMGUI_INCLUDE_DIR}
     ${CMAKE_BINARY_DIR}/vcpkg_installed/x64-windows/include
 )
 

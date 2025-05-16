@@ -19,8 +19,12 @@ file(REMOVE_RECURSE
   "CMakeFiles/Fable2Recomp.dir/extern/implot/implot_demo.cpp.o.d"
   "CMakeFiles/Fable2Recomp.dir/extern/implot/implot_items.cpp.o"
   "CMakeFiles/Fable2Recomp.dir/extern/implot/implot_items.cpp.o.d"
+  "CMakeFiles/Fable2Recomp.dir/extern/o1heap/o1heap.c.o"
+  "CMakeFiles/Fable2Recomp.dir/extern/o1heap/o1heap.c.o.d"
   "CMakeFiles/Fable2Recomp.dir/extern/tinyxml2/tinyxml2.cpp.o"
   "CMakeFiles/Fable2Recomp.dir/extern/tinyxml2/tinyxml2.cpp.o.d"
+  "CMakeFiles/Fable2Recomp.dir/extern/volk/volk.c.o"
+  "CMakeFiles/Fable2Recomp.dir/extern/volk/volk.c.o.d"
   "CMakeFiles/Fable2Recomp.dir/src/cpu/ppc_integration.cpp.o"
   "CMakeFiles/Fable2Recomp.dir/src/cpu/ppc_integration.cpp.o.d"
   "CMakeFiles/Fable2Recomp.dir/src/cpu/ppc_recomp.cpp.o"
@@ -34,6 +38,6 @@ file(REMOVE_RECURSE
 )
 
 # Per-language clean rules from dependency scanning.
-foreach(lang CXX)
+foreach(lang C CXX)
   include(CMakeFiles/Fable2Recomp.dir/cmake_clean_${lang}.cmake OPTIONAL)
 endforeach()

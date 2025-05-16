@@ -6,3 +6,6 @@
 /mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/extern/SDL3/CMakeFiles/SDL_uclibc.dir
 /mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/extern/SDL3/CMakeFiles/edit_cache.dir
 /mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/extern/SDL3/CMakeFiles/rebuild_cache.dir
+/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/extern/SDL_mixer/CMakeFiles/SDL3_mixer-static.dir
+/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/extern/SDL_mixer/CMakeFiles/edit_cache.dir
+/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/extern/SDL_mixer/CMakeFiles/rebuild_cache.dir

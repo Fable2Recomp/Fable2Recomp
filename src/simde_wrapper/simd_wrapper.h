@@ -1,7 +1,20 @@
 #pragma once
 
+// Must be defined BEFORE including any intrinsics to block conflicts
+#ifndef SDL_DISABLE_IMMINTRIN_H
+#define SDL_DISABLE_IMMINTRIN_H
+#endif
+
+// Also block Microsoft-style intrinsics, if relevant
+#ifndef __IMMINTRIN_H
+#define __IMMINTRIN_H
+#endif
+
+#include <simde/simde-math.h>
 #include <simde/x86/sse.h>
 #include <simde/x86/sse2.h>
+#include <simde/x86/sse3.h>
+#include <simde/x86/ssse3.h>
 #include <simde/x86/sse4.1.h>
 #include <simde/simde-math.h>
 #include <cmath>
