@@ -1,9 +1,5 @@
-#include "copy_common.hlsli"
-
-VS_OUTPUT main(VS_INPUT input)
+void main(in uint vertexId : SV_VertexID, out float4 position : SV_Position, out float2 texCoord : TEXCOORD)
 {
-    VS_OUTPUT output;
-    output.pos = mul(g_transform, float4(input.pos, 0.0f, 1.0f));
-    output.uv = input.uv;
-    return output;
+    texCoord = float2((vertexId << 1) & 2, vertexId & 2);
+    position = float4(texCoord * float2(2.0, -2.0) + float2(-1.0, 1.0), 0.0, 1.0);
 }

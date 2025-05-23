@@ -44,6 +44,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
+  include("/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/src/cmake_install.cmake")
 
 endif()
 

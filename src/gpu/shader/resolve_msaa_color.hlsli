@@ -1,24 +1,15 @@
+#pragma once
+
 #include "copy_common.hlsli"
 
-#ifndef SAMPLE_COUNT
-#error SAMPLE_COUNT must be defined
-#endif
+Texture2DMS<float4, SAMPLE_COUNT> g_Texture2DMSDescriptorHeap[] : register(t0, space0);
 
-Texture2DMS<float4, SAMPLE_COUNT> g_textureMS : register(t0);
-
-float4 ResolveColor(VS_OUTPUT input)
+float4 main(in float4 position : SV_Position) : SV_Target
 {
-    int2 dimensions;
-    g_textureMS.GetDimensions(dimensions.x, dimensions.y);
+    float4 result = g_Texture2DMSDescriptorHeap[g_PushConstants.ResourceDescriptorIndex].Load(int2(position.xy), 0);
     
-    int2 coord = int2(input.uv * dimensions);
-    float4 color = 0;
-    
-    [unroll]
-    for (uint i = 0; i < SAMPLE_COUNT; i++)
-    {
-        color += g_textureMS.Load(coord, i);
-    }
-    
-    return color / SAMPLE_COUNT;
+    [unroll] for (int i = 1; i < SAMPLE_COUNT; i++)
+        result += g_Texture2DMSDescriptorHeap[g_PushConstants.ResourceDescriptorIndex].Load(int2(position.xy), i);
+
+    return result / SAMPLE_COUNT;
 }

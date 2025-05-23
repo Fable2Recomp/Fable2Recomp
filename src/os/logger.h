@@ -1,23 +1,68 @@
 #pragma once
 
-#include <string>
-#include <spdlog/spdlog.h>
+#include <source_location>
+#include <string_view>
 
-namespace xe {
+#define LOG_IMPL(type, func, str)       os::logger::Log(str, os::logger::ELogType::type, func)
+#define LOGF_IMPL(type, func, str, ...) os::logger::Log(fmt::format(str, __VA_ARGS__), os::logger::ELogType::type, func)
 
-class Logger {
-public:
-    static void Initialize();
-    static void Shutdown();
-    
-    static void Info(const std::string& message);
-    static void Warning(const std::string& message);
-    static void Error(const std::string& message);
-    static void Debug(const std::string& message);
-    
-private:
-    static std::shared_ptr<spdlog::logger> s_logger;
-    static bool s_initialized;
-};
+// Function-specific logging.
 
-} // namespace xe 
+#define LOG(str)               LOG_IMPL(None, __func__, str)
+#define LOG_WARNING(str)       LOG_IMPL(Warning, __func__, str)
+#ifndef LOG_ERROR
+#define LOG_ERROR(...) SPDLOG_ERROR(__VA_ARGS__)
+#endif
+
+
+#if _DEBUG
+#define LOG_UTILITY(str)       LOG_IMPL(Utility, __func__, str)
+#else
+#define LOG_UTILITY(str)
+#endif
+
+#define LOGF(str, ...)         LOGF_IMPL(None, __func__, str, __VA_ARGS__)
+#define LOGF_WARNING(str, ...) LOGF_IMPL(Warning, __func__, str, __VA_ARGS__)
+#define LOGF_ERROR(str, ...)   LOGF_IMPL(Error, __func__, str, __VA_ARGS__)
+
+#if _DEBUG
+#define LOGF_UTILITY(str, ...) LOGF_IMPL(Utility, __func__, str, __VA_ARGS__)
+#else
+#define LOGF_UTILITY(str, ...)
+#endif
+
+// Non-function-specific logging.
+
+#define LOGN(str)               LOG_IMPL(None, "*", str)
+#define LOGN_WARNING(str)       LOG_IMPL(Warning, "*", str)
+#define LOGN_ERROR(str)         LOG_IMPL(Error, "*", str)
+
+#if _DEBUG
+#define LOGN_UTILITY(str)       LOG_IMPL(Utility, "*", str)
+#else
+#define LOGN_UTILITY(str)
+#endif
+
+#define LOGFN(str, ...)         LOGF_IMPL(None, "*", str, __VA_ARGS__)
+#define LOGFN_WARNING(str, ...) LOGF_IMPL(Warning, "*", str, __VA_ARGS__)
+#define LOGFN_ERROR(str, ...)   LOGF_IMPL(Error, "*", str, __VA_ARGS__)
+
+#if _DEBUG
+#define LOGFN_UTILITY(str, ...) LOGF_IMPL(Utility, "*", str, __VA_ARGS__)
+#else
+#define LOGFN_UTILITY(str, ...)
+#endif
+
+namespace os::logger
+{
+    enum class ELogType
+    {
+        None,
+        Utility,
+        Warning,
+        Error
+    };
+
+    void Init();
+    void Log(const std::string_view str, ELogType type = ELogType::None, const char* func = nullptr);
+}

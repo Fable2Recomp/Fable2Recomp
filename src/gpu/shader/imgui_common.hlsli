@@ -1,21 +1,32 @@
-struct VS_INPUT
+#pragma once
+
+#include "../imgui/imgui_common.h"
+
+struct PushConstants
 {
-    float2 pos : POSITION;
-    float2 uv : TEXCOORD0;
-    float4 col : COLOR0;
+    float2 BoundsMin;
+    float2 BoundsMax;
+    uint GradientTopLeft;
+    uint GradientTopRight;
+    uint GradientBottomRight;
+    uint GradientBottomLeft;
+    uint ShaderModifier;
+    uint Texture2DDescriptorIndex;
+    float2 DisplaySize;
+    float2 InverseDisplaySize;
+    float2 Origin;
+    float2 Scale;
+    float2 ProceduralOrigin;
+    float Outline;
 };
 
-struct VS_OUTPUT
-{
-    float4 pos : SV_POSITION;
-    float4 col : COLOR0;
-    float2 uv : TEXCOORD0;
-};
+Texture2D<float4> g_Texture2DDescriptorHeap[] : register(t0, space0);
+SamplerState g_SamplerDescriptorHeap[] : register(s0, space1);
+[[vk::push_constant]] ConstantBuffer<PushConstants> g_PushConstants : register(b0, space2);
 
-cbuffer Constants : register(b0)
+struct Interpolators
 {
-    float4x4 g_projectionMatrix;
+    float4 Position : SV_Position;
+    float2 UV : TEXCOORD;
+    float4 Color : COLOR;
 };
-
-Texture2D g_texture : register(t0);
-SamplerState g_sampler : register(s0);
