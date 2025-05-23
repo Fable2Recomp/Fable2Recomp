@@ -1,4 +1,4 @@
-# Fable 2 recomp
+# Fable 2 Recomp
 
 **Fable2Recomp** is a recompilation Project with hopes to port the game Fable 2 to Windows and Linux. It uses a static recompilation approach based on the Xenia Canary project, streamlining the process and fixing various issues that may arise during decompilation and recompilation.
 
