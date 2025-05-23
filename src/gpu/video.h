@@ -1,186 +1,414 @@
 #pragma once
 
-#define VK_NO_PROTOTYPES
-#include "rhi/vulkan_common.h"
+//#define ASYNC_PSO_DEBUG
+/////////////////////////////////////////////////////////////////////#define PSO_CACHING
+//#define PSO_CACHING_CLEANUP
+
 #include "rhi/plume_render_interface.h"
-#include <SDL3/SDL.h>
-#include <SDL3/SDL_vulkan.h>
-#include <vulkan/vulkan.h>
-#include <vector>
-#include <memory>
-#include <chrono>
-#include <atomic>
-#include <unordered_map>
+#include <stdafx.h>
+
+#define D3DCLEAR_TARGET  0x1
+#define D3DCLEAR_ZBUFFER 0x10
+
+#define LOAD_ZSTD_TEXTURE(name) LoadTexture(decompressZstd(name, name##_uncompressed_size).get(), name##_uncompressed_size)
 
 using namespace plume;
 
-// Constants
-static constexpr size_t NUM_FRAMES = 2;
-static constexpr size_t NUM_QUERIES = 2;
-static constexpr uint32_t PITCH_ALIGNMENT = 0x100;
-static constexpr uint32_t PLACEMENT_ALIGNMENT = 0x200;
-static constexpr size_t TEXTURE_DESCRIPTOR_SIZE = 65536;
-static constexpr size_t SAMPLER_DESCRIPTOR_SIZE = 1024;
+struct Video
+{
+    static inline uint32_t s_viewportWidth;
+    static inline uint32_t s_viewportHeight;
 
-// Forward declarations
-struct GuestTexture;
-struct GuestSurface;
-
-// Texture formats and flags
-enum class TextureFormat : uint32_t {
-    UNKNOWN = 0,
-    R8G8B8A8_UNORM = 1,
-    B8G8R8A8_UNORM = 2,
-    DXT1 = 3,
-    DXT3 = 4,
-    DXT5 = 5,
-    BC7_UNORM = 6,
-    D32_FLOAT = 7,
-    D24_UNORM_S8_UINT = 8
-};
-
-enum TextureFlags : uint32_t {
-    TEXTURE_FLAG_NONE = 0,
-    TEXTURE_FLAG_RENDER_TARGET = 1 << 0,
-    TEXTURE_FLAG_DEPTH_STENCIL = 1 << 1,
-    TEXTURE_FLAG_SHADER_RESOURCE = 1 << 2,
-    TEXTURE_FLAG_UNORDERED_ACCESS = 1 << 3,
-    TEXTURE_FLAG_CUBE_MAP = 1 << 4,
-    TEXTURE_FLAG_GENERATE_MIPS = 1 << 5
-};
-
-// Texture management structures
-struct TextureDesc {
-    uint32_t width;
-    uint32_t height;
-    uint32_t depth;
-    uint32_t mipLevels;
-    uint32_t arraySize;
-    TextureFormat format;
-    uint32_t flags;
-    uint32_t sampleCount;
-    uint32_t sampleQuality;
-};
-
-struct GuestTexture {
-    TextureDesc desc;
-    std::unique_ptr<RenderTexture> texture;
-    std::unique_ptr<RenderTexture> resolveTexture;
-    uint32_t descriptorIndex;
-    bool isRenderTarget;
-    bool isDepthStencil;
-
-    GuestTexture() : descriptorIndex(0), isRenderTarget(false), isDepthStencil(false) {}
-    ~GuestTexture() = default;
-};
-
-struct GuestSurface {
-    uint32_t width;
-    uint32_t height;
-    TextureFormat format;
-    std::unique_ptr<RenderTexture> texture;
-    std::unique_ptr<RenderTexture> resolveTexture;
-    std::vector<std::unique_ptr<RenderFramebuffer>> framebuffers;
-    RenderTextureLayout layout;
-    bool needsResolve;
-
-    GuestSurface() : width(0), height(0), format(TextureFormat::UNKNOWN), layout(RenderTextureLayout::UNKNOWN), needsResolve(false) {}
-    ~GuestSurface() = default;
-};
-
-// Profiler for performance monitoring
-struct Profiler {
-    std::atomic<double> value;
-    double values[60];  // 60 frames of history
-    std::chrono::steady_clock::time_point start;
-
-    void Begin();
-    void End();
-    void Set(double v);
-    void Reset();
-    double UpdateAndReturnAverage();
-};
-
-struct Video {
-    static inline uint32_t s_viewportWidth = 1280;
-    static inline uint32_t s_viewportHeight = 720;
-
-    // Core functions
-    static bool CreateHostDevice(const char* sdlVideoDriver);
+    static bool CreateHostDevice(const char *sdlVideoDriver, bool graphicsApiRetry);
     static void WaitOnSwapChain();
     static void Present();
     static void StartPipelinePrecompilation();
     static void WaitForGPU();
     static void ComputeViewportDimensions();
-    static void Shutdown();
-
-    // Rendering functions
-    static void BeginFrame();
-    static void EndFrame();
-    static void BeginCommandList();
-    static void EndCommandList();
-    static void ExecuteCommandList();
-
-    // Resource management
-    static bool CreateSwapChain();
-    static void DestroySwapChain();
-    static bool CreateRenderTargets();
-    static void DestroyRenderTargets();
-    static bool CreateSyncObjects();
-    static void DestroySyncObjects();
-
-    // ImGui integration
-    static bool InitImGui();
-    static void ShutdownImGui();
-    static void RenderImGui();
-
-    // State tracking
-    static bool IsInitialized();
-    static bool IsVSync();
-    static void SetVSync(bool enabled);
-
-    // Texture management
-    static std::unique_ptr<GuestTexture> CreateTexture(const TextureDesc& desc);
-    static void DestroyTexture(GuestTexture* texture);
-    static void UpdateTexture(GuestTexture* texture, const void* data, uint32_t pitch);
-    static void ResolveTexture(GuestTexture* source, GuestTexture* dest);
-    static void TransitionTexture(GuestTexture* texture, RenderTextureLayout newLayout);
-    
-    // Surface management
-    static std::unique_ptr<GuestSurface> CreateSurface(uint32_t width, uint32_t height, TextureFormat format, uint32_t flags);
-    static void DestroySurface(GuestSurface* surface);
-    static void ResolveSurface(GuestSurface* surface);
 };
 
-// Rendering state structures
-struct RenderState {
-    VkFormat swapchainFormat;
-    VkExtent2D swapchainExtent;
-    uint32_t currentFrame;
-    uint32_t imageIndex;
-    bool vsyncEnabled;
-    bool framebufferResized;
+struct GuestSamplerState
+{
+    be<uint32_t> data[6];
 };
 
-struct FrameResources {
-    VkCommandBuffer commandBuffer;
-    VkSemaphore imageAvailableSemaphore;
-    VkSemaphore renderFinishedSemaphore;
-    VkFence inFlightFence;
+struct GuestDevice
+{
+    be<uint64_t> dirtyFlags[8];
+
+    be<uint32_t> setRenderStateFunctions[0x65];
+    uint32_t setSamplerStateFunctions[0x14];
+
+    uint8_t padding224[0x25C];
+
+    GuestSamplerState samplerStates[0x20];
+
+    uint32_t vertexShaderFloatConstants[0x400];
+    uint32_t pixelShaderFloatConstants[0x400];
+
+    be<uint32_t> vertexShaderBoolConstants[0x4];
+    be<uint32_t> pixelShaderBoolConstants[0x4];
+
+    uint8_t padding27A0[0x68C];
+    be<uint32_t> vertexDeclaration;
+    uint8_t padding2E30[0x338];
+    struct
+    {
+        be<float> x;
+        be<float> y;
+        be<float> width;
+        be<float> height;
+        be<float> minZ;
+        be<float> maxZ;
+    } viewport;
+    uint8_t padding3180[0x2C80];
 };
 
-// Global state
-extern RenderState g_renderState;
-extern std::vector<FrameResources> g_frameResources;
-extern std::unique_ptr<RenderInterface> g_interface;
-extern std::unique_ptr<RenderDevice> g_device;
-extern std::unique_ptr<RenderCommandQueue> g_queue;
-extern std::vector<std::unique_ptr<RenderCommandList>> g_commandLists;
-extern std::vector<std::unique_ptr<RenderCommandFence>> g_commandFences;
-extern std::vector<std::unique_ptr<RenderQueryPool>> g_queryPools;
+static_assert(sizeof(GuestDevice) == 0x5E00);
 
-// Global texture state
-extern std::unique_ptr<RenderDescriptorSet> g_textureDescriptorSet;
-extern std::unique_ptr<RenderDescriptorSet> g_samplerDescriptorSet;
-extern std::unordered_map<uint64_t, std::pair<uint32_t, std::unique_ptr<RenderSampler>>> g_samplerStates;
-extern std::unique_ptr<RenderPipelineLayout> g_pipelineLayout; 
+enum class ResourceType
+{
+    Texture,
+    VolumeTexture,
+    VertexBuffer,
+    IndexBuffer,
+    RenderTarget,
+    DepthStencil,
+    VertexDeclaration,
+    VertexShader,
+    PixelShader
+};
+
+struct GuestResource
+{
+    uint32_t unused = 0;
+    be<uint32_t> refCount = 1;
+    ResourceType type;
+
+    GuestResource(ResourceType type) : type(type) 
+    {
+    }
+
+    void AddRef()
+    {
+        std::atomic_ref atomicRef(refCount.value);
+
+        uint32_t originalValue, incrementedValue;
+        do
+        {
+            originalValue = refCount.value;
+            incrementedValue = ByteSwap(ByteSwap(originalValue) + 1);
+        } while (!atomicRef.compare_exchange_weak(originalValue, incrementedValue));
+    }
+
+    void Release()
+    {
+        std::atomic_ref atomicRef(refCount.value);
+
+        uint32_t originalValue, decrementedValue;
+        do
+        {
+            originalValue = refCount.value;
+            decrementedValue = ByteSwap(ByteSwap(originalValue) - 1);
+        } while (!atomicRef.compare_exchange_weak(originalValue, decrementedValue));
+
+        // Normally we are supposed to release here, so only use this
+        // function when you know you won't be the one destructing it.
+    }
+};
+
+enum GuestFormat
+{
+    D3DFMT_A16B16G16R16F = 0x1A22AB60,
+    D3DFMT_A16B16G16R16F_2 = 0x1A2201BF,
+    D3DFMT_A8B8G8R8 = 0x1A200186,
+    D3DFMT_A8R8G8B8 = 0x18280186,
+    D3DFMT_D24FS8 = 0x1A220197,
+    D3DFMT_D24S8 = 0x2D200196,
+    D3DFMT_G16R16F = 0x2D22AB9F,
+    D3DFMT_G16R16F_2 = 0x2D20AB8D,
+    D3DFMT_INDEX16 = 1,
+    D3DFMT_INDEX32 = 6,
+    D3DFMT_L8 = 0x28000102,
+    D3DFMT_L8_2 = 0x28000002,
+    D3DFMT_X8R8G8B8 = 0x28280086,
+    D3DFMT_UNKNOWN = 0xFFFFFFFF
+};
+
+struct GuestBaseTexture : GuestResource
+{
+    std::unique_ptr<RenderTexture> textureHolder;
+    RenderTexture* texture = nullptr;
+    std::unique_ptr<RenderTextureView> textureView;
+    uint32_t width = 0;
+    uint32_t height = 0;
+    RenderFormat format = RenderFormat::UNKNOWN;
+    uint32_t descriptorIndex = 0;
+    RenderTextureLayout layout = RenderTextureLayout::UNKNOWN;
+
+    GuestBaseTexture(ResourceType type) : GuestResource(type)
+    {
+    }
+};
+
+// Texture/VolumeTexture
+struct GuestTexture : GuestBaseTexture
+{
+    uint32_t depth = 0;
+    RenderTextureViewDimension viewDimension = RenderTextureViewDimension::UNKNOWN;
+    void* mappedMemory = nullptr;
+    std::unique_ptr<RenderFramebuffer> framebuffer;
+    std::unique_ptr<GuestTexture> patchedTexture;
+    std::unique_ptr<GuestTexture> recreatedCubeMapTexture;
+    struct GuestSurface* sourceSurface = nullptr;
+};
+
+struct GuestLockedRect
+{
+    be<uint32_t> pitch;
+    be<uint32_t> bits;
+};
+
+struct GuestBufferDesc
+{
+    be<uint32_t> format;
+    be<uint32_t> type;
+    be<uint32_t> usage;
+    be<uint32_t> pool;
+    be<uint32_t> size;
+    be<uint32_t> fvf;
+};
+
+// VertexBuffer/IndexBuffer
+struct GuestBuffer : GuestResource
+{
+    std::unique_ptr<RenderBuffer> buffer;
+    void* mappedMemory = nullptr;
+    uint32_t dataSize = 0;
+    RenderFormat format = RenderFormat::UNKNOWN;
+    uint32_t guestFormat = 0;
+    bool lockedReadOnly = false;
+};
+
+struct GuestSurfaceDesc
+{
+    be<uint32_t> format;
+    be<uint32_t> type;
+    be<uint32_t> usage;
+    be<uint32_t> pool;
+    be<uint32_t> multiSampleType;
+    be<uint32_t> multiSampleQuality;
+    be<uint32_t> width;
+    be<uint32_t> height;
+};
+
+// RenderTarget/DepthStencil
+struct GuestSurface : GuestBaseTexture
+{
+    uint32_t guestFormat = 0;
+    ankerl::unordered_dense::map<const RenderTexture*, std::unique_ptr<RenderFramebuffer>> framebuffers;
+    RenderSampleCounts sampleCount = RenderSampleCount::COUNT_1;
+    ankerl::unordered_dense::set<GuestTexture*> destinationTextures;
+};
+
+enum GuestDeclType
+{
+    D3DDECLTYPE_FLOAT1 = 0x2C83A4,
+    D3DDECLTYPE_FLOAT2 = 0x2C23A5,
+    D3DDECLTYPE_FLOAT3 = 0x2A23B9,
+    D3DDECLTYPE_FLOAT4 = 0x1A23A6,
+    D3DDECLTYPE_D3DCOLOR = 0x182886,
+    D3DDECLTYPE_UBYTE4 = 0x1A2286,
+    D3DDECLTYPE_UBYTE4_2 = 0x1A2386,
+    D3DDECLTYPE_SHORT2 = 0x2C2359,
+    D3DDECLTYPE_SHORT4 = 0x1A235A,
+    D3DDECLTYPE_UBYTE4N = 0x1A2086,
+    D3DDECLTYPE_UBYTE4N_2 = 0x1A2186,
+    D3DDECLTYPE_SHORT2N = 0x2C2159,
+    D3DDECLTYPE_SHORT4N = 0x1A215A,
+    D3DDECLTYPE_USHORT2N = 0x2C2059,
+    D3DDECLTYPE_USHORT4N = 0x1A205A,
+    D3DDECLTYPE_UINT1 = 0x2C82A1,
+    D3DDECLTYPE_UDEC3 = 0x2A2287,
+    D3DDECLTYPE_DEC3N = 0x2A2187,
+    D3DDECLTYPE_DEC3N_2 = 0x2A2190,
+    D3DDECLTYPE_DEC3N_3 = 0x2A2390,
+    D3DDECLTYPE_FLOAT16_2 = 0x2C235F,
+    D3DDECLTYPE_FLOAT16_4 = 0x1A2360,
+    D3DDECLTYPE_UNUSED = 0xFFFFFFFF
+};
+
+enum GuestDeclUsage
+{
+    D3DDECLUSAGE_POSITION = 0,
+    D3DDECLUSAGE_BLENDWEIGHT = 1,
+    D3DDECLUSAGE_BLENDINDICES = 2,
+    D3DDECLUSAGE_NORMAL = 3,
+    D3DDECLUSAGE_PSIZE = 4,
+    D3DDECLUSAGE_TEXCOORD = 5,
+    D3DDECLUSAGE_TANGENT = 6,
+    D3DDECLUSAGE_BINORMAL = 7,
+    D3DDECLUSAGE_TESSFACTOR = 8,
+    D3DDECLUSAGE_POSITIONT = 9,
+    D3DDECLUSAGE_COLOR = 10,
+    D3DDECLUSAGE_FOG = 11,
+    D3DDECLUSAGE_DEPTH = 12,
+    D3DDECLUSAGE_SAMPLE = 13
+};
+
+struct GuestVertexElement
+{
+    be<uint16_t> stream;
+    be<uint16_t> offset;
+    be<uint32_t> type;
+    uint8_t method;
+    uint8_t usage;
+    uint8_t usageIndex;
+    uint8_t padding;
+};
+
+#define D3DDECL_END() { 255, 0, 0xFFFFFFFF, 0, 0, 0 }
+
+struct GuestVertexDeclaration : GuestResource
+{
+    XXH64_hash_t hash = 0;
+    std::unique_ptr<RenderInputElement[]> inputElements;
+    std::unique_ptr<GuestVertexElement[]> vertexElements;
+    uint32_t inputElementCount = 0;
+    uint32_t vertexElementCount = 0;
+    uint32_t swappedTexcoords = 0;
+    bool hasR11G11B10Normal = false;
+    bool vertexStreams[16]{};
+    uint32_t indexVertexStream = 0;
+};
+
+// VertexShader/PixelShader
+struct GuestShader : GuestResource
+{
+    Mutex mutex;
+    std::unique_ptr<RenderShader> shader;
+    struct ShaderCacheEntry* shaderCacheEntry = nullptr;
+    ankerl::unordered_dense::map<uint32_t, std::unique_ptr<RenderShader>> linkedShaders;
+#ifdef UNLEASHED_RECOMP_D3D12
+    std::vector<ComPtr<IDxcBlob>> shaderBlobs;
+    ComPtr<IDxcBlobEncoding> libraryBlob;
+#endif
+#ifdef ASYNC_PSO_DEBUG
+    const char* name = "<unknown>";
+#endif
+};
+
+struct GuestViewport
+{
+    be<uint32_t> x;
+    be<uint32_t> y;
+    be<uint32_t> width;
+    be<uint32_t> height;
+    be<float> minZ;
+    be<float> maxZ;
+};
+
+struct GuestRect
+{
+    be<int32_t> left;
+    be<int32_t> top;
+    be<int32_t> right;
+    be<int32_t> bottom;
+};
+
+enum GuestRenderState
+{
+    D3DRS_ZENABLE = 40,
+    D3DRS_ZFUNC = 44,
+    D3DRS_ZWRITEENABLE = 48,
+    D3DRS_CULLMODE = 56,
+    D3DRS_ALPHABLENDENABLE = 60,
+    D3DRS_SRCBLEND = 72,
+    D3DRS_DESTBLEND = 76,
+    D3DRS_BLENDOP = 80,
+    D3DRS_SRCBLENDALPHA = 84,
+    D3DRS_DESTBLENDALPHA = 88,
+    D3DRS_BLENDOPALPHA = 92,
+    D3DRS_ALPHATESTENABLE = 96,
+    D3DRS_ALPHAREF = 100,
+    D3DRS_SCISSORTESTENABLE = 200,
+    D3DRS_SLOPESCALEDEPTHBIAS = 204,
+    D3DRS_DEPTHBIAS = 208,
+    D3DRS_COLORWRITEENABLE = 212
+};
+
+enum GuestCullMode
+{
+    D3DCULL_NONE = 0,
+    D3DCULL_CW = 2,
+    D3DCULL_NONE_2 = 4,
+    D3DCULL_CCW = 6
+};
+
+enum GuestBlendMode
+{
+    D3DBLEND_ZERO = 0,
+    D3DBLEND_ONE = 1,
+    D3DBLEND_SRCCOLOR = 4,
+    D3DBLEND_INVSRCCOLOR = 5,
+    D3DBLEND_SRCALPHA = 6,
+    D3DBLEND_INVSRCALPHA = 7,
+    D3DBLEND_DESTCOLOR = 8,
+    D3DBLEND_INVDESTCOLOR = 9,
+    D3DBLEND_DESTALPHA = 10,
+    D3DBLEND_INVDESTALPHA = 11
+};
+
+enum GuestBlendOp
+{
+    D3DBLENDOP_ADD = 0,
+    D3DBLENDOP_SUBTRACT = 1,
+    D3DBLENDOP_MIN = 2,
+    D3DBLENDOP_MAX = 3,
+    D3DBLENDOP_REVSUBTRACT = 4
+};
+
+enum GuestCmpFunc
+{
+    D3DCMP_NEVER = 0,
+    D3DCMP_LESS = 1,
+    D3DCMP_EQUAL = 2,
+    D3DCMP_LESSEQUAL = 3,
+    D3DCMP_GREATER = 4,
+    D3DCMP_NOTEQUAL = 5,
+    D3DCMP_GREATEREQUAL = 6,
+    D3DCMP_ALWAYS = 7
+};
+
+enum GuestPrimitiveType
+{
+    D3DPT_POINTLIST = 1,
+    D3DPT_LINELIST = 2,
+    D3DPT_LINESTRIP = 3,
+    D3DPT_TRIANGLELIST = 4,
+    D3DPT_TRIANGLEFAN = 5,
+    D3DPT_TRIANGLESTRIP = 6,
+    D3DPT_QUADLIST = 13
+};
+
+enum GuestTextureFilterType
+{
+    D3DTEXF_POINT = 0,
+    D3DTEXF_LINEAR = 1,
+    D3DTEXF_NONE = 2
+};
+
+enum GuestTextureAddress
+{
+    D3DTADDRESS_WRAP = 0,
+    D3DTADDRESS_MIRROR = 1,
+    D3DTADDRESS_CLAMP = 2,
+    D3DTADDRESS_MIRRORONCE = 3,
+    D3DTADDRESS_BORDER = 6
+};
+
+inline bool g_needsResize;
+
+extern std::unique_ptr<GuestTexture> LoadTexture(const uint8_t* data, size_t dataSize, RenderComponentMapping componentMapping = RenderComponentMapping());
+
+extern void VideoConfigValueChangedCallback(class IConfigDef* config);

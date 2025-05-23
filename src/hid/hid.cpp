@@ -1,21 +1,29 @@
-#include "stdafx.h"
-#include "xbox.h"
+#include "hid.h"
+#include <ui/game_window.h>
+#include <user/config.h>
 
-namespace hid {
+hid::EInputDevice hid::g_inputDevice;
+hid::EInputDevice hid::g_inputDeviceController;
+hid::EInputDeviceExplicit hid::g_inputDeviceExplicit;
 
-void Init() {
-    // Basic initialization
+uint16_t hid::g_prohibitedButtons;
+bool hid::g_isLeftStickProhibited;
+bool hid::g_isRightStickProhibited;
+
+void hid::SetProhibitedInputs(uint16_t wButtons, bool leftStick, bool rightStick)
+{
+    hid::g_prohibitedButtons = wButtons;
+    hid::g_isLeftStickProhibited = leftStick;
+    hid::g_isRightStickProhibited = rightStick;
 }
 
-void Shutdown() {
-    // Basic cleanup
+bool hid::IsInputAllowed()
+{
+    return GameWindow::s_isFocused || Config::AllowBackgroundInput;
 }
 
-} // namespace hid
-
-// Windows error codes
-#define ERROR_SUCCESS                    0L
-#define ERROR_BAD_ARGUMENTS             160L
-#define ERROR_DEVICE_NOT_CONNECTED      1167L
-
-// ... existing code ... 
+bool hid::IsInputDeviceController()
+{
+    return hid::g_inputDevice != hid::EInputDevice::Keyboard &&
+        hid::g_inputDevice != hid::EInputDevice::Mouse;
+}

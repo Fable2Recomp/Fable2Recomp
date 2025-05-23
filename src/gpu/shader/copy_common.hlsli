@@ -1,19 +1,8 @@
-struct VS_INPUT
+#pragma once
+
+struct PushConstants
 {
-    float2 pos : POSITION;
-    float2 uv : TEXCOORD0;
+    uint ResourceDescriptorIndex;
 };
 
-struct VS_OUTPUT
-{
-    float4 pos : SV_POSITION;
-    float2 uv : TEXCOORD0;
-};
-
-cbuffer Constants : register(b0)
-{
-    float4x4 g_transform;
-}
-
-Texture2D g_texture : register(t0);
-SamplerState g_sampler : register(s0);
+[[vk::push_constant]] ConstantBuffer<PushConstants> g_PushConstants : register(b3, space4);

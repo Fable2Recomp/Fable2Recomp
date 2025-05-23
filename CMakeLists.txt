@@ -2,8 +2,9 @@ cmake_minimum_required(VERSION 3.10)
 project(Fable2Recomp)
 
 # Set C++ standard
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 # === Paths ===
 set(EXTERN_DIR "${CMAKE_SOURCE_DIR}/extern")
@@ -11,17 +12,57 @@ set(EXTERN_DIR "${CMAKE_SOURCE_DIR}/extern")
 # === Header-only includes ===
 set(SPDLOG_INCLUDE_DIR "${EXTERN_DIR}/spdlog/include")
 set(GLM_INCLUDE_DIR    "${EXTERN_DIR}/glm")
-set(TOML11_INCLUDE_DIR "${EXTERN_DIR}/toml11/include")
+set(TOML_INCLUDE_DIR "${EXTERN_DIR}/tomlplusplus/include")
 set(SIMDE_INCLUDE_DIR  "${EXTERN_DIR}/simde")
 set(O1HEAP_INCLUDE_DIR  "${EXTERN_DIR}/o1heap")
 set(VULKAN_HEADERS_DIR "${EXTERN_DIR}/Vulkan-Headers/include")
 set(VMA_INCLUDE_DIR "${EXTERN_DIR}/VMA/include")
+set(ANKERL_UNORDERED_DENSE_INCLUDE_DIR "${EXTERN_DIR}/ankerl-unordered_dense/include")
+set(XXHASH_INCLUDE_DIR "${EXTERN_DIR}/xxHash")
+set(TINYSHA1_INCLUDE_DIR "${EXTERN_DIR}/TinySHA1")
+
+# === libmspack ===
+set(LIBMESSAGE_DIR "${EXTERN_DIR}/libmspack/libmspack")
+set(LIBMESSAGE_INCLUDE_DIR "${LIBMESSAGE_DIR}/mspack")  # mspack/ contains system.h
+list(APPEND PLATFORM_INCLUDE_DIRS ${LIBMESSAGE_INCLUDE_DIR})
+
+# === msdf-atlas-gen ===
+set(MSDF_ATLAS_GEN_DIR "${EXTERN_DIR}/msdf-atlas-gen")
+set(MSDF_GEN_DIR "${EXTERN_DIR}/msdf-atlas-gen/msdfgen")
+set(MSDF_GEN_CORE_DIR "${EXTERN_DIR}/msdf-atlas-gen/msdfgen/core")
+set(MSDF_GEN_CORE_BASE_DIR "${EXTERN_DIR}/msdf-atlas-gen/msdfgen/core/base")
+set(MSDF_ARTERY_FONT_DIR "${EXTERN_DIR}/msdf-atlas-gen/artery-font-format/artery-font")
+
+# === tiny-AES-c ===
+add_library(tiny_aes_c STATIC
+    ${EXTERN_DIR}/tiny-AES-c/aes.c
+)
+target_include_directories(tiny_aes_c PUBLIC
+    ${EXTERN_DIR}/tiny-AES-c
+)
+set_target_properties(tiny_aes_c PROPERTIES POSITION_INDEPENDENT_CODE ON)
+
+# === Native File Dialog Extended ===
+set(NFD_DIR "${EXTERN_DIR}/nativefiledialog-extended")
+set(NFD_INCLUDE_DIR "${NFD_DIR}/src/include")
+
+# Force static build only
+set(NFD_BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
+set(NFD_BUILD_STATIC_LIBS ON CACHE BOOL "" FORCE)
+set(NFD_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(NFD_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+
+add_subdirectory(${NFD_DIR} EXCLUDE_FROM_ALL)
 
 # === o1heap ===
-set(O1HEAP_SOURCES
-    ${O1HEAP_INCLUDE_DIR}/o1heap.c
-)
-list(APPEND SOURCES ${O1HEAP_SOURCES})
+add_library(o1heap STATIC ${EXTERN_DIR}/o1heap/o1heap.c)
+target_include_directories(o1heap PUBLIC ${EXTERN_DIR}/o1heap)
+set_target_properties(o1heap PROPERTIES POSITION_INDEPENDENT_CODE ON)
+
+# === xxhash ===
+add_library(xxhash STATIC ${EXTERN_DIR}/xxHash/xxhash.c)
+target_include_directories(xxhash PUBLIC ${EXTERN_DIR}/xxHash)
+set_target_properties(xxhash PROPERTIES POSITION_INDEPENDENT_CODE ON)
 
 # === ddspp ===
 set(DDSPP_DIR "${EXTERN_DIR}/ddspp")
@@ -81,11 +122,13 @@ set(SDL3MIXER_DEPS_REQUIRED ON CACHE BOOL "" FORCE)
 add_subdirectory(${SDL_MIXER_DIR} EXCLUDE_FROM_ALL)
 
 # === fmtlib ===
-set(FMT_INCLUDE_DIR "${EXTERN_DIR}/fmt/include")
-set(FMT_SOURCES
+add_library(fmtlib_static STATIC
     ${EXTERN_DIR}/fmt/src/format.cc
     ${EXTERN_DIR}/fmt/src/os.cc
 )
+set(FMT_INCLUDE_DIR "${EXTERN_DIR}/fmt/include")
+target_include_directories(fmtlib_static PUBLIC ${FMT_INCLUDE_DIR})
+set_target_properties(fmtlib_static PROPERTIES POSITION_INDEPENDENT_CODE ON)
 
 # === tinyxml2 ===
 set(TINYXML2_INCLUDE_DIR "${EXTERN_DIR}/tinyxml2")
@@ -156,12 +199,12 @@ else()
         ${SPDLOG_INCLUDE_DIR}
         ${IMGUI_INCLUDE_DIR}
         ${IMPLOT_INCLUDE_DIR}
-        ${TOML11_INCLUDE_DIR}
         ${FMT_INCLUDE_DIR}
         ${SIMDE_INCLUDE_DIR}
         ${VULKAN_HEADERS_DIR}
         ${VMA_INCLUDE_DIR}
         ${VOLK_INCLUDE_DIR}
+        ${NFD_INCLUDE_DIR}
     )
 
     list(APPEND SOURCES
@@ -184,24 +227,11 @@ else()
     endif()
 endif()
 
-# === Project source files ===
-set(SOURCES
-    ${SOURCES}
-    src/main.cpp
-    src/cpu/ppc_recomp.cpp
-    src/cpu/ppc_integration.cpp
-    src/os/logger.cpp
-)
+# === Add source directory ===
+add_subdirectory(src)
 
-# === Project header files ===
-set(HEADERS
-    src/cpu/ppc_recomp.h
-    src/cpu/ppc_integration.h
-    src/os/logger.h
-)
-
-# === Create executable ===
-add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
+# === Define executable ===
+add_executable(Fable2Recomp ${FABLE2_SOURCES} ${FABLE2_HEADERS})
 
 # === Include directories ===
 target_include_directories(${PROJECT_NAME} PRIVATE
@@ -212,12 +242,29 @@ target_include_directories(${PROJECT_NAME} PRIVATE
     ${SDL3_INCLUDE_DIR}
     ${SDL3_MIXER_INCLUDE_DIR}
     ${SDL3_MIXER_PUBLIC_INCLUDE_DIR}
+    ${TOML_INCLUDE_DIR}
+    ${ANKERL_UNORDERED_DENSE_INCLUDE_DIR}
+    ${XXHASH_INCLUDE_DIR}
+    ${FMT_INCLUDE_DIR}
+    ${LIBMESSAGE_INCLUDE_DIR}
+    ${TINYSHA1_INCLUDE_DIR}
+    ${MSDF_ATLAS_GEN_DIR}
+    ${MSDF_GEN_DIR}
+    ${MSDF_GEN_CORE_DIR}
+    ${MSDF_GEN_CORE_BASE_DIR}
+    ${MSDF_ARTERY_FONT_DIR}
 )
 
 # === Link libraries ===
 target_link_libraries(${PROJECT_NAME} PRIVATE
     SDL3::SDL3-static
     SDL3_mixer::SDL3_mixer
+    fmtlib_static
+    o1heap
+    xxhash
+    nfd
+    tiny_aes_c
+    disasm
     ${PLATFORM_LIBS}
 )
 
@@ -266,8 +313,10 @@ message(STATUS "Using ImGui from: ${IMGUI_INCLUDE_DIR}")
 message(STATUS "Using ImPlot from: ${IMPLOT_INCLUDE_DIR}")
 message(STATUS "Using GLM from: ${GLM_INCLUDE_DIR}")
 message(STATUS "Using spdlog from: ${SPDLOG_INCLUDE_DIR}")
-message(STATUS "Using toml11 from: ${TOML11_INCLUDE_DIR}")
+message(STATUS "Using toml++ from: ${TOML_INCLUDE_DIR}")
 message(STATUS "Using tinyxml2 from: ${TINYXML2_INCLUDE_DIR}")
 message(STATUS "Using fmtlib from: ${FMT_INCLUDE_DIR}")
 message(STATUS "Using SIMDe from: ${SIMDE_INCLUDE_DIR}")
+message(STATUS "Using ankerl::unordered_dense from: ${ANKERL_UNORDERED_DENSE_INCLUDE_DIR}")
+message(STATUS "Using nativefiledialog-extended from: ${NFD_DIR}")
 

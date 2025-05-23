@@ -1,30 +1,9 @@
-[submodule "thirdparty/xxHash"]
-	path = thirdparty/xxHash
-	url = https://github.com/Cyan4973/xxHash.git
-[submodule "thirdparty/fmt"]
-	path = thirdparty/fmt
-	url = https://github.com/fmtlib/fmt.git
-[submodule "thirdparty/tomlplusplus"]
-	path = thirdparty/tomlplusplus
-	url = https://github.com/marzer/tomlplusplus.git
-[submodule "thirdparty/libmspack"]
-	path = thirdparty/libmspack
-	url = https://github.com/kyz/libmspack
-[submodule "thirdparty/tiny-AES-c"]
-	path = thirdparty/tiny-AES-c
-	url = https://github.com/kokke/tiny-AES-c.git
-[submodule "thirdparty/simde"]
-	path = thirdparty/simde
-	url = https://github.com/simd-everywhere/simde-no-tests.git
 [submodule "extern/imgui"]
 	path = extern/imgui
 	url = https://github.com/ocornut/imgui
 [submodule "extern/implot"]
 	path = extern/implot
 	url = https://github.com/epezent/implot
-[submodule "extern/toml11"]
-	path = extern/toml11
-	url = https://github.com/ToruNiina/toml11
 [submodule "extern/spdlog"]
 	path = extern/spdlog
 	url = https://github.com/gabime/spdlog
@@ -61,3 +40,24 @@
 [submodule "extern/ddspp"]
 	path = extern/ddspp
 	url = https://github.com/redorav/ddspp.git
+[submodule "extern/tomlplusplus"]
+	path = extern/tomlplusplus
+	url = https://github.com/marzer/tomlplusplus.git
+[submodule "extern/ankerl-unordered_dense"]
+	path = extern/ankerl-unordered_dense
+	url = https://github.com/martinus/unordered_dense.git
+[submodule "extern/xxHash"]
+	path = extern/xxHash
+	url = https://github.com/Cyan4973/xxHash.git
+[submodule "extern/nativefiledialog-extended"]
+	path = extern/nativefiledialog-extended
+	url = https://github.com/btzy/nativefiledialog-extended.git
+[submodule "extern/tiny-AES-c"]
+	path = extern/tiny-AES-c
+	url = https://github.com/kokke/tiny-AES-c.git
+[submodule "extern/libmspack"]
+	path = extern/libmspack
+	url = https://github.com/kyz/libmspack.git
+[submodule "extern/msdf-atlas-gen"]
+	path = extern/msdf-atlas-gen
+	url = https://github.com/Chlumsky/msdf-atlas-gen.git
