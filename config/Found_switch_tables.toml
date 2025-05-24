@@ -320,29 +320,3 @@ labels = [
     0x7D2A4B78,
     0x39600004,
 ]
-
-#Questionable
-
-[[switch]]
-base = 0x82BE9798
-r = 30
-default = 0x82BE9EF8
-labels = [
-    0x82BE979C,
-    0x82BE97D8,
-    0x82BE9824,
-    0x82BE984C,
-    0x82BE98D0,
-    0x82BE98F8,
-    0x82BE9928,
-    0x82BE9958,
-    0x82BE9A24,
-    0x82BE9AE0,
-    0x82BE9BE8,
-    0x82BE9C10,
-    0x82BE9D84,
-    0x82BE9E30,
-    0x82BE9EA8,
-    0x82BE9ED0,
-]
-

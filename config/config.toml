@@ -1,16 +1,16 @@
 [main]
 file_path = "./fable/default.xex"
 out_directory_path = "./ppc"
-switch_table_file_path = "SWA_switch_tables.toml"
+switch_table_file_path = "Fable2_switch_tables.toml"
 
-skip_lr = false
-skip_msr = false
-ctr_as_local = false
-xer_as_local = false
-reserved_as_local = false
-cr_as_local = false
-non_argument_as_local = false
-non_volatile_as_local = false
+skip_lr = true
+skip_msr = true
+ctr_as_local = true
+xer_as_local = true
+reserved_as_local = true
+cr_as_local = true
+non_argument_as_local = true
+non_volatile_as_local = true
 
 restgprlr_14_address = 0x82CA2C00	
 savegprlr_14_address = 0x82CA2BB0
@@ -67,6 +67,7 @@ functions = [
     { address = 0x82BC8260, size = 0x7C },
     { address = 0x82BC9B28, size = 0x128 },
     { address = 0x82BE0100, size = 0xA4 },
+    { address = 0x82BE9668, size = 0xBEC },
     { address = 0x82BE9680, size = 0xBEC },
     { address = 0x82C56828, size = 0x78 },
     { address = 0x82C89840, size = 0x1D8 },
