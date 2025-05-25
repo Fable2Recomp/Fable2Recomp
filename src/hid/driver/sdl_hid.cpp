@@ -172,13 +172,6 @@ static void SetActiveController(Controller* controller) {
     }
 }
 
-static void SetTimeOfDayLED(Controller& controller, bool isNight) {
-    uint8_t r = isNight ? 22 : 0;
-    uint8_t g = isNight ? 0 : 37;
-    uint8_t b = isNight ? 101 : 184;
-    controller.SetLED(r, g, b);
-}
-
 bool HID_OnSDLEvent(void* /*userdata*/, SDL_Event* event) {
     switch (event->type) {
         case SDL_EVENT_GAMEPAD_ADDED: {
@@ -186,7 +179,6 @@ bool HID_OnSDLEvent(void* /*userdata*/, SDL_Event* event) {
             if (slot != static_cast<size_t>(-1)) {
                 Controller c(event->adevice.which);
                 g_controllers[slot] = c;
-                SetTimeOfDayLED(c, App::s_isWerehog);
             }
             break;
         }
@@ -240,12 +232,6 @@ bool HID_OnSDLEvent(void* /*userdata*/, SDL_Event* event) {
         case SDL_EVENT_WINDOW_FOCUS_LOST: {
             for (auto& c : g_controllers)
                 c.SetVibration({ 0, 0 });
-            break;
-        }
-
-        case SDL_EVENT_USER + 1: {
-            for (auto& c : g_controllers)
-                SetTimeOfDayLED(c, event->user.code != 0);
             break;
         }
     }

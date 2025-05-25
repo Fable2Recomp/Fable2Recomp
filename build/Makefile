@@ -170,6 +170,19 @@ fmtlib_static/fast:
 .PHONY : fmtlib_static/fast
 
 #=============================================================================
+# Target rules for targets named imgui
+
+# Build rule for target.
+imgui: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 imgui
+.PHONY : imgui
+
+# fast build rule for target.
+imgui/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui.dir/build.make CMakeFiles/imgui.dir/build
+.PHONY : imgui/fast
+
+#=============================================================================
 # Target rules for targets named Fable2Recomp
 
 # Build rule for target.
@@ -181,6 +194,58 @@ Fable2Recomp: cmake_check_build_system
 Fable2Recomp/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/build
 .PHONY : Fable2Recomp/fast
+
+#=============================================================================
+# Target rules for targets named msdf-atlas-gen
+
+# Build rule for target.
+msdf-atlas-gen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 msdf-atlas-gen
+.PHONY : msdf-atlas-gen
+
+# fast build rule for target.
+msdf-atlas-gen/fast:
+	$(MAKE) $(MAKESILENT) -f extern/msdf-atlas-gen/CMakeFiles/msdf-atlas-gen.dir/build.make extern/msdf-atlas-gen/CMakeFiles/msdf-atlas-gen.dir/build
+.PHONY : msdf-atlas-gen/fast
+
+#=============================================================================
+# Target rules for targets named msdf-atlas-gen-standalone
+
+# Build rule for target.
+msdf-atlas-gen-standalone: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 msdf-atlas-gen-standalone
+.PHONY : msdf-atlas-gen-standalone
+
+# fast build rule for target.
+msdf-atlas-gen-standalone/fast:
+	$(MAKE) $(MAKESILENT) -f extern/msdf-atlas-gen/CMakeFiles/msdf-atlas-gen-standalone.dir/build.make extern/msdf-atlas-gen/CMakeFiles/msdf-atlas-gen-standalone.dir/build
+.PHONY : msdf-atlas-gen-standalone/fast
+
+#=============================================================================
+# Target rules for targets named msdfgen-core
+
+# Build rule for target.
+msdfgen-core: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 msdfgen-core
+.PHONY : msdfgen-core
+
+# fast build rule for target.
+msdfgen-core/fast:
+	$(MAKE) $(MAKESILENT) -f extern/msdf-atlas-gen/msdfgen/CMakeFiles/msdfgen-core.dir/build.make extern/msdf-atlas-gen/msdfgen/CMakeFiles/msdfgen-core.dir/build
+.PHONY : msdfgen-core/fast
+
+#=============================================================================
+# Target rules for targets named msdfgen-ext
+
+# Build rule for target.
+msdfgen-ext: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 msdfgen-ext
+.PHONY : msdfgen-ext
+
+# fast build rule for target.
+msdfgen-ext/fast:
+	$(MAKE) $(MAKESILENT) -f extern/msdf-atlas-gen/msdfgen/CMakeFiles/msdfgen-ext.dir/build.make extern/msdf-atlas-gen/msdfgen/CMakeFiles/msdfgen-ext.dir/build
+.PHONY : msdfgen-ext/fast
 
 #=============================================================================
 # Target rules for targets named nfd
@@ -307,6 +372,126 @@ extern/fmt/src/os.s: extern/fmt/src/os.cc.s
 extern/fmt/src/os.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fmtlib_static.dir/build.make CMakeFiles/fmtlib_static.dir/extern/fmt/src/os.cc.s
 .PHONY : extern/fmt/src/os.cc.s
+
+extern/imgui/imgui.o: extern/imgui/imgui.cpp.o
+.PHONY : extern/imgui/imgui.o
+
+# target to build an object file
+extern/imgui/imgui.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui.dir/build.make CMakeFiles/imgui.dir/extern/imgui/imgui.cpp.o
+.PHONY : extern/imgui/imgui.cpp.o
+
+extern/imgui/imgui.i: extern/imgui/imgui.cpp.i
+.PHONY : extern/imgui/imgui.i
+
+# target to preprocess a source file
+extern/imgui/imgui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui.dir/build.make CMakeFiles/imgui.dir/extern/imgui/imgui.cpp.i
+.PHONY : extern/imgui/imgui.cpp.i
+
+extern/imgui/imgui.s: extern/imgui/imgui.cpp.s
+.PHONY : extern/imgui/imgui.s
+
+# target to generate assembly for a file
+extern/imgui/imgui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui.dir/build.make CMakeFiles/imgui.dir/extern/imgui/imgui.cpp.s
+.PHONY : extern/imgui/imgui.cpp.s
+
+extern/imgui/imgui_demo.o: extern/imgui/imgui_demo.cpp.o
+.PHONY : extern/imgui/imgui_demo.o
+
+# target to build an object file
+extern/imgui/imgui_demo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui.dir/build.make CMakeFiles/imgui.dir/extern/imgui/imgui_demo.cpp.o
+.PHONY : extern/imgui/imgui_demo.cpp.o
+
+extern/imgui/imgui_demo.i: extern/imgui/imgui_demo.cpp.i
+.PHONY : extern/imgui/imgui_demo.i
+
+# target to preprocess a source file
+extern/imgui/imgui_demo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui.dir/build.make CMakeFiles/imgui.dir/extern/imgui/imgui_demo.cpp.i
+.PHONY : extern/imgui/imgui_demo.cpp.i
+
+extern/imgui/imgui_demo.s: extern/imgui/imgui_demo.cpp.s
+.PHONY : extern/imgui/imgui_demo.s
+
+# target to generate assembly for a file
+extern/imgui/imgui_demo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui.dir/build.make CMakeFiles/imgui.dir/extern/imgui/imgui_demo.cpp.s
+.PHONY : extern/imgui/imgui_demo.cpp.s
+
+extern/imgui/imgui_draw.o: extern/imgui/imgui_draw.cpp.o
+.PHONY : extern/imgui/imgui_draw.o
+
+# target to build an object file
+extern/imgui/imgui_draw.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui.dir/build.make CMakeFiles/imgui.dir/extern/imgui/imgui_draw.cpp.o
+.PHONY : extern/imgui/imgui_draw.cpp.o
+
+extern/imgui/imgui_draw.i: extern/imgui/imgui_draw.cpp.i
+.PHONY : extern/imgui/imgui_draw.i
+
+# target to preprocess a source file
+extern/imgui/imgui_draw.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui.dir/build.make CMakeFiles/imgui.dir/extern/imgui/imgui_draw.cpp.i
+.PHONY : extern/imgui/imgui_draw.cpp.i
+
+extern/imgui/imgui_draw.s: extern/imgui/imgui_draw.cpp.s
+.PHONY : extern/imgui/imgui_draw.s
+
+# target to generate assembly for a file
+extern/imgui/imgui_draw.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui.dir/build.make CMakeFiles/imgui.dir/extern/imgui/imgui_draw.cpp.s
+.PHONY : extern/imgui/imgui_draw.cpp.s
+
+extern/imgui/imgui_tables.o: extern/imgui/imgui_tables.cpp.o
+.PHONY : extern/imgui/imgui_tables.o
+
+# target to build an object file
+extern/imgui/imgui_tables.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui.dir/build.make CMakeFiles/imgui.dir/extern/imgui/imgui_tables.cpp.o
+.PHONY : extern/imgui/imgui_tables.cpp.o
+
+extern/imgui/imgui_tables.i: extern/imgui/imgui_tables.cpp.i
+.PHONY : extern/imgui/imgui_tables.i
+
+# target to preprocess a source file
+extern/imgui/imgui_tables.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui.dir/build.make CMakeFiles/imgui.dir/extern/imgui/imgui_tables.cpp.i
+.PHONY : extern/imgui/imgui_tables.cpp.i
+
+extern/imgui/imgui_tables.s: extern/imgui/imgui_tables.cpp.s
+.PHONY : extern/imgui/imgui_tables.s
+
+# target to generate assembly for a file
+extern/imgui/imgui_tables.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui.dir/build.make CMakeFiles/imgui.dir/extern/imgui/imgui_tables.cpp.s
+.PHONY : extern/imgui/imgui_tables.cpp.s
+
+extern/imgui/imgui_widgets.o: extern/imgui/imgui_widgets.cpp.o
+.PHONY : extern/imgui/imgui_widgets.o
+
+# target to build an object file
+extern/imgui/imgui_widgets.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui.dir/build.make CMakeFiles/imgui.dir/extern/imgui/imgui_widgets.cpp.o
+.PHONY : extern/imgui/imgui_widgets.cpp.o
+
+extern/imgui/imgui_widgets.i: extern/imgui/imgui_widgets.cpp.i
+.PHONY : extern/imgui/imgui_widgets.i
+
+# target to preprocess a source file
+extern/imgui/imgui_widgets.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui.dir/build.make CMakeFiles/imgui.dir/extern/imgui/imgui_widgets.cpp.i
+.PHONY : extern/imgui/imgui_widgets.cpp.i
+
+extern/imgui/imgui_widgets.s: extern/imgui/imgui_widgets.cpp.s
+.PHONY : extern/imgui/imgui_widgets.s
+
+# target to generate assembly for a file
+extern/imgui/imgui_widgets.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui.dir/build.make CMakeFiles/imgui.dir/extern/imgui/imgui_widgets.cpp.s
+.PHONY : extern/imgui/imgui_widgets.cpp.s
 
 extern/libmspack/libmspack/mspack/lzxd.o: extern/libmspack/libmspack/mspack/lzxd.c.o
 .PHONY : extern/libmspack/libmspack/mspack/lzxd.o
@@ -505,6 +690,126 @@ src/exports.s: src/exports.cpp.s
 src/exports.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/exports.cpp.s
 .PHONY : src/exports.cpp.s
+
+src/gpu/imgui/imgui_common.o: src/gpu/imgui/imgui_common.cpp.o
+.PHONY : src/gpu/imgui/imgui_common.o
+
+# target to build an object file
+src/gpu/imgui/imgui_common.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_common.cpp.o
+.PHONY : src/gpu/imgui/imgui_common.cpp.o
+
+src/gpu/imgui/imgui_common.i: src/gpu/imgui/imgui_common.cpp.i
+.PHONY : src/gpu/imgui/imgui_common.i
+
+# target to preprocess a source file
+src/gpu/imgui/imgui_common.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_common.cpp.i
+.PHONY : src/gpu/imgui/imgui_common.cpp.i
+
+src/gpu/imgui/imgui_common.s: src/gpu/imgui/imgui_common.cpp.s
+.PHONY : src/gpu/imgui/imgui_common.s
+
+# target to generate assembly for a file
+src/gpu/imgui/imgui_common.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_common.cpp.s
+.PHONY : src/gpu/imgui/imgui_common.cpp.s
+
+src/gpu/imgui/imgui_font_builder.o: src/gpu/imgui/imgui_font_builder.cpp.o
+.PHONY : src/gpu/imgui/imgui_font_builder.o
+
+# target to build an object file
+src/gpu/imgui/imgui_font_builder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_font_builder.cpp.o
+.PHONY : src/gpu/imgui/imgui_font_builder.cpp.o
+
+src/gpu/imgui/imgui_font_builder.i: src/gpu/imgui/imgui_font_builder.cpp.i
+.PHONY : src/gpu/imgui/imgui_font_builder.i
+
+# target to preprocess a source file
+src/gpu/imgui/imgui_font_builder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_font_builder.cpp.i
+.PHONY : src/gpu/imgui/imgui_font_builder.cpp.i
+
+src/gpu/imgui/imgui_font_builder.s: src/gpu/imgui/imgui_font_builder.cpp.s
+.PHONY : src/gpu/imgui/imgui_font_builder.s
+
+# target to generate assembly for a file
+src/gpu/imgui/imgui_font_builder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_font_builder.cpp.s
+.PHONY : src/gpu/imgui/imgui_font_builder.cpp.s
+
+src/gpu/imgui/imgui_snapshot.o: src/gpu/imgui/imgui_snapshot.cpp.o
+.PHONY : src/gpu/imgui/imgui_snapshot.o
+
+# target to build an object file
+src/gpu/imgui/imgui_snapshot.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_snapshot.cpp.o
+.PHONY : src/gpu/imgui/imgui_snapshot.cpp.o
+
+src/gpu/imgui/imgui_snapshot.i: src/gpu/imgui/imgui_snapshot.cpp.i
+.PHONY : src/gpu/imgui/imgui_snapshot.i
+
+# target to preprocess a source file
+src/gpu/imgui/imgui_snapshot.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_snapshot.cpp.i
+.PHONY : src/gpu/imgui/imgui_snapshot.cpp.i
+
+src/gpu/imgui/imgui_snapshot.s: src/gpu/imgui/imgui_snapshot.cpp.s
+.PHONY : src/gpu/imgui/imgui_snapshot.s
+
+# target to generate assembly for a file
+src/gpu/imgui/imgui_snapshot.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_snapshot.cpp.s
+.PHONY : src/gpu/imgui/imgui_snapshot.cpp.s
+
+src/gpu/rhi/plume_vulkan.o: src/gpu/rhi/plume_vulkan.cpp.o
+.PHONY : src/gpu/rhi/plume_vulkan.o
+
+# target to build an object file
+src/gpu/rhi/plume_vulkan.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/gpu/rhi/plume_vulkan.cpp.o
+.PHONY : src/gpu/rhi/plume_vulkan.cpp.o
+
+src/gpu/rhi/plume_vulkan.i: src/gpu/rhi/plume_vulkan.cpp.i
+.PHONY : src/gpu/rhi/plume_vulkan.i
+
+# target to preprocess a source file
+src/gpu/rhi/plume_vulkan.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/gpu/rhi/plume_vulkan.cpp.i
+.PHONY : src/gpu/rhi/plume_vulkan.cpp.i
+
+src/gpu/rhi/plume_vulkan.s: src/gpu/rhi/plume_vulkan.cpp.s
+.PHONY : src/gpu/rhi/plume_vulkan.s
+
+# target to generate assembly for a file
+src/gpu/rhi/plume_vulkan.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/gpu/rhi/plume_vulkan.cpp.s
+.PHONY : src/gpu/rhi/plume_vulkan.cpp.s
+
+src/gpu/video.o: src/gpu/video.cpp.o
+.PHONY : src/gpu/video.o
+
+# target to build an object file
+src/gpu/video.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/gpu/video.cpp.o
+.PHONY : src/gpu/video.cpp.o
+
+src/gpu/video.i: src/gpu/video.cpp.i
+.PHONY : src/gpu/video.i
+
+# target to preprocess a source file
+src/gpu/video.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/gpu/video.cpp.i
+.PHONY : src/gpu/video.cpp.i
+
+src/gpu/video.s: src/gpu/video.cpp.s
+.PHONY : src/gpu/video.s
+
+# target to generate assembly for a file
+src/gpu/video.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/gpu/video.cpp.s
+.PHONY : src/gpu/video.cpp.s
 
 src/hid/driver/sdl_hid.o: src/hid/driver/sdl_hid.cpp.o
 .PHONY : src/hid/driver/sdl_hid.o
@@ -6842,6 +7147,78 @@ src/stdafx.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/stdafx.cpp.s
 .PHONY : src/stdafx.cpp.s
 
+src/tools/stb/stb_image_impl.o: src/tools/stb/stb_image_impl.cpp.o
+.PHONY : src/tools/stb/stb_image_impl.o
+
+# target to build an object file
+src/tools/stb/stb_image_impl.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_image_impl.cpp.o
+.PHONY : src/tools/stb/stb_image_impl.cpp.o
+
+src/tools/stb/stb_image_impl.i: src/tools/stb/stb_image_impl.cpp.i
+.PHONY : src/tools/stb/stb_image_impl.i
+
+# target to preprocess a source file
+src/tools/stb/stb_image_impl.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_image_impl.cpp.i
+.PHONY : src/tools/stb/stb_image_impl.cpp.i
+
+src/tools/stb/stb_image_impl.s: src/tools/stb/stb_image_impl.cpp.s
+.PHONY : src/tools/stb/stb_image_impl.s
+
+# target to generate assembly for a file
+src/tools/stb/stb_image_impl.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_image_impl.cpp.s
+.PHONY : src/tools/stb/stb_image_impl.cpp.s
+
+src/tools/stb/stb_rect_pack.o: src/tools/stb/stb_rect_pack.cpp.o
+.PHONY : src/tools/stb/stb_rect_pack.o
+
+# target to build an object file
+src/tools/stb/stb_rect_pack.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_rect_pack.cpp.o
+.PHONY : src/tools/stb/stb_rect_pack.cpp.o
+
+src/tools/stb/stb_rect_pack.i: src/tools/stb/stb_rect_pack.cpp.i
+.PHONY : src/tools/stb/stb_rect_pack.i
+
+# target to preprocess a source file
+src/tools/stb/stb_rect_pack.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_rect_pack.cpp.i
+.PHONY : src/tools/stb/stb_rect_pack.cpp.i
+
+src/tools/stb/stb_rect_pack.s: src/tools/stb/stb_rect_pack.cpp.s
+.PHONY : src/tools/stb/stb_rect_pack.s
+
+# target to generate assembly for a file
+src/tools/stb/stb_rect_pack.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_rect_pack.cpp.s
+.PHONY : src/tools/stb/stb_rect_pack.cpp.s
+
+src/tools/stb/stb_truetype_impl.o: src/tools/stb/stb_truetype_impl.cpp.o
+.PHONY : src/tools/stb/stb_truetype_impl.o
+
+# target to build an object file
+src/tools/stb/stb_truetype_impl.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_truetype_impl.cpp.o
+.PHONY : src/tools/stb/stb_truetype_impl.cpp.o
+
+src/tools/stb/stb_truetype_impl.i: src/tools/stb/stb_truetype_impl.cpp.i
+.PHONY : src/tools/stb/stb_truetype_impl.i
+
+# target to preprocess a source file
+src/tools/stb/stb_truetype_impl.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_truetype_impl.cpp.i
+.PHONY : src/tools/stb/stb_truetype_impl.cpp.i
+
+src/tools/stb/stb_truetype_impl.s: src/tools/stb/stb_truetype_impl.cpp.s
+.PHONY : src/tools/stb/stb_truetype_impl.s
+
+# target to generate assembly for a file
+src/tools/stb/stb_truetype_impl.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_truetype_impl.cpp.s
+.PHONY : src/tools/stb/stb_truetype_impl.cpp.s
+
 src/ui/game_window.o: src/ui/game_window.cpp.o
 .PHONY : src/ui/game_window.o
 
@@ -7193,6 +7570,11 @@ help:
 	@echo "... SDL_uclibc"
 	@echo "... disasm"
 	@echo "... fmtlib_static"
+	@echo "... imgui"
+	@echo "... msdf-atlas-gen"
+	@echo "... msdf-atlas-gen-standalone"
+	@echo "... msdfgen-core"
+	@echo "... msdfgen-ext"
 	@echo "... nfd"
 	@echo "... o1heap"
 	@echo "... tiny_aes_c"
@@ -7203,6 +7585,21 @@ help:
 	@echo "... extern/fmt/src/os.o"
 	@echo "... extern/fmt/src/os.i"
 	@echo "... extern/fmt/src/os.s"
+	@echo "... extern/imgui/imgui.o"
+	@echo "... extern/imgui/imgui.i"
+	@echo "... extern/imgui/imgui.s"
+	@echo "... extern/imgui/imgui_demo.o"
+	@echo "... extern/imgui/imgui_demo.i"
+	@echo "... extern/imgui/imgui_demo.s"
+	@echo "... extern/imgui/imgui_draw.o"
+	@echo "... extern/imgui/imgui_draw.i"
+	@echo "... extern/imgui/imgui_draw.s"
+	@echo "... extern/imgui/imgui_tables.o"
+	@echo "... extern/imgui/imgui_tables.i"
+	@echo "... extern/imgui/imgui_tables.s"
+	@echo "... extern/imgui/imgui_widgets.o"
+	@echo "... extern/imgui/imgui_widgets.i"
+	@echo "... extern/imgui/imgui_widgets.s"
 	@echo "... extern/libmspack/libmspack/mspack/lzxd.o"
 	@echo "... extern/libmspack/libmspack/mspack/lzxd.i"
 	@echo "... extern/libmspack/libmspack/mspack/lzxd.s"
@@ -7227,6 +7624,21 @@ help:
 	@echo "... src/exports.o"
 	@echo "... src/exports.i"
 	@echo "... src/exports.s"
+	@echo "... src/gpu/imgui/imgui_common.o"
+	@echo "... src/gpu/imgui/imgui_common.i"
+	@echo "... src/gpu/imgui/imgui_common.s"
+	@echo "... src/gpu/imgui/imgui_font_builder.o"
+	@echo "... src/gpu/imgui/imgui_font_builder.i"
+	@echo "... src/gpu/imgui/imgui_font_builder.s"
+	@echo "... src/gpu/imgui/imgui_snapshot.o"
+	@echo "... src/gpu/imgui/imgui_snapshot.i"
+	@echo "... src/gpu/imgui/imgui_snapshot.s"
+	@echo "... src/gpu/rhi/plume_vulkan.o"
+	@echo "... src/gpu/rhi/plume_vulkan.i"
+	@echo "... src/gpu/rhi/plume_vulkan.s"
+	@echo "... src/gpu/video.o"
+	@echo "... src/gpu/video.i"
+	@echo "... src/gpu/video.s"
 	@echo "... src/hid/driver/sdl_hid.o"
 	@echo "... src/hid/driver/sdl_hid.i"
 	@echo "... src/hid/driver/sdl_hid.s"
@@ -8019,6 +8431,15 @@ help:
 	@echo "... src/stdafx.o"
 	@echo "... src/stdafx.i"
 	@echo "... src/stdafx.s"
+	@echo "... src/tools/stb/stb_image_impl.o"
+	@echo "... src/tools/stb/stb_image_impl.i"
+	@echo "... src/tools/stb/stb_image_impl.s"
+	@echo "... src/tools/stb/stb_rect_pack.o"
+	@echo "... src/tools/stb/stb_rect_pack.i"
+	@echo "... src/tools/stb/stb_rect_pack.s"
+	@echo "... src/tools/stb/stb_truetype_impl.o"
+	@echo "... src/tools/stb/stb_truetype_impl.i"
+	@echo "... src/tools/stb/stb_truetype_impl.s"
 	@echo "... src/ui/game_window.o"
 	@echo "... src/ui/game_window.i"
 	@echo "... src/ui/game_window.s"

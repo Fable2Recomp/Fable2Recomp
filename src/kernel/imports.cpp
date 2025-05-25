@@ -1808,3 +1808,389 @@ GUEST_FUNCTION_HOOK(__imp__XMACreateContext, XMACreateContext);
 GUEST_FUNCTION_HOOK(__imp__XAudioRegisterRenderDriverClient, XAudioRegisterRenderDriverClient);
 GUEST_FUNCTION_HOOK(__imp__XAudioUnregisterRenderDriverClient, XAudioUnregisterRenderDriverClient);
 GUEST_FUNCTION_HOOK(__imp__XAudioSubmitRenderDriverFrame, XAudioSubmitRenderDriverFrame);
+
+// Fable 2 __IMP__
+
+void XamUserGetName()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XamUserAreUsersFriends()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XamUserCheckPrivilege()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XamReadTileToTexture()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XamParseGamerTileKey()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XamUserCreateAchievementEnumerator()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XamUserGetXUID()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XamShowKeyboardUI()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XamShowGamerCardUIForXUID()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XamShowAchievementsUI()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XamShowMarketplaceUI()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XamTaskSchedule()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XMsgCancelIORequest()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XamAlloc()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XamFree()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XamGetOverlappedResult()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XMsgCompleteIORequest()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XamGetPrivateEnumStructureFromHandle()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void MmSetAddressProtect()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NtProtectVirtualMemory()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NtQueueApcThread()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NtYieldExecution()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XexUnloadImage()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XexLoadImage()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XeCryptShaInit()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XeCryptShaUpdate()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XeCryptShaFinal()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void KeTryToAcquireSpinLockAtRaisedIrql()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XamCreateEnumeratorHandle()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XamSessionRefObjByHandle()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XamSessionCreateHandle()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XamUserWriteProfileSettings()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XamUserGetMembershipTierFromXUID()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XamUserGetOnlineCountryFromXUID()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XamVoiceHeadsetPresent()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XamVoiceClose()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XamVoiceSubmitPacket()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XamVoiceCreate()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NtCancelTimer()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NtSetTimerEx()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NtCreateTimer()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NtCreateMutant()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NtReleaseMutant()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NetDll_XNetCleanup()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NetDll_XNetRandom()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NetDll_XNetRegisterKey()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NetDll_XNetUnregisterKey()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NetDll_XNetXnAddrToInAddr()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NetDll_XNetInAddrToXnAddr()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NetDll_XNetUnregisterInAddr()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NetDll_XNetXnAddrToMachineId()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NetDll_XNetConnect()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NetDll_XNetGetConnectStatus()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NetDll_XNetQosListen()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NetDll_XNetQosRelease()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void XNetLogonGetTitleID()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NetDll_ioctlsocket()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NetDll_WSAGetOverlappedResult()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void WSAGetOverlappedResult()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NetDll_recvfrom()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NetDll_WSARecvFrom()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NetDll_sendto()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NetDll_WSASendTo()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+void NetDll_WSAGetLastError()
+{
+    LOG_UTILITY("!!! STUB !!!");
+}
+
+GUEST_FUNCTION_HOOK(__imp__XamUserGetName, XamUserGetName);
+GUEST_FUNCTION_HOOK(__imp__XamUserAreUsersFriends, XamShowGamerCardUIForXUID);
+GUEST_FUNCTION_HOOK(__imp__XamUserCheckPrivilege, XamUserCheckPrivilege);
+GUEST_FUNCTION_HOOK(__imp__XamReadTileToTexture, XamReadTileToTexture);
+GUEST_FUNCTION_HOOK(__imp__XamParseGamerTileKey, XamParseGamerTileKey);
+GUEST_FUNCTION_HOOK(__imp__XamUserCreateAchievementEnumerator, XamUserCreateAchievementEnumerator);
+GUEST_FUNCTION_HOOK(__imp__XamUserGetXUID, XamUserGetXUID);
+GUEST_FUNCTION_HOOK(__imp__XamShowKeyboardUI, XamShowKeyboardUI);
+GUEST_FUNCTION_HOOK(__imp__XamShowGamerCardUIForXUID, XamShowGamerCardUIForXUID);
+GUEST_FUNCTION_HOOK(__imp__XamShowAchievementsUI, XamShowAchievementsUI);
+GUEST_FUNCTION_HOOK(__imp__XamShowMarketplaceUI, XamShowMarketplaceUI);
+GUEST_FUNCTION_HOOK(__imp__XamTaskSchedule, XamTaskSchedule);
+GUEST_FUNCTION_HOOK(__imp__XMsgCancelIORequest, XMsgCancelIORequest);
+GUEST_FUNCTION_HOOK(__imp__XamAlloc, XamAlloc);
+GUEST_FUNCTION_HOOK(__imp__XamFree, XamFree);
+GUEST_FUNCTION_HOOK(__imp__XamGetOverlappedResult, XamGetOverlappedResult);
+GUEST_FUNCTION_HOOK(__imp__XMsgCompleteIORequest, XMsgCompleteIORequest);
+GUEST_FUNCTION_HOOK(__imp__XamGetPrivateEnumStructureFromHandle, XamGetPrivateEnumStructureFromHandle);
+GUEST_FUNCTION_HOOK(__imp__MmSetAddressProtect, MmSetAddressProtect);
+GUEST_FUNCTION_HOOK(__imp__NtProtectVirtualMemory, NtProtectVirtualMemory);
+GUEST_FUNCTION_HOOK(__imp__NtQueueApcThread, NtQueueApcThread);
+GUEST_FUNCTION_HOOK(__imp__NtYieldExecution, NtYieldExecution);
+GUEST_FUNCTION_HOOK(__imp__XexUnloadImage, XexUnloadImage);
+GUEST_FUNCTION_HOOK(__imp__XexLoadImage, XexLoadImage);
+GUEST_FUNCTION_HOOK(__imp__XeCryptShaInit, XeCryptShaInit);
+GUEST_FUNCTION_HOOK(__imp__XeCryptShaUpdate, XeCryptShaUpdate);
+GUEST_FUNCTION_HOOK(__imp__XeCryptShaFinal, XeCryptShaFinal);
+GUEST_FUNCTION_HOOK(__imp__KeTryToAcquireSpinLockAtRaisedIrql, KeTryToAcquireSpinLockAtRaisedIrql);
+GUEST_FUNCTION_HOOK(__imp__XamCreateEnumeratorHandle, XamCreateEnumeratorHandle);
+GUEST_FUNCTION_HOOK(__imp__XamSessionRefObjByHandle, XamSessionRefObjByHandle);
+GUEST_FUNCTION_HOOK(__imp__XamSessionCreateHandle, XamSessionCreateHandle);
+GUEST_FUNCTION_HOOK(__imp__XamUserWriteProfileSettings, XamUserWriteProfileSettings);
+GUEST_FUNCTION_HOOK(__imp__XamUserGetMembershipTierFromXUID, XamUserGetMembershipTierFromXUID);
+GUEST_FUNCTION_HOOK(__imp__XamUserGetOnlineCountryFromXUID, XamUserGetOnlineCountryFromXUID);
+GUEST_FUNCTION_HOOK(__imp__XamVoiceHeadsetPresent, XamVoiceHeadsetPresent);
+GUEST_FUNCTION_HOOK(__imp__XamVoiceClose, XamVoiceClose);
+GUEST_FUNCTION_HOOK(__imp__XamVoiceSubmitPacket, XamVoiceSubmitPacket);
+GUEST_FUNCTION_HOOK(__imp__XamVoiceCreate, XamVoiceCreate);
+GUEST_FUNCTION_HOOK(__imp__NtCancelTimer, NtCancelTimer);
+GUEST_FUNCTION_HOOK(__imp__NtSetTimerEx, NtSetTimerEx);
+GUEST_FUNCTION_HOOK(__imp__NtCreateTimer, NtCreateTimer);
+GUEST_FUNCTION_HOOK(__imp__NtCreateMutant, NtCreateMutant);
+GUEST_FUNCTION_HOOK(__imp__NtReleaseMutant, NtReleaseMutant);
+GUEST_FUNCTION_HOOK(__imp__NetDll_XNetCleanup, NetDll_XNetCleanup);
+GUEST_FUNCTION_HOOK(__imp__NetDll_XNetRandom, NetDll_XNetRandom);
+GUEST_FUNCTION_HOOK(__imp__NetDll_XNetRegisterKey, NetDll_XNetRegisterKey);
+GUEST_FUNCTION_HOOK(__imp__NetDll_XNetUnregisterKey, NetDll_XNetUnregisterKey);
+GUEST_FUNCTION_HOOK(__imp__NetDll_XNetXnAddrToInAddr, NetDll_XNetXnAddrToInAddr);
+GUEST_FUNCTION_HOOK(__imp__NetDll_XNetInAddrToXnAddr, NetDll_XNetInAddrToXnAddr);
+GUEST_FUNCTION_HOOK(__imp__NetDll_XNetUnregisterInAddr, NetDll_XNetUnregisterInAddr);
+GUEST_FUNCTION_HOOK(__imp__NetDll_XNetXnAddrToMachineId, NetDll_XNetXnAddrToMachineId);
+GUEST_FUNCTION_HOOK(__imp__NetDll_XNetConnect, NetDll_XNetConnect);
+GUEST_FUNCTION_HOOK(__imp__NetDll_XNetGetConnectStatus, NetDll_XNetGetConnectStatus);
+GUEST_FUNCTION_HOOK(__imp__NetDll_XNetQosListen, NetDll_XNetQosListen);
+GUEST_FUNCTION_HOOK(__imp__NetDll_XNetQosRelease, NetDll_XNetQosRelease);
+GUEST_FUNCTION_HOOK(__imp__XNetLogonGetTitleID, XNetLogonGetTitleID);
+GUEST_FUNCTION_HOOK(__imp__NetDll_ioctlsocket, NetDll_ioctlsocket);
+GUEST_FUNCTION_HOOK(__imp__NetDll_WSAGetOverlappedResult, NetDll_WSAGetOverlappedResult);
+GUEST_FUNCTION_HOOK(__imp__NetDll_recvfrom, NetDll_recvfrom);
+GUEST_FUNCTION_HOOK(__imp__NetDll_WSARecvFrom, NetDll_WSARecvFrom);
+GUEST_FUNCTION_HOOK(__imp__NetDll_sendto, NetDll_sendto);
+GUEST_FUNCTION_HOOK(__imp__NetDll_WSASendTo, NetDll_WSASendTo);
+GUEST_FUNCTION_HOOK(__imp__NetDll_WSAGetLastError, NetDll_WSAGetLastError);

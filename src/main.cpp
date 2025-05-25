@@ -1,5 +1,6 @@
 #include <stdafx.h>
 #include <filesystem>
+#include <system_error>
 #include <cstdlib>
 #include <ctime>
 #include <cstdio>
@@ -89,63 +90,72 @@ void HostStartup() {
     hid::Init();
 }
 
+namespace {
+
+bool EnsureSaveFileExists()
+{
+    const auto saveFilePath = GetSaveFilePath(true);
+    bool saveFileExists = std::filesystem::exists(saveFilePath);
+
+    if (!saveFileExists)
+    {
+        std::error_code ec;
+        std::filesystem::create_directories(saveFilePath.parent_path(), ec);
+        if (!ec)
+        {
+            std::filesystem::copy_file(GetSaveFilePath(false), saveFilePath, ec);
+            saveFileExists = !ec;
+            if (ec)
+            {
+                spdlog::warn("Failed to copy base save file: {}", ec.message());
+            }
+        }
+        else
+        {
+            spdlog::warn("Failed to create save directory: {}", ec.message());
+        }
+    }
+    return saveFileExists;
+}
+
+void RegisterSaveDataContent()
+{
+    const auto saveFilePath = GetSaveFilePath(true);
+    std::u8string savePathU8 = saveFilePath.parent_path().u8string();
+    XamRegisterContent(XamMakeContent(XCONTENTTYPE_SAVEDATA, "SYS-DATA"), (const char*)(savePathU8.c_str()));
+}
+
+} // anonymous namespace
+
 void KiSystemStartup()
 {
     if (g_memory.base == nullptr)
     {
-        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, GameWindow::GetTitle(), Localise("System_MemoryAllocationFailed").c_str(), GameWindow::s_pWindow);
+        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, GameWindow::GetTitle(), Localise("System_MemoryAllocationFailed").c_str(), GameWindow::GetSDLWindow());
         std::_Exit(1);
     }
 
     g_userHeap.Init();
 
     const auto gameContent = XamMakeContent(XCONTENTTYPE_RESERVED, "Game");
-    const auto updateContent = XamMakeContent(XCONTENTTYPE_RESERVED, "Update");
     XamRegisterContent(gameContent, GAME_INSTALL_DIRECTORY "/game");
-    XamRegisterContent(updateContent, GAME_INSTALL_DIRECTORY "/update");
 
-    const auto saveFilePath = GetSaveFilePath(true);
-    bool saveFileExists = std::filesystem::exists(saveFilePath);
-
-    if (!saveFileExists)
+    // Ensure save file exists; copy from base if missing
+    if (EnsureSaveFileExists())
     {
-        // Copy base save data to modded save as fallback.
-        std::error_code ec;
-        std::filesystem::create_directories(saveFilePath.parent_path(), ec);
-
-        if (!ec)
-        {
-            std::filesystem::copy_file(GetSaveFilePath(false), saveFilePath, ec);
-            saveFileExists = !ec;
-        }
+        RegisterSaveDataContent();
     }
 
-    if (saveFileExists)
-    {
-        std::u8string savePathU8 = saveFilePath.parent_path().u8string();
-        XamRegisterContent(XamMakeContent(XCONTENTTYPE_SAVEDATA, "SYS-DATA"), (const char*)(savePathU8.c_str()));
-    }
-
-    // Mount game
+    // Mount main game content
     XamContentCreateEx(0, "game", &gameContent, OPEN_EXISTING, nullptr, nullptr, 0, 0, nullptr);
-    XamContentCreateEx(0, "update", &updateContent, OPEN_EXISTING, nullptr, nullptr, 0, 0, nullptr);
 
-    // OS mounts game data to D:
+    // Mount game content to D:
     XamContentCreateEx(0, "D", &gameContent, OPEN_EXISTING, nullptr, nullptr, 0, 0, nullptr);
 
-    std::error_code ec;
-    for (auto& file : std::filesystem::directory_iterator(GAME_INSTALL_DIRECTORY "/dlc", ec))
-    {
-        if (file.is_directory())
-        {
-            std::u8string fileNameU8 = file.path().filename().u8string();
-            std::u8string filePathU8 = file.path().u8string();
-            XamRegisterContent(XamMakeContent(XCONTENTTYPE_DLC, (const char*)(fileNameU8.c_str())), (const char*)(filePathU8.c_str()));
-        }
-    }
-
+    // Initialize audio system
     XAudioInitializeSystem();
 }
+
 
 // === Main entry ===
 int main(int argc, char* argv[]) {

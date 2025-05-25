@@ -97,24 +97,10 @@ CMakeFiles/Fable2Recomp.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Fable2Recomp.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/main.cpp" -o CMakeFiles/Fable2Recomp.dir/src/main.cpp.s
 
-CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
-CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/ppc/ppc_func_mapping.cpp
-CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/ppc/ppc_func_mapping.cpp"
-
-CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/ppc/ppc_func_mapping.cpp" > CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.i
-
-CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/ppc/ppc_func_mapping.cpp" -o CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.s
-
 CMakeFiles/Fable2Recomp.dir/src/preload_executable.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/src/preload_executable.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/preload_executable.cpp
 CMakeFiles/Fable2Recomp.dir/src/preload_executable.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/preload_executable.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/preload_executable.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/preload_executable.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/preload_executable.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/preload_executable.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/preload_executable.cpp"
 
 CMakeFiles/Fable2Recomp.dir/src/preload_executable.cpp.i: cmake_force
@@ -128,7 +114,7 @@ CMakeFiles/Fable2Recomp.dir/src/preload_executable.cpp.s: cmake_force
 CMakeFiles/Fable2Recomp.dir/src/sdl_listener.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/src/sdl_listener.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/sdl_listener.cpp
 CMakeFiles/Fable2Recomp.dir/src/sdl_listener.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/sdl_listener.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/sdl_listener.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/sdl_listener.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/sdl_listener.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/sdl_listener.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/sdl_listener.cpp"
 
 CMakeFiles/Fable2Recomp.dir/src/sdl_listener.cpp.i: cmake_force
@@ -142,7 +128,7 @@ CMakeFiles/Fable2Recomp.dir/src/sdl_listener.cpp.s: cmake_force
 CMakeFiles/Fable2Recomp.dir/src/stdafx.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/src/stdafx.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/stdafx.cpp
 CMakeFiles/Fable2Recomp.dir/src/stdafx.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/stdafx.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/stdafx.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/stdafx.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/stdafx.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/stdafx.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/stdafx.cpp"
 
 CMakeFiles/Fable2Recomp.dir/src/stdafx.cpp.i: cmake_force
@@ -156,7 +142,7 @@ CMakeFiles/Fable2Recomp.dir/src/stdafx.cpp.s: cmake_force
 CMakeFiles/Fable2Recomp.dir/extern/xxHash/xxhash.c.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/extern/xxHash/xxhash.c.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/xxHash/xxhash.c
 CMakeFiles/Fable2Recomp.dir/extern/xxHash/xxhash.c.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/Fable2Recomp.dir/extern/xxHash/xxhash.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/Fable2Recomp.dir/extern/xxHash/xxhash.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/extern/xxHash/xxhash.c.o -MF CMakeFiles/Fable2Recomp.dir/extern/xxHash/xxhash.c.o.d -o CMakeFiles/Fable2Recomp.dir/extern/xxHash/xxhash.c.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/xxHash/xxhash.c"
 
 CMakeFiles/Fable2Recomp.dir/extern/xxHash/xxhash.c.i: cmake_force
@@ -170,7 +156,7 @@ CMakeFiles/Fable2Recomp.dir/extern/xxHash/xxhash.c.s: cmake_force
 CMakeFiles/Fable2Recomp.dir/extern/o1heap/o1heap.c.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/extern/o1heap/o1heap.c.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/o1heap/o1heap.c
 CMakeFiles/Fable2Recomp.dir/extern/o1heap/o1heap.c.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/Fable2Recomp.dir/extern/o1heap/o1heap.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/Fable2Recomp.dir/extern/o1heap/o1heap.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/extern/o1heap/o1heap.c.o -MF CMakeFiles/Fable2Recomp.dir/extern/o1heap/o1heap.c.o.d -o CMakeFiles/Fable2Recomp.dir/extern/o1heap/o1heap.c.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/o1heap/o1heap.c"
 
 CMakeFiles/Fable2Recomp.dir/extern/o1heap/o1heap.c.i: cmake_force
@@ -184,7 +170,7 @@ CMakeFiles/Fable2Recomp.dir/extern/o1heap/o1heap.c.s: cmake_force
 CMakeFiles/Fable2Recomp.dir/extern/libmspack/libmspack/mspack/lzxd.c.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/extern/libmspack/libmspack/mspack/lzxd.c.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/libmspack/libmspack/mspack/lzxd.c
 CMakeFiles/Fable2Recomp.dir/extern/libmspack/libmspack/mspack/lzxd.c.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/Fable2Recomp.dir/extern/libmspack/libmspack/mspack/lzxd.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/Fable2Recomp.dir/extern/libmspack/libmspack/mspack/lzxd.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/extern/libmspack/libmspack/mspack/lzxd.c.o -MF CMakeFiles/Fable2Recomp.dir/extern/libmspack/libmspack/mspack/lzxd.c.o.d -o CMakeFiles/Fable2Recomp.dir/extern/libmspack/libmspack/mspack/lzxd.c.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/libmspack/libmspack/mspack/lzxd.c"
 
 CMakeFiles/Fable2Recomp.dir/extern/libmspack/libmspack/mspack/lzxd.c.i: cmake_force
@@ -194,6 +180,20 @@ CMakeFiles/Fable2Recomp.dir/extern/libmspack/libmspack/mspack/lzxd.c.i: cmake_fo
 CMakeFiles/Fable2Recomp.dir/extern/libmspack/libmspack/mspack/lzxd.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Fable2Recomp.dir/extern/libmspack/libmspack/mspack/lzxd.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/libmspack/libmspack/mspack/lzxd.c" -o CMakeFiles/Fable2Recomp.dir/extern/libmspack/libmspack/mspack/lzxd.c.s
+
+CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
+CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/ppc/ppc_func_mapping.cpp
+CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/ppc/ppc_func_mapping.cpp"
+
+CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/ppc/ppc_func_mapping.cpp" > CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.i
+
+CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/ppc/ppc_func_mapping.cpp" -o CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.s
 
 CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_recomp.000.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_recomp.000.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/ppc/ppc_recomp.000.cpp
@@ -3751,10 +3751,80 @@ CMakeFiles/Fable2Recomp.dir/src/cpu/guest_thread.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Fable2Recomp.dir/src/cpu/guest_thread.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/cpu/guest_thread.cpp" -o CMakeFiles/Fable2Recomp.dir/src/cpu/guest_thread.cpp.s
 
+CMakeFiles/Fable2Recomp.dir/src/gpu/video.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
+CMakeFiles/Fable2Recomp.dir/src/gpu/video.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/gpu/video.cpp
+CMakeFiles/Fable2Recomp.dir/src/gpu/video.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_264) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/gpu/video.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/gpu/video.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/gpu/video.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/gpu/video.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/gpu/video.cpp"
+
+CMakeFiles/Fable2Recomp.dir/src/gpu/video.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Fable2Recomp.dir/src/gpu/video.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/gpu/video.cpp" > CMakeFiles/Fable2Recomp.dir/src/gpu/video.cpp.i
+
+CMakeFiles/Fable2Recomp.dir/src/gpu/video.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Fable2Recomp.dir/src/gpu/video.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/gpu/video.cpp" -o CMakeFiles/Fable2Recomp.dir/src/gpu/video.cpp.s
+
+CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_common.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
+CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_common.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/gpu/imgui/imgui_common.cpp
+CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_common.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_265) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_common.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_common.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_common.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_common.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/gpu/imgui/imgui_common.cpp"
+
+CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_common.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_common.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/gpu/imgui/imgui_common.cpp" > CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_common.cpp.i
+
+CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_common.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_common.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/gpu/imgui/imgui_common.cpp" -o CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_common.cpp.s
+
+CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_font_builder.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
+CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_font_builder.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/gpu/imgui/imgui_font_builder.cpp
+CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_font_builder.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_266) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_font_builder.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_font_builder.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_font_builder.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_font_builder.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/gpu/imgui/imgui_font_builder.cpp"
+
+CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_font_builder.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_font_builder.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/gpu/imgui/imgui_font_builder.cpp" > CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_font_builder.cpp.i
+
+CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_font_builder.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_font_builder.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/gpu/imgui/imgui_font_builder.cpp" -o CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_font_builder.cpp.s
+
+CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_snapshot.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
+CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_snapshot.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/gpu/imgui/imgui_snapshot.cpp
+CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_snapshot.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_267) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_snapshot.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_snapshot.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_snapshot.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_snapshot.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/gpu/imgui/imgui_snapshot.cpp"
+
+CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_snapshot.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_snapshot.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/gpu/imgui/imgui_snapshot.cpp" > CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_snapshot.cpp.i
+
+CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_snapshot.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_snapshot.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/gpu/imgui/imgui_snapshot.cpp" -o CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_snapshot.cpp.s
+
+CMakeFiles/Fable2Recomp.dir/src/gpu/rhi/plume_vulkan.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
+CMakeFiles/Fable2Recomp.dir/src/gpu/rhi/plume_vulkan.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/gpu/rhi/plume_vulkan.cpp
+CMakeFiles/Fable2Recomp.dir/src/gpu/rhi/plume_vulkan.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_268) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/gpu/rhi/plume_vulkan.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/gpu/rhi/plume_vulkan.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/gpu/rhi/plume_vulkan.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/gpu/rhi/plume_vulkan.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/gpu/rhi/plume_vulkan.cpp"
+
+CMakeFiles/Fable2Recomp.dir/src/gpu/rhi/plume_vulkan.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Fable2Recomp.dir/src/gpu/rhi/plume_vulkan.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/gpu/rhi/plume_vulkan.cpp" > CMakeFiles/Fable2Recomp.dir/src/gpu/rhi/plume_vulkan.cpp.i
+
+CMakeFiles/Fable2Recomp.dir/src/gpu/rhi/plume_vulkan.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Fable2Recomp.dir/src/gpu/rhi/plume_vulkan.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/gpu/rhi/plume_vulkan.cpp" -o CMakeFiles/Fable2Recomp.dir/src/gpu/rhi/plume_vulkan.cpp.s
+
 CMakeFiles/Fable2Recomp.dir/src/apu/audio.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/src/apu/audio.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/apu/audio.cpp
 CMakeFiles/Fable2Recomp.dir/src/apu/audio.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_264) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/apu/audio.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_269) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/apu/audio.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/apu/audio.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/apu/audio.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/apu/audio.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/apu/audio.cpp"
 
 CMakeFiles/Fable2Recomp.dir/src/apu/audio.cpp.i: cmake_force
@@ -3768,7 +3838,7 @@ CMakeFiles/Fable2Recomp.dir/src/apu/audio.cpp.s: cmake_force
 CMakeFiles/Fable2Recomp.dir/src/apu/driver/sdl3_driver.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/src/apu/driver/sdl3_driver.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/apu/driver/sdl3_driver.cpp
 CMakeFiles/Fable2Recomp.dir/src/apu/driver/sdl3_driver.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_265) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/apu/driver/sdl3_driver.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_270) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/apu/driver/sdl3_driver.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/apu/driver/sdl3_driver.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/apu/driver/sdl3_driver.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/apu/driver/sdl3_driver.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/apu/driver/sdl3_driver.cpp"
 
 CMakeFiles/Fable2Recomp.dir/src/apu/driver/sdl3_driver.cpp.i: cmake_force
@@ -3782,7 +3852,7 @@ CMakeFiles/Fable2Recomp.dir/src/apu/driver/sdl3_driver.cpp.s: cmake_force
 CMakeFiles/Fable2Recomp.dir/src/hid/hid.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/src/hid/hid.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/hid/hid.cpp
 CMakeFiles/Fable2Recomp.dir/src/hid/hid.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_266) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/hid/hid.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_271) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/hid/hid.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/hid/hid.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/hid/hid.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/hid/hid.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/hid/hid.cpp"
 
 CMakeFiles/Fable2Recomp.dir/src/hid/hid.cpp.i: cmake_force
@@ -3796,7 +3866,7 @@ CMakeFiles/Fable2Recomp.dir/src/hid/hid.cpp.s: cmake_force
 CMakeFiles/Fable2Recomp.dir/src/hid/driver/sdl_hid.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/src/hid/driver/sdl_hid.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/hid/driver/sdl_hid.cpp
 CMakeFiles/Fable2Recomp.dir/src/hid/driver/sdl_hid.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_267) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/hid/driver/sdl_hid.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_272) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/hid/driver/sdl_hid.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/hid/driver/sdl_hid.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/hid/driver/sdl_hid.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/hid/driver/sdl_hid.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/hid/driver/sdl_hid.cpp"
 
 CMakeFiles/Fable2Recomp.dir/src/hid/driver/sdl_hid.cpp.i: cmake_force
@@ -3810,7 +3880,7 @@ CMakeFiles/Fable2Recomp.dir/src/hid/driver/sdl_hid.cpp.s: cmake_force
 CMakeFiles/Fable2Recomp.dir/src/ui/game_window.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/src/ui/game_window.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/ui/game_window.cpp
 CMakeFiles/Fable2Recomp.dir/src/ui/game_window.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_268) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/ui/game_window.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_273) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/ui/game_window.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/ui/game_window.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/ui/game_window.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/ui/game_window.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/ui/game_window.cpp"
 
 CMakeFiles/Fable2Recomp.dir/src/ui/game_window.cpp.i: cmake_force
@@ -3824,7 +3894,7 @@ CMakeFiles/Fable2Recomp.dir/src/ui/game_window.cpp.s: cmake_force
 CMakeFiles/Fable2Recomp.dir/src/ui/imgui_utils.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/src/ui/imgui_utils.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/ui/imgui_utils.cpp
 CMakeFiles/Fable2Recomp.dir/src/ui/imgui_utils.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_269) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/ui/imgui_utils.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_274) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/ui/imgui_utils.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/ui/imgui_utils.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/ui/imgui_utils.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/ui/imgui_utils.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/ui/imgui_utils.cpp"
 
 CMakeFiles/Fable2Recomp.dir/src/ui/imgui_utils.cpp.i: cmake_force
@@ -3838,7 +3908,7 @@ CMakeFiles/Fable2Recomp.dir/src/ui/imgui_utils.cpp.s: cmake_force
 CMakeFiles/Fable2Recomp.dir/src/ui/installer_wizard.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/src/ui/installer_wizard.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/ui/installer_wizard.cpp
 CMakeFiles/Fable2Recomp.dir/src/ui/installer_wizard.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_270) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/ui/installer_wizard.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_275) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/ui/installer_wizard.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/ui/installer_wizard.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/ui/installer_wizard.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/ui/installer_wizard.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/ui/installer_wizard.cpp"
 
 CMakeFiles/Fable2Recomp.dir/src/ui/installer_wizard.cpp.i: cmake_force
@@ -3852,7 +3922,7 @@ CMakeFiles/Fable2Recomp.dir/src/ui/installer_wizard.cpp.s: cmake_force
 CMakeFiles/Fable2Recomp.dir/src/install/installer.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/src/install/installer.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/install/installer.cpp
 CMakeFiles/Fable2Recomp.dir/src/install/installer.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_271) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/install/installer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_276) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/install/installer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/install/installer.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/install/installer.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/install/installer.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/install/installer.cpp"
 
 CMakeFiles/Fable2Recomp.dir/src/install/installer.cpp.i: cmake_force
@@ -3866,7 +3936,7 @@ CMakeFiles/Fable2Recomp.dir/src/install/installer.cpp.s: cmake_force
 CMakeFiles/Fable2Recomp.dir/src/install/iso_file_system.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/src/install/iso_file_system.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/install/iso_file_system.cpp
 CMakeFiles/Fable2Recomp.dir/src/install/iso_file_system.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_272) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/install/iso_file_system.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_277) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/install/iso_file_system.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/install/iso_file_system.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/install/iso_file_system.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/install/iso_file_system.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/install/iso_file_system.cpp"
 
 CMakeFiles/Fable2Recomp.dir/src/install/iso_file_system.cpp.i: cmake_force
@@ -3880,7 +3950,7 @@ CMakeFiles/Fable2Recomp.dir/src/install/iso_file_system.cpp.s: cmake_force
 CMakeFiles/Fable2Recomp.dir/src/install/xcontent_file_system.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/src/install/xcontent_file_system.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/install/xcontent_file_system.cpp
 CMakeFiles/Fable2Recomp.dir/src/install/xcontent_file_system.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_273) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/install/xcontent_file_system.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_278) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/install/xcontent_file_system.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/install/xcontent_file_system.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/install/xcontent_file_system.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/install/xcontent_file_system.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/install/xcontent_file_system.cpp"
 
 CMakeFiles/Fable2Recomp.dir/src/install/xcontent_file_system.cpp.i: cmake_force
@@ -3894,7 +3964,7 @@ CMakeFiles/Fable2Recomp.dir/src/install/xcontent_file_system.cpp.s: cmake_force
 CMakeFiles/Fable2Recomp.dir/src/install/hashes/game.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/src/install/hashes/game.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/install/hashes/game.cpp
 CMakeFiles/Fable2Recomp.dir/src/install/hashes/game.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_274) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/install/hashes/game.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_279) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/install/hashes/game.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/install/hashes/game.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/install/hashes/game.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/install/hashes/game.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/install/hashes/game.cpp"
 
 CMakeFiles/Fable2Recomp.dir/src/install/hashes/game.cpp.i: cmake_force
@@ -3908,7 +3978,7 @@ CMakeFiles/Fable2Recomp.dir/src/install/hashes/game.cpp.s: cmake_force
 CMakeFiles/Fable2Recomp.dir/src/user/config.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/src/user/config.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/user/config.cpp
 CMakeFiles/Fable2Recomp.dir/src/user/config.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_275) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/user/config.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_280) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/user/config.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/user/config.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/user/config.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/user/config.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/user/config.cpp"
 
 CMakeFiles/Fable2Recomp.dir/src/user/config.cpp.i: cmake_force
@@ -3922,7 +3992,7 @@ CMakeFiles/Fable2Recomp.dir/src/user/config.cpp.s: cmake_force
 CMakeFiles/Fable2Recomp.dir/src/user/registry.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/src/user/registry.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/user/registry.cpp
 CMakeFiles/Fable2Recomp.dir/src/user/registry.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_276) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/user/registry.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_281) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/user/registry.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/user/registry.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/user/registry.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/user/registry.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/user/registry.cpp"
 
 CMakeFiles/Fable2Recomp.dir/src/user/registry.cpp.i: cmake_force
@@ -3936,7 +4006,7 @@ CMakeFiles/Fable2Recomp.dir/src/user/registry.cpp.s: cmake_force
 CMakeFiles/Fable2Recomp.dir/src/user/paths.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/src/user/paths.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/user/paths.cpp
 CMakeFiles/Fable2Recomp.dir/src/user/paths.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_277) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/user/paths.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_282) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/user/paths.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/user/paths.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/user/paths.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/user/paths.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/user/paths.cpp"
 
 CMakeFiles/Fable2Recomp.dir/src/user/paths.cpp.i: cmake_force
@@ -3950,7 +4020,7 @@ CMakeFiles/Fable2Recomp.dir/src/user/paths.cpp.s: cmake_force
 CMakeFiles/Fable2Recomp.dir/src/user/persistent_data.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/src/user/persistent_data.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/user/persistent_data.cpp
 CMakeFiles/Fable2Recomp.dir/src/user/persistent_data.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_278) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/user/persistent_data.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_283) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/user/persistent_data.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/user/persistent_data.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/user/persistent_data.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/user/persistent_data.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/user/persistent_data.cpp"
 
 CMakeFiles/Fable2Recomp.dir/src/user/persistent_data.cpp.i: cmake_force
@@ -3964,7 +4034,7 @@ CMakeFiles/Fable2Recomp.dir/src/user/persistent_data.cpp.s: cmake_force
 CMakeFiles/Fable2Recomp.dir/src/user/persistent_storage_manager.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/src/user/persistent_storage_manager.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/user/persistent_storage_manager.cpp
 CMakeFiles/Fable2Recomp.dir/src/user/persistent_storage_manager.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_279) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/user/persistent_storage_manager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_284) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/user/persistent_storage_manager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/user/persistent_storage_manager.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/user/persistent_storage_manager.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/user/persistent_storage_manager.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/user/persistent_storage_manager.cpp"
 
 CMakeFiles/Fable2Recomp.dir/src/user/persistent_storage_manager.cpp.i: cmake_force
@@ -3978,7 +4048,7 @@ CMakeFiles/Fable2Recomp.dir/src/user/persistent_storage_manager.cpp.s: cmake_for
 CMakeFiles/Fable2Recomp.dir/src/xenon/disasm.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/src/xenon/disasm.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/xenon/disasm.cpp
 CMakeFiles/Fable2Recomp.dir/src/xenon/disasm.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_280) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/xenon/disasm.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_285) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/xenon/disasm.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/xenon/disasm.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/xenon/disasm.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/xenon/disasm.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/xenon/disasm.cpp"
 
 CMakeFiles/Fable2Recomp.dir/src/xenon/disasm.cpp.i: cmake_force
@@ -3992,7 +4062,7 @@ CMakeFiles/Fable2Recomp.dir/src/xenon/disasm.cpp.s: cmake_force
 CMakeFiles/Fable2Recomp.dir/src/xenon/image.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/src/xenon/image.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/xenon/image.cpp
 CMakeFiles/Fable2Recomp.dir/src/xenon/image.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_281) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/xenon/image.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_286) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/xenon/image.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/xenon/image.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/xenon/image.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/xenon/image.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/xenon/image.cpp"
 
 CMakeFiles/Fable2Recomp.dir/src/xenon/image.cpp.i: cmake_force
@@ -4006,7 +4076,7 @@ CMakeFiles/Fable2Recomp.dir/src/xenon/image.cpp.s: cmake_force
 CMakeFiles/Fable2Recomp.dir/src/xenon/memory_mapped_file.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/src/xenon/memory_mapped_file.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/xenon/memory_mapped_file.cpp
 CMakeFiles/Fable2Recomp.dir/src/xenon/memory_mapped_file.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_282) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/xenon/memory_mapped_file.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_287) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/xenon/memory_mapped_file.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/xenon/memory_mapped_file.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/xenon/memory_mapped_file.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/xenon/memory_mapped_file.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/xenon/memory_mapped_file.cpp"
 
 CMakeFiles/Fable2Recomp.dir/src/xenon/memory_mapped_file.cpp.i: cmake_force
@@ -4020,7 +4090,7 @@ CMakeFiles/Fable2Recomp.dir/src/xenon/memory_mapped_file.cpp.s: cmake_force
 CMakeFiles/Fable2Recomp.dir/src/xenon/xdbf_wrapper.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/src/xenon/xdbf_wrapper.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/xenon/xdbf_wrapper.cpp
 CMakeFiles/Fable2Recomp.dir/src/xenon/xdbf_wrapper.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_283) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/xenon/xdbf_wrapper.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_288) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/xenon/xdbf_wrapper.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/xenon/xdbf_wrapper.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/xenon/xdbf_wrapper.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/xenon/xdbf_wrapper.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/xenon/xdbf_wrapper.cpp"
 
 CMakeFiles/Fable2Recomp.dir/src/xenon/xdbf_wrapper.cpp.i: cmake_force
@@ -4034,7 +4104,7 @@ CMakeFiles/Fable2Recomp.dir/src/xenon/xdbf_wrapper.cpp.s: cmake_force
 CMakeFiles/Fable2Recomp.dir/src/xenon/xex.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/src/xenon/xex.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/xenon/xex.cpp
 CMakeFiles/Fable2Recomp.dir/src/xenon/xex.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_284) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/xenon/xex.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_289) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/xenon/xex.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/xenon/xex.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/xenon/xex.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/xenon/xex.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/xenon/xex.cpp"
 
 CMakeFiles/Fable2Recomp.dir/src/xenon/xex.cpp.i: cmake_force
@@ -4048,7 +4118,7 @@ CMakeFiles/Fable2Recomp.dir/src/xenon/xex.cpp.s: cmake_force
 CMakeFiles/Fable2Recomp.dir/src/xenon/xex_patcher.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
 CMakeFiles/Fable2Recomp.dir/src/xenon/xex_patcher.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/xenon/xex_patcher.cpp
 CMakeFiles/Fable2Recomp.dir/src/xenon/xex_patcher.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_285) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/xenon/xex_patcher.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_290) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/xenon/xex_patcher.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/xenon/xex_patcher.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/xenon/xex_patcher.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/xenon/xex_patcher.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/xenon/xex_patcher.cpp"
 
 CMakeFiles/Fable2Recomp.dir/src/xenon/xex_patcher.cpp.i: cmake_force
@@ -4059,17 +4129,59 @@ CMakeFiles/Fable2Recomp.dir/src/xenon/xex_patcher.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Fable2Recomp.dir/src/xenon/xex_patcher.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/xenon/xex_patcher.cpp" -o CMakeFiles/Fable2Recomp.dir/src/xenon/xex_patcher.cpp.s
 
+CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_image_impl.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
+CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_image_impl.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/tools/stb/stb_image_impl.cpp
+CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_image_impl.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_291) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_image_impl.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_image_impl.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_image_impl.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_image_impl.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/tools/stb/stb_image_impl.cpp"
+
+CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_image_impl.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_image_impl.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/tools/stb/stb_image_impl.cpp" > CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_image_impl.cpp.i
+
+CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_image_impl.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_image_impl.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/tools/stb/stb_image_impl.cpp" -o CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_image_impl.cpp.s
+
+CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_rect_pack.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
+CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_rect_pack.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/tools/stb/stb_rect_pack.cpp
+CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_rect_pack.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_292) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_rect_pack.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_rect_pack.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_rect_pack.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_rect_pack.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/tools/stb/stb_rect_pack.cpp"
+
+CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_rect_pack.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_rect_pack.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/tools/stb/stb_rect_pack.cpp" > CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_rect_pack.cpp.i
+
+CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_rect_pack.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_rect_pack.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/tools/stb/stb_rect_pack.cpp" -o CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_rect_pack.cpp.s
+
+CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_truetype_impl.cpp.o: CMakeFiles/Fable2Recomp.dir/flags.make
+CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_truetype_impl.cpp.o: /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/tools/stb/stb_truetype_impl.cpp
+CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_truetype_impl.cpp.o: CMakeFiles/Fable2Recomp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_293) "Building CXX object CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_truetype_impl.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_truetype_impl.cpp.o -MF CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_truetype_impl.cpp.o.d -o CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_truetype_impl.cpp.o -c "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/tools/stb/stb_truetype_impl.cpp"
+
+CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_truetype_impl.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_truetype_impl.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/tools/stb/stb_truetype_impl.cpp" > CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_truetype_impl.cpp.i
+
+CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_truetype_impl.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_truetype_impl.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/src/tools/stb/stb_truetype_impl.cpp" -o CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_truetype_impl.cpp.s
+
 # Object files for target Fable2Recomp
 Fable2Recomp_OBJECTS = \
 "CMakeFiles/Fable2Recomp.dir/src/exports.cpp.o" \
 "CMakeFiles/Fable2Recomp.dir/src/main.cpp.o" \
-"CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.o" \
 "CMakeFiles/Fable2Recomp.dir/src/preload_executable.cpp.o" \
 "CMakeFiles/Fable2Recomp.dir/src/sdl_listener.cpp.o" \
 "CMakeFiles/Fable2Recomp.dir/src/stdafx.cpp.o" \
 "CMakeFiles/Fable2Recomp.dir/extern/xxHash/xxhash.c.o" \
 "CMakeFiles/Fable2Recomp.dir/extern/o1heap/o1heap.c.o" \
 "CMakeFiles/Fable2Recomp.dir/extern/libmspack/libmspack/mspack/lzxd.c.o" \
+"CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.o" \
 "CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_recomp.000.cpp.o" \
 "CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_recomp.001.cpp.o" \
 "CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_recomp.002.cpp.o" \
@@ -4324,6 +4436,11 @@ Fable2Recomp_OBJECTS = \
 "CMakeFiles/Fable2Recomp.dir/src/os/linux/user_linux.cpp.o" \
 "CMakeFiles/Fable2Recomp.dir/src/os/linux/version_linux.cpp.o" \
 "CMakeFiles/Fable2Recomp.dir/src/cpu/guest_thread.cpp.o" \
+"CMakeFiles/Fable2Recomp.dir/src/gpu/video.cpp.o" \
+"CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_common.cpp.o" \
+"CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_font_builder.cpp.o" \
+"CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_snapshot.cpp.o" \
+"CMakeFiles/Fable2Recomp.dir/src/gpu/rhi/plume_vulkan.cpp.o" \
 "CMakeFiles/Fable2Recomp.dir/src/apu/audio.cpp.o" \
 "CMakeFiles/Fable2Recomp.dir/src/apu/driver/sdl3_driver.cpp.o" \
 "CMakeFiles/Fable2Recomp.dir/src/hid/hid.cpp.o" \
@@ -4345,20 +4462,23 @@ Fable2Recomp_OBJECTS = \
 "CMakeFiles/Fable2Recomp.dir/src/xenon/memory_mapped_file.cpp.o" \
 "CMakeFiles/Fable2Recomp.dir/src/xenon/xdbf_wrapper.cpp.o" \
 "CMakeFiles/Fable2Recomp.dir/src/xenon/xex.cpp.o" \
-"CMakeFiles/Fable2Recomp.dir/src/xenon/xex_patcher.cpp.o"
+"CMakeFiles/Fable2Recomp.dir/src/xenon/xex_patcher.cpp.o" \
+"CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_image_impl.cpp.o" \
+"CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_rect_pack.cpp.o" \
+"CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_truetype_impl.cpp.o"
 
 # External object files for target Fable2Recomp
 Fable2Recomp_EXTERNAL_OBJECTS =
 
 Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/exports.cpp.o
 Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/main.cpp.o
-Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.o
 Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/preload_executable.cpp.o
 Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/sdl_listener.cpp.o
 Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/stdafx.cpp.o
 Fable2Recomp: CMakeFiles/Fable2Recomp.dir/extern/xxHash/xxhash.c.o
 Fable2Recomp: CMakeFiles/Fable2Recomp.dir/extern/o1heap/o1heap.c.o
 Fable2Recomp: CMakeFiles/Fable2Recomp.dir/extern/libmspack/libmspack/mspack/lzxd.c.o
+Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_func_mapping.cpp.o
 Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_recomp.000.cpp.o
 Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_recomp.001.cpp.o
 Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/ppc/ppc_recomp.002.cpp.o
@@ -4613,6 +4733,11 @@ Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/os/linux/process_linux.cpp.o
 Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/os/linux/user_linux.cpp.o
 Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/os/linux/version_linux.cpp.o
 Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/cpu/guest_thread.cpp.o
+Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/gpu/video.cpp.o
+Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_common.cpp.o
+Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_font_builder.cpp.o
+Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/gpu/imgui/imgui_snapshot.cpp.o
+Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/gpu/rhi/plume_vulkan.cpp.o
 Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/apu/audio.cpp.o
 Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/apu/driver/sdl3_driver.cpp.o
 Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/hid/hid.cpp.o
@@ -4635,6 +4760,9 @@ Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/xenon/memory_mapped_file.cpp.o
 Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/xenon/xdbf_wrapper.cpp.o
 Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/xenon/xex.cpp.o
 Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/xenon/xex_patcher.cpp.o
+Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_image_impl.cpp.o
+Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_rect_pack.cpp.o
+Fable2Recomp: CMakeFiles/Fable2Recomp.dir/src/tools/stb/stb_truetype_impl.cpp.o
 Fable2Recomp: CMakeFiles/Fable2Recomp.dir/build.make
 Fable2Recomp: extern/SDL3/libSDL3.a
 Fable2Recomp: extern/SDL_mixer/libSDL3_mixer.a
@@ -4644,6 +4772,13 @@ Fable2Recomp: libxxhash.a
 Fable2Recomp: extern/nativefiledialog-extended/src/libnfd.a
 Fable2Recomp: libtiny_aes_c.a
 Fable2Recomp: src/libdisasm.a
+Fable2Recomp: libimgui.a
+Fable2Recomp: extern/msdf-atlas-gen/libmsdf-atlas-gen.a
+Fable2Recomp: extern/msdf-atlas-gen/msdfgen/libmsdfgen-core.a
+Fable2Recomp: /usr/lib/x86_64-linux-gnu/libSM.so
+Fable2Recomp: /usr/lib/x86_64-linux-gnu/libICE.so
+Fable2Recomp: /usr/lib/x86_64-linux-gnu/libX11.so
+Fable2Recomp: /usr/lib/x86_64-linux-gnu/libXext.so
 Fable2Recomp: /usr/lib/x86_64-linux-gnu/libgtk-3.so
 Fable2Recomp: /usr/lib/x86_64-linux-gnu/libgdk-3.so
 Fable2Recomp: /usr/lib/x86_64-linux-gnu/libz.so
@@ -4657,8 +4792,15 @@ Fable2Recomp: /usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so
 Fable2Recomp: /usr/lib/x86_64-linux-gnu/libgio-2.0.so
 Fable2Recomp: /usr/lib/x86_64-linux-gnu/libgobject-2.0.so
 Fable2Recomp: /usr/lib/x86_64-linux-gnu/libglib-2.0.so
+Fable2Recomp: /usr/lib/x86_64-linux-gnu/libpng.so
+Fable2Recomp: /usr/lib/x86_64-linux-gnu/libz.so
+Fable2Recomp: extern/msdf-atlas-gen/msdfgen/libmsdfgen-ext.a
+Fable2Recomp: extern/msdf-atlas-gen/msdfgen/libmsdfgen-core.a
+Fable2Recomp: /usr/lib/x86_64-linux-gnu/libpng.so
+Fable2Recomp: /usr/lib/x86_64-linux-gnu/libz.so
+Fable2Recomp: /usr/lib/x86_64-linux-gnu/libfreetype.so
 Fable2Recomp: CMakeFiles/Fable2Recomp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_286) "Linking CXX executable Fable2Recomp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_294) "Linking CXX executable Fable2Recomp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Fable2Recomp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

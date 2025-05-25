@@ -553,6 +553,7 @@ CMakeFiles/Fable2Recomp.dir/src/main.cpp.o: \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/Vulkan-Headers/include/vk_video/vulkan_video_codec_av1std_decode.h \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/Vulkan-Headers/include/vk_video/vulkan_video_codec_av1std.h \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/Vulkan-Headers/include/vk_video/vulkan_video_codec_av1std_encode.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/stb/stb_image.h \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/imgui/imgui.h \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/imgui/imconfig.h \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/imgui/imgui_internal.h \

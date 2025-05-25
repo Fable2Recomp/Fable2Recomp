@@ -61,3 +61,6 @@
 [submodule "extern/msdf-atlas-gen"]
 	path = extern/msdf-atlas-gen
 	url = https://github.com/Chlumsky/msdf-atlas-gen.git
+[submodule "extern/stb"]
+	path = extern/stb
+	url = https://github.com/nothings/stb.git

@@ -24,12 +24,6 @@ CONFIG_DEFINE_ENUM_TEMPLATE(ELanguage)
     { "Italian",  ELanguage::Italian }
 };
 
-CONFIG_DEFINE_ENUM_TEMPLATE(ETimeOfDayTransition)
-{
-    { "Xbox",        ETimeOfDayTransition::Xbox },
-    { "PlayStation", ETimeOfDayTransition::PlayStation }
-};
-
 CONFIG_DEFINE_ENUM_TEMPLATE(ECameraRotationMode)
 {
     { "Normal",  ECameraRotationMode::Normal },

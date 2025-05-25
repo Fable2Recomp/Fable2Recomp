@@ -159,64 +159,6 @@ CONFIG_DEFINE_LOCALE(AchievementNotifications)
 };
 
 // Japanese Notes: This localization should include furigana.
-CONFIG_DEFINE_LOCALE(TimeOfDayTransition)
-{
-    { ELanguage::English,  { "Time of Day Transition", "Change how the loading screen appears when switching time of day in the hub areas." } },
-    { ELanguage::Japanese, { "[昼夜:ちゅうや]きりかえのシーン", "[昼夜:ちゅうや]きりかえの\u200Bシーンを\u200B[選択:せんたく]できます" } },
-    { ELanguage::German,   { "Tageszeit Übergang", "Verändere den Ladebildschirm beim Verändern der Tageszeit in Städten und Eingangslevel." } },
-    { ELanguage::French,   { "Transition jour/nuit", "Change l'écran de chargement lors de la transition dans le hub." } },
-    { ELanguage::Spanish,  { "Transición de hora del día", "Cambia cómo aparece la pantalla de carga al cambiar la hora del día en las áreas principales." } },
-    { ELanguage::Italian,  { "Transizione giorno/notte", "Modifica l'aspetto della schermata di caricamento quando fai scorrere il tempo." } }
-};
-
-// Japanese Notes: This localization should include furigana in its description.
-CONFIG_DEFINE_ENUM_LOCALE(ETimeOfDayTransition)
-{
-    {
-        ELanguage::English,
-        {
-            { ETimeOfDayTransition::Xbox,        { "XBOX", "Xbox: the transformation cutscene will play with artificial loading times." } },
-            { ETimeOfDayTransition::PlayStation, { "PLAYSTATION", "PlayStation: a spinning medal loading screen will be used instead." } }
-        }
-    },
-    {
-        ELanguage::Japanese,
-        {
-            { ETimeOfDayTransition::Xbox,        { "XBOX", "Xbox: [変身:へんしん]シーンが\u200B[人工的:じんこうてき]な\u200B[読:よ]み[込:こ]み[時間:じかん]で\u200B[再生:さいせい]されます" } },
-            { ETimeOfDayTransition::PlayStation, { "PLAYSTATION", "PlayStation: [回転:かいてん]するメダルの\u200B[読:よ]み[込:こ]み[画面:がめん]が\u200B[使用:しよう]されます" } }
-        }
-    },
-    {
-        ELanguage::German,
-        {
-            { ETimeOfDayTransition::Xbox,        { "XBOX", "Xbox: Eine Transformationszwischensequenz mit künstlicher Ladezeit wird abgespielt." } },
-            { ETimeOfDayTransition::PlayStation, { "PLAYSTATION", "PlayStation: Eine sich drehende Medallie wird stattdessen als Ladebildschirm verwendet." } }
-        }
-    },
-    {
-        ELanguage::French,
-        {
-            { ETimeOfDayTransition::Xbox,        { "XBOX", "Xbox : la scène de transformation sera jouée avec des temps de chargement artificiels." } },
-            { ETimeOfDayTransition::PlayStation, { "PLAYSTATION", "PlayStation : un écran de chargement avec une médaille tournoyante sera utilisé à la place." } }
-        }
-    },
-    {
-        ELanguage::Spanish,
-        {
-            { ETimeOfDayTransition::Xbox,        { "XBOX", "Xbox: la cinemática de transformación se reproducirá con tiempos de carga artificiales." } },
-            { ETimeOfDayTransition::PlayStation, { "PLAYSTATION", "PlayStation: se usará una pantalla de carga con una medalla giratoria." } }
-        }
-    },
-    {
-        ELanguage::Italian,
-        {
-            { ETimeOfDayTransition::Xbox,        { "XBOX", "Xbox: la scena di trasformazione verrà riprodotta con tempi di caricamento artificiali." } },
-            { ETimeOfDayTransition::PlayStation, { "PLAYSTATION", "PlayStation: verrà utilizzata una schermata di caricamento con una medaglia che gira." } }
-        }
-    }
-};
-
-// Japanese Notes: This localization should include furigana.
 CONFIG_DEFINE_LOCALE(ControllerIcons)
 {
     { ELanguage::English,  { "Controller Icons", "Change the icons to match your controller." } },
