@@ -47,6 +47,7 @@
 #include <SDL3/SDL.h>
 #include <SDL3_mixer/SDL_mixer.h>
 #include <vulkan/vulkan.h>
+#include <stb_image.h>
 #include <imgui.h>
 #include <imgui_internal.h>
 #include <implot.h>

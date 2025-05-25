@@ -1,7 +1,6 @@
 #include "imgui_snapshot.h"
 
 #include <locale/locale.h>
-#include <res/font/im_font_atlas.bin.h>
 #include <user/config.h>
 #include <decompressor.h>
 #include <kernel/xdbf.h>
@@ -44,7 +43,7 @@ void ImFontAtlasSnapshot::Traverse(size_t offset, const T& value)
     }
     else if constexpr (std::is_same_v<T, ImFontAtlas>)
     {
-        SnapPointer(offset, value, value.ConfigData.Data, value.ConfigData.Size);
+        SnapPointer(offset, value, value.Sources.Data, value.Sources.Size);
         SnapPointer(offset, value, value.CustomRects.Data, value.CustomRects.Size);
         SnapPointer(offset, value, value.Fonts.Data, value.Fonts.Size);
     }
@@ -55,7 +54,7 @@ void ImFontAtlasSnapshot::Traverse(size_t offset, const T& value)
         SnapPointer(offset, value, value.Glyphs.Data, value.Glyphs.Size);
         SnapPointer(offset, value, value.FallbackGlyph, 1);
         SnapPointer(offset, value, value.ContainerAtlas, 1);
-        SnapPointer(offset, value, value.ConfigData, value.ConfigDataCount);
+        SnapPointer(offset, value, value.Sources, value.SourcesCount);
     }
     else if constexpr (std::is_same_v<T, ImFontAtlasCustomRect>)
     {
@@ -105,26 +104,6 @@ void ImFontAtlasSnapshot::Snap()
     header->offsetCount = offsets.size();
     header->offsetsOffset = offsetsOffset;
 }
-
-static std::unique_ptr<uint8_t[]> g_imFontAtlas;
-
-ImFontAtlas* ImFontAtlasSnapshot::Load()
-{
-    g_imFontAtlas = decompressZstd(g_im_font_atlas, g_im_font_atlas_uncompressed_size);
-
-    auto header = reinterpret_cast<ImFontAtlasSnapshotHeader*>(g_imFontAtlas.get());
-    assert(header->imguiVersion == IMGUI_VERSION_NUM && "ImGui version mismatch, the font atlas needs to be regenerated!");
-
-    auto offsetTable = reinterpret_cast<uint32_t*>(g_imFontAtlas.get() + header->offsetsOffset);
-    for (size_t i = 0; i < header->offsetCount; i++)
-    {
-        *reinterpret_cast<size_t*>(g_imFontAtlas.get() + (*offsetTable)) += reinterpret_cast<size_t>(g_imFontAtlas.get());
-        ++offsetTable;
-    }
-
-    return reinterpret_cast<ImFontAtlas*>(g_imFontAtlas.get() + header->dataOffset);
-}
-
 
 static void GetGlyphs(std::set<ImWchar>& glyphs, const std::string_view& value)
 {
@@ -190,12 +169,12 @@ void ImFontAtlasSnapshot::GenerateGlyphRanges()
 ImFont* ImFontAtlasSnapshot::GetFont(const char* name)
 {
     auto fontAtlas = ImGui::GetIO().Fonts;
-    for (auto& configData : fontAtlas->ConfigData)
+    for (auto& Sources : fontAtlas->Sources)
     {
-        if (strstr(configData.Name, name) != nullptr)
+        if (strstr(Sources.Name, name) != nullptr)
         {
-            assert(configData.DstFont != nullptr);
-            return configData.DstFont;
+            assert(Sources.DstFont != nullptr);
+            return Sources.DstFont;
         }
     }
 

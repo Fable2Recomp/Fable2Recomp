@@ -45,12 +45,6 @@ enum class EVoiceLanguage : uint32_t
     Japanese
 };
 
-enum class ETimeOfDayTransition : uint32_t
-{
-    Xbox,
-    PlayStation
-};
-
 enum class ECameraRotationMode : uint32_t
 {
     Normal,

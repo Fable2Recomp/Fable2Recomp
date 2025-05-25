@@ -21,17 +21,27 @@ set(ANKERL_UNORDERED_DENSE_INCLUDE_DIR "${EXTERN_DIR}/ankerl-unordered_dense/inc
 set(XXHASH_INCLUDE_DIR "${EXTERN_DIR}/xxHash")
 set(TINYSHA1_INCLUDE_DIR "${EXTERN_DIR}/TinySHA1")
 
+# === stb_truetype ===
+set(STB_DIR "${EXTERN_DIR}/stb")
+
 # === libmspack ===
 set(LIBMESSAGE_DIR "${EXTERN_DIR}/libmspack/libmspack")
 set(LIBMESSAGE_INCLUDE_DIR "${LIBMESSAGE_DIR}/mspack")  # mspack/ contains system.h
 list(APPEND PLATFORM_INCLUDE_DIRS ${LIBMESSAGE_INCLUDE_DIR})
 
 # === msdf-atlas-gen ===
+set(MSDFGEN_USE_VCPKG OFF CACHE BOOL "Disable vcpkg for msdfgen" FORCE)
+set(MSDFGEN_USE_SKIA OFF CACHE BOOL "Disable Skia for msdfgen" FORCE)
+set(MSDF_ATLAS_USE_VCPKG OFF CACHE BOOL "Disable vcpkg for msdfgen" FORCE)
+set(MSDF_ATLAS_USE_SKIA OFF CACHE BOOL "Disable Skia for msdfgen" FORCE)
+
 set(MSDF_ATLAS_GEN_DIR "${EXTERN_DIR}/msdf-atlas-gen")
 set(MSDF_GEN_DIR "${EXTERN_DIR}/msdf-atlas-gen/msdfgen")
 set(MSDF_GEN_CORE_DIR "${EXTERN_DIR}/msdf-atlas-gen/msdfgen/core")
 set(MSDF_GEN_CORE_BASE_DIR "${EXTERN_DIR}/msdf-atlas-gen/msdfgen/core/base")
 set(MSDF_ARTERY_FONT_DIR "${EXTERN_DIR}/msdf-atlas-gen/artery-font-format/artery-font")
+
+add_subdirectory(${EXTERN_DIR}/msdf-atlas-gen)
 
 # === tiny-AES-c ===
 add_library(tiny_aes_c STATIC
@@ -154,6 +164,9 @@ set(IMPLOT_SOURCES
     ${EXTERN_DIR}/implot/implot_demo.cpp
 )
 
+add_library(imgui STATIC ${IMGUI_SOURCES})
+target_include_directories(imgui PUBLIC ${EXTERN_DIR}/imgui)
+
 # === D3D12 Memory Allocator ===
 set(D3D12MA_INCLUDE_DIR "${EXTERN_DIR}/D3D12MA/include")
 set(D3D12MA_SOURCES "${EXTERN_DIR}/D3D12MA/src/D3D12MemAlloc.cpp")
@@ -227,6 +240,12 @@ else()
     endif()
 endif()
 
+if(NOT WIN32)
+    find_package(X11 REQUIRED)
+    list(APPEND PLATFORM_INCLUDE_DIRS ${X11_INCLUDE_DIR})
+    list(APPEND PLATFORM_LIBS ${X11_LIBRARIES})
+endif()
+
 # === Add source directory ===
 add_subdirectory(src)
 
@@ -253,6 +272,8 @@ target_include_directories(${PROJECT_NAME} PRIVATE
     ${MSDF_GEN_CORE_DIR}
     ${MSDF_GEN_CORE_BASE_DIR}
     ${MSDF_ARTERY_FONT_DIR}
+    ${STB_DIR}
+    ${CMAKE_BINARY_DIR}/generated
 )
 
 # === Link libraries ===
@@ -265,6 +286,9 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     nfd
     tiny_aes_c
     disasm
+    imgui
+    msdf-atlas-gen
+    msdfgen-core
     ${PLATFORM_LIBS}
 )
 

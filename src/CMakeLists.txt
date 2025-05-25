@@ -4,7 +4,6 @@
 set(FABLE2_CORE_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/exports.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/ppc/ppc_func_mapping.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/preload_executable.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/sdl_listener.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/stdafx.cpp
@@ -77,15 +76,15 @@ set(Fable2_RECOMP_CPU_CXX_SOURCES
 )
 
  set(Fable2_RECOMP_GPU_CXX_SOURCES
-    #${CMAKE_CURRENT_SOURCE_DIR}/gpu/video.cpp
-    #${CMAKE_CURRENT_SOURCE_DIR}/gpu/imgui/imgui_common.cpp
-    #${CMAKE_CURRENT_SOURCE_DIR}/gpu/imgui/imgui_font_builder.cpp
-    #${CMAKE_CURRENT_SOURCE_DIR}/gpu/imgui/imgui_snapshot.cpp
-    #${CMAKE_CURRENT_SOURCE_DIR}/gpu/rhi/plume_vulkan.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/gpu/video.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/gpu/imgui/imgui_common.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/gpu/imgui/imgui_font_builder.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/gpu/imgui/imgui_snapshot.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/gpu/rhi/plume_vulkan.cpp
 )
 
 if (Fable2_RECOMP_D3D12)
-    list(APPEND UNLEASHED_RECOMP_GPU_CXX_SOURCES
+    list(APPEND Fable2_RECOMP_GPU_CXX_SOURCES
         "gpu/rhi/plume_d3d12.cpp"
     )
 endif()
@@ -139,13 +138,19 @@ set(Fable2_RECOMP_XENON_CXX_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/xenon/xex_patcher.cpp
 )
 
+set(Fable2_RECOMP_TOOLS_CXX_SOURCES
+    ${CMAKE_CURRENT_SOURCE_DIR}/tools/stb/stb_image_impl.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/tools/stb/stb_rect_pack.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/tools/stb/stb_truetype_impl.cpp
+)
+
 # Optional: group source files for better IDE visibility
 source_group("Kernel" FILES ${Fable2_RECOMP_KERNEL_CXX_SOURCES})
 source_group("Locale" FILES ${Fable2_RECOMP_LOCALE_CXX_SOURCES})
 source_group("CPU" FILES ${Fable2_RECOMP_CPU_CXX_SOURCES})
 source_group("GPU" FILES ${Fable2_RECOMP_GPU_CXX_SOURCES})
 source_group("HID" FILES ${Fable2_RECOMP_HID_CXX_SOURCES})
-source_group("User" FILES ${UNLEASHED_RECOMP_USER_CXX_SOURCES})
+source_group("User" FILES ${Fable2_RECOMP_USER_CXX_SOURCES})
 source_group("OS" FILES ${Fable2_RECOMP_OS_CXX_SOURCES})
 
 # Combine all source files into one list
@@ -163,6 +168,7 @@ set(FABLE2_SOURCES
     ${Fable2_RECOMP_INSTALL_CXX_SOURCES}
     ${Fable2_RECOMP_USER_CXX_SOURCES}
     ${Fable2_RECOMP_XENON_CXX_SOURCES}
+    ${Fable2_RECOMP_TOOLS_CXX_SOURCES}
 )
 
 set(FABLE2_HEADERS

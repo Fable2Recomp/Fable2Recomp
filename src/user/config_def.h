@@ -7,7 +7,6 @@ CONFIG_DEFINE_LOCALISED("System", bool, Subtitles, true);
 CONFIG_DEFINE_LOCALISED("System", bool, Hints, true);
 CONFIG_DEFINE_LOCALISED("System", bool, ControlTutorial, true);
 CONFIG_DEFINE_LOCALISED("System", bool, AchievementNotifications, true);
-CONFIG_DEFINE_ENUM_LOCALISED("System", ETimeOfDayTransition, TimeOfDayTransition, ETimeOfDayTransition::Xbox);
 CONFIG_DEFINE("System", bool, ShowConsole, false);
 
 CONFIG_DEFINE_ENUM_LOCALISED("Input", ECameraRotationMode, HorizontalCamera, ECameraRotationMode::Normal);
@@ -93,7 +92,6 @@ CONFIG_DEFINE_HIDDEN("Codes", bool, HUDToggleKey, false);
 CONFIG_DEFINE_HIDDEN("Codes", bool, SaveScoreAtCheckpoints, false);
 CONFIG_DEFINE_HIDDEN("Codes", bool, SkipIntroLogos, false);
 CONFIG_DEFINE_HIDDEN("Codes", bool, UseAlternateTitle, false);
-CONFIG_DEFINE_HIDDEN("Codes", bool, UseArrowsForTimeOfDayTransition, false);
 CONFIG_DEFINE_HIDDEN("Codes", bool, UseOfficialTitleOnTitleBar, false);
 
 CONFIG_DEFINE("Update", time_t, LastChecked, 0);
