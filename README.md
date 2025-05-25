@@ -17,9 +17,11 @@ During the recompilation process, you might encounter "Unrecognized instruction"
 ## Seeking Help
 We need assistance with:
 1. Cleaning up and verifying SIMDe implementation.
-2. Locating and implementing/stubbing missing Xbox 360 functions.
-3. Pulling Shaders from Fable 2 using Xenos Recomp
-4. Building graphical pipeline and gui using SDL3, Vulkan/D3D12/Metal.
+2. Finding entry points and functions for needed hooks.
+     E.G. GUEST_FUNCTION_HOOK(sub_831CCA60, XFreeMem); (May need to use IDA or Ghidra.)
+3. Locating and implementing/stubbing missing Xbox 360 functions.
+4. Pulling Shaders from Fable 2 using Xenos Recomp
+5. Building graphical pipeline and gui using SDL3, Vulkan/D3D12/Metal.
 
 ## How to Build an exe from the cpp code
 ```
@@ -30,8 +32,7 @@ clang -o output.exe ppc_func_mapping.cpp ppc_recomp.*.cpp -std=c++20 -O2 -mssse3
 We are looking for help and we are willing to learn coding and help where we can, we are also open to others joining the project and teaching us if possible. If you have experience or are willing to learn and help out, your support would be greatly appreciated. We're eager to enhance the game with high-resolution support, improved frame rates, and enhanced graphics.
 
 We welcome contributions to Fable2Recomp! If you're interested in enhancing Fable 2 and have the skills or willingness to learn, please join us. Feel free to open a PR if you want to contribute.
-
-A Discord Server is under construction.
+Join the Discord server at https://discord.gg/zVVtGbEsCR 
 
 ## XenonRecomp
 https://github.com/hedge-dev/XenonRecomp
