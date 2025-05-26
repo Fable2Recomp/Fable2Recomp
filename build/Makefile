@@ -1171,6 +1171,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/misc_impl.o: src/misc_impl.cpp.o
+.PHONY : src/misc_impl.o
+
+# target to build an object file
+src/misc_impl.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/misc_impl.cpp.o
+.PHONY : src/misc_impl.cpp.o
+
+src/misc_impl.i: src/misc_impl.cpp.i
+.PHONY : src/misc_impl.i
+
+# target to preprocess a source file
+src/misc_impl.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/misc_impl.cpp.i
+.PHONY : src/misc_impl.cpp.i
+
+src/misc_impl.s: src/misc_impl.cpp.s
+.PHONY : src/misc_impl.s
+
+# target to generate assembly for a file
+src/misc_impl.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/misc_impl.cpp.s
+.PHONY : src/misc_impl.cpp.s
+
 src/os/linux/logger_linux.o: src/os/linux/logger_linux.cpp.o
 .PHONY : src/os/linux/logger_linux.o
 
@@ -7684,6 +7708,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/misc_impl.o"
+	@echo "... src/misc_impl.i"
+	@echo "... src/misc_impl.s"
 	@echo "... src/os/linux/logger_linux.o"
 	@echo "... src/os/linux/logger_linux.i"
 	@echo "... src/os/linux/logger_linux.s"
