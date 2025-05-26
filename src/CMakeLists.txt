@@ -7,6 +7,7 @@ set(FABLE2_CORE_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/preload_executable.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/sdl_listener.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/stdafx.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/misc_impl.cpp
     ${EXTERN_DIR}/xxHash/xxhash.c
     ${EXTERN_DIR}/o1heap/o1heap.c
     ${EXTERN_DIR}/libmspack/libmspack/mspack/lzxd.c
