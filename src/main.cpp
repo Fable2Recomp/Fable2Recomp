@@ -27,7 +27,6 @@
 #include <ui/game_window.h>
 #include <preload_executable.h>
 
-
 #ifdef _WIN32
 #include <Windows.h>
 #include <timeapi.h>
@@ -43,54 +42,9 @@ Heap g_userHeap;
 XDBFWrapper g_xdbfWrapper;
 std::unordered_map<uint16_t, GuestTexture*> g_xdbfTextureCache;
 
-uint32_t LoadXexModule(const std::filesystem::path& path) {
-    auto data = LoadFile(path);
-    if (data.empty()) {
-        LOG_ERROR(fmt::format("Failed to load .xex from {}", path.string()));
-        std::exit(1);
-    }
-
-    const auto* header = reinterpret_cast<const Xex2Header*>(data.data());
-    const auto* security = reinterpret_cast<const Xex2SecurityInfo*>(data.data() + header->securityOffset);
-    const auto* fileFormat = reinterpret_cast<const Xex2OptFileFormatInfo*>(
-        getOptHeaderPtr(data.data(), XEX_HEADER_FILE_FORMAT_INFO));
-    uint32_t entry = *reinterpret_cast<const uint32_t*>(getOptHeaderPtr(data.data(), XEX_HEADER_ENTRY_POINT));
-    ByteSwapInplace(entry);
-
-    uint8_t* dest = reinterpret_cast<uint8_t*>(g_memory.Translate(security->loadAddress));
-    const uint8_t* src = data.data() + header->headerSize;
-
-    if (fileFormat->compressionType == XEX_COMPRESSION_NONE) {
-        std::memcpy(dest, src, security->imageSize);
-    } else if (fileFormat->compressionType == XEX_COMPRESSION_BASIC) {
-        const auto* blocks = reinterpret_cast<const Xex2FileBasicCompressionBlock*>(fileFormat + 1);
-        size_t numBlocks = (fileFormat->infoSize / sizeof(Xex2FileBasicCompressionInfo)) - 1;
-
-        for (size_t i = 0; i < numBlocks; ++i) {
-            std::memcpy(dest, src, blocks[i].dataSize);
-            dest += blocks[i].dataSize;
-            src += blocks[i].dataSize;
-
-            std::memset(dest, 0, blocks[i].zeroSize);
-            dest += blocks[i].zeroSize;
-        }
-    } else {
-        LOG_ERROR("Unknown compression type.");
-        std::exit(1);
-    }
-
-    return entry;
-}
-
-// === Platform startup ===
-void HostStartup() {
-#ifdef _WIN32
-    CoInitializeEx(nullptr, COINIT_MULTITHREADED);
-#endif
-    hid::Init();
-}
-
-namespace {
+// Forward declarations
+bool EnsureSaveFileExists();
+void RegisterSaveDataContent();
 
 bool EnsureSaveFileExists()
 {
@@ -125,13 +79,79 @@ void RegisterSaveDataContent()
     XamRegisterContent(XamMakeContent(XCONTENTTYPE_SAVEDATA, "SYS-DATA"), (const char*)(savePathU8.c_str()));
 }
 
-} // anonymous namespace
+uint32_t LoadXexModule(const std::filesystem::path& path) {
+    auto data = LoadFile(path);
+    if (data.empty()) {
+        LOG_ERROR("Failed to load .xex from {}", path.string());
+        std::exit(1);
+    }
+
+    const auto* header = reinterpret_cast<const Xex2Header*>(data.data());
+    const auto* security = reinterpret_cast<const Xex2SecurityInfo*>(data.data() + header->securityOffset);
+    const auto* fileFormat = reinterpret_cast<const Xex2OptFileFormatInfo*>(
+        getOptHeaderPtr(data.data(), XEX_HEADER_FILE_FORMAT_INFO));
+    uint32_t entry = *reinterpret_cast<const uint32_t*>(getOptHeaderPtr(data.data(), XEX_HEADER_ENTRY_POINT));
+    ByteSwapInplace(entry);
+
+    uint32_t rawLoadAddress = static_cast<uint32_t>(security->loadAddress);
+    uint8_t* dest = reinterpret_cast<uint8_t*>(g_memory.Translate(rawLoadAddress));
+    if (!dest) {
+        LOG_ERROR("Memory translation failed at address: 0x{:X}", rawLoadAddress);
+        std::exit(1);
+    }
+
+    const uint8_t* src = data.data() + header->headerSize;
+
+    if (fileFormat->compressionType == XEX_COMPRESSION_NONE) {
+        std::memcpy(dest, src, security->imageSize);
+    } else if (fileFormat->compressionType == XEX_COMPRESSION_BASIC) {
+        const auto* blocks = reinterpret_cast<const Xex2FileBasicCompressionBlock*>(fileFormat + 1);
+        size_t numBlocks = (fileFormat->infoSize / sizeof(Xex2FileBasicCompressionInfo)) - 1;
+
+        for (size_t i = 0; i < numBlocks; ++i) {
+            std::memcpy(dest, src, blocks[i].dataSize);
+            dest += blocks[i].dataSize;
+            src += blocks[i].dataSize;
+
+            std::memset(dest, 0, blocks[i].zeroSize);
+            dest += blocks[i].zeroSize;
+        }
+    } else {
+        LOG_ERROR("Unknown compression type.");
+        std::exit(1);
+    }
+
+    // === XDBFWrapper Integration ===
+    const auto* res = reinterpret_cast<const Xex2ResourceInfo*>(
+        getOptHeaderPtr(data.data(), XEX_HEADER_RESOURCE_INFO));
+    if (res) {
+        void* xdbfData = g_memory.Translate(res->offset.get());
+        if (xdbfData) {
+            g_xdbfWrapper = XDBFWrapper(static_cast<uint8_t*>(xdbfData), res->sizeOfData);
+        } else {
+            LOG_WARN("XDBF data pointer is null at offset 0x{:X}", res->offset.get());
+        }
+    } else {
+        LOG_WARN("XEX_HEADER_RESOURCE_INFO not found in .xex.");
+    }
+
+    return entry;
+}
+
+
+// === Platform startup ===
+void HostStartup() {
+#ifdef _WIN32
+    CoInitializeEx(nullptr, COINIT_MULTITHREADED);
+#endif
+    hid::Init();
+}
 
 void KiSystemStartup()
 {
     if (g_memory.base == nullptr)
     {
-        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, GameWindow::GetTitle(), Localise("System_MemoryAllocationFailed").c_str(), GameWindow::GetSDLWindow());
+        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, GameWindow::GetTitle(), Localise("System_MemoryAllocationFailed").c_str(), GameWindow::s_pWindow);
         std::_Exit(1);
     }
 
@@ -140,24 +160,26 @@ void KiSystemStartup()
     const auto gameContent = XamMakeContent(XCONTENTTYPE_RESERVED, "Game");
     XamRegisterContent(gameContent, GAME_INSTALL_DIRECTORY "/game");
 
-    // Ensure save file exists; copy from base if missing
-    if (EnsureSaveFileExists())
-    {
+    if (!EnsureSaveFileExists()) {
+        spdlog::warn("Save file missing and could not be copied from base.");
+    } else {
         RegisterSaveDataContent();
     }
 
     // Mount main game content
-    XamContentCreateEx(0, "game", &gameContent, OPEN_EXISTING, nullptr, nullptr, 0, 0, nullptr);
-
-    // Mount game content to D:
-    XamContentCreateEx(0, "D", &gameContent, OPEN_EXISTING, nullptr, nullptr, 0, 0, nullptr);
+    if (XamContentCreateEx(0, "game", &gameContent, OPEN_EXISTING, nullptr, nullptr, 0, 0, nullptr) != 0) {
+        LOG_ERROR("Failed to mount game content.");
+        std::_Exit(1);
+    }
+    if (XamContentCreateEx(0, "D", &gameContent, OPEN_EXISTING, nullptr, nullptr, 0, 0, nullptr) != 0) {
+        LOG_ERROR("Failed to mount game content to D:");
+        std::_Exit(1);
+    }
 
     // Initialize audio system
     XAudioInitializeSystem();
 }
 
-
-// === Main entry ===
 int main(int argc, char* argv[]) {
 #ifdef _WIN32
     timeBeginPeriod(1);
@@ -206,18 +228,22 @@ int main(int argc, char* argv[]) {
     }
 
     Video::StartPipelinePrecompilation();
+
     GuestThread::Start({ entry, 0, 0 });
 
-    // Optional window event loop
+    // Main SDL event loop
     while (true) {
         GameWindow::PollEvents();
+
+        // Clear and present frame
+        Video::ClearScreen();
+        Video::Present();
+
         SDL_Event event;
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_EVENT_QUIT)
                 return 0;
         }
-
-        // Your per-frame emulation loop would go here
     }
 
     return 0;

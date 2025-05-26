@@ -373,15 +373,15 @@ std::filesystem::path FileSystem::ResolvePath(const std::string_view& path, bool
     return std::u8string_view((const char8_t*)builtPath.c_str());
 }
 
-GUEST_FUNCTION_HOOK(sub_82BD4668, XCreateFileA);
+GUEST_FUNCTION_HOOK(sub_82CBCC00, XCreateFileA);
 GUEST_FUNCTION_HOOK(sub_82BD4600, XGetFileSizeA);
 GUEST_FUNCTION_HOOK(sub_82BD5608, XGetFileSizeExA);
-GUEST_FUNCTION_HOOK(sub_82BD4478, XReadFile);
+GUEST_FUNCTION_HOOK(sub_82CC3640, XReadFile);
 GUEST_FUNCTION_HOOK(sub_831CD3E8, XSetFilePointer);
 GUEST_FUNCTION_HOOK(sub_831CE888, XSetFilePointerEx);
-GUEST_FUNCTION_HOOK(sub_831CDC58, XFindFirstFileA);
+GUEST_FUNCTION_HOOK(sub_82CBC6C0, XFindFirstFileA);
 GUEST_FUNCTION_HOOK(sub_831CDC00, XFindNextFileA);
 GUEST_FUNCTION_HOOK(sub_831CDF40, XReadFileEx);
 GUEST_FUNCTION_HOOK(sub_831CD6E8, XGetFileAttributesA);
 GUEST_FUNCTION_HOOK(sub_831CE3F8, XCreateFileA);
-GUEST_FUNCTION_HOOK(sub_82BD4860, XWriteFile);
+GUEST_FUNCTION_HOOK(sub_82CC0760, XWriteFile);

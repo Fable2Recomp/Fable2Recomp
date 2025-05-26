@@ -23,14 +23,19 @@ void GameWindow::Init(const char* sdlVideoDriver)
     SDL_SetHint(SDL_HINT_APP_ID, "Unknown");
 #endif
 
+    if (sdlVideoDriver && *sdlVideoDriver != '\0') {
+#ifdef _WIN32
+        // Windows
+        _putenv_s("SDL_VIDEODRIVER", sdlVideoDriver);
+#else
+        // Linux/macOS/Unix
+        setenv("SDL_VIDEODRIVER", sdlVideoDriver, 1);
+#endif
+    }
+
     if (SDL_InitSubSystem(SDL_INIT_VIDEO) != 0) {
         spdlog::critical("Failed to initialize SDL video subsystem: {}", SDL_GetError());
         return;
-    }
-
-    const char* videoDriverName = SDL_GetCurrentVideoDriver();
-    if (videoDriverName) {
-        LOGFN("SDL video driver: \"{}\"", videoDriverName);
     }
 
 #ifdef _WIN32

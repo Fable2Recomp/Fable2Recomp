@@ -25,6 +25,8 @@ struct Video
     static void StartPipelinePrecompilation();
     static void WaitForGPU();
     static void ComputeViewportDimensions();
+
+    static void ClearScreen();
 };
 
 struct GuestSamplerState
