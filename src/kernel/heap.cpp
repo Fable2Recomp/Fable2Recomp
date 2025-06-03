@@ -14,19 +14,24 @@ void Heap::Init()
 
 void* Heap::Alloc(size_t size)
 {
+    spdlog::info("🔧 Heap Allocate.");
     std::lock_guard lock(mutex);
 
-    return o1heapAllocate(heap, std::max<size_t>(1, size));
+    void* ptr = o1heapAllocate(heap, std::max<size_t>(1, size));
+    spdlog::info("🟩 Alloc {} bytes at {:p}", size, ptr);
+    return ptr;
 }
 
 void* Heap::AllocPhysical(size_t size, size_t alignment)
 {
+    spdlog::info("🔧 AllocPhysical.");
     size = std::max<size_t>(1, size);
     alignment = alignment == 0 ? 0x1000 : std::max<size_t>(16, alignment);
 
     std::lock_guard lock(physicalMutex);
 
     void* ptr = o1heapAllocate(physicalHeap, size + alignment);
+    spdlog::info("🟩 PhysicalAlloc {} bytes (aligned {}): base {:p}", size, alignment, ptr);
     size_t aligned = ((size_t)ptr + alignment) & ~(alignment - 1);
 
     *((void**)aligned - 1) = ptr;
@@ -37,14 +42,17 @@ void* Heap::AllocPhysical(size_t size, size_t alignment)
 
 void Heap::Free(void* ptr)
 {
+    spdlog::info("🔧 HeapFree");
     if (ptr >= physicalHeap)
     {
         std::lock_guard lock(physicalMutex);
+        spdlog::info("🟥 Free physical {:p}", ptr);
         o1heapFree(physicalHeap, *((void**)ptr - 1));
     }
     else
     {
         std::lock_guard lock(mutex);
+        spdlog::info("🟥 Free heap {:p}", ptr);
         o1heapFree(heap, ptr);
     }
 }
@@ -57,35 +65,59 @@ size_t Heap::Size(void* ptr)
     return 0;
 }
 
+void* dummy_fallback_ptr = g_memory.Translate(0xDEADC0DE); // Reserved fake address
+
 uint32_t RtlAllocateHeap(uint32_t heapHandle, uint32_t flags, uint32_t size)
 {
+    spdlog::info("🔧 RtlAllocateHeap(heap=0x{:08X}, flags=0x{:08X}, size={})", heapHandle, flags, size);
+
+    if (size == 0 || size > 512 * 1024 * 1024) {
+        spdlog::warn("❌ RtlAllocateHeap: invalid size = {}", size);
+        return g_memory.MapVirtual(dummy_fallback_ptr); // Return dummy, not 0
+    }
+
     void* ptr = g_userHeap.Alloc(size);
+    if (!ptr) {
+        spdlog::error("❌ RtlAllocateHeap: allocation failed (size = {})", size);
+        return g_memory.MapVirtual(dummy_fallback_ptr); // Prevent null deref
+    }
+
     if ((flags & 0x8) != 0)
         memset(ptr, 0, size);
 
-    assert(ptr);
     return g_memory.MapVirtual(ptr);
 }
 
 uint32_t RtlReAllocateHeap(uint32_t heapHandle, uint32_t flags, uint32_t memoryPointer, uint32_t size)
 {
+    spdlog::info("🔧 RtlReAllocateHeap.");
+
+    if (size == 0 || size > 128 * 1024 * 1024) {
+        spdlog::warn("❌ RtlReAllocateHeap: invalid size = {}", size);
+        return 0;
+    }
+
     void* ptr = g_userHeap.Alloc(size);
+    if (!ptr) {
+        spdlog::error("❌ RtlReAllocateHeap: allocation failed (size = {})", size);
+        return 0;
+    }
+
     if ((flags & 0x8) != 0)
         memset(ptr, 0, size);
 
-    if (memoryPointer != 0)
-    {
+    if (memoryPointer != 0) {
         void* oldPtr = g_memory.Translate(memoryPointer);
         memcpy(ptr, oldPtr, std::min<size_t>(size, g_userHeap.Size(oldPtr)));
         g_userHeap.Free(oldPtr);
     }
 
-    assert(ptr);
     return g_memory.MapVirtual(ptr);
 }
 
 uint32_t RtlFreeHeap(uint32_t heapHandle, uint32_t flags, uint32_t memoryPointer)
 {
+    spdlog::info("🔧 RtlFreeHeap.");
     if (memoryPointer != NULL)
         g_userHeap.Free(g_memory.Translate(memoryPointer));
 
@@ -94,6 +126,7 @@ uint32_t RtlFreeHeap(uint32_t heapHandle, uint32_t flags, uint32_t memoryPointer
 
 uint32_t RtlSizeHeap(uint32_t heapHandle, uint32_t flags, uint32_t memoryPointer)
 {
+    spdlog::info("🔧 RtlSizeHeap.");
     if (memoryPointer != NULL)
         return (uint32_t)g_userHeap.Size(g_memory.Translate(memoryPointer));
 
@@ -102,19 +135,31 @@ uint32_t RtlSizeHeap(uint32_t heapHandle, uint32_t flags, uint32_t memoryPointer
 
 uint32_t XAllocMem(uint32_t size, uint32_t flags)
 {
+    spdlog::info("🔧 XAllocMem(size={}, flags=0x{:08X})", size, flags);
+
+    if (size == 0 || size > 128 * 1024 * 1024) {
+        spdlog::warn("❌ XAllocMem: invalid size = {}", size);
+        return 0;
+    }
+
     void* ptr = (flags & 0x80000000) != 0 ?
         g_userHeap.AllocPhysical(size, (1ull << ((flags >> 24) & 0xF))) :
         g_userHeap.Alloc(size);
 
+    if (!ptr) {
+        spdlog::error("❌ XAllocMem: allocation failed (size = {})", size);
+        return 0;
+    }
+
     if ((flags & 0x40000000) != 0)
         memset(ptr, 0, size);
 
-    assert(ptr);
     return g_memory.MapVirtual(ptr);
 }
 
 void XFreeMem(uint32_t baseAddress, uint32_t flags)
 {
+    spdlog::info("🔧 XFreeMem.");
     if (baseAddress != NULL)
         g_userHeap.Free(g_memory.Translate(baseAddress));
 }
@@ -122,8 +167,8 @@ void XFreeMem(uint32_t baseAddress, uint32_t flags)
 GUEST_FUNCTION_STUB(sub_82CBFC80); // HeapCreate
 GUEST_FUNCTION_STUB(sub_82239750); // HeapDestroy
 
-GUEST_FUNCTION_HOOK(sub_82CBEA48, RtlAllocateHeap);
-GUEST_FUNCTION_HOOK(sub_82239468, RtlFreeHeap);
+GUEST_FUNCTION_HOOK(sub_82238790, RtlAllocateHeap);
+GUEST_FUNCTION_HOOK(sub_82CBEA48, RtlFreeHeap);
 GUEST_FUNCTION_HOOK(sub_82BD88F0, RtlReAllocateHeap);
 GUEST_FUNCTION_HOOK(sub_831CC840, RtlSizeHeap);
 

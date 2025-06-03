@@ -1,9 +1,10 @@
 #pragma once
 
+#include <stdafx.h>
 #include "heap.h"
 #include "memory.h"
 
-#define OBJECT_SIGNATURE (('X') | ('B' << 8) | ('O' << 16) | ('X' << 24))
+#define OBJECT_SIGNATURE           (uint32_t)'XBOX'
 #define GUEST_INVALID_HANDLE_VALUE 0xFFFFFFFF
 
 #ifndef _WIN32
@@ -39,9 +40,7 @@
 #define ERROR_PATH_NOT_FOUND       0x3
 #define ERROR_BAD_ARGUMENTS        0xA0
 #define ERROR_DEVICE_NOT_CONNECTED 0x48F
-#ifndef PAGE_READWRITE
-#define PAGE_READWRITE 0x04
-#endif
+#define PAGE_READWRITE             0x04
 
 typedef union _LARGE_INTEGER {
     struct {

@@ -12,6 +12,7 @@
 #include "xdm.h"
 #include <user/config.h>
 #include <os/logger.h>
+#include <kernel/kernel_constants.h>
 
 #ifdef _WIN32
 #include <ntstatus.h>
@@ -386,8 +387,8 @@ uint32_t NtClose(uint32_t handle)
     }
     else
     {
-        assert(false && "Unrecognized kernel object.");
-        return 0xFFFFFFFF;
+        fmt::print("⚠️ NtClose: Unrecognized handle 0x{:08X}\n", handle);
+        return 0xFFFFFFFF;  // STATUS_INVALID_HANDLE
     }
 }
 
@@ -410,12 +411,16 @@ uint32_t NtWaitForSingleObjectEx(uint32_t Handle, uint32_t WaitMode, uint32_t Al
     {
         return GetKernelObject(Handle)->Wait(timeout);
     }
+    else if (Handle == 0x20000270)
+    {
+        fmt::print("✅ NtWaitForSingleObjectEx: Faking success for known guest handle 0x{:08X}\n", Handle);
+        return 0; // STATUS_SUCCESS
+    }
     else
     {
-        assert(false && "Unrecognized handle value.");
+        fmt::print("⚠️ NtWaitForSingleObjectEx: Unrecognized handle 0x{:08X}, returning STATUS_TIMEOUT\n", Handle);
+        return STATUS_TIMEOUT;
     }
-
-    return STATUS_TIMEOUT;
 }
 
 void NtWriteFile()
@@ -678,6 +683,11 @@ uint32_t KeSetAffinityThread(uint32_t Thread, uint32_t Affinity, be<uint32_t>* l
 
 void RtlLeaveCriticalSection(XRTL_CRITICAL_SECTION* cs)
 {
+    if (g_memory.HostToGuest(cs) == kOldCriticalSection) {
+        fmt::print("🔁 Redirected old CS leave 0x{:08X} → 0x{:08X}\n", kOldCriticalSection, kNewCriticalSection);
+        cs = (XRTL_CRITICAL_SECTION*)g_memory.Translate(kNewCriticalSection);
+    }
+
     cs->RecursionCount--;
 
     if (cs->RecursionCount != 0)
@@ -690,22 +700,51 @@ void RtlLeaveCriticalSection(XRTL_CRITICAL_SECTION* cs)
 
 void RtlEnterCriticalSection(XRTL_CRITICAL_SECTION* cs)
 {
-    uint32_t thisThread = g_ppcContext->r13.u32;
-    assert(thisThread != NULL);
+    // Redirect legacy pointer
+    if (g_memory.HostToGuest(cs) == kOldCriticalSection) {
+        fmt::print("🔁 Redirected old CS 0x{:08X} → 0x{:08X}\n", kOldCriticalSection, kNewCriticalSection);
+        cs = (XRTL_CRITICAL_SECTION*)g_memory.Translate(kNewCriticalSection);
+    }
 
-    std::atomic_ref owningThread(cs->OwningThread);
+    const uint32_t thisThread = g_ppcContext->r13.u32;
+    assert(thisThread != 0);
 
-    while (true) 
-    {
-        uint32_t previousOwner = 0;
+    fmt::print("🔐 RtlEnterCriticalSection: thread = 0x{:08X}, cs = 0x{:08X}\n", thisThread, g_memory.HostToGuest(cs));
 
-        if (owningThread.compare_exchange_weak(previousOwner, thisThread) || previousOwner == thisThread)
-        {
-            cs->RecursionCount++;
+    std::atomic_ref<uint32_t> owner(cs->OwningThread);
+
+    for (;;) {
+        uint32_t prev = 0;
+
+        for (int i = 0; i < 100; ++i) {
+            prev = 0;
+            if (owner.compare_exchange_weak(prev, thisThread, std::memory_order_acquire)) {
+                fmt::print("✅ Acquired CS\n");
+                cs->RecursionCount = 1;
+                return;
+            }
+            if (prev == thisThread) {
+                fmt::print("🔁 Recursive CS entry\n");
+                cs->RecursionCount++;
+                return;
+            }
+            _mm_pause();
+        }
+
+        fmt::print("⏳ Waiting on CS: owner = 0x{:08X}, me = 0x{:08X}\n", prev, thisThread);
+        fmt::print("🧨 Critical section memory state at enter time:\n");
+        g_memory.DumpGuestMemory(g_memory.HostToGuest(cs), sizeof(XRTL_CRITICAL_SECTION));
+
+        static thread_local int retries = 0;
+        retries++;
+        if (retries > 20) {
+            fmt::print("⚠️ Forcing CS takeover due to long wait.\n");
+            owner.store(thisThread);
+            cs->RecursionCount = 1;
             return;
         }
 
-        owningThread.wait(previousOwner);
+        std::this_thread::yield();
     }
 }
 
@@ -724,9 +763,10 @@ void RtlFillMemoryUlong()
     LOG_UTILITY("!!! STUB !!!");
 }
 
-void KeBugCheckEx()
-{
-    __builtin_trap();
+void KeBugCheckEx(uint32_t bugCode, uint32_t p1, uint32_t p2, uint32_t p3, uint32_t p4) {
+    fmt::print("‼️ KeBugCheckEx triggered: code=0x{:08X} p1=0x{:08X} p2=0x{:08X} p3=0x{:08X} p4=0x{:08X}\n",
+               bugCode, p1, p2, p3, p4);
+    __builtin_trap(); // Simulate crash
 }
 
 uint32_t KeGetCurrentProcessType()

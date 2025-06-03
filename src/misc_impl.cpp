@@ -32,20 +32,20 @@ void GlobalMemoryStatusImpl(XLPMEMORYSTATUS lpMemoryStatus)
     lpMemoryStatus->dwAvailVirtual = 0x20000000;
 }
 
-GUEST_FUNCTION_HOOK(sub_82CA2C60, memcpy);
-GUEST_FUNCTION_HOOK(sub_82CA3920, memcpy);
+//GUEST_FUNCTION_HOOK(sub_82CA2C60, memcpy);
+//GUEST_FUNCTION_HOOK(sub_82CA3920, memcpy);
 
-GUEST_FUNCTION_HOOK(sub_822BA2F8, memset);
-GUEST_FUNCTION_HOOK(sub_82CBE140, memset);
+GUEST_FUNCTION_HOOK(sub_8223F970, memset);
+GUEST_FUNCTION_HOOK(sub_82CA3190, memset);
 
 #ifdef _WIN32
-GUEST_FUNCTION_HOOK(sub_82BD4CA8, OutputDebugStringA);
+//GUEST_FUNCTION_HOOK(sub_82BD4CA8, OutputDebugStringA);
 #else
-GUEST_FUNCTION_STUB(sub_82BD4CA8);
+//GUEST_FUNCTION_STUB(sub_82BD4CA8);
 #endif
 
-GUEST_FUNCTION_HOOK(sub_82BD4AC8, QueryPerformanceCounterImpl);
-GUEST_FUNCTION_HOOK(sub_82CC0620, QueryPerformanceFrequencyImpl);
-GUEST_FUNCTION_HOOK(sub_82266070, GetTickCountImpl);
+//GUEST_FUNCTION_HOOK(sub_82BD4AC8, QueryPerformanceCounterImpl);
+//GUEST_FUNCTION_HOOK(sub_82CC0620, QueryPerformanceFrequencyImpl);
+//GUEST_FUNCTION_HOOK(sub_82266070, GetTickCountImpl);
 
-GUEST_FUNCTION_HOOK(sub_82CBBBF0, GlobalMemoryStatusImpl);
+//GUEST_FUNCTION_HOOK(sub_82CBBBF0, GlobalMemoryStatusImpl);

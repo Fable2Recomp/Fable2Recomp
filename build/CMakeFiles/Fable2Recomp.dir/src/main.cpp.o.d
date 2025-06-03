@@ -477,6 +477,18 @@ CMakeFiles/Fable2Recomp.dir/src/main.cpp.o: \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/tomlplusplus/include/toml++/impl/toml_formatter.inl \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/tomlplusplus/include/toml++/impl/json_formatter.inl \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/tomlplusplus/include/toml++/impl/yaml_formatter.inl \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/volk/volk.h \
+ /usr/include/vulkan/vk_platform.h /usr/include/vulkan/vulkan_core.h \
+ /usr/include/vulkan/vk_platform.h \
+ /usr/include/vk_video/vulkan_video_codec_h264std.h \
+ /usr/include/vk_video/vulkan_video_codecs_common.h \
+ /usr/include/vk_video/vulkan_video_codec_h264std_encode.h \
+ /usr/include/vk_video/vulkan_video_codec_h264std.h \
+ /usr/include/vk_video/vulkan_video_codec_h265std.h \
+ /usr/include/vk_video/vulkan_video_codec_h265std_encode.h \
+ /usr/include/vk_video/vulkan_video_codec_h265std.h \
+ /usr/include/vk_video/vulkan_video_codec_h264std_decode.h \
+ /usr/include/vk_video/vulkan_video_codec_h265std_decode.h \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/SDL3/include/SDL3/SDL.h \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/SDL3/include/SDL3/SDL_stdinc.h \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/SDL3/include/SDL3/SDL_platform_defines.h \
@@ -537,22 +549,6 @@ CMakeFiles/Fable2Recomp.dir/src/main.cpp.o: \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/SDL3/include/SDL3/SDL_version.h \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/SDL3/include/SDL3/SDL_oldnames.h \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/SDL_mixer/include/SDL3_mixer/SDL_mixer.h \
- /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/Vulkan-Headers/include/vulkan/vulkan.h \
- /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/Vulkan-Headers/include/vulkan/vk_platform.h \
- /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/Vulkan-Headers/include/vulkan/vulkan_core.h \
- /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/Vulkan-Headers/include/vk_video/vulkan_video_codec_h264std.h \
- /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/Vulkan-Headers/include/vk_video/vulkan_video_codecs_common.h \
- /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/Vulkan-Headers/include/vk_video/vulkan_video_codec_h264std_encode.h \
- /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/Vulkan-Headers/include/vk_video/vulkan_video_codec_h264std.h \
- /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/Vulkan-Headers/include/vk_video/vulkan_video_codec_h265std.h \
- /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/Vulkan-Headers/include/vk_video/vulkan_video_codec_h265std_encode.h \
- /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/Vulkan-Headers/include/vk_video/vulkan_video_codec_h265std.h \
- /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/Vulkan-Headers/include/vk_video/vulkan_video_codec_h264std_decode.h \
- /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/Vulkan-Headers/include/vk_video/vulkan_video_codec_h265std_decode.h \
- /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/Vulkan-Headers/include/vk_video/vulkan_video_codec_av1std.h \
- /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/Vulkan-Headers/include/vk_video/vulkan_video_codec_av1std_decode.h \
- /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/Vulkan-Headers/include/vk_video/vulkan_video_codec_av1std.h \
- /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/Vulkan-Headers/include/vk_video/vulkan_video_codec_av1std_encode.h \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/stb/stb_image.h \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/imgui/imgui.h \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/imgui/imconfig.h \
@@ -784,6 +780,8 @@ CMakeFiles/Fable2Recomp.dir/src/main.cpp.o: \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/gpu/rhi/plume_render_interface_builders.h \
  /usr/include/c++/13/unordered_set \
  /usr/include/c++/13/bits/unordered_set.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/gpu/video_vulkan.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/SDL3/include/SDL3/SDL_vulkan.h \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/kernel/function.h \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/cpu/ppc_context.h \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/kernel/xam.h \
@@ -807,4 +805,6 @@ CMakeFiles/Fable2Recomp.dir/src/main.cpp.o: \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/locale/locale.h \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/extern/tomlplusplus/include/toml++/toml.h \
  /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/user/config_def.h \
- /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/preload_executable.h
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/preload_executable.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/kernel/imports.h \
+ /mnt/Ryan/Xbox\ 360\ Games/Fable\ 2/Git/Fable2Recomp/src/kernel/kernel_constants.h

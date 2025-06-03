@@ -26,6 +26,9 @@ Memory::Memory()
     mprotect(base, 4096, PROT_NONE);
 #endif
 
+    constexpr uint32_t kKernelStructBase = 0x90000000;
+    memset(base + (kKernelStructBase - 0x80000000), 0, 0x1000);
+
     for (size_t i = 0; PPCFuncMappings[i].guest != 0; i++)
     {
         if (PPCFuncMappings[i].host != nullptr)

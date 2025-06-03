@@ -168,7 +168,7 @@ uint32_t SetThreadIdealProcessorImpl(GuestThreadHandle* hThread, uint32_t dwIdea
     return 0;
 }
 
-GUEST_FUNCTION_HOOK(sub_82B38798, SetThreadNameImpl);
+GUEST_FUNCTION_HOOK(sub_82DFA2E8, SetThreadNameImpl);
 GUEST_FUNCTION_HOOK(sub_82BD57A8, GetThreadPriorityImpl);
 GUEST_FUNCTION_HOOK(sub_82CBBE20, SetThreadIdealProcessorImpl);
 
