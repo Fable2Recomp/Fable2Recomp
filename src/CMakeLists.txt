@@ -2,7 +2,7 @@
 
 # Group core source files
 set(FABLE2_CORE_SOURCES
-    ${CMAKE_CURRENT_SOURCE_DIR}/exports.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/exports.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/preload_executable.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/sdl_listener.cpp
@@ -40,6 +40,7 @@ source_group("Source Files" FILES ${FABLE2_CORE_SOURCES})
 source_group("Header Files" FILES ${FABLE2_CORE_HEADERS})
 
 # Collect module-specific sources
+
 set(Fable2_RECOMP_KERNEL_CXX_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/kernel/imports.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/kernel/xdm.cpp
@@ -47,6 +48,11 @@ set(Fable2_RECOMP_KERNEL_CXX_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/kernel/memory.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/kernel/xam.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/kernel/io/file_system.cpp
+)
+
+set(Fable2_RECOMP_PATCHES_CXX_SOURCES
+    ${CMAKE_CURRENT_SOURCE_DIR}/patches/patches.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/patches/memory_patches.cpp
 )
 
 set(Fable2_RECOMP_LOCALE_CXX_SOURCES
@@ -78,6 +84,8 @@ set(Fable2_RECOMP_CPU_CXX_SOURCES
 
  set(Fable2_RECOMP_GPU_CXX_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/gpu/video.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/gpu/video_vulkan.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/gpu/shader/shaderc_util.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/gpu/imgui/imgui_common.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/gpu/imgui/imgui_font_builder.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/gpu/imgui/imgui_snapshot.cpp

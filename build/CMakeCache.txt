@@ -14,17 +14,30 @@
 # EXTERNAL cache entries
 ########################
 
+//Allows to build against installed SPIRV-Tools-opt. This is unsupported
+// if the commit isn't the one in known_good.json
+ALLOW_EXTERNAL_SPIRV_TOOLS:BOOL=OFF
+
 //The ALSA (asound) include directory
 ALSA_INCLUDE_DIR:PATH=/usr/include
 
 //The ALSA (asound) library
 ALSA_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libasound.so
 
+//Path to a program.
+ASCIIDOCTOR_EXE:FILEPATH=ASCIIDOCTOR_EXE-NOTFOUND
+
 //Path to a library.
 ASOUND_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libasound.so
 
+//Build external dependencies in /External
+BUILD_EXTERNAL:BOOL=ON
+
 //Build the library as a shared library
 BUILD_SHARED_LIBS:BOOL=OFF
+
+//Enable warnings as errors (default is OFF)
+BUILD_WERROR:BOOL=OFF
 
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
@@ -211,16 +224,16 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 CMAKE_PROJECT_NAME:STATIC=Fable2Recomp
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION:STATIC=1.3.0
+CMAKE_PROJECT_VERSION:STATIC=1.5.5
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION_MAJOR:STATIC=1
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION_MINOR:STATIC=3
+CMAKE_PROJECT_VERSION_MINOR:STATIC=5
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION_PATCH:STATIC=0
+CMAKE_PROJECT_VERSION_PATCH:STATIC=5
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION_TWEAK:STATIC=
@@ -293,8 +306,45 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 //Path to a library.
 DECOR_0_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libdecor-0.so
 
+//Disables exceptions in builds
+DISABLE_EXCEPTIONS:BOOL=OFF
+
+//Disable RTTI in builds
+DISABLE_RTTI:BOOL=OFF
+
 //Path to a library.
 DRM_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libdrm.so
+
+//Enables Exceptions
+ENABLE_EXCEPTIONS:BOOL=OFF
+
+//Build SPIRV-TOOLS with c++ exceptions enabled in MSVC
+ENABLE_EXCEPTIONS_ON_MSVC:BOOL=ON
+
+//Builds glslang and spirv-remap
+ENABLE_GLSLANG_BINARIES:BOOL=OFF
+
+//If using Emscripten, build glslang.js. Otherwise, builds a sample
+// executable for binary-size testing.
+ENABLE_GLSLANG_JS:BOOL=OFF
+
+//Enables HLSL input support
+ENABLE_HLSL:BOOL=ON
+
+//Enables spirv-opt capability if present
+ENABLE_OPT:BOOL=ON
+
+//Enables Precompiled header
+ENABLE_PCH:BOOL=ON
+
+//Enables RTTI
+ENABLE_RTTI:BOOL=OFF
+
+//Enables SPIRV output support
+ENABLE_SPIRV:BOOL=ON
+
+//Enables building of SPVRemapper
+ENABLE_SPVREMAPPER:BOOL=ON
 
 //Path to a file.
 FREETYPE_INCLUDE_DIR_freetype2:PATH=/usr/include/freetype2
@@ -350,6 +400,12 @@ GBM_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libgbm.so
 //Git command line client
 GIT_EXECUTABLE:FILEPATH=/usr/bin/git
 
+//Enable glslang installation
+GLSLANG_ENABLE_INSTALL:BOOL=OFF
+
+//Enable glslang testing
+GLSLANG_TESTS:BOOL=OFF
+
 //Path to a file.
 HAVE_LIBURING_H:PATH=/usr/include
 
@@ -385,6 +441,9 @@ HAVE_XSYNC_H:FILEPATH=/usr/include/X11/extensions/sync.h
 
 //Path to a file.
 HAVE_XTEST_H:FILEPATH=/usr/include/X11/extensions/XTest.h
+
+//Path to a library.
+LIBRT:FILEPATH=/usr/lib/x86_64-linux-gnu/librt.a
 
 //Extra compile options of LibUSB
 LibUSB_COMPILE_OPTIONS:STRING=
@@ -580,6 +639,9 @@ PULSE_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libpulse.so
 //The directory containing a CMake configuration file for PkgConfig.
 PkgConfig_DIR:PATH=PkgConfig_DIR-NOTFOUND
 
+//Run RE2 Tests
+RE2_BUILD_TESTING:STRING=OFF
+
 SDL3MIXER_BUILD_SHARED_LIBS:BOOL=OFF
 
 SDL3MIXER_BUILD_STATIC_LIBS:BOOL=ON
@@ -720,6 +782,10 @@ SDL_ASSERTIONS:STRING=auto
 //Enable the Audio subsystem
 SDL_AUDIO:BOOL=ON
 
+SDL_AUDIO_DRIVER_ALSA_DYNAMIC:BOOL=OFF
+
+SDL_AUDIO_DRIVER_PULSEAUDIO_DYNAMIC:BOOL=OFF
+
 //Use AVX assembly routines
 SDL_AVX:BOOL=ON
 
@@ -827,6 +893,8 @@ SDL_HIDAPI_JOYSTICK:BOOL=ON
 
 //Use libusb for low level joystick drivers
 SDL_HIDAPI_LIBUSB:BOOL=ON
+
+SDL_HIDAPI_LIBUSB_DYNAMIC:BOOL=OFF
 
 //Dynamically load libusb support
 SDL_HIDAPI_LIBUSB_SHARED:BOOL=ON
@@ -1002,6 +1070,8 @@ SDL_VENDOR_INFO:STRING=
 //Enable the Video subsystem
 SDL_VIDEO:BOOL=ON
 
+SDL_VIDEO_DRIVER_X11_DYNAMIC:BOOL=OFF
+
 //Enable the virtual-joystick driver
 SDL_VIRTUAL_JOYSTICK:BOOL=ON
 
@@ -1056,8 +1126,121 @@ SDL_X11_XSYNC:BOOL=ON
 //Enable XTest support
 SDL_X11_XTEST:BOOL=ON
 
+//Location of re2 source
+SHADERC_ABSL_DIR:STRING=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/shaderc/third_party/abseil_cpp
+
+//Location of effcee source
+SHADERC_EFFCEE_DIR:STRING=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/shaderc/third_party/effcee
+
+SHADERC_ENABLE_SHARED_CRT:BOOL=OFF
+
+//Enable passing -Werror to compiler, if available
+SHADERC_ENABLE_WERROR_COMPILE:BOOL=ON
+
+//Enable WGSL output
+SHADERC_ENABLE_WGSL_OUTPUT:BOOL=OFF
+
+//Location of glslang source
+SHADERC_GLSLANG_DIR:STRING=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/shaderc/third_party/glslang
+
+//Location of googletest source
+SHADERC_GOOGLE_TEST_DIR:STRING=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/shaderc/third_party/googletest
+
+//Location of re2 source
+SHADERC_RE2_DIR:STRING=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/shaderc/third_party/re2
+
+//Skip copyright check
+SHADERC_SKIP_COPYRIGHT_CHECK:BOOL=OFF
+
+//Skip building examples
+SHADERC_SKIP_EXAMPLES:BOOL=ON
+
+//Skip installation
+SHADERC_SKIP_INSTALL:BOOL=OFF
+
+//Skip building tests
+SHADERC_SKIP_TESTS:BOOL=ON
+
+//Location of spirv-headers source
+SHADERC_SPIRV_HEADERS_DIR:STRING=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/shaderc/third_party/spirv-headers
+
+//Location of spirv-tools source
+SHADERC_SPIRV_TOOLS_DIR:STRING=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/shaderc/third_party/spirv-tools
+
+//Root location of all third_party projects
+SHADERC_THIRD_PARTY_ROOT_DIR:STRING=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/shaderc/third_party
+
+//Location of tint source
+SHADERC_TINT_DIR:STRING=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/shaderc/third_party/tint
+
+//Skip installation
+SKIP_SPIRV_TOOLS_INSTALL:BOOL=OFF
+
 //Path to a library.
 SNDIO_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libsndio.so
+
+//Value Computed by CMake
+SPIRV-Headers_BINARY_DIR:STATIC=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/extern/spirv-headers
+
+//Value Computed by CMake
+SPIRV-Headers_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+SPIRV-Headers_SOURCE_DIR:STATIC=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/spirv-headers
+
+//Allow timers via clock_gettime on supported platforms
+SPIRV_ALLOW_TIMERS:BOOL=ON
+
+//Build SPIR-V compressing codec
+SPIRV_BUILD_COMPRESSION:BOOL=OFF
+
+//Build spirv-fuzz
+SPIRV_BUILD_FUZZER:BOOL=OFF
+
+//Build libFuzzer targets
+SPIRV_BUILD_LIBFUZZER_TARGETS:BOOL=OFF
+
+//In a debug build, check if the IR context is in a valid state.
+SPIRV_CHECK_CONTEXT:BOOL=ON
+
+//Enable color terminal output
+SPIRV_COLOR_TERMINAL:BOOL=ON
+
+//Coupling SPIRV-Cross exception conversion to DISABLE_EXCEPTIONS
+SPIRV_CROSS_EXCEPTIONS_TO_ASSERTIONS:BOOL=OFF
+
+//Install SPIRV-Headers
+SPIRV_HEADERS_ENABLE_INSTALL:BOOL=OFF
+
+//Test SPIRV-Headers
+SPIRV_HEADERS_ENABLE_TESTS:BOOL=OFF
+
+//Used by OSS-Fuzz to control, via link options, which fuzzing
+// engine should be used
+SPIRV_LIB_FUZZING_ENGINE_LINK_OPTIONS:STRING=
+
+//Enable excessive debug output
+SPIRV_LOG_DEBUG:BOOL=OFF
+
+//Skip building the executable and tests along with the library
+SPIRV_SKIP_EXECUTABLES:BOOL=OFF
+
+//Skip building tests along with the library
+SPIRV_SKIP_TESTS:BOOL=OFF
+
+//Build SPIRV-Tools-static target. SPIRV-Tools will alias to SPIRV-Tools-static
+// or SPIRV-Tools-shared based on BUILD_SHARED_LIBS
+SPIRV_TOOLS_BUILD_STATIC:BOOL=ON
+
+//Install Emacs helper to disassemble/assemble SPIR-V binaries
+// on file load/save.
+SPIRV_TOOLS_INSTALL_EMACS_HELPERS:BOOL=OFF
+
+//Enable -Weverything
+SPIRV_WARN_EVERYTHING:BOOL=OFF
+
+//Enable error on warning
+SPIRV_WERROR:BOOL=ON
 
 //Path to a library.
 UDEV_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libudev.so
@@ -1518,6 +1701,15 @@ ZLIB_LIBRARY_DEBUG:FILEPATH=ZLIB_LIBRARY_DEBUG-NOTFOUND
 //Path to a library.
 ZLIB_LIBRARY_RELEASE:FILEPATH=/usr/lib/x86_64-linux-gnu/libz.so
 
+//Value Computed by CMake
+glslang_BINARY_DIR:STATIC=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/extern/glslang
+
+//Value Computed by CMake
+glslang_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+glslang_SOURCE_DIR:STATIC=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/glslang
+
 //Extra compile options of gme
 gme_COMPILE_OPTIONS:STRING=
 
@@ -1538,6 +1730,24 @@ gme_LINK_LIBRARIES:STRING=
 
 //Extra link flags of gme
 gme_LINK_OPTIONS:STRING=
+
+//Value Computed by CMake
+libshaderc_BINARY_DIR:STATIC=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/extern/shaderc/libshaderc
+
+//Value Computed by CMake
+libshaderc_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+libshaderc_SOURCE_DIR:STATIC=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/shaderc/libshaderc
+
+//Value Computed by CMake
+libshaderc_util_BINARY_DIR:STATIC=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/extern/shaderc/libshaderc_util
+
+//Value Computed by CMake
+libshaderc_util_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+libshaderc_util_SOURCE_DIR:STATIC=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/shaderc/libshaderc_util
 
 //Extra compile options of libxmp
 libxmp_COMPILE_OPTIONS:STRING=
@@ -1692,8 +1902,23 @@ pkgcfg_lib_PKG_FONTCONFIG_freetype:FILEPATH=/usr/lib/x86_64-linux-gnu/libfreetyp
 //Path to a library.
 pkgcfg_lib_TINYXML2_tinyxml2:FILEPATH=/usr/lib/x86_64-linux-gnu/libtinyxml2.so
 
-//The directory containing a CMake configuration file for unofficial-skia.
-unofficial-skia_DIR:PATH=unofficial-skia_DIR-NOTFOUND
+//Value Computed by CMake
+shaderc_BINARY_DIR:STATIC=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/extern/shaderc
+
+//Value Computed by CMake
+shaderc_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+shaderc_SOURCE_DIR:STATIC=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/shaderc
+
+//Value Computed by CMake
+spirv-tools_BINARY_DIR:STATIC=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/build/extern/spirv-tools
+
+//Value Computed by CMake
+spirv-tools_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+spirv-tools_SOURCE_DIR:STATIC=/mnt/Ryan/Xbox 360 Games/Fable 2/Git/Fable2Recomp/extern/spirv-tools
 
 //Extra compile options of wavpack
 wavpack_COMPILE_OPTIONS:STRING=
@@ -1866,7 +2091,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=49
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -1919,12 +2144,18 @@ COMPILER_SUPPORTS_AVX:INTERNAL=1
 COMPILER_SUPPORTS_AVX2:INTERNAL=1
 //Test COMPILER_SUPPORTS_AVX512F
 COMPILER_SUPPORTS_AVX512F:INTERNAL=1
+//Test COMPILER_SUPPORTS_EXTRA_SEMI_WARNING
+COMPILER_SUPPORTS_EXTRA_SEMI_WARNING:INTERNAL=1
+//Test COMPILER_SUPPORTS_FALLTHROUGH_WARNING
+COMPILER_SUPPORTS_FALLTHROUGH_WARNING:INTERNAL=1
 //Test COMPILER_SUPPORTS_FDIAGNOSTICS_COLOR_ALWAYS
 COMPILER_SUPPORTS_FDIAGNOSTICS_COLOR_ALWAYS:INTERNAL=1
 //Test COMPILER_SUPPORTS_GCC_ATOMICS
 COMPILER_SUPPORTS_GCC_ATOMICS:INTERNAL=1
 //Test COMPILER_SUPPORTS_MMX
 COMPILER_SUPPORTS_MMX:INTERNAL=1
+//Test COMPILER_SUPPORTS_PIC
+COMPILER_SUPPORTS_PIC:INTERNAL=1
 //Test COMPILER_SUPPORTS_SSE
 COMPILER_SUPPORTS_SSE:INTERNAL=1
 //Test COMPILER_SUPPORTS_SSE2
@@ -1984,6 +2215,10 @@ FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[/usr/lib/x86_64-linux-gnu/libOpenG
 FIND_PACKAGE_MESSAGE_DETAILS_PNG:INTERNAL=[/usr/lib/x86_64-linux-gnu/libpng.so][/usr/include][v1.6.43()]
 //Details about finding PkgConfig
 FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v1.8.1()]
+//Details about finding Python
+FIND_PACKAGE_MESSAGE_DETAILS_Python:INTERNAL=[/home/loreaxe/.pyenv/shims/python3][cfound components: Interpreter ][v3.12.3()]
+//Details about finding Python3
+FIND_PACKAGE_MESSAGE_DETAILS_Python3:INTERNAL=[/home/loreaxe/.pyenv/shims/python3][cfound components: Interpreter ][v3.12.3()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //Details about finding X11
@@ -3404,6 +3639,27 @@ ZLIB_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/usr/local
+//Compiler reason failure
+_Python3_Compiler_REASON_FAILURE:INTERNAL=
+//Development reason failure
+_Python3_Development_REASON_FAILURE:INTERNAL=
+//Path to a program.
+_Python3_EXECUTABLE:INTERNAL=/home/loreaxe/.pyenv/shims/python3
+//Python3 Properties
+_Python3_INTERPRETER_PROPERTIES:INTERNAL=Python;3;12;3;64;32;;cpython-312-x86_64-linux-gnu;abi3;/usr/lib/python3.12;/usr/lib/python3.12;/usr/local/lib/python3.12/dist-packages;/usr/local/lib/python3.12/dist-packages
+_Python3_INTERPRETER_SIGNATURE:INTERNAL=d9e4953cb26530ca12e5c20dde4a4113
+//NumPy reason failure
+_Python3_NumPy_REASON_FAILURE:INTERNAL=
+//Compiler reason failure
+_Python_Compiler_REASON_FAILURE:INTERNAL=
+//Development reason failure
+_Python_Development_REASON_FAILURE:INTERNAL=
+_Python_EXECUTABLE:INTERNAL=/home/loreaxe/.pyenv/shims/python3
+//Python Properties
+_Python_INTERPRETER_PROPERTIES:INTERNAL=Python;3;12;3;64;32;;cpython-312-x86_64-linux-gnu;abi3;/usr/lib/python3.12;/usr/lib/python3.12;/usr/local/lib/python3.12/dist-packages;/usr/local/lib/python3.12/dist-packages
+_Python_INTERPRETER_SIGNATURE:INTERNAL=d9e4953cb26530ca12e5c20dde4a4113
+//NumPy reason failure
+_Python_NumPy_REASON_FAILURE:INTERNAL=
 __pkg_config_arguments_GTK3:INTERNAL=REQUIRED;gtk+-3.0
 __pkg_config_arguments_PC_GBM:INTERNAL=IMPORTED_TARGET;gbm
 __pkg_config_arguments_PC_LIBDECOR:INTERNAL=IMPORTED_TARGET;libdecor-0

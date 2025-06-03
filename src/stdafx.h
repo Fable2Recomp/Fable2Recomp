@@ -44,9 +44,11 @@
 //#include <ddspp.h>
 #include <ppc/ppc_recomp_shared.h>
 #include <toml++/toml.hpp>
+
+#include <volk.h>
+
 #include <SDL3/SDL.h>
 #include <SDL3_mixer/SDL_mixer.h>
-#include <vulkan/vulkan.h>
 #include <stb_image.h>
 #include <imgui.h>
 #include <imgui_internal.h>

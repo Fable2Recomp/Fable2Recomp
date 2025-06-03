@@ -15,11 +15,33 @@ set(GLM_INCLUDE_DIR    "${EXTERN_DIR}/glm")
 set(TOML_INCLUDE_DIR "${EXTERN_DIR}/tomlplusplus/include")
 set(SIMDE_INCLUDE_DIR  "${EXTERN_DIR}/simde")
 set(O1HEAP_INCLUDE_DIR  "${EXTERN_DIR}/o1heap")
-set(VULKAN_HEADERS_DIR "${EXTERN_DIR}/Vulkan-Headers/include")
 set(VMA_INCLUDE_DIR "${EXTERN_DIR}/VMA/include")
 set(ANKERL_UNORDERED_DENSE_INCLUDE_DIR "${EXTERN_DIR}/ankerl-unordered_dense/include")
 set(XXHASH_INCLUDE_DIR "${EXTERN_DIR}/xxHash")
 set(TINYSHA1_INCLUDE_DIR "${EXTERN_DIR}/TinySHA1")
+
+# === spirv-headers ===
+set(SPIRV-Headers_SOURCE_DIR ${EXTERN_DIR}/spirv-headers)
+add_subdirectory(${EXTERN_DIR}/spirv-headers)
+
+# === spirv-tools ===
+set(SPIRV-Tools_SOURCE_DIR ${EXTERN_DIR}/spirv-tools)
+add_subdirectory(${EXTERN_DIR}/spirv-tools)
+
+# === glslang ===
+set(glslang_SOURCE_DIR ${EXTERN_DIR}/glslang)
+set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
+set(ENABLE_GLSLANG_BINARIES OFF CACHE BOOL "" FORCE)
+add_subdirectory(${EXTERN_DIR}/glslang)
+
+# === shaderc ===
+set(SHADERC_SKIP_TESTS ON CACHE BOOL "" FORCE)
+set(SHADERC_SKIP_EXAMPLES ON CACHE BOOL "" FORCE)
+set(SHADERC_ENABLE_SHARED_CRT OFF CACHE BOOL "" FORCE) # Prevent MSVC runtime conflicts
+set(SHADERC_ENABLE_WGSL_OUTPUT OFF CACHE BOOL "" FORCE) # Not needed for GLSL->SPIR-V
+
+add_subdirectory(${EXTERN_DIR}/shaderc EXCLUDE_FROM_ALL)
+set(SHADERC_INCLUDE_DIR "${EXTERN_DIR}/shaderc/libshaderc/include")
 
 # === stb_truetype ===
 set(STB_DIR "${EXTERN_DIR}/stb")
@@ -91,6 +113,11 @@ set(SDL_STATIC ON CACHE BOOL "" FORCE)
 set(SDL_TEST OFF CACHE BOOL "" FORCE)
 set(SDL_INSTALL_TESTS OFF CACHE BOOL "" FORCE)
 set(SDL_INSTALL OFF CACHE BOOL "" FORCE)
+# Force static backend drivers to avoid runtime dlopen()
+set(SDL_VIDEO_DRIVER_X11_DYNAMIC OFF CACHE BOOL "" FORCE)
+set(SDL_AUDIO_DRIVER_PULSEAUDIO_DYNAMIC OFF CACHE BOOL "" FORCE)
+set(SDL_AUDIO_DRIVER_ALSA_DYNAMIC OFF CACHE BOOL "" FORCE)
+set(SDL_HIDAPI_LIBUSB_DYNAMIC OFF CACHE BOOL "" FORCE)
 
 add_subdirectory(${SDL3_DIR} EXCLUDE_FROM_ALL)
 
@@ -175,6 +202,10 @@ set(D3D12MA_SOURCES "${EXTERN_DIR}/D3D12MA/src/D3D12MemAlloc.cpp")
 set(VOLK_DIR "${EXTERN_DIR}/volk")
 set(VOLK_INCLUDE_DIR "${VOLK_DIR}")
 set(VOLK_SOURCES "${VOLK_DIR}/volk.c")
+add_library(volk STATIC ${VOLK_SOURCES})
+target_include_directories(volk PUBLIC ${VOLK_INCLUDE_DIR})
+target_compile_definitions(volk PUBLIC VK_NO_PROTOTYPES)
+set_target_properties(volk PROPERTIES POSITION_INDEPENDENT_CODE ON)
 
 # === Platform-specific setup ===
 if(WIN32)
@@ -214,7 +245,6 @@ else()
         ${IMPLOT_INCLUDE_DIR}
         ${FMT_INCLUDE_DIR}
         ${SIMDE_INCLUDE_DIR}
-        ${VULKAN_HEADERS_DIR}
         ${VMA_INCLUDE_DIR}
         ${VOLK_INCLUDE_DIR}
         ${NFD_INCLUDE_DIR}
@@ -274,6 +304,8 @@ target_include_directories(${PROJECT_NAME} PRIVATE
     ${MSDF_ARTERY_FONT_DIR}
     ${STB_DIR}
     ${CMAKE_BINARY_DIR}/generated
+    ${SHADERC_INCLUDE_DIR}
+    ${VOLK_INCLUDE_DIR}
 )
 
 # === Link libraries ===
@@ -289,7 +321,20 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     imgui
     msdf-atlas-gen
     msdfgen-core
+    volk
     ${PLATFORM_LIBS}
+    shaderc_combined
+    # Linux-specific static SDL deps
+    m
+    pthread
+    dl
+    rt
+    X11
+    Xext
+    Xcursor
+    Xrender
+    Xi
+    xkbcommon
 )
 
 # === SIMD configuration (SIMDe) ===

@@ -813,4 +813,3 @@ inline void store_shifted_i8(PPCVRegister& dst, const PPCVRegister& src, const P
 }
 
 } // namespace simd
-

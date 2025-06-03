@@ -64,3 +64,15 @@
 [submodule "extern/stb"]
 	path = extern/stb
 	url = https://github.com/nothings/stb.git
+[submodule "extern/shaderc"]
+	path = extern/shaderc
+	url = https://github.com/google/shaderc
+[submodule "extern/spirv-tools"]
+	path = extern/spirv-tools
+	url = https://github.com/KhronosGroup/SPIRV-Tools.git
+[submodule "extern/spirv-headers"]
+	path = extern/spirv-headers
+	url = https://github.com/KhronosGroup/SPIRV-Headers.git
+[submodule "extern/glslang"]
+	path = extern/glslang
+	url = https://github.com/KhronosGroup/glslang.git

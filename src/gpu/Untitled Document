@@ -1,0 +1,89 @@
+// shader_binding_parser.cpp
+// Extracts shader constant bindings from a memory buffer for Fable 2's sbk file format.
+
+#include <cstdint>
+#include <vector>
+#include <string>
+#include <string_view>
+#include <unordered_map>
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <iomanip>
+#include <filesystem>
+
+struct ShaderBinding {
+    uint32_t index;
+    std::string name;
+};
+
+bool IsPrintable(char c) {
+    return c >= 32 && c <= 126;
+}
+
+std::vector<ShaderBinding> ExtractShaderBindings(const std::vector<uint8_t>& data) {
+    std::vector<ShaderBinding> bindings;
+    size_t i = 0;
+    while (i + 5 < data.size()) {
+        if (std::memcmp(&data[i], "PIXEL", 5) == 0) {
+            size_t start = i;
+            size_t end = i;
+            while (end < data.size() && IsPrintable(data[end])) {
+                ++end;
+            }
+            std::string str(reinterpret_cast<const char*>(&data[start]), end - start);
+            std::string_view prefix = "PIXEL_SHADER_CONSTANT_BINDING_";
+            if (str.find(prefix) == 0) {
+                ShaderBinding bind;
+                bind.index = static_cast<uint32_t>(bindings.size());
+                bind.name = str.substr(prefix.length());
+                bindings.push_back(bind);
+            }
+            i = end + 1;
+        } else {
+            ++i;
+        }
+    }
+    return bindings;
+}
+
+void WriteHeaderFile(const std::vector<ShaderBinding>& bindings, const std::string& out_path) {
+    std::ofstream out(out_path);
+    for (const auto& bind : bindings) {
+        out << "#define BINDING_" << bind.name << " " << bind.index << "\n";
+    }
+}
+
+void WriteJSONFile(const std::vector<ShaderBinding>& bindings, const std::string& out_path) {
+    std::ofstream out(out_path);
+    out << "[\n";
+    for (size_t i = 0; i < bindings.size(); ++i) {
+        out << "  {\"index\": " << bindings[i].index << ", \"name\": \"" << bindings[i].name << "\"}";
+        if (i + 1 < bindings.size()) out << ",";
+        out << "\n";
+    }
+    out << "]\n";
+}
+
+int main(int argc, char* argv[]) {
+    if (argc < 2) {
+        std::cerr << "Usage: " << argv[0] << " <ShadersRelease.sbk>\n";
+        return 1;
+    }
+
+    std::ifstream file(argv[1], std::ios::binary);
+    if (!file) {
+        std::cerr << "Failed to open file: " << argv[1] << "\n";
+        return 1;
+    }
+
+    std::vector<uint8_t> buffer(std::istreambuf_iterator<char>(file), {});
+    auto bindings = ExtractShaderBindings(buffer);
+
+    WriteHeaderFile(bindings, "shader_bindings.h");
+    WriteJSONFile(bindings, "shader_bindings.json");
+
+    std::cout << "Extracted " << bindings.size() << " bindings.\n";
+    return 0;
+}
+

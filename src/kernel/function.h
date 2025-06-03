@@ -272,37 +272,27 @@ std::enable_if_t<(I < sizeof...(TArgs)), void> _translate_args_to_guest(PPCConte
 template<auto Func>
 PPC_FUNC(HostToGuestFunction)
 {
-    using ret_t = decltype(std::apply(Func, function_args(Func)));
+    if constexpr (std::is_invocable_v<decltype(Func), PPCContext&>) {
+        Func(ctx);
+    } else if constexpr (std::is_invocable_v<decltype(Func), PPCContext&, uint8_t*>) {
+        Func(ctx, base);
+    } else {
+        using ret_t = decltype(std::apply(Func, function_args(Func)));
 
-    auto args = function_args(Func);
-    _translate_args_to_host<Func>(ctx, base, args);
+        auto args = function_args(Func);
+        _translate_args_to_host<Func>(ctx, base, args);
 
-    if constexpr (std::is_same_v<ret_t, void>)
-    {
-        std::apply(Func, args);
-    }
-    else
-    {
-        auto v = std::apply(Func, args);
+        if constexpr (std::is_same_v<ret_t, void>) {
+            std::apply(Func, args);
+        } else {
+            auto v = std::apply(Func, args);
 
-        if constexpr (std::is_pointer<ret_t>())
-        {
-            if (v != nullptr)
-            {
-                ctx.r3.u64 = static_cast<uint32_t>(reinterpret_cast<size_t>(v) - reinterpret_cast<size_t>(base));
-            }
+            if constexpr (std::is_pointer_v<ret_t>)
+                ctx.r3.u64 = v ? reinterpret_cast<uint64_t>(v) - reinterpret_cast<uint64_t>(base) : 0;
+            else if constexpr (is_precise_v<ret_t>)
+                ctx.f1.f64 = v;
             else
-            {
-                ctx.r3.u64 = 0;
-            }
-        }
-        else if constexpr (is_precise_v<ret_t>)
-        {
-            ctx.f1.f64 = v;
-        }
-        else
-        {
-            ctx.r3.u64 = (uint64_t)v;
+                ctx.r3.u64 = (uint64_t)v;
         }
     }
 }

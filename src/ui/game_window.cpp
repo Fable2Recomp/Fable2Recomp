@@ -19,28 +19,53 @@
 
 void GameWindow::Init(const char* sdlVideoDriver)
 {
+
+SDL_SetLogPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_VERBOSE);
+SDL_SetLogPriority(SDL_LOG_CATEGORY_ERROR, SDL_LOG_PRIORITY_VERBOSE);
+SDL_SetLogPriority(SDL_LOG_CATEGORY_SYSTEM, SDL_LOG_PRIORITY_VERBOSE);
+SDL_SetLogPriority(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_VERBOSE);
+SDL_SetLogPriority(SDL_LOG_CATEGORY_INPUT, SDL_LOG_PRIORITY_VERBOSE);
+
 #ifdef __linux__
-    SDL_SetHint(SDL_HINT_APP_ID, "Unknown");
-#endif
+    SDL_SetHint(SDL_HINT_APP_ID, "Fable 2 Recomp");
 
-    if (sdlVideoDriver && *sdlVideoDriver != '\0') {
-#ifdef _WIN32
-        // Windows
-        _putenv_s("SDL_VIDEODRIVER", sdlVideoDriver);
-#else
-        // Linux/macOS/Unix
+    // Set default if SDL_VIDEODRIVER is unset
+    if (!sdlVideoDriver || *sdlVideoDriver == '\0') {
+        if (!getenv("SDL_VIDEODRIVER")) {
+            setenv("SDL_VIDEODRIVER", "x11", 1);
+            spdlog::warn("SDL_VIDEODRIVER was not set — defaulting to 'x11'");
+        }
+    } else {
         setenv("SDL_VIDEODRIVER", sdlVideoDriver, 1);
-#endif
+        spdlog::info("SDL_VIDEODRIVER set to '{}'", sdlVideoDriver);
     }
+#elif defined(_WIN32)
+    if (sdlVideoDriver && *sdlVideoDriver != '\0') {
+        _putenv_s("SDL_VIDEODRIVER", sdlVideoDriver);
+    }
+#endif
 
-    if (SDL_InitSubSystem(SDL_INIT_VIDEO) != 0) {
-        spdlog::critical("Failed to initialize SDL video subsystem: {}", SDL_GetError());
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_GAMEPAD) != 0) {
+        const char* error = SDL_GetError();
+        if (!error || strlen(error) == 0) {
+            spdlog::critical("Failed to initialize SDL: <empty SDL_GetError()>");
+        } else {
+            spdlog::critical("Failed to initialize SDL: {}", error);
+        }
+
+#ifdef __linux__
+        const char* sdlDriver = getenv("SDL_VIDEODRIVER");
+        spdlog::error("SDL_VIDEODRIVER: {}", sdlDriver ? sdlDriver : "<not set>");
+        spdlog::error("Try running with: SDL_VIDEODRIVER=x11 ./Fable2Recomp");
+#endif
+
         return;
     }
 
 #ifdef _WIN32
     SetProcessDpiAwareness(PROCESS_PER_MONITOR_DPI_AWARE);
 #endif
+
 
     if (GameWindow::s_x == -1 && GameWindow::s_y == -1) {
         GameWindow::s_x = GameWindow::s_y = SDL_WINDOWPOS_CENTERED_DISPLAY(0); // 0 = primary display
