@@ -192,7 +192,7 @@ constexpr uint32_t kCallbackArrayEnd   = 0x832D000C;
 
 void WriteCallbackArray() {
     auto* table = reinterpret_cast<uint32_t*>(g_memory.Translate(0x832D0000));
-    table[0] = 0x82000000;           // Valid dummy callback
+    table[0] = ByteSwap(0x82000000);           // Valid dummy callback
     table[1] = 0;                    // NULL, will be skipped
     table[2] = 0;                    // NULL, will be skipped
 
@@ -204,6 +204,11 @@ void WriteCallbackArray() {
 
 void DummyCallback(uint32_t context) {
     spdlog::info("🧪 DummyCallback invoked with context = 0x{:08X}", context);
+}
+
+void DummyCallbackHook(PPCContext& ctx, uint8_t*) {
+    spdlog::info("🧪 DummyCallbackHook: safely intercepted 0x82000000");
+    ctx.r3.u32 = 0; // return 0 like your guest stub would
 }
 
 // Place in a .cpp or initialization segment
@@ -347,6 +352,7 @@ int main(int argc, char* argv[]) {
     // 🚀 Launch guest thread (blocking)
 
     DummyCallback(0);
+    g_memory.InsertFunction(0x82000000, DummyCallbackHook);
     InitCoreStructures();
     GuestThread::Start({ entry, 0, 0 });
 
@@ -416,73 +422,69 @@ void Hook_sub_82CC16C0(PPCContext& ctx, uint8_t* mem) {
 GUEST_FUNCTION_HOOK(sub_82CC16C0, Hook_sub_82CC16C0);
 
 void Hook_sub_82CC1A70(PPCContext& ctx, uint8_t*) {
-    constexpr uint32_t kStart = 0x820AAC50;
-    constexpr uint32_t kEnd   = 0x820AAE24;
+    spdlog::info("🔁 Entered Hook_sub_82CC1A70");
+
+    constexpr uint32_t kCallbackStart = 0x832D0000;
+    constexpr uint32_t kCallbackEnd   = 0x832D000C;
 
     const uint32_t old_sp = ctx.r1.u32;
     const uint64_t saved_r3 = ctx.r3.u64;
-    const uint64_t saved_r4 = ctx.r4.u64;
 
-    // Allocate stack frame and save r3/r4
-    ctx.r1.u32 -= 0x70;
+    // Allocate stack frame (mimicking `stwu r1, -0x60(r1)`)
+    ctx.r1.u32 -= 0x60;
 
-    auto* r3_ptr = g_memory.Translate(ctx.r1.u32 + 0x50);
-    auto* r4_ptr = g_memory.Translate(ctx.r1.u32 + 0x60);
-
-    if (!r3_ptr || !r4_ptr) {
-        spdlog::error("❌ Failed to allocate stack frame at 0x{:08X}", ctx.r1.u32);
-        ctx.r1.u32 = old_sp;
-        return;
+spdlog::info("🔎 Scanning callback table entries:");
+for (uint32_t addr = kCallbackStart; addr < kCallbackEnd; addr += 4) {
+    const void* ptr = g_memory.Translate(addr);
+    if (!ptr) {
+        spdlog::error("❌ Could not read 0x{:08X}", addr);
+        continue;
     }
+    uint32_t val = ByteSwap(*reinterpret_cast<const uint32_t*>(ptr));
+    spdlog::info("  → [0x{:08X}] = 0x{:08X}", addr, val);
+}
 
-    *reinterpret_cast<uint64_t*>(r3_ptr) = saved_r3;
-    *reinterpret_cast<uint64_t*>(r4_ptr) = saved_r4;
-
-    // Set up end/start
-    ctx.r3.u32 = kEnd;
-    ctx.r4.u32 = kStart;
-
-    while (ctx.r4.u32 < ctx.r3.u32) {
-        const uint32_t addr = ctx.r4.u32;
+    for (uint32_t addr = kCallbackStart; addr < kCallbackEnd; addr += 4) {
         const void* ptr = g_memory.Translate(addr);
         if (!ptr) {
-            spdlog::error("❌ Invalid memory read at 0x{:08X}", addr);
-            break;
+            spdlog::error("❌ Failed to read callback table entry at 0x{:08X}", addr);
+            continue;
         }
 
-        ctx.r5.u32 = ByteSwap(*reinterpret_cast<const uint32_t*>(ptr));
+        uint32_t be_value = *reinterpret_cast<const uint32_t*>(ptr);
+        uint32_t callback_addr = ByteSwap(be_value);
 
-        if (ctx.r5.u32 != 0) {
-            spdlog::info("🧩 Executing inline callback at 0x{:08X}", ctx.r5.u32);
+        if (callback_addr == 0)
+            continue;
 
-            if (ctx.r5.u32 >= 0x82000000 && ctx.r5.u32 <= 0x83000000) {
-                if (auto* fn = g_memory.FindFunction(ctx.r5.u32)) {
-                    fn(ctx, g_memory.base);
-                } else {
-                    spdlog::warn("⚠️  No function hook found for address 0x{:08X}", ctx.r5.u32);
-                }
+        spdlog::info("🧩 Executing callback from table: 0x{:08X}", callback_addr);
+
+        if (callback_addr >= 0x82000000 && callback_addr < 0x83000000) {
+            if (auto* fn = g_memory.FindFunction(callback_addr)) {
+                fn(ctx, g_memory.base);
             } else {
-                spdlog::error("❌ Callback address 0x{:08X} is outside expected range", ctx.r5.u32);
-                ctx.r3.u32 = 0;
-                break;
+                spdlog::warn("⚠️ No hook registered for callback 0x{:08X}", callback_addr);
             }
-
-            break; // Only one entry executed
+        } else {
+            spdlog::error("❌ Invalid callback address 0x{:08X}, skipping execution", callback_addr);
         }
 
-        ctx.r4.u32 += 4;
+        break; // Only call the first non-zero function
     }
 
-    // Restore registers
+    // Restore guest state
     ctx.r1.u32 = old_sp;
     ctx.r3.u64 = saved_r3;
-    ctx.r4.u64 = saved_r4;
 }
 
 GUEST_FUNCTION_HOOK(sub_82CC1A70, Hook_sub_82CC1A70);
 
 void Hook_sub_82CC1990(PPCContext& ctx, uint8_t*) {
     spdlog::info("🔁 Entered Hook_sub_82CC1990");
+    spdlog::info("    r3 = 0x{:08X}", ctx.r3.u32);
+    spdlog::info("    r4 = 0x{:08X}", ctx.r4.u32);
+    spdlog::info("    r5 = 0x{:08X}", ctx.r5.u32);
+    spdlog::info("    r6 = 0x{:08X}", ctx.r6.u32);
 
     constexpr uint32_t init_func_ptr_addr = 0x82010CB8;
     const void* init_ptr = g_memory.Translate(init_func_ptr_addr);
@@ -523,9 +525,12 @@ void Hook_sub_82CC1990(PPCContext& ctx, uint8_t*) {
         }
     }
 
-    // Second callback table: 0x832D0010 → 0x832D5DC8
-    uint32_t start2 = 0x832D0000;
-    uint32_t end2   = 0x832D000C;
+    // Guard to avoid re-calling the same function from both tables
+    bool already_called_82000000 = false;
+
+    // Second callback table: 0x832D0000 → 0x832D000C
+    const uint32_t start2 = 0x832D0000;
+    const uint32_t end2   = 0x832D000C;
 
     for (uint32_t addr = start2; addr < end2; addr += 4) {
         const void* ptr = g_memory.Translate(addr);
@@ -536,6 +541,14 @@ void Hook_sub_82CC1990(PPCContext& ctx, uint8_t*) {
 
         const uint32_t fnptr = ByteSwap(*reinterpret_cast<const uint32_t*>(ptr));
         if (fnptr != 0 && fnptr != 0xFFFFFFFF && fnptr >= 0x82000000 && fnptr <= 0x83000000) {
+            if (fnptr == 0x82000000) {
+                if (already_called_82000000) {
+                    spdlog::warn("⚠️ Skipping recursive call to 0x82000000");
+                    continue;
+                }
+                already_called_82000000 = true;
+            }
+
             spdlog::info("🔗 Executing callback 2 @ 0x{:08X}", fnptr);
             if (auto* fn = g_memory.FindFunction(fnptr)) {
                 fn(ctx, g_memory.base);
@@ -545,10 +558,88 @@ void Hook_sub_82CC1990(PPCContext& ctx, uint8_t*) {
         }
     }
 
+    // Optional: Clamp suspiciously large allocations to avoid crash
+    if (ctx.r5.u32 > (512 * 1024 * 1024)) {
+        spdlog::error("🚨 Requested allocation too large: 0x{:08X} — clamping", ctx.r5.u32);
+        ctx.r5.u32 = 0;
+    }
+
     ctx.r3.u32 = 0;
 }
 
 GUEST_FUNCTION_HOOK(sub_82CC1990, Hook_sub_82CC1990);
+
+uint32_t Hook_sub_82CA3C68(uint32_t size) {
+    spdlog::info("🔁 Entered Hook_sub_82CA3C68(size = 0x{:08X})", size);
+    constexpr uint32_t kMaxAllowedSize = 0xFFFFF000;
+    constexpr uint32_t kErrorCode = 0xC;
+
+    PPCContext fake{};
+
+    // Clamp too-large size to fallback handler
+    if (size > kMaxAllowedSize) {
+        spdlog::warn("🚨 Requested size too large: 0x{:08X}", size);
+        fake.r3.u32 = size;
+        sub_82CACC10(fake, g_memory.base);
+
+        sub_82CAB770(fake, g_memory.base);
+        if (g_memory.IsValidVirtualAddress(fake.r3.u32)) {
+            *reinterpret_cast<uint32_t*>(g_memory.Translate(fake.r3.u32)) = kErrorCode;
+        }
+
+        return 0;
+    }
+
+retry_alloc:
+    sub_82239798(fake, g_memory.base);
+    uint32_t heap = fake.r3.u32;
+
+    if (!heap) {
+        spdlog::warn("🚨 Heap handle was null, calling sub_82CACB00");
+        sub_82CACB00(fake, g_memory.base); // init heap
+        fake.r3.u32 = 0x1E;
+        sub_82CACAB8(fake, g_memory.base);
+        fake.r3.u32 = 0xFF;
+        sub_82CA95C0(fake, g_memory.base);
+    }
+
+    uint32_t actual_size = (size != 0) ? size : 1;
+
+    fake.r3.u32 = heap;
+    fake.r4.u32 = 0;
+    fake.r5.u32 = actual_size;
+    sub_82238790(fake, g_memory.base);
+    uint32_t alloc = fake.r3.u32;
+
+    if (!alloc) {
+        uint32_t* global_ptr = reinterpret_cast<uint32_t*>(g_memory.Translate(0x83269340));
+        if (global_ptr && *global_ptr != 0) {
+            spdlog::info("🔁 Retrying alloc due to nonzero global at 0x83269340");
+            fake.r3.u32 = size;
+            sub_82CACC10(fake, g_memory.base);
+            goto retry_alloc;
+        }
+
+        spdlog::warn("❌ Allocation failed in sub_82238790 for size 0x{:X}", size);
+
+        sub_82CAB770(fake, g_memory.base);
+        if (g_memory.IsValidVirtualAddress(fake.r3.u32)) {
+            *reinterpret_cast<uint32_t*>(g_memory.Translate(fake.r3.u32)) = kErrorCode;
+        }
+
+        return 0;
+    }
+
+    // ✅ alloc is already a guest address
+    if (!g_memory.IsValidVirtualAddress(alloc)) {
+        spdlog::error("❌ Invalid guest address returned: 0x{:08X}", alloc);
+        return 0;
+    }
+
+    return alloc;
+}
+
+GUEST_FUNCTION_HOOK(sub_82CA3C68, Hook_sub_82CA3C68);
 
 // === Stub imports ===
 GUEST_FUNCTION_STUB(__imp__vsprintf);
@@ -560,3 +651,4 @@ GUEST_FUNCTION_STUB(__imp__vswprintf);
 GUEST_FUNCTION_STUB(__imp___vscwprintf);
 GUEST_FUNCTION_STUB(__imp__swprintf);
 
+//loc_8223FA60

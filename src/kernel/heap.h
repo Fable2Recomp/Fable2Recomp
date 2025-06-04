@@ -35,6 +35,8 @@ struct Heap
         new (obj) T(std::forward<Args>(args)...);
         return obj;
     }
+
+    uint32_t AllocFromHeapBlock(uint32_t heapPtr, uint32_t size);
 };
 
 extern Heap g_userHeap;

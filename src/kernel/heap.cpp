@@ -72,47 +72,62 @@ uint32_t RtlAllocateHeap(uint32_t heapHandle, uint32_t flags, uint32_t size)
     spdlog::info("🔧 RtlAllocateHeap(heap=0x{:08X}, flags=0x{:08X}, size={})", heapHandle, flags, size);
 
     if (size == 0 || size > 512 * 1024 * 1024) {
-        spdlog::warn("❌ RtlAllocateHeap: invalid size = {}", size);
-        return g_memory.MapVirtual(dummy_fallback_ptr); // Return dummy, not 0
+        spdlog::warn("❌ RtlAllocateHeap: invalid size = 0x{:08X}", size);
+        return g_memory.MapVirtual(dummy_fallback_ptr); // Return non-null to avoid crash
     }
 
     void* ptr = g_userHeap.Alloc(size);
     if (!ptr) {
-        spdlog::error("❌ RtlAllocateHeap: allocation failed (size = {})", size);
-        return g_memory.MapVirtual(dummy_fallback_ptr); // Prevent null deref
+        spdlog::error("❌ RtlAllocateHeap: allocation failed (size = 0x{:X})", size);
+        return g_memory.MapVirtual(dummy_fallback_ptr);
     }
 
-    if ((flags & 0x8) != 0)
-        memset(ptr, 0, size);
+    if ((flags & 0x8) != 0) {
+        spdlog::debug("🧼 Zeroing allocated memory...");
+        std::memset(ptr, 0, size);
+    }
 
-    return g_memory.MapVirtual(ptr);
+    const uint32_t guest_addr = g_memory.MapVirtual(ptr);
+    spdlog::info("🟩 Alloc {} bytes → guest address 0x{:08X}", size, guest_addr);
+    return guest_addr;
 }
 
 uint32_t RtlReAllocateHeap(uint32_t heapHandle, uint32_t flags, uint32_t memoryPointer, uint32_t size)
 {
-    spdlog::info("🔧 RtlReAllocateHeap.");
+    spdlog::info("🔧 RtlReAllocateHeap(heap=0x{:08X}, flags=0x{:08X}, ptr=0x{:08X}, size={})",
+                 heapHandle, flags, memoryPointer, size);
 
     if (size == 0 || size > 128 * 1024 * 1024) {
-        spdlog::warn("❌ RtlReAllocateHeap: invalid size = {}", size);
+        spdlog::warn("❌ RtlReAllocateHeap: invalid size = 0x{:08X}", size);
         return 0;
     }
 
-    void* ptr = g_userHeap.Alloc(size);
-    if (!ptr) {
-        spdlog::error("❌ RtlReAllocateHeap: allocation failed (size = {})", size);
+    void* newPtr = g_userHeap.Alloc(size);
+    if (!newPtr) {
+        spdlog::error("❌ RtlReAllocateHeap: allocation failed (size = 0x{:X})", size);
         return 0;
     }
 
     if ((flags & 0x8) != 0)
-        memset(ptr, 0, size);
+        memset(newPtr, 0, size);
 
     if (memoryPointer != 0) {
         void* oldPtr = g_memory.Translate(memoryPointer);
-        memcpy(ptr, oldPtr, std::min<size_t>(size, g_userHeap.Size(oldPtr)));
+        if (!oldPtr) {
+            spdlog::error("❌ RtlReAllocateHeap: failed to translate old pointer 0x{:08X}", memoryPointer);
+            g_userHeap.Free(newPtr);
+            return 0;
+        }
+
+        const size_t oldSize = g_userHeap.Size(oldPtr);
+        spdlog::info("♻️ Reallocating from 0x{:08X} (old size = {})", memoryPointer, oldSize);
+        memcpy(newPtr, oldPtr, std::min<size_t>(size, oldSize));
         g_userHeap.Free(oldPtr);
     }
 
-    return g_memory.MapVirtual(ptr);
+    const uint32_t guestAddress = g_memory.MapVirtual(newPtr);
+    spdlog::info("🆕 RtlReAllocateHeap → 0x{:08X}", guestAddress);
+    return guestAddress;
 }
 
 uint32_t RtlFreeHeap(uint32_t heapHandle, uint32_t flags, uint32_t memoryPointer)
