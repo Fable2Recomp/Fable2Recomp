@@ -3,13 +3,18 @@
 #include "memory.h"
 #include "function.h"
 
-constexpr size_t RESERVED_BEGIN = 0x7FEA0000;
-constexpr size_t RESERVED_END = 0xA0000000;
+
 
 void Heap::Init()
 {
-    heap = o1heapInit(g_memory.Translate(0x20000), RESERVED_BEGIN - 0x20000);
-    physicalHeap = o1heapInit(g_memory.Translate(RESERVED_END), 0x100000000 - RESERVED_END);
+    constexpr size_t heapSize = RESERVED_BEGIN - HEAP_BASE;
+
+    spdlog::info("🔧 Initializing user heap at 0x{:08X} ({} bytes)", HEAP_BASE, heapSize);
+    heap = o1heapInit(g_memory.Translate(HEAP_BASE), heapSize);
+
+    constexpr size_t physHeapSize = 0x100000000 - RESERVED_END;
+    spdlog::info("🔧 Initializing physical heap at 0x{:08X} ({} bytes)", RESERVED_END, physHeapSize);
+    physicalHeap = o1heapInit(g_memory.Translate(RESERVED_END), physHeapSize);
 }
 
 void* Heap::Alloc(size_t size)

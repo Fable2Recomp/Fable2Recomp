@@ -32,8 +32,12 @@ void GlobalMemoryStatusImpl(XLPMEMORYSTATUS lpMemoryStatus)
     lpMemoryStatus->dwAvailVirtual = 0x20000000;
 }
 
-//GUEST_FUNCTION_HOOK(sub_82CA2C60, memcpy);
-//GUEST_FUNCTION_HOOK(sub_82CA3920, memcpy);
+GUEST_FUNCTION_HOOK(sub_82CA2C60, memcpy);
+//GUEST_FUNCTION_HOOK(sub_82CA30E8, memcpy);
+GUEST_FUNCTION_HOOK(sub_822085D0, memcpy);
+//GUEST_FUNCTION_HOOK(sub_822088B0, memcpy);
+//GUEST_FUNCTION_HOOK(sub_822F6380, memcpy);
+GUEST_FUNCTION_HOOK(sub_82CC9DA0, memcpy);
 
 GUEST_FUNCTION_HOOK(sub_8223F970, memset);
 GUEST_FUNCTION_HOOK(sub_82CA3190, memset);
@@ -44,8 +48,8 @@ GUEST_FUNCTION_HOOK(sub_82CA3190, memset);
 //GUEST_FUNCTION_STUB(sub_82BD4CA8);
 #endif
 
-//GUEST_FUNCTION_HOOK(sub_82BD4AC8, QueryPerformanceCounterImpl);
-//GUEST_FUNCTION_HOOK(sub_82CC0620, QueryPerformanceFrequencyImpl);
-//GUEST_FUNCTION_HOOK(sub_82266070, GetTickCountImpl);
+GUEST_FUNCTION_HOOK(sub_8221EB58, QueryPerformanceCounterImpl);
+GUEST_FUNCTION_HOOK(sub_82CC0620, QueryPerformanceFrequencyImpl);
+GUEST_FUNCTION_HOOK(sub_82266070, GetTickCountImpl);
 
-//GUEST_FUNCTION_HOOK(sub_82CBBBF0, GlobalMemoryStatusImpl);
+GUEST_FUNCTION_HOOK(sub_82CBBBF0, GlobalMemoryStatusImpl);

@@ -1602,6 +1602,30 @@ src/hid/hid.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/hid/hid.cpp.s
 .PHONY : src/hid/hid.cpp.s
 
+src/hooks/ring_buffer.o: src/hooks/ring_buffer.cpp.o
+.PHONY : src/hooks/ring_buffer.o
+
+# target to build an object file
+src/hooks/ring_buffer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/hooks/ring_buffer.cpp.o
+.PHONY : src/hooks/ring_buffer.cpp.o
+
+src/hooks/ring_buffer.i: src/hooks/ring_buffer.cpp.i
+.PHONY : src/hooks/ring_buffer.i
+
+# target to preprocess a source file
+src/hooks/ring_buffer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/hooks/ring_buffer.cpp.i
+.PHONY : src/hooks/ring_buffer.cpp.i
+
+src/hooks/ring_buffer.s: src/hooks/ring_buffer.cpp.s
+.PHONY : src/hooks/ring_buffer.s
+
+# target to generate assembly for a file
+src/hooks/ring_buffer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/hooks/ring_buffer.cpp.s
+.PHONY : src/hooks/ring_buffer.cpp.s
+
 src/install/hashes/game.o: src/install/hashes/game.cpp.o
 .PHONY : src/install/hashes/game.o
 
@@ -1697,6 +1721,30 @@ src/install/xcontent_file_system.s: src/install/xcontent_file_system.cpp.s
 src/install/xcontent_file_system.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/install/xcontent_file_system.cpp.s
 .PHONY : src/install/xcontent_file_system.cpp.s
+
+src/kernel/critical_section_patch.o: src/kernel/critical_section_patch.cpp.o
+.PHONY : src/kernel/critical_section_patch.o
+
+# target to build an object file
+src/kernel/critical_section_patch.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/kernel/critical_section_patch.cpp.o
+.PHONY : src/kernel/critical_section_patch.cpp.o
+
+src/kernel/critical_section_patch.i: src/kernel/critical_section_patch.cpp.i
+.PHONY : src/kernel/critical_section_patch.i
+
+# target to preprocess a source file
+src/kernel/critical_section_patch.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/kernel/critical_section_patch.cpp.i
+.PHONY : src/kernel/critical_section_patch.cpp.i
+
+src/kernel/critical_section_patch.s: src/kernel/critical_section_patch.cpp.s
+.PHONY : src/kernel/critical_section_patch.s
+
+# target to generate assembly for a file
+src/kernel/critical_section_patch.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Fable2Recomp.dir/build.make CMakeFiles/Fable2Recomp.dir/src/kernel/critical_section_patch.cpp.s
+.PHONY : src/kernel/critical_section_patch.cpp.s
 
 src/kernel/heap.o: src/kernel/heap.cpp.o
 .PHONY : src/kernel/heap.o
@@ -8472,6 +8520,9 @@ help:
 	@echo "... src/hid/hid.o"
 	@echo "... src/hid/hid.i"
 	@echo "... src/hid/hid.s"
+	@echo "... src/hooks/ring_buffer.o"
+	@echo "... src/hooks/ring_buffer.i"
+	@echo "... src/hooks/ring_buffer.s"
 	@echo "... src/install/hashes/game.o"
 	@echo "... src/install/hashes/game.i"
 	@echo "... src/install/hashes/game.s"
@@ -8484,6 +8535,9 @@ help:
 	@echo "... src/install/xcontent_file_system.o"
 	@echo "... src/install/xcontent_file_system.i"
 	@echo "... src/install/xcontent_file_system.s"
+	@echo "... src/kernel/critical_section_patch.o"
+	@echo "... src/kernel/critical_section_patch.i"
+	@echo "... src/kernel/critical_section_patch.s"
 	@echo "... src/kernel/heap.o"
 	@echo "... src/kernel/heap.i"
 	@echo "... src/kernel/heap.s"

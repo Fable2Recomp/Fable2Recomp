@@ -13,6 +13,7 @@
 #include <user/config.h>
 #include <os/logger.h>
 #include <kernel/kernel_constants.h>
+#include "critical_section_patch.h"
 
 #ifdef _WIN32
 #include <ntstatus.h>
@@ -407,20 +408,12 @@ uint32_t NtWaitForSingleObjectEx(uint32_t Handle, uint32_t WaitMode, uint32_t Al
     uint32_t timeout = GuestTimeoutToMilliseconds(Timeout);
     assert(timeout == 0 || timeout == INFINITE);
 
-    if (IsKernelObject(Handle))
-    {
+    if (IsKernelObject(Handle)) {
         return GetKernelObject(Handle)->Wait(timeout);
     }
-    else if (Handle == 0x20000270)
-    {
-        fmt::print("✅ NtWaitForSingleObjectEx: Faking success for known guest handle 0x{:08X}\n", Handle);
-        return 0; // STATUS_SUCCESS
-    }
-    else
-    {
-        fmt::print("⚠️ NtWaitForSingleObjectEx: Unrecognized handle 0x{:08X}, returning STATUS_TIMEOUT\n", Handle);
-        return STATUS_TIMEOUT;
-    }
+
+    fmt::print("⚠️ NtWaitForSingleObjectEx: Unrecognized handle 0x{:08X}, returning STATUS_TIMEOUT\n", Handle);
+    return STATUS_TIMEOUT;
 }
 
 void NtWriteFile()
@@ -683,41 +676,63 @@ uint32_t KeSetAffinityThread(uint32_t Thread, uint32_t Affinity, be<uint32_t>* l
 
 void RtlLeaveCriticalSection(XRTL_CRITICAL_SECTION* cs)
 {
-    if (g_memory.HostToGuest(cs) == kOldCriticalSection) {
-        fmt::print("🔁 Redirected old CS leave 0x{:08X} → 0x{:08X}\n", kOldCriticalSection, kNewCriticalSection);
-        cs = (XRTL_CRITICAL_SECTION*)g_memory.Translate(kNewCriticalSection);
+    uint32_t guestAddr = g_memory.HostToGuest(cs);
+    const uint32_t thisThread = g_ppcContext->r13.u32;
+
+    // Check if redirection exists
+    if (uint32_t newAddr = TryGetRedirectedCS(guestAddr)) {
+        fmt::print("🔁 Redirected old CS leave 0x{:08X} → 0x{:08X}\n", guestAddr, newAddr);
+        cs = reinterpret_cast<XRTL_CRITICAL_SECTION*>(g_memory.Translate(newAddr));
+        guestAddr = newAddr;
     }
+
+    fmt::print("🚪 RtlLeaveCriticalSection: thread = 0x{:08X}, cs = 0x{:08X}, recursion = {}\n",
+               thisThread, guestAddr, cs->RecursionCount);
 
     cs->RecursionCount--;
 
-    if (cs->RecursionCount != 0)
+    if (cs->RecursionCount != 0) {
+        fmt::print("🔄 Recursive leave, remaining count = {}\n", cs->RecursionCount);
         return;
+    }
 
     std::atomic_ref owningThread(cs->OwningThread);
+    fmt::print("✅ Releasing ownership of CS 0x{:08X} by thread 0x{:08X}\n", guestAddr, thisThread);
+
     owningThread.store(0);
     owningThread.notify_one();
 }
 
+
 void RtlEnterCriticalSection(XRTL_CRITICAL_SECTION* cs)
 {
-    // Redirect legacy pointer
-    if (g_memory.HostToGuest(cs) == kOldCriticalSection) {
-        fmt::print("🔁 Redirected old CS 0x{:08X} → 0x{:08X}\n", kOldCriticalSection, kNewCriticalSection);
-        cs = (XRTL_CRITICAL_SECTION*)g_memory.Translate(kNewCriticalSection);
-    }
-
+    uint32_t guestAddr = g_memory.HostToGuest(cs);
     const uint32_t thisThread = g_ppcContext->r13.u32;
     assert(thisThread != 0);
 
-    fmt::print("🔐 RtlEnterCriticalSection: thread = 0x{:08X}, cs = 0x{:08X}\n", thisThread, g_memory.HostToGuest(cs));
+    // Validate pointer
+    if (!g_memory.IsValidVirtualAddress(guestAddr)) {
+        spdlog::error("❌ Invalid CS address 0x{:08X}, aborting enter", guestAddr);
+        return;
+    }
 
+    // Check dynamic redirection
+    if (uint32_t newAddr = TryGetRedirectedCS(guestAddr)) {
+        cs = reinterpret_cast<XRTL_CRITICAL_SECTION*>(g_memory.Translate(newAddr));
+        guestAddr = newAddr;
+    }
+    // Allocate and redirect if this is the first time we've seen this pointer
+    else if (guestAddr < 0x80000000 || guestAddr > 0x90000000) {
+        guestAddr = AllocateRedirectedCriticalSection(guestAddr);
+        cs = reinterpret_cast<XRTL_CRITICAL_SECTION*>(g_memory.Translate(guestAddr));
+    }
+
+    fmt::print("🔐 RtlEnterCriticalSection: thread = 0x{:08X}, cs = 0x{:08X}\n", thisThread, guestAddr);
     std::atomic_ref<uint32_t> owner(cs->OwningThread);
 
     for (;;) {
         uint32_t prev = 0;
-
         for (int i = 0; i < 100; ++i) {
-            prev = 0;
             if (owner.compare_exchange_weak(prev, thisThread, std::memory_order_acquire)) {
                 fmt::print("✅ Acquired CS\n");
                 cs->RecursionCount = 1;
@@ -732,21 +747,17 @@ void RtlEnterCriticalSection(XRTL_CRITICAL_SECTION* cs)
         }
 
         fmt::print("⏳ Waiting on CS: owner = 0x{:08X}, me = 0x{:08X}\n", prev, thisThread);
-        fmt::print("🧨 Critical section memory state at enter time:\n");
-        g_memory.DumpGuestMemory(g_memory.HostToGuest(cs), sizeof(XRTL_CRITICAL_SECTION));
-
         static thread_local int retries = 0;
-        retries++;
-        if (retries > 20) {
+        if (++retries > 20) {
             fmt::print("⚠️ Forcing CS takeover due to long wait.\n");
             owner.store(thisThread);
             cs->RecursionCount = 1;
             return;
         }
-
         std::this_thread::yield();
     }
 }
+
 
 void RtlImageXexHeaderField()
 {
