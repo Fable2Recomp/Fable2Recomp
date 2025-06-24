@@ -3,6 +3,9 @@
 #include "mutex.h"
 #include "o1heap.h"
 
+constexpr size_t RESERVED_BEGIN = 0x7FEA0000;
+constexpr size_t RESERVED_END   = 0xA0000000;
+constexpr uint32_t HEAP_BASE = 0x90000000;
 
 struct Heap
 {

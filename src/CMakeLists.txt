@@ -47,12 +47,17 @@ set(Fable2_RECOMP_KERNEL_CXX_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/kernel/heap.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/kernel/memory.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/kernel/xam.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/kernel/critical_section_patch.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/kernel/io/file_system.cpp
 )
 
 set(Fable2_RECOMP_PATCHES_CXX_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/patches/patches.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/patches/memory_patches.cpp
+)
+
+set(Fable2_RECOMP_HOOKS_CXX_SOURCES
+    ${CMAKE_CURRENT_SOURCE_DIR}/hooks/ring_buffer.cpp
 )
 
 set(Fable2_RECOMP_LOCALE_CXX_SOURCES
@@ -166,6 +171,7 @@ source_group("OS" FILES ${Fable2_RECOMP_OS_CXX_SOURCES})
 set(FABLE2_SOURCES
     ${FABLE2_CORE_SOURCES}
     ${PPC_SOURCES}
+    ${Fable2_RECOMP_HOOKS_CXX_SOURCES}
     ${Fable2_RECOMP_KERNEL_CXX_SOURCES}
     ${Fable2_RECOMP_LOCALE_CXX_SOURCES}
     ${Fable2_RECOMP_OS_CXX_SOURCES}
