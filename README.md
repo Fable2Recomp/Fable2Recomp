@@ -2,7 +2,7 @@
 
 **Fable2Recomp** is a recompilation Project with hopes to port the game Fable 2 to Windows and Linux. It uses a static recompilation approach based on the [ReXGlue] (https://github.com/rexglue/rexglue-sdk) project, streamlining the process and fixing various issues that may arise during decompilation and recompilation.
 
-This Recomp is currently based off [Fable 2 GTOY](https://en.wikipedia.org/wiki/Fable_II) TU1
+This Recomp is currently based off [Fable 2 GOTY](https://en.wikipedia.org/wiki/Fable_II) TU1
 
 ## Features
 - User-friendly interface for ease of use.
