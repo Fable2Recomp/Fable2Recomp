@@ -9,8 +9,6 @@
 *.user
 *.userosscache
 *.sln.docstates
-build/
-build 2/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -399,3 +397,10 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+#Fable Assets
+assets/*
+
+#Generated files
+generated/*
+Fable-2
