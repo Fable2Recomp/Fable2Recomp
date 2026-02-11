@@ -1,8 +1,8 @@
 # Fable 2 Recomp
 
-**Fable2Recomp** is a recompilation Project with hopes to port the game Fable 2 to Windows and Linux. It uses a static recompilation approach based on the [ReXGlue] (https://github.com/rexglue/rexglue-sdk) project, streamlining the process and fixing various issues that may arise during decompilation and recompilation.
+**Fable2Recomp** is a recompilation Project with hopes to port the game Fable 2 to Windows and Linux. It uses a static recompilation approach based on the [ReXGlue](https://github.com/rexglue/rexglue-sdk) project, streamlining the process and fixing various issues that may arise during decompilation and recompilation.
 
-This Recomp is currently based off [Fable 2 GTOY](https://en.wikipedia.org/wiki/Fable_II) TU1
+This Recomp is currently based off [Fable 2](https://en.wikipedia.org/wiki/Fable_II) GOTY TU1
 
 ## Features
 - User-friendly interface for ease of use.
@@ -30,8 +30,7 @@ Download the latest release and extract it to a location of your choice. This wi
 git clone --recursive https://github.com/rexglue/rexglue-sdk
 cd rexglue
 cmake --preset <platform>
-cmake --build out/build/<platform>
-cmake --install out/build/<platform> --prefix <REXSDK path>
+cmake --build out/build/<platform> --target install
 ```
 
 Where `<platform>` is `win-amd64` or `linux-amd64`. The build step compiles all configurations (Debug, Release, RelWithDebInfo) at once.
@@ -41,7 +40,7 @@ Where `<platform>` is `win-amd64` or `linux-amd64`. The build step compiles all 
 To build Fable 2, run codegen from the root with all assests in the assets folder and build:
 
 ```bash
-git clone --recursive https://github.com/rexglue/rexglue-sdk
+git clone --recursive https://github.com/Fable2Recomp/Fable2Recomp.git
 cd Fable2Recomp
 rexglue codegen Fable-2_config.toml
 cmake --preset <platform>

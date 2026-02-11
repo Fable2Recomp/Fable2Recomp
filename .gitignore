@@ -384,6 +384,7 @@ FodyWeavers.xsd
 !.vscode/launch.json
 !.vscode/extensions.json
 *.code-workspace
+.vscode
 
 # Local History for Visual Studio Code
 .history/
@@ -404,3 +405,5 @@ assets/*
 #Generated files
 generated/*
 Fable-2
+
+Fable2
