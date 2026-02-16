@@ -99,6 +99,9 @@ longjmp_address = 0x825E22F0
 # sub_82C1B2A0 - tail caller (lwz/cmplwi/beqlr/lwz/b) -TU1
 0x82C1B2A0 = { size = 20 }
 
+# sub_82CE2330 - utility function (cmplwi/addi/bne/li/stw/b) -TU1
+0x82CE2330 = { size = 24 }
+
 # sub_82CDF778 - forwarder to sub_82C51EC0 (addi/b) -TU1
 0x82CDF778 = { size = 44 }
 
@@ -107,6 +110,9 @@ longjmp_address = 0x825E22F0
 
 # sub_82E84C68 - vtable initializer (lis/addi/stw/b) -TU1
 0x82E84C68 = { size = 16 }
+
+# Fable2_xfr_00a8 - simple return 1 function (li/blr)
+0x82F6FDC0 = { size = 8 }
 
 # sub_830061D8 - utility function -TU1
 0x830061D8 = { size = 36 }
@@ -121,10 +127,6 @@ longjmp_address = 0x825E22F0
 
 # sub_82CD7948 - small utility function (lwz/li/stw/blr)
 #0x82CD7948 = { size = 16 }
-
-# Fable2_xfr_00a8 - simple return 1 function (li/blr)
-#0x82F279D8 = { size = 8 }
-
 
 # =========================================================
 # Function chunks / misc
